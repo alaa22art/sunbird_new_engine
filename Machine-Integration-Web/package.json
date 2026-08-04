@@ -9,11 +9,19 @@
   "main": "gulpfile.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "gulp"
+    "start": "gulp",
+    "dev:react": "vite build --watch",
+    "build:react": "vite build"
   },
   "author": "Optimiza R&D",
   "license": "ISC",
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.4",
+    "vite": "^5.4.11"
+  },
   "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
     "@uirouter/angularjs": "1.0.5",
     "angular": "^1.8.0",
     "angular-animate": "1.6.5",

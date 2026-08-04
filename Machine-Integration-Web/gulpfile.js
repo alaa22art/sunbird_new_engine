@@ -16,7 +16,8 @@ var gulp = require('gulp'),
     beautify = require('js-beautify').js_beautify,
     uglify = require('gulp-uglify'),
     pump = require('pump'),
-    htmlmin = require('gulp-htmlmin');
+    htmlmin = require('gulp-htmlmin'),
+    execSync = require('child_process').execSync;
 
 var mainDirectory = "src/main/webapp/"
 var componentDirectory = mainDirectory + 'js/modules/component';
@@ -56,8 +57,17 @@ var deleteFolderRecursive = function (path) {
     }
 };
 //pass the version number as 'gulp build --v1.0.0'
-gulp.task('build', (done) => gulp.series('versioning', 'minifyJs', 'minifyHtml', 'minifyCss')(done), (done) => {
+gulp.task('build', (done) => gulp.series('versioning', 'buildReact', 'minifyJs', 'minifyHtml', 'minifyCss')(done), (done) => {
 
+});
+
+gulp.task('buildReact', function (done) {
+    // Builds react/main.jsx into src/main/webapp/assets/react/react-bridge.js (see
+    // vite.config.js) so the react-mount directive has something to load. Runs before
+    // minifyJs/minifyHtml so the bridge script and any migrated module chunks are
+    // present when the rest of the webapp bundle is assembled.
+    execSync('npx vite build', { stdio: 'inherit' });
+    done();
 });
 
 gulp.task('versioning', function (cb) {

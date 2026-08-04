@@ -1,0 +1,43 @@
+/*
+ * Design tokens shared between the legacy AngularJS stack (sass/_colors.scss) and
+ * React modules. Keep values in sync with sass/_colors.scss until the AngularJS
+ * shell is retired (Phase 5) -- at that point this file becomes the single source
+ * of truth and _colors.scss can be deleted.
+ *
+ * RTL: the app sets dir="{{direction}}" on <html> (see src/main/webapp/js/util.js
+ * #prepareAppDirection). React components mount inside that subtree, so they inherit
+ * `dir` automatically -- use CSS logical properties (margin-inline-start, etc.)
+ * instead of left/right so RTL keeps working without extra plumbing.
+ */
+
+:root {
+  --color-primary: #24709c;
+  --color-primary-contrast: rgba(255, 255, 255, 0.9);
+  --color-sidenav-icon: #b8c7ce;
+  --color-sidenav-background: #222d32;
+  --color-search-highlight: #fdd835;
+  --color-user-badge: #38c8c5;
+  --color-table-border: #d3d3d3;
+  --color-card-layout: #f1f5fb;
+  --color-card-layout-hover: #d0ddf1;
+  --color-card-text: #2b5a8e;
+  --color-row-alt: whitesmoke;
+  --color-sample-status: #11a765;
+
+  --color-white: #fff;
+  --color-grey: grey;
+  --color-soft-grey: #e6e6e6;
+  --color-selection-blue: #3f51b5;
+  --color-black: #000;
+  --color-gold: #ecb32e;
+  --color-green: #2e7d32;
+  --color-red: #c62828;
+
+  --color-success: #2e7d32;
+  --color-info: #24b4b1;
+  --color-info-background: #d9edf7;
+  --color-info-border: #bce8f1;
+  --color-error: #c62828;
+  --color-error-background: #f2dede;
+  --color-error-border: #ebccd1;
+}

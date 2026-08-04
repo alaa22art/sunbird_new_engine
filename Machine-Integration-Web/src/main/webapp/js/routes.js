@@ -82,6 +82,9 @@ define(
                         "countryCity",
                         "transField"
                     ]
+                },
+                reactMount: {
+                    path: directivePath + "reactMount/reactMount"
                 }
             },
             routes: {

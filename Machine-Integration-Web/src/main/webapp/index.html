@@ -73,6 +73,8 @@
     <link rel="stylesheet" type="text/css" ng-href="./libs/angular-wizard/angular-wizard.min.css" />
     <link rel="stylesheet" type="text/css" ng-href="{{directionCss}}" />
     <link rel='stylesheet' href='./libs/angular-loading-bar/loading-bar.min.css' type='text/css' media='all' />
+    <!-- Design tokens for React modules (see react/styles/tokens.css), built alongside react-bridge.js -->
+    <link rel="stylesheet" type="text/css" href="./assets/react/style.css" />
     <link rel="icon" href="./assets/images/flask.png" />
 </head>
 
@@ -92,6 +94,9 @@
     <lis-footer></lis-footer>ahimor
     <script type="text/javascript" src="./libs/sockjs-client/dist/sockjs.min.js"></script>
     <script type="text/javascript" src="./libs/requirejs/require.min.js"></script>
+    <!-- React bridge (built from react/main.jsx by `npm run build:react`, see vite.config.js).
+         Must load before boot.js so window.ReactBridge exists when the reactMount directive links. -->
+    <script type="text/javascript" src="./assets/react/react-bridge.js"></script>
     <script>
         //DO NOT CHANGE THESE VARIABLE NAMES
         var versionNo = "v1.1.3"
