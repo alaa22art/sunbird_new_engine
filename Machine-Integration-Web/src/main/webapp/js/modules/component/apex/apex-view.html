@@ -1,0 +1,298 @@
+<div class="apex-wrapper">
+    <div class="events-panel" md-whiteframe="1">
+        <div class="toggle-events-icon-wrapper clickable-item" ng-click="toggleEventsPanel()" md-whiteframe="3">
+            <md-icon md-font-icon="{{eventsPanelIcon}}" class="expand-icon">
+                <md-icon md-font-icon="fas fa-circle" class="notification-icon" ng-class="{'no-display':!newEvents}">
+                </md-icon>
+            </md-icon>
+        </div>
+        <div id="eventsWrapper" class="events-wrapper" ng-class="{'events-wrapper-opened':isEventsPanelOpened}"
+            layout="column">
+            <div class="events-search-wrapper bottom-rule">
+                <div ng-if="eventStatuses && eventStatuses.length > 0">
+                    <div layout="row" layout-align="space-between center">
+                        <div class="bold">{{'status' | translate}}</div>
+                        <div>
+                            <md-icon md-font-icon="{{showEventStatuses?'fas fa-minus-square':'fas fa-plus-square'}}"
+                                class="clickable-item" ng-click="showEventStatuses=!showEventStatuses;"></md-icon>
+                        </div>
+                    </div>
+                    <div layout="row" layout-align="start center" layout-wrap class="chips-wrapper"
+                        ng-show="showEventStatuses">
+                        <div ng-repeat="eventStatus in eventStatuses" class="chip clickable-item"
+                            ng-click="onEventsCheckChange(eventStatuses,eventStatus)"
+                            ng-class="{'active':eventStatus.checked}">
+                            <span>{{eventStatus.name[userLocale]}}</span>
+                            <md-icon md-font-icon="fas fa-ban"
+                                ng-if="eventStatus.code === commonData.eventStatuses.ABORTED">
+                            </md-icon>
+                            <md-icon md-font-icon="fas fa-exclamation"
+                                ng-if="eventStatus.code === commonData.eventStatuses.NEW">
+                            </md-icon>
+                            <md-icon md-font-icon="fas fa-eye"
+                                ng-if="eventStatus.code === commonData.eventStatuses.ACKNOWLEDGED">
+                            </md-icon>
+                            <md-icon md-font-icon="fas fa-check"
+                                ng-if="eventStatus.code === commonData.eventStatuses.FIXED">
+                            </md-icon>
+                            <md-icon md-font-icon="fas fa-skull"
+                                ng-if="eventStatus.code === commonData.eventStatuses.BROKEN">
+                            </md-icon>
+                        </div>
+                    </div>
+                </div>
+                <div ng-show="eventSeverities && eventSeverities.length > 0">
+                    <div layout="row" layout-align="space-between center">
+                        <div class="bold">{{'severity' | translate}}</div>
+                        <div>
+                            <md-icon md-font-icon="{{showEventSeverities?'fas fa-minus-square':'fas fa-plus-square'}}"
+                                class="clickable-item" ng-click="showEventSeverities=!showEventSeverities;"></md-icon>
+                        </div>
+                    </div>
+                    <div layout="row" layout-align="start center" layout-wrap class="severity-wrapper"
+                        ng-show="showEventSeverities">
+                        <div ng-repeat="eventSeverity in eventSeverities" class="severity clickable-item"
+                            ng-click="onEventsCheckChange(eventSeverities,eventSeverity)" ng-class="{'active':eventSeverity.checked,
+                            'required-severity':eventSeverity.code === commonData.eventSeverities.REQUIRED_ACTION,
+                            'error-severity':eventSeverity.code === commonData.eventSeverities.ERROR,
+                            'notification-severity':eventSeverity.code === commonData.eventSeverities.NOTIFICATION,
+                            'warning-severity':eventSeverity.code === commonData.eventSeverities.WARNING}"
+                            md-whiteframe="1">
+                            <span>{{eventSeverity.name[userLocale]}}</span>
+                        </div>
+                    </div>
+                </div>
+                <div ng-show="eventCategories && eventCategories.length > 0">
+                    <div layout="row" layout-align="space-between center">
+                        <div class="bold">{{'category' | translate}}</div>
+                        <div>
+                            <md-icon md-font-icon="{{showEventCategories?'fas fa-minus-square':'fas fa-plus-square'}}"
+                                class="clickable-item" ng-click="showEventCategories=!showEventCategories;"></md-icon>
+                        </div>
+                    </div>
+                    <div layout="row" layout-align="start center" layout-wrap class="chips-wrapper"
+                        ng-show="showEventCategories">
+                        <div ng-repeat="eventCategory in eventCategories" class="chip clickable-item"
+                            ng-click="onEventsCheckChange(eventCategories,eventCategory)"
+                            ng-class="{'active':eventCategory.checked}">
+                            {{eventCategory.name[userLocale]}}
+                        </div>
+                    </div>
+                </div>
+                <div layout="row" layout-align="space-between center">
+                    <div>{{eventsPage.content.length +'/'+eventsPage.totalElements}}</div>
+                    <div>
+                        <md-icon md-font-icon="fas fa-sync" class="clickable-item" ng-click="refreshEventDetailsPage()">
+                        </md-icon>
+                    </div>
+                </div>
+            </div>
+            <div class="events" infinite-scroll="onEventsScroll()">
+                <div ng-if="eventsPage.content.length === 0" layout="column" layout-align="center center" layout-fill
+                    class="bold">
+                    {{'noData' | translate}}
+                </div>
+                <div ng-repeat="event in eventsPage.content" class="event" md-whiteframe="1">
+                    <div class="header clickable-item" layout=" row" layout-align="space-between center"
+                        ng-click="event.toggled=!event.toggled;"
+                        ng-class="{'success-background-color':event.lkpQCEventType.severityType.code === commonData.eventSeverities.REQUIRED_ACTION,
+                    'error-background-color':event.lkpQCEventType.severityType.code === commonData.eventSeverities.ERROR,
+                    'info-background-color':event.lkpQCEventType.severityType.code === commonData.eventSeverities.NOTIFICATION,
+                    'warning-background-color':event.lkpQCEventType.severityType.code === commonData.eventSeverities.WARNING}">
+                        <div>
+                            {{event.lkpQCEventType.categoryType.name[userLocale]}}:&nbsp;
+                            <span class="bold">{{event.description}}</span>
+                        </div>
+                        <div>
+                            <md-icon md-font-icon="fas fa-ban"
+                                ng-if="event.eventStatus.code === commonData.eventStatuses.ABORTED">
+                                <md-tooltip md-direction="top">{{'aborted' | translate}}</md-tooltip>
+                            </md-icon>
+                            <md-icon md-font-icon="fas fa-exclamation"
+                                ng-if="event.eventStatus.code === commonData.eventStatuses.NEW">
+                                <md-tooltip md-direction="top">{{'new' | translate}}</md-tooltip>
+                            </md-icon>
+                            <md-icon md-font-icon="fas fa-eye"
+                                ng-if="event.eventStatus.code === commonData.eventStatuses.ACKNOWLEDGED">
+                                <md-tooltip md-direction="top">{{'acknowledged' | translate}}</md-tooltip>
+                            </md-icon>
+                            <md-icon md-font-icon="fas fa-check"
+                                ng-if="event.eventStatus.code === commonData.eventStatuses.FIXED">
+                                <md-tooltip md-direction="top">{{'fixed' | translate}}</md-tooltip>
+                            </md-icon>
+                            <md-icon md-font-icon="fas fa-skull"
+                                ng-if="event.eventStatus.code === commonData.eventStatuses.BROKEN">
+                                <md-tooltip md-direction="top">{{'broken' | translate}}</md-tooltip>
+                            </md-icon>
+                        </div>
+                    </div>
+                    <div class="content" ng-show="event.toggled">
+                        <div ng-if="event.source">
+                            {{'source' | translate}}:&nbsp;<a href="" class="bold">{{event.source}}</a>
+                        </div>
+                        <div ng-if="event.details">
+                            {{'details' | translate}}:
+                            <ol>
+                                <li ng-repeat="detail in (event.details | newlines) track by $index" class="bold">
+                                    {{detail}}</li>
+                            </ol>
+                        </div>
+                        <div ng-if="event.sampleNo">
+                            {{'sampleNo' | translate}}:&nbsp;<span class="bold">{{event.sampleNo}}</span>
+                        </div>
+                        <div ng-if="event.eventDateTime">
+                            {{'eventDate' | translate}}:&nbsp;<span class="bold">{{event.eventDateTime |
+                                dateTimeFormat}}</span>
+                        </div>
+                        <div ng-if="event.statusDate">
+                            {{'statusDate' | translate}}:&nbsp;<span class="bold">{{event.statusDate |
+                                dateTimeFormat}}</span>
+                        </div>
+                        <div ng-if="event.resolutionSummary">
+                            {{'resolution' | translate}}:&nbsp;<span class="bold">{{event.resolutionSummary}}</span>
+                        </div>
+                        <div class="top-rule"
+                            ng-if="event.eventStatus.code !== commonData.eventStatuses.FIXED && event.eventStatus.code !== commonData.eventStatuses.BROKEN">
+                            <div layout="row" layout-wrap layout-align="start center">
+                                <md-input-container flex>
+                                    <label>{{'resolution' | translate}}</label>
+                                    <input type="text" name="resolutionSummary" ng-model="event.resolutionSummary"
+                                        ng-required="true" />
+                                </md-input-container>
+                                <div layout="row" layout-wrap class="chips-wrapper">
+                                    <div class="chip clickable-item"
+                                        ng-click="event.resolutionSummaryStatus = commonData.eventStatuses.FIXED"
+                                        ng-class="{'active':event.resolutionSummaryStatus === commonData.eventStatuses.FIXED}">
+                                        <span>{{'fixed' | translate}}</span>
+                                        <md-icon md-font-icon="fas fa-check"></md-icon>
+                                    </div>
+                                    <div class="chip clickable-item"
+                                        ng-click="event.resolutionSummaryStatus = commonData.eventStatuses.BROKEN"
+                                        ng-class="{'active':event.resolutionSummaryStatus === commonData.eventStatuses.BROKEN}">
+                                        <span>{{'broken' | translate}}</span>
+                                        <md-icon md-font-icon="fas fa-skull"></md-icon>
+                                    </div>
+                                </div>
+                            </div>
+                            <div layout="row" layout-align="center center">
+                                <md-button aria-label="{{'save' | translate}}" class="md-fab md-mini" http-disable-click
+                                    ng-click="closeQCEventDetails(event)"
+                                    ng-disabled="!event.resolutionSummary || !event.resolutionSummaryStatus"
+                                    type="button">
+                                    <md-tooltip md-direction="top">{{'save' | translate}}</md-tooltip>
+                                    <md-icon md-font-icon="fas fa-save"></md-icon>
+                                </md-button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div layout="row" flex class="apex-content">
+        <div class="apex-entity-hide" ng-class="{'apex-entity':showApexEntities}"
+            flex-xm="{{showApexEntities?'20':'0'}}" flex-sm="{{showApexEntities?'20':'0'}}"
+            flex-md="{{showApexEntities?'10':'0'}}" flex-lg="{{showApexEntities?'10':'0'}}"
+            flex-xl="{{showApexEntities?'10':'0'}}">
+            <div class="apex-selection">
+                <div class="text-center bold">
+                    {{apexSelectionLabel | translate}}
+                </div>
+                <div ng-if="apexSelectionMode === 'SINGLE'" class="selection-hint text-center">
+                    {{'('+('singleSelection' | translate)+')'}}</div>
+                <div ng-repeat="entity in apexEntities" ng-if="apexEntities && apexEntities.length > 0"
+                    class="entity bottom-rule">
+                    <div>{{entity.label}}</div>
+                    <div>
+                        <md-icon md-font-icon="fas fa-times" class="entity-remove-icon clickable-item"
+                            ng-click="removeApexEntity(entity,true)"></md-icon>
+                    </div>
+                </div>
+            </div>
+            <div layout="column" layout-align="center center">
+                <md-button aria-label="{{'add' | translate}}" class="md-fab md-mini" type="button"
+                    ng-click="apexSelection()" ng-disabled="apexSelectionMode === 'SINGLE' && apexEntities.length >= 1">
+                    <md-icon md-font-icon="fas fa-hand-pointer"></md-icon>
+                </md-button>
+            </div>
+        </div>
+
+        <div flex-xm="{{showApexEntities?'80':'100'}}" flex-sm="{{showApexEntities?'80':'100'}}"
+            flex-md="{{showApexEntities?'90':'100'}}" flex-lg="{{showApexEntities?'90':'100'}}"
+            flex-xl="{{showApexEntities?'90':'100'}}" class="page-content">
+            <div class="user-info-wrapper">
+                <div layout="row" layout-align="start center" class="info-content"
+                    ng-class="{'info-content-showen':isUserInfoPanelShown}">
+                    <div layout="row">
+                        <div class="user-icon">
+                            <md-icon md-font-icon="fas fa-user" id="user-icon-id">
+                            </md-icon>
+                        </div>
+                    </div>
+
+                    <div layout="row" flex>
+                        <div flex layout="row" layout-wrap>
+                            <div dynamic-flex>{{'username'|translate}}:&nbsp;<span class="bold">
+                                    {{user.username}} </span> </div>
+                            <div dynamic-flex>{{'name'|translate}}:&nbsp;<span class="bold">
+                                    {{user.fullName[userLocale]}} </span> </div>
+                            <div dynamic-flex>{{'branch'|translate}}:&nbsp;<span
+                                    class="bold">{{user.branch.name[userLocale]}}</span>
+                            </div>
+                            <div dynamic-flex> {{'mobileNumber'|translate}}:&nbsp;<span class="bold"> {{user.mobileNo}}
+                                </span>
+                            </div>
+                            <div dynamic-flex> {{'email'|translate}}:&nbsp;<span class="bold"> {{user.email}}
+                                </span>
+                            </div>
+                            <div dynamic-flex> {{'address'|translate}}:&nbsp;<span
+                                    class="bold">{{user.address[userLocale]}}</span> </div>
+                            <div dynamic-flex> {{'country'|translate}}:&nbsp;<span
+                                    class="bold">{{user.country.name[userLocale]}}</span> </div>
+                            <div dynamic-flex> {{'lastLoginTime'|translate}}:&nbsp;<span
+                                    class="bold">{{user.lastLoginTime|dateTimeFormat}}</span> </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div layout="row" layout-align="center center">
+                    <div ng-show="isShownUserName">{{user.fullName[userLocale]}}
+                    </div>
+                    <div class="bottom-rule" flex>
+                    </div>
+                    <div>
+                        <md-button aria-label="{{'expand' | translate}}" class="md-fab md-mini" type="button"
+                            ng-click="showUserPanel()">
+                            <md-icon
+                                md-font-icon="{{isUserInfoPanelShown?'fas fa-angle-double-up':'fas fa-angle-double-down'}}">
+                            </md-icon>
+                        </md-button>
+                    </div>
+
+                </div>
+            </div>
+            <div class="dynamic-route">
+                <div class="routes" layout="row" flex>
+                    <div class="route clickable-item" ng-class="{'active':route.label === selectedRoute.label}"
+                        ng-repeat="route in apexRoutes" ng-click="onRouteClick(route,null)">
+                        <div class="label">
+                            {{route.label | translate}}
+                        </div>
+                    </div>
+                </div>
+                <md-card class="route-content">
+                    <div ng-if="selectedRoute && selectedRoute.children && selectedRoute.children.length > 0"
+                        layout="row" flex layout-wrap class="chips-wrapper">
+                        <div class="chip clickable-item" ng-class="{'active':subroute === selectedSubroute}"
+                            ng-click="onRouteClick(subroute,null)" ng-repeat="subroute in selectedRoute.children">
+                            {{subroute.label | translate}}
+                        </div>
+                    </div>
+                    <md-card-content>
+                        <ui-view name="main"></ui-view>
+                    </md-card-content>
+                </md-card>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,17 @@
+<div>
+    <md-toolbar class="short-toolbar">
+        <div class="md-toolbar-tools">
+            <div layout="row" flex>
+            </div>
+            <div layout="row">
+                <md-button aria-label="{{'refresh' | translate}}" class="md-fab md-mini" http-disable-click
+                    ng-click="refreshGrid()" type="button">
+                    <md-tooltip md-direction="top">{{'refresh' | translate}}</md-tooltip>
+                    <md-icon md-font-icon="fas fa-sync"></md-icon>
+                </md-button>
+            </div>
+        </div>
+    </md-toolbar>
+    <div kendo-grid="transactionLogGrid" id="transactionLogGrid" class="k-widget k-grid"
+        options="transactionGridOptions"></div>
+</div>

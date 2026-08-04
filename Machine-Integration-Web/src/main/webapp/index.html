@@ -1,0 +1,106 @@
+
+<!DOCTYPE html>
+<html id="html" dir="{{direction}}">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <base href="/miw/" />
+    <style rel="stylesheet" type="text/css">
+        #loadingWebsiteContainer {
+            background: rgb(255, 255, 255);
+            position: fixed;
+            min-height: 100%;
+            min-width: 100%;
+            z-index: 90;
+        }
+
+        .loading-website {
+            border: 16px solid #f3f3f3;
+            border-radius: 50%;
+            border-top: 16px solid #3498db;
+            width: 100px;
+            height: 100px;
+            -webkit-animation: spin 2s linear infinite;
+            -moz-animation: spin 2s linear infinite;
+            -ms-animation: spin 2s linear infinite;
+            -o-animation: spin 2s linear infinite;
+            -webkit-animation: spin 2s linear infinite;
+            animation: spin 2s linear infinite;
+            position: fixed;
+            margin: auto;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 100;
+        }
+
+        .loading-website-small {
+            width: 50px;
+            height: 50px;
+            animation-direction: reverse;
+        }
+
+        /* Safari */
+
+        @-webkit-keyframes spin {
+            0% {
+                -webkit-transform: rotate(0deg);
+            }
+
+            100% {
+                -webkit-transform: rotate(360deg);
+            }
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+    <link rel="stylesheet" type="text/css" ng-href="./libs/kendoui/styles/kendo.common-material.min.css" />
+    <link rel="stylesheet" type="text/css" ng-href="./libs/kendoui/styles/kendo.ehope-lis.css" />
+    <link rel="stylesheet" type="text/css" ng-href="./libs/kendoui/styles/kendo.rtl.min.css" />
+    <link rel="stylesheet" type="text/css" ng-href="./libs/angular-material/angular-material.min.css" />
+    <link rel="stylesheet" type="text/css" ng-href="./assets/css/eHOpe-font/css/eHOpe-Font.css" />
+    <link rel="stylesheet" type="text/css" ng-href="./assets/css/fontawesome-free-5.1.1-web/css/all.min.css" />
+    <link rel="stylesheet" type="text/css" ng-href="./libs/angular-wizard/angular-wizard.min.css" />
+    <link rel="stylesheet" type="text/css" ng-href="{{directionCss}}" />
+    <link rel='stylesheet' href='./libs/angular-loading-bar/loading-bar.min.css' type='text/css' media='all' />
+    <link rel="icon" href="./assets/images/flask.png" />
+</head>
+
+<body id="body" class="body md-body-1">
+    <div id="loadingWebsiteContainer">
+        <div class="loading-website"></div>
+        <div class="loading-website loading-website-small"></div>
+    </div>
+    <div id="loadingBarContainer"></div>
+    <lis-header></lis-header>
+    <div class="main" layout="row">
+        <lis-nav-menu></lis-nav-menu>
+        <md-content ng-cloak id="mainContent" class="content" ng-class="direction=='rtl'?'k-rtl':''" flex>
+            <ui-view name="main"></ui-view>
+        </md-content>
+    </div>
+    <lis-footer></lis-footer>ahimor
+    <script type="text/javascript" src="./libs/sockjs-client/dist/sockjs.min.js"></script>
+    <script type="text/javascript" src="./libs/requirejs/require.min.js"></script>
+    <script>
+        //DO NOT CHANGE THESE VARIABLE NAMES
+        var versionNo = "v1.1.3"
+        var lisDir = "js"; //js for dev, dist for prod
+        lisDir = lisDir === "js" ? "js" : lisDir + "-" + versionNo;
+        var script = document.createElement('script');
+        script.src = lisDir + "/boot.js";
+        document.body.appendChild(script);
+    </script>
+</body>
+
+</html>

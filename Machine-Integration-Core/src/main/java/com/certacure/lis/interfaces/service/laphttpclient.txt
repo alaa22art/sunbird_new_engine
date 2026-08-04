@@ -1,0 +1,476 @@
+package com.certacure.lis.interfaces.middleware.flow_component.lab_http;
+
+import java.io.BufferedReader;
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.net.URLEncoder;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.certacure.core.common.util.CollectionUtil;
+import com.certacure.core.common.util.DateUtil;
+import com.certacure.core.common.util.SpringUtil;
+import com.certacure.lis.interfaces.entities.Branch;
+import com.certacure.lis.interfaces.entities.CoreEventLog;
+import com.certacure.lis.interfaces.entities.DataOrderInboundHL7Message;
+import com.certacure.lis.interfaces.entities.DataOutboundHL7Message;
+import com.certacure.lis.interfaces.entities.DataResultOutboundHL7Message;
+import com.certacure.lis.interfaces.entities.Machine;
+import com.certacure.lis.interfaces.entities.MachineOrder;
+import com.certacure.lis.interfaces.entities.MachineOrderQueryResponse;
+import com.certacure.lis.interfaces.entities.MachineQuery;
+import com.certacure.lis.interfaces.entities.MachineResult;
+import com.certacure.lis.interfaces.entities.MachineTest;
+import com.certacure.lis.interfaces.entities.TestCatalog;
+import com.certacure.lis.interfaces.middleware.core.FlowComponent;
+import com.certacure.lis.interfaces.middleware.interfaces.LabMessages;
+import com.certacure.lis.interfaces.middleware.interfaces.LabMessages.Analysis;
+import com.certacure.lis.interfaces.middleware.interfaces.LabMessages.Container;
+import com.certacure.lis.interfaces.middleware.interfaces.LabMessages.LabMachineMsg;
+import com.certacure.lis.interfaces.middleware.interfaces.LabMessages.LabOrderMsg;
+import com.certacure.lis.interfaces.middleware.interfaces.LabMessages.LabQueryMsg;
+import com.certacure.lis.interfaces.middleware.interfaces.LabMessages.LabResultMsg;
+import com.certacure.lis.interfaces.middleware.interfaces.LabMessages.Order;
+import com.certacure.lis.interfaces.middleware.interfaces.LabMessages.Patient;
+import com.certacure.lis.interfaces.middleware.interfaces.LabMessages.Result;
+import com.certacure.lis.interfaces.middleware.parser.hl7.HL7Parser;
+import com.certacure.lis.interfaces.middleware.util.JsonUtil;
+import com.certacure.lis.interfaces.service.BranchService;
+import com.certacure.lis.interfaces.service.CoreEventLogService;
+import com.certacure.lis.interfaces.service.DataOutboundHL7MessageService;
+import com.certacure.lis.interfaces.service.DataResultOutboundHL7MessageService;
+import com.certacure.lis.interfaces.service.MachineOrderQueryResponceService;
+import com.certacure.lis.interfaces.service.MachineOrderService;
+import com.certacure.lis.interfaces.service.MachineQueryService;
+import com.certacure.lis.interfaces.service.MachineResultService;
+import com.certacure.lis.interfaces.service.MachineService;
+import com.certacure.lis.interfaces.service.MachineTestsService;
+import com.certacure.lis.interfaces.service.TestCatalogService;
+
+import akka.japi.pf.ReceiveBuilder;
+import ca.uhn.hl7v2.HL7Exception;
+import scala.PartialFunction;
+import scala.runtime.BoxedUnit;
+
+public class LabHttpClient extends FlowComponent<LabHttpClientConf> {
+
+	@Override
+	protected PartialFunction<Object, BoxedUnit> getBehaviour() {
+		return ReceiveBuilder
+								.match(LabMachineMsg.class, conf ->
+									{
+										context().become(getBehaviour());
+									})
+								.match(LabResultMsg.class, result ->
+									{
+										this.sendResult(result);
+									})
+								.match(LabQueryMsg.class, query ->
+									{
+										this.sendQuery(query);
+									})
+								.build();
+	}
+
+	private void sendResult(LabResultMsg resultMsg) throws IOException, HL7Exception {
+
+		//Define object from MachineResult entity to be prepared for saving the result in the MW DB.
+		MachineResult resultInfo = new MachineResult();
+		MachineOrder orderInformation = new MachineOrder();
+		//Get the last query from the table requested by machine
+		MachineQuery machineQuery = new MachineQuery();
+
+		MachineService machineService = (MachineService) SpringUtil.getBean("MachineService");
+		TestCatalogService testCatalogService = (TestCatalogService) SpringUtil.getBean("TestCatalogService");
+		MachineQueryService mQueryService = (MachineQueryService) SpringUtil.getBean("MachineQueryService");
+
+		Machine machine = machineService.getMachineByActorPath(getContext().parent().toString());
+		machineQuery = mQueryService.getQueryBySampleAndMachine(resultMsg.order.container.specimenId.toString().trim(), machine);
+
+		List<MachineResult> machineResultList = new ArrayList<MachineResult>();
+		List<Map<String, String>> resultMapList = new ArrayList<Map<String, String>>();
+
+		Order order = resultMsg.order;
+		Container container = order.container;
+
+		//Loop on the all tests received from the machine
+		for (Analysis analysis : container.analyses) {
+
+			Result result = analysis.result;
+			TestCatalog machineTest = testCatalogService.getMachineTests(analysis.code, machine);
+			resultInfo = getMachineResultObj(result, container);
+
+			/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+			//Define a result map for the tests received from the machine to be prepared for sending to the LIS 
+			Map<String, String> resultMap = new HashMap<String, String>();
+
+			if (machineTest != null) {
+				resultInfo.setTestCode(machineTest.getRequesterTestCode());
+				resultMap.put("testCode", machineTest.getRequesterTestCode());
+			} else {
+				resultInfo.setTestCode(analysis.code);
+				resultMap.put("testCode", analysis.code);
+			}
+
+			//Update MachineOrder entity by setting result received based on RequesterTestCode and SampleNo
+			orderInformation = getMachineOrderObj(resultMsg, machineTest, machine);
+
+			resultInfo.setResultCode(analysis.resultCode);
+			resultInfo.setMachineName(machine.getName());
+			resultInfo.setSampleNo(container.specimenId.trim());
+			resultInfo.setMachineQueryId(machineQuery);
+			resultInfo.setMachine(machine);
+			resultInfo.setIsSentToLIS(true);
+			//TODO: support multi result tests "Result Code" like FT4.COFF FT4.DOZ
+
+			resultMap.put("barcode", container.specimenId.trim());
+			resultMap.put("result", result.value);
+			resultMapList.add(resultMap);
+
+			machineResultList.add(resultInfo);
+
+		}
+
+		saveMachineResult(machineResultList);
+		Branch branch = getMachineBranch(machine.getBranchId());
+
+		HL7Parser parserManager = new HL7Parser("2.5");
+		DataResultOutboundHL7Message outResultInfo = new DataResultOutboundHL7Message();
+
+		String messageHL7 = null;
+
+		messageHL7 = parserManager.CreateHL7ResultMessage(resultInfo, orderInformation);
+		outResultInfo = initiateResultOutboundObj(resultInfo, messageHL7);
+		outResultInfo.setTenantId(machine.getTenantId());
+		outResultInfo.setBranchId(branch.getRid());
+
+		outResultInfo.setCreatedBy(machine.getCreatedBy());
+
+		outResultInfo.getDataOutboundHl7Message().setTenantId(machine.getTenantId());
+		outResultInfo.getDataOutboundHl7Message().setCreatedBy(machine.getCreatedBy());
+		outResultInfo.getDataOutboundHl7Message().setBranchId(branch.getRid());
+
+		saveOutboundMessage(outResultInfo.getDataOutboundHl7Message());
+		saveResultOutboundMessage(outResultInfo);
+
+		//Send the machine result to the LIS 
+		String apiResponse = executePOST(JsonUtil.asJson(resultMapList), branch.getIntegrationUrl(), branch.getIntegrationToken());
+
+		ObjectMapper objectMapper = new ObjectMapper();
+		List<Map<String, String>> responseMap = objectMapper.readValue(apiResponse, new TypeReference<List<Map<String, String>>>() {
+		});
+
+		for (Map<String, String> mapResponse : responseMap) {
+			boolean isAccepted = Boolean.parseBoolean(mapResponse.get("isAccepted"));
+			if (isAccepted == false) {
+				String output = MapUtil.mapToString(mapResponse);
+				CoreEventLogService coreEventLogService = (CoreEventLogService) SpringUtil.getBean("CoreEventLogService");
+				CoreEventLog coreEventLog = new CoreEventLog();
+				coreEventLog.setBranchId(machine.getBranchId());
+				coreEventLog.setTenantId(machine.getTenantId());
+				coreEventLog.setSource(getContext().self().toString());
+				coreEventLog.setText(output);
+				coreEventLog.setMachine(machine);
+				coreEventLog.setStatusId(4);
+				Date date = new Date();
+				coreEventLog.setSentDate(date);
+				coreEventLogService.addCoreEventLog(coreEventLog);
+			}
+		}
+	}
+
+	private List<MachineResult> getMachineResultList() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	private Branch getMachineBranch(Long machineBranchId) {
+		BranchService branchService = (BranchService) SpringUtil.getBean("BranchService");
+		Branch branch = branchService.findById(machineBranchId);
+
+		return branch;
+
+	}
+
+	private void saveMachineResult(List<MachineResult> machineResultList) {
+		//Save the machine results in the MW DB
+		MachineResultService mResultService = (MachineResultService) SpringUtil.getBean("MachineResultService");
+		mResultService.addListResult(machineResultList);
+	}
+
+	private MachineResult getMachineResultObj(Result result, Container container) {
+		MachineResult resultInfo = new MachineResult();
+		resultInfo.setDataOrMeasurementValue(result.value);
+		resultInfo.setUnits(result.unit);
+		resultInfo.setSampleNo(container.specimenId);
+		resultInfo.setIsSentToLIS(false);
+		return resultInfo;
+	}
+
+	private MachineOrder getMachineOrderObj(LabResultMsg resultMsg, TestCatalog machineTest, Machine machine) {
+		MachineOrder orderInformation = null;
+
+		if (machineTest != null) {
+			MachineOrderService machineOrderService = (MachineOrderService) SpringUtil.getBean("MachineOrderService");
+			orderInformation = machineOrderService.getBySampleAndTestCode(resultMsg.order.container.specimenId.trim(),
+					machineTest.getRequesterTestCode(), machine.getTenantId(), machine.getBranchId());
+			if (orderInformation != null) {
+				orderInformation.setResultReceived(true);
+				orderInformation.setUpdatedBy(-1L);
+				orderInformation.setTenantId(machine.getTenantId());
+				orderInformation.setBranchId(machine.getBranchId());
+				machineOrderService.updateOrder(orderInformation);
+			}
+
+		}
+		return orderInformation;
+	}
+
+	private void saveResultOutboundMessage(DataResultOutboundHL7Message outResultInfo) {
+		DataResultOutboundHL7MessageService dataResultOutboundHL7MessageService = (DataResultOutboundHL7MessageService) SpringUtil.getBean(
+				"DataResultOutboundHL7MessageService");
+		dataResultOutboundHL7MessageService.addResult(outResultInfo);
+
+	}
+
+	private void saveOutboundMessage(DataOutboundHL7Message dataOutboundHl7Message) {
+		DataOutboundHL7MessageService dataOutboundHL7MessageService = (DataOutboundHL7MessageService) SpringUtil.getBean(
+				"DataOutboundHL7MessageService");
+		dataOutboundHL7MessageService.addInbound(dataOutboundHl7Message);
+	}
+
+	private DataResultOutboundHL7Message initiateResultOutboundObj(MachineResult resultInfo, String messageHL7) {
+
+		DataResultOutboundHL7Message outResult = new DataResultOutboundHL7Message();
+		DataOutboundHL7Message dataOutboundHL7Message = new DataOutboundHL7Message();
+		outResult.setMachineResult(resultInfo);
+
+		dataOutboundHL7Message.setMessageBody(messageHL7);
+		dataOutboundHL7Message.setSource("HL7");
+		dataOutboundHL7Message.setPriority("R");
+
+		outResult.setDataOutboundHL7Message(dataOutboundHL7Message);
+
+		return outResult;
+	}
+
+	private DataResultOutboundHL7Message getOutboundResultHL7Obj(MachineResult machineResult) {
+		DataResultOutboundHL7MessageService dataResultOutboundHL7MessageService = (DataResultOutboundHL7MessageService) SpringUtil.getBean(
+				"DataResultOutboundHL7MessageService");
+
+		DataOutboundHL7Message outbound = new DataOutboundHL7Message();
+
+		return null;
+	}
+
+	private DataOrderInboundHL7Message getInboundOrderInfoObj() {
+		//InboundOrderInfoService inboundOrderInfoService = (InboundOrderInfoService) SpringUtil.getBean("InboundOrderInfoService");
+
+		return null;
+	}
+
+	private void sendQuery(LabQueryMsg queryMsg) throws IOException {
+		MachineService machineService = (MachineService) SpringUtil.getBean("MachineService");
+		Machine machine = machineService.getMachineByActorPath(
+				getContext().parent().toString());
+		queryMsg.machineName = machine.getName();
+
+		List<String> requesterTestList = new ArrayList<String>();
+
+		//Get the machine orders based the SampleNo in the query request
+		MachineOrderService machineOrderService = (MachineOrderService) SpringUtil.getBean("MachineOrderService");
+		List<MachineOrder> ordersList = new ArrayList<MachineOrder>();
+
+		//Check if the required data are requested before,result received before or not the both conditions 
+		if (machine.getRequestTestWithNoResultOnly() == true || machine.getRequestNewTestOnly() == true) {
+			ordersList = machineOrderService.getOrderInformationBySampleNoWithOptions(queryMsg.specimenIds.toString(),
+					machine.getRequestTestWithNoResultOnly(), machine.getRequestNewTestOnly());
+		} else {
+			ordersList = machineOrderService.getOrderInformationBySampleNo(queryMsg.specimenIds.toString(), machine.getTenantId(),
+					machine.getBranchId());
+		}
+
+		MachineQuery machineQuery = new MachineQuery();
+		MachineQueryService mQueryService = (MachineQueryService) SpringUtil.getBean("MachineQueryService");
+		//Get the last query entity received from the machine
+
+		MachineOrderQueryResponceService machineOrderQueryResponceService = (MachineOrderQueryResponceService) SpringUtil.getBean(
+				"MachineOrderQueryResponceService");
+		List<LabMessages.Analysis> analysisList = new ArrayList<LabMessages.Analysis>();
+
+		//Check if the order list is empty
+		if (!CollectionUtil.isCollectionEmpty(ordersList)) {
+			for (MachineOrder orderInfo : ordersList) {
+				MachineOrderQueryResponse machineOrderQueryResponse = new MachineOrderQueryResponse();
+				Result result = new Result("", "");
+				Analysis analysis = new Analysis(orderInfo.getTestCode().toString(), "", "", result);
+				//Add the test code for the order in a list 
+				machineQuery = mQueryService.getQueryBySampleAndMachine(queryMsg.specimenIds.toString(), machine);
+				analysisList.add(analysis);
+				machineOrderQueryResponse.setMachineOrderId(orderInfo);
+				machineOrderQueryResponse.setMachineQueryId(machineQuery);
+				machineOrderQueryResponceService.addMachineOrderQueryResponse(machineOrderQueryResponse);
+				//Add the required test codes in a list of strings
+				requesterTestList.add(orderInfo.getTestCode());
+			}
+			List<LabMessages.Analysis> analysisListMapped = new ArrayList<LabMessages.Analysis>();
+			MachineTestsService machineTestsService = (MachineTestsService) SpringUtil.getBean("MachineTestsService");
+			//Do the mapping between the requested test codes and the machine test codes to get the host codes where the machine understand
+			List<MachineTest> machineTestList = machineTestsService.getMachineTests(requesterTestList, machine);
+			String SpecimenDescriptor = "";
+			for (Analysis analysis : analysisList) {
+				boolean testMapExist = false;
+				//Do a loop on the result of the mapping query and replace each code with its mapped to code
+				for (MachineTest machineTest : machineTestList) {
+					if (machineTest.getTestCatalog().getRequesterTestCode().equals(analysis.code)) {
+						analysis.code = machineTest.getHostCode();
+						if (machineTest.getTestCatalog().getSpecimenType() != null) {
+							SpecimenDescriptor = machineTest.getTestCatalog().getSpecimenType().getCode();
+						}
+						testMapExist = true;
+						analysisListMapped.add(analysis);
+					}
+				}
+				//save the undefined code in the log event table
+				if (testMapExist == false) {
+					//log.error(" Test Code Not Mapped " + analysis.code);
+					CoreEventLogService coreEventLogService = (CoreEventLogService) SpringUtil.getBean("CoreEventLogService");
+					CoreEventLog coreEventLog = new CoreEventLog();
+					coreEventLog.setBranchId(machine.getBranchId());
+					coreEventLog.setTenantId(machine.getTenantId());
+					coreEventLog.setSource(getContext().self().toString());
+					coreEventLog.setText(" Test Code Not Mapped " + analysis.code);
+					coreEventLog.setMachine(machine);
+					coreEventLog.setStatusId(4);
+					Date date = new Date();
+					coreEventLog.setSentDate(date);
+					coreEventLogService.addCoreEventLog(coreEventLog);
+				}
+			}
+			Container container = new Container(queryMsg.specimenIds, analysisListMapped, queryMsg.specimenPosition,
+					ordersList.get(0).getPriority(),
+					DateUtil.formatDBDatetime(ordersList.get(0).getSpecimenCollectionDateAndTime()),
+					SpecimenDescriptor);
+
+			String patientFirstName = "";
+			String patientLastName = "";
+			String patientId = "";
+			String gender = "";
+			Date dateOfBirth = null;
+			String attendingPhysician = "";
+			//Extract patient information to be injected in the order 
+			if (ordersList.get(0).getPatientFirstName() != null) {
+				patientFirstName = ordersList.get(0).getPatientFirstName();
+			}
+
+			if (ordersList.get(0).getPatientLastName() != null) {
+				patientLastName = ordersList.get(0).getPatientLastName();
+			}
+
+			if (ordersList.get(0).getPatientId() != null) {
+				patientId = ordersList.get(0).getPatientId().toString();
+			}
+
+			if (ordersList.get(0).getGender() != null) {
+				gender = ordersList.get(0).getGender();
+			}
+
+			if (ordersList.get(0).getDateOfBirth() != null) {
+				dateOfBirth = ordersList.get(0).getDateOfBirth();
+			}
+
+			if (ordersList.get(0).getOrderingPhysician() != null) {
+				attendingPhysician = ordersList.get(0).getOrderingPhysician();
+			}
+			Patient patient = new Patient(patientFirstName, patientLastName, patientId, dateOfBirth, gender, attendingPhysician);
+			Order order = new Order(patient, container, machine.getPassword(), machine.getName(),
+					ordersList.get(0).getSenderName());
+			LabOrderMsg orderMsg = new LabOrderMsg(order);
+			conf.recipient.tell(orderMsg, self());
+		}
+
+	}
+
+	private String executePOST(String requestBody, String targetUrl, String token) throws IOException {
+		HttpURLConnection connection = null;
+		String authorizationToken = token;
+		try {
+			URL url = new URL(targetUrl);
+			connection = (HttpURLConnection) url.openConnection();
+			connection.setRequestMethod("POST");
+			connection.setDoOutput(true);
+			connection.setRequestProperty("Content-Type", "application/json");
+			connection.setRequestProperty("Authorization", authorizationToken);
+			DataOutputStream outStream = new DataOutputStream(connection.getOutputStream());
+			outStream.writeBytes(requestBody);
+			outStream.flush();
+			outStream.close();
+			System.out.print("##########SENT##########################");
+			InputStream inStream = connection.getInputStream();
+			BufferedReader br = new BufferedReader(new InputStreamReader(inStream));
+			return br.lines().collect(Collectors.joining());
+		} finally {
+			if (connection != null)
+				connection.disconnect();
+		}
+	}
+
+	private String executeHL7Post(String requestBody, String targetUrl) throws IOException {
+		HttpURLConnection connection = null;
+		//String authorizationToken = token;
+		try {
+			URL url = new URL(targetUrl);
+			connection = (HttpURLConnection) url.openConnection();
+			connection.setRequestMethod("POST");
+			connection.setDoOutput(true);
+			connection.setRequestProperty("Content-Type", "application/json");
+			//connection.setRequestProperty("Authorization", authorizationToken);
+			DataOutputStream outStream = new DataOutputStream(connection.getOutputStream());
+			outStream.writeBytes(requestBody);
+			outStream.flush();
+			outStream.close();
+			System.out.print("##########SENT##########################");
+			InputStream inStream = connection.getInputStream();
+			BufferedReader br = new BufferedReader(new InputStreamReader(inStream));
+			return br.lines().collect(Collectors.joining());
+		} finally {
+			if (connection != null)
+				connection.disconnect();
+		}
+	}
+
+	public static class MapUtil {
+
+		public static String mapToString(Map<String, String> map) {
+			StringBuilder stringBuilder = new StringBuilder();
+
+			for (String key : map.keySet()) {
+				if (stringBuilder.length() > 0) {
+					stringBuilder.append("&");
+				}
+				String value = map.get(key);
+				try {
+					stringBuilder.append((key != null ? URLEncoder.encode(key, "UTF-8") : ""));
+					stringBuilder.append("=");
+					stringBuilder.append(value != null ? URLEncoder.encode(value, "UTF-8") : "");
+				} catch (UnsupportedEncodingException e) {
+					throw new RuntimeException("This method requires UTF-8 encoding support", e);
+				}
+			}
+
+			return stringBuilder.toString();
+		}
+	}
+}

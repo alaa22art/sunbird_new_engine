@@ -1,0 +1,34 @@
+<md-content layout-padding>
+    <form name="testCatlogeForm" novalidate ng-submit="saveSelectedTest()" layout="column" layout-gt-sm="column" flex>
+        <md-toolbar flex>
+            <div class="md-toolbar-tools">
+                <div layout="row" flex>
+                    <md-button aria-label="{{'create' | translate}}" class="md-fab md-mini" ng-click="addSelectedTest()" type="button" authority-checker="ADD_TEST_CATALOG">
+                        <md-tooltip md-direction="top">{{'create' | translate}}</md-tooltip>
+                        <md-icon md-font-icon="fas fa-plus"></md-icon>
+                    </md-button>
+                    <md-button type="button" aria-label="{{'edit' | translate}}" class="md-fab md-mini" ng-disabled="selectedTest==null" ng-click="editSelectedTest(selectedTest)"
+                        authority-checker="UPD_TEST_CATALOG">
+                        <md-tooltip md-direction="top">{{'edit' | translate}}</md-tooltip>
+                        <md-icon md-font-icon="fas fa-edit"></md-icon>
+                    </md-button>
+                    <md-button aria-label="{{'save' | translate}}" class="md-fab md-mini" type="button" ng-disabled="!selectedTest == null || selectedTestChanged == false"
+                        ng-click="saveSelectedTest()">
+                        <md-tooltip md-direction="top">{{'save' | translate}}</md-tooltip>
+                        <md-icon md-font-icon="fas fa-save"></md-icon>
+                    </md-button>
+                    <md-button aria-label="{{'delete' | translate}}" class="md-fab md-mini" type="button" ng-disabled="selectedTest == null"
+                        ng-click="deleteTest()" authority-checker="DEL_TEST_CATALOG">
+                        <md-icon md-font-icon="fas fa-trash"></md-icon>
+                        <md-tooltip md-direction="top">{{'delete' | translate}}</md-tooltip>
+                    </md-button>
+                    <md-button aria-label="{{ 'refresh' | translate }}" class="md-fab md-mini" type="button" ng-click="refreshGrid()">
+                        <md-icon md-font-icon="fas fa-sync"></md-icon>
+                        <md-tooltip md-direction="top">{{ 'refresh' | translate }}</md-tooltip>
+                    </md-button>
+                </div>
+            </div>
+        </md-toolbar>
+        <div kendo-grid="testCatalogeGrid" id="testCatalogeGrid" class="k-widget k-grid" options="testCatalogeGridOptions" authority-checker="VIEW_TEST_CATALOG"></div>
+    </form>
+</md-content>

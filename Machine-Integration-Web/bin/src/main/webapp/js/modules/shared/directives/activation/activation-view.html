@@ -1,0 +1,7 @@
+<div>
+	<md-icon class="text-center" md-whiteframe="1" md-font-icon="{{isActive?'fas fa-check':'fas fa-times'}}"
+		ng-class="{'success-background-color':isActive,'error-background-color':!isActive}"
+		style="color:white;border-radius: 100%;height: 14px;width: 14px;min-height: 14px;min-width: 14px;max-height: 14px;max-width: 14px;line-height: 14px;font-size: 0.75em;padding: 2px;">
+		<md-tooltip md-direction="top">{{(isActive?'enabled':'disabled') | translate}}</md-tooltip>
+	</md-icon>
+</div>

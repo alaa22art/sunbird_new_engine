@@ -1,0 +1,59 @@
+.devices-wrapper {
+    .devices {
+        height: 500px;
+        max-height: 500px;
+
+
+        .device {
+            border-radius: 10px;
+            word-break: break-all;
+            overflow: hidden;
+
+            .name {
+                font-size: 1.25em;
+                background-color: $primary-theme-color;
+                color: white;
+            }
+
+
+            .section {
+                padding: 8px;
+            }
+
+
+            .img-wrapper {
+                img {
+                    height: 50px;
+                }
+
+                margin-bottom: 8px;
+            }
+
+            .icon {
+                font-size: 2em;
+            }
+
+            .connection-wrapper {
+                .dots-wrapper {
+                    position: relative;
+
+                    .dot {
+                        height: 4px;
+                        width: 4px;
+                        background-color: #6f6f6f;
+                        border-radius: 50%;
+                        display: inline-block;
+                        margin: 1px;
+                    }
+
+                    .status-icon {
+                        position: absolute;
+                        left: calc(50% - 12px);
+                        font-size: 1.25em;
+                    }
+
+                }
+            }
+        }
+    }
+}

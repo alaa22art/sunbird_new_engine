@@ -1,0 +1,93 @@
+<div class="test-catalog-wrapper">
+    <div layout="row" flex>
+        <autocomplete-search dynamic-flex options="autoSearchOptions"></autocomplete-search>
+    </div>
+    <div layout="row" flex layout-align="center center">
+        <letter-picker dynamic-flex ng-hide="options && options.hideLetters===true" options="letterPickerOptions">
+        </letter-picker>
+    </div>
+    <div class="custom-box test-catalogs" infinite-scroll="onTestCatalogScroll()" layout="row" layout-wrap flex>
+        <div ng-if="testCatalogPage.content.length === 0" class="bold" layout="column" layout-align="center center"
+            layout-fill>
+            {{'noData' | translate}}
+        </div>
+        <div ng-repeat="testCatalog in testCatalogPage.content" dynamic-flex="100|50|33|25|20">
+            <div class="test clickable-item" ng-class="{'active':selectedTestCatalog === testCatalog}" layout="row"
+                ng-click="onTestCatalogClick(testCatalog)" md-whiteframe="1">
+                <div class="right-rule">
+                    <div>
+                        <md-icon md-font-icon="fas fa-vial" class="icon"></md-icon>
+                    </div>
+                    <div>
+                        <activation value="testCatalog.isActive"></activation>
+                    </div>
+                </div>
+                <div flex layout="column" layout-align="center center" class="right-rule">
+                    <div class="bold">
+                        {{testCatalog.name}}
+                    </div>
+                    <div>
+                        {{testCatalog.requesterTestCode}}
+                    </div>
+                </div>
+                <div layout="column" layout-align="center center">
+                    <md-menu>
+                        <md-icon ng-click="$mdMenu.open()" class="settings-icon" md-font-icon="fas fa-cogs"></md-icon>
+                        <md-menu-content width="4">
+                            <md-menu-item>
+                                <md-button ng-click="triggerTestActivation(testCatalog)">
+                                    {{testCatalog.isActive?('deactivate' | translate):('activate' | translate)}}
+                                </md-button>
+                            </md-menu-item>
+                            <md-menu-item>
+                                <md-button ng-click="deleteTest(testCatalog)">
+                                    {{'delete' | translate}}
+                                </md-button>
+                            </md-menu-item>
+                        </md-menu-content>
+                    </md-menu>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <form name="testCatalogForm" novalidate ng-submit="submit()" http-disable-click>
+        <div flex layout="row" layout-wrap>
+            <md-input-container dynamic-flex>
+                <label>
+                    {{'name' | translate}}</label>
+                <input type="text" name="name" ng-model="selectedTestCatalog.name" ng-required="metaData.name.notNull"
+                    ng-minlength="metaData.name.sized? metaData.name.min:''"
+                    ng-maxlength="metaData.name.sized? metaData.name.max:''" />
+                <input-messages input-errors="testCatalogForm.name.$error" />
+            </md-input-container>
+            <md-input-container dynamic-flex>
+                <label>
+                    {{'requesterTestCode' | translate}}</label>
+                <input type="text" name="requesterTestCode" ng-model="selectedTestCatalog.requesterTestCode"
+                    ng-required="metaData.requesterTestCode.notNull"
+                    ng-minlength="metaData.requesterTestCode.sized? metaData.requesterTestCode.min:''"
+                    ng-maxlength="metaData.requesterTestCode.sized? metaData.requesterTestCode.max:''" />
+                <input-messages input-errors="testCatalogForm.requesterTestCode.$error" />
+            </md-input-container>
+            <lov dynamic-flex form="testCatalogForm" options="specimenTypeLov" select="specimenTypeLov.selectedValue"
+                ng-if="specimenTypeLov">
+            </lov>
+            <lov dynamic-flex form="testCatalogForm" options="panelLov" select="panelLov.selectedValue" ng-if="panelLov"
+                ng-hide="options && options.panelFilters">
+            </lov>
+        </div>
+        <div>
+            <md-checkbox name="isActive" ng-model="selectedTestCatalog.isActive" aria-label="{{'active' | translate}}">
+                {{'active' | translate}}</md-checkbox>
+        </div>
+        <div layout="row" layout-wrap flex layout-align="center center">
+            <md-button class="md-raised" type="button" ng-click="clearForm(testCatalogForm)">
+                {{'clear' | translate}}
+            </md-button>
+            <md-button class="md-primary md-raised" type="submit" ng-disabled="testCatalogForm.$invalid">
+                {{'save' | translate}}
+            </md-button>
+        </div>
+    </form>
+</div>

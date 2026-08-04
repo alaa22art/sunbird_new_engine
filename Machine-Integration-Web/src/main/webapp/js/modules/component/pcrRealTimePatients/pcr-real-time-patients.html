@@ -1,0 +1,115 @@
+<div class="rtpcr-patients-wrapper" ng-if="isEnableToView">
+
+    <div layout="row" flex>
+        <md-radio-group ng-model="selectedSearchCriteria.value" ng-change="changeCriteria()" class="search-options">
+            <md-radio-button ng-repeat="searchOption in searchOptions" ng-value="searchOption" class="search-option">
+                {{searchOption}}
+            </md-radio-button>
+        </md-radio-group>
+        <autocomplete-search dynamic-flex options="patientsSearchOptions" class="search-box"></autocomplete-search>
+        <pcr-result-picker options="pcrResultOptions" class="result-selection"></pcr-result-picker>
+    </div>
+
+    <div class="custom-box pcr-patients margin-b-2 padding-1" infinite-scroll="onPcrOrdersScroll()" layout="row"
+        layout-wrap flex>
+
+        <div ng-repeat="pcrOrder in pcrOrdersPage.content" class="pcr-patient" dynamic-flex="100|100|50|25|20">
+
+            <md-card class="content padding-1 margin-1 order-card shadow" md-whiteframe="1"
+                ng-class="{'result-sent-background':classes[pcrOrder.rid].isResultSent}">
+                <div class="order-header">
+                    <div class="position">
+                        <div class="sender-name"><span
+                                class="sender-name-position">{{pcrOrder.machineOrder.senderName}}</span>
+                            <!-- <span class="rotated-date">{{pcrOrder.workListOrders[0].pcrRealTimeWorkList.name}}</span> -->
+                        </div>
+                        <span class="bold break-all patient-name">
+                            <md-icon md-font-icon="fas fa-user-circle" class="profile-icon">
+                            </md-icon>
+                            {{pcrOrder.machineOrder.patientFirstName}}
+                            {{pcrOrder.machineOrder.patientLastName}}
+                        </span>
+                        <div class="time" ng-class="{'positive':classes[pcrOrder.rid].isPositive,
+                        'negative':classes[pcrOrder.rid].isNegative,
+                        'in-progress':classes[pcrOrder.rid].isInProgress,
+                        'undetermined':classes[pcrOrder.rid].isUndetermined,
+                        'not-started':classes[pcrOrder.rid].isStarted}">
+                            22:30
+                        </div>
+                        <div class="barcode-container">
+                            <span class="barcode">
+                                {{pcrOrder.machineOrder.barcode}}
+                            </span>
+                            <!-- <span class="test">{{pcrOrder.workListOrders[0].pcrRealTimeWorkList.name}}</span></div> -->
+                        </div>
+                        <div class="rotated-date">{{pcrOrder.workListOrders[0].pcrRealTimeWorkList.name}}</div>
+                    </div>
+
+                    <md-divider class="vl"></md-divider>
+                </div>
+
+
+
+                <md-card-content>
+
+                    <div class="icons-container">
+
+                        <div class="icon-container">
+                            <span class="title">{{'reason' |translate}}</span>
+                            <md-icon md-font-icon="far fa-frown" class="clickable-item icon reason-icon"
+                                http-disable-click>
+
+                                <md-tooltip md-direction="top">{{'reasonToTest' |translate}}</md-tooltip>
+                            </md-icon>
+                        </div>
+
+                        <div class="icon-container">
+                            <span class="title">Send Result</span>
+                            <md-icon md-font-icon="fab fa-whatsapp" class="clickable-item icon whatsapp-icon"
+                                http-disable-click>
+                                <md-tooltip md-direction="top">{{'sendWhatsapp' |translate}}</md-tooltip>
+                            </md-icon>
+                        </div>
+
+                    </div>
+                </md-card-content>
+            </md-card>
+
+        </div>
+
+
+    </div>
+
+
+    <div layout="row" layout-wrap layout-align="space-between center" ng-if='pcrOrdersPage.content.length'>
+        <div layout="row" layout-wrap class="bold legend-wrapper">
+            <div layout="row" layout-wrap layout-align="start center" class="positive-color text-center">
+                <md-icon md-font-icon="fas fa-circle" class="positive-color icon">
+                </md-icon>
+                <div>{{'positive' | translate}}</div>
+            </div>
+            <div layout="row" layout-wrap layout-align="center center" class="negative-color text-center">
+                <md-icon md-font-icon="fas fa-circle" class="negative-color icon">
+                </md-icon>
+                <div>{{'negative' | translate}}</div>
+            </div>
+            <div layout="row" layout-wrap layout-align="center center" class="undetermined-color text-center">
+                <md-icon md-font-icon="fas fa-circle" class="undetermined-color icon">
+                </md-icon>
+                <div>{{'undetermined' | translate}}</div>
+            </div>
+            <div layout="row" layout-wrap layout-align="center center" class="not-started-color text-center">
+                <md-icon md-font-icon="fas fa-circle" class="not-started-color icon">
+                </md-icon>
+                <div>{{'notStarted' | translate}}</div>
+            </div>
+            <div layout="row" layout-wrap layout-align="center center" class="in-progress-color text-center">
+                <md-icon md-font-icon="fas fa-circle" class="in-progress-color icon">
+                </md-icon>
+                <div>{{'inProgress' | translate}}</div>
+            </div>
+        </div>
+        <div class="bold margin-tb-1">{{pcrOrdersPage.content.length}}</div>
+    </div>
+
+</div>

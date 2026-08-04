@@ -1,0 +1,29 @@
+package com.certacure.lis.interfaces.middleware.flow_component.astme138191a;
+
+import com.certacure.lis.interfaces.middleware.core.FlowComponent;
+
+import akka.japi.pf.ReceiveBuilder;
+import scala.PartialFunction;
+import scala.runtime.BoxedUnit;
+
+public class AstmE138191AValidator extends FlowComponent<AstmE138191AControllerConf> {
+
+	@Override
+	protected PartialFunction<Object, BoxedUnit> getBehaviour() {
+		return ReceiveBuilder
+				.match(String.class, this::convertAndForward)
+				.build();
+	}
+	
+	private AstmE138191AValidator() {
+	
+	}
+	
+	private void convertAndForward(String msgAsString) {
+		System.out.print("aaa");
+	
+	}
+
+
+
+}

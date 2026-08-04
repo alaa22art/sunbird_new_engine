@@ -1,0 +1,32 @@
+.test-mapping-wrapper {
+    th[data-role='droptarget'] {
+        text-align: center !important;
+    }
+    .mapIcon {
+        position: absolute;
+        top: 10px;
+        #{$direction}: 10px;
+        font-size: 2.0em;
+        text-align: center !important;
+        .mapInactive {
+            color: $error-color;
+        }
+        .mapActive {
+            color: $success-color;
+        }
+    }
+    .mapGridIcon {
+        #{$direction}: 10px;
+        font-size: 2.0em;
+        margin-left: 50%;
+        .mapInactive {
+            color: $error-color;
+        }
+        .mapActive {
+            color: $success-color;
+        }
+    }
+    .img-border {
+        border: 1px solid rgba(0, 0, 0, 0.12);
+    }
+}

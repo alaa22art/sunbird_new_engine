@@ -1,0 +1,175 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.certacure</groupId>
+	<artifactId>Machine-Integration-Core</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>Machine-Integration-Core</name>
+	<description>Machine-Integration-Core</description>
+	
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.2.4.RELEASE</version>
+	</parent>
+	
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<certacure.core.version>0.0.1-SNAPSHOT</certacure.core.version>
+		<java.version>1.8</java.version>
+		<hapi.version>2.3</hapi.version>
+		<akka.version>2.4.6</akka.version>
+		<Gson.version>2.8.5</Gson.version>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+		</dependency>    
+		<dependency>
+			<groupId>org.java-websocket</groupId>
+			<artifactId>Java-WebSocket</artifactId>
+			<version>1.3.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.typesafe.akka</groupId>
+			<artifactId>akka-actor_2.11</artifactId>
+			 <version>${akka.version}</version>
+		</dependency>
+		<dependency>
+          <groupId>ca.uhn.hapi</groupId>
+          <artifactId>hapi-base</artifactId>
+          <version>${hapi.version}</version>
+         </dependency>       
+         <dependency>
+            <groupId>ca.uhn.hapi</groupId>
+            <artifactId>hapi-hl7overhttp</artifactId>
+            <version>${hapi.version}</version>
+        	<exclusions>
+				<exclusion>
+				    <groupId>org.bouncycastle</groupId>
+    				<artifactId>bcprov-jdk16</artifactId>
+				</exclusion>
+			</exclusions>
+         </dependency>    
+         <dependency>
+            <groupId>ca.uhn.hapi</groupId>
+            <artifactId>hapi-structures-v25</artifactId>
+            <version>${hapi.version}</version>
+         </dependency>  
+          <dependency>
+            <groupId>ca.uhn.hapi</groupId>
+            <artifactId>hapi-structures-v24</artifactId>
+            <version>${hapi.version}</version>
+         </dependency>  
+         <dependency>
+        <groupId>ca.uhn.hapi.fhir</groupId>
+        <artifactId>hapi-fhir-structures-dstu2</artifactId>
+       <version>5.4.2</version>
+    </dependency>
+    <dependency>
+        <groupId>ca.uhn.hapi.fhir</groupId>
+        <artifactId>hapi-fhir-structures-r4</artifactId>
+       <version>5.4.2</version>
+    </dependency>
+
+<dependency>
+    <groupId>org.apache.httpcomponents</groupId>
+    <artifactId>httpclient</artifactId>
+     <version>4.5.2</version>
+</dependency>
+
+<dependency>
+    <groupId>org.json</groupId>
+    <artifactId>json</artifactId>
+    <version>20211205</version>
+</dependency>
+
+<dependency>
+    <groupId>com.google.code.gson</groupId>
+    <artifactId>gson</artifactId>
+    <version>${Gson.version}</version>
+</dependency>
+
+
+    <dependency>
+    	<groupId>com.certacure</groupId>
+    	<artifactId>Certacure-Core</artifactId>
+    </dependency>
+    
+    <dependency>
+    <groupId>org.postgresql</groupId>
+    <artifactId>postgresql</artifactId>
+    <version>42.2.9</version>
+</dependency>
+
+
+<dependency>
+			<groupId>com.fasterxml.jackson.datatype</groupId>
+			<artifactId>jackson-datatype-hibernate5</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>2.9.4</version>
+		</dependency>
+		<dependency>
+			<groupId>org.json</groupId>
+			<artifactId>json</artifactId>
+			<version>20231013</version>
+		</dependency>
+
+    
+    
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>exec-maven-plugin</artifactId>
+				<configuration>
+					<executable>java</executable>
+					<arguments>
+						<argument>-classpath</argument>
+						<classpath />
+						<argument>com.lightbend.akka.sample.AkkaQuickstart</argument>
+					</arguments>
+				</configuration>
+			</plugin>
+		</plugins>
+
+	</build>
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>com.certacure</groupId>
+				<artifactId>Certacure-Core</artifactId>
+				<version>0.0.1-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>com.certacure</groupId>
+				<artifactId>Machine-Integration-Core</artifactId>
+				<version>0.0.1-SNAPSHOT</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+</project>

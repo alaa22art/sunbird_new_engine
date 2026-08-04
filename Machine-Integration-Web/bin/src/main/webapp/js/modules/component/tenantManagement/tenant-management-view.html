@@ -1,0 +1,9 @@
+<md-content class="hidden-overflow-x">
+	<tenant-form ng-if="tenant!=null" tenant="tenant" options="tenantFormOptions"></tenant-form>
+	<div layout="row" layout-wrap flex ng-if="tenant!=null">
+		<md-button class="md-primary md-raised" type="button" ng-click="submitTenant()"
+			ng-disabled="tenantFormOptions.isFormInvalid()" authority-checker="UPD_TENANT">
+			{{'save' | translate}}
+		</md-button>
+	</div>
+</md-content>

@@ -1,0 +1,48 @@
+.device-tests-mapping-wrapper {
+
+    .machine-tests {
+        height: 400px;
+        max-height: 400px;
+        padding: 8px;
+
+        .machine-test {
+
+            .content {
+                margin: 8px;
+                padding: 8px;
+                border-radius: 10px;
+
+                .main-icon {
+                    font-size: 3em;
+                    height: auto;
+                    line-height: 1;
+                    color: #24709c;
+                    padding: 8px;
+                }
+
+                .action-icon {
+                    font-size: 1.5em;
+                    text-align: center;
+                    padding: 2px;
+                }
+
+                .label {
+                    padding: 8px;
+                }
+
+
+                &.active,
+                &:hover {
+                    background-color: $primary-theme-color;
+                    color: white;
+
+                    md-icon {
+                        color: white !important;
+                    }
+                }
+            }
+        }
+    }
+
+
+}

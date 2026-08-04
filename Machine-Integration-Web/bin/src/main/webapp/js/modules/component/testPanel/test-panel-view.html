@@ -1,0 +1,83 @@
+<div class="test-panel-wrapper">
+    <div layout="row" flex>
+        <autocomplete-search dynamic-flex options="autoSearchOptions"></autocomplete-search>
+    </div>
+    <div layout="row" flex layout-align="center center">
+        <letter-picker dynamic-flex options="letterPickerOptions"></letter-picker>
+    </div>
+    <div class="custom-box test-panels" infinite-scroll="onPanelScroll()" layout="row" layout-wrap flex>
+        <div ng-if="panelPage.content.length === 0" layout="column" class="bold" layout-align="center center"
+            layout-fill>
+            {{'noData' | translate}}
+        </div>
+        <div ng-repeat="panel in panelPage.content" dynamic-flex="100|50|33|25|20">
+            <div class="panel clickable-item" ng-class="{'active':selectedPanel.rid === panel.rid}" layout="row"
+                layout-align="space-between center" ng-click="onPanelClick(panel)" md-whiteframe="1">
+                <div layout="row" layout-wrap layout-align="start center" flex>
+                    <div class="right-rule">
+                        <div>
+                            <md-icon md-font-icon="fas fa-vial" class="icon"></md-icon>
+                        </div>
+                    </div>
+                    <div flex class="right-rule">
+                        <div class="bold">
+                            {{panel.name}}
+                        </div>
+                        <div>
+                            {{panel.externalCode}}
+                        </div>
+                    </div>
+                </div>
+                <div layout="row" layout-wrap layout-align="start center">
+                    <md-menu>
+                        <md-icon ng-click="$mdMenu.open()" class="settings-icon" md-font-icon="fas fa-cogs"></md-icon>
+                        <md-menu-content width="4">
+                            <md-menu-item>
+                                <md-button ng-click="deletePanel(panel)">
+                                    {{'delete' | translate}}
+                                </md-button>
+                            </md-menu-item>
+                        </md-menu-content>
+                    </md-menu>
+                </div>
+            </div>
+        </div>
+    </div>
+    <form name="panelForm" novalidate ng-submit="submit()" http-disable-click>
+        <div flex layout="row" layout-wrap>
+            <md-input-container dynamic-flex>
+                <label>
+                    {{'name' | translate}}</label>
+                <input type="text" name="name" ng-model="selectedPanel.name" ng-required="metaData.name.notNull"
+                    ng-minlength="metaData.name.sized? metaData.name.min:''"
+                    ng-maxlength="metaData.name.sized? metaData.name.max:''" />
+                <input-messages input-errors="panelForm.name.$error" />
+            </md-input-container>
+            <md-input-container dynamic-flex>
+                <label>
+                    {{'externalCode' | translate}}</label>
+                <input type="text" name="externalCode" ng-model="selectedPanel.externalCode"
+                    ng-required="metaData.externalCode.notNull"
+                    ng-minlength="metaData.externalCode.sized? metaData.externalCode.min:''"
+                    ng-maxlength="metaData.externalCode.sized? metaData.externalCode.max:''" />
+                <input-messages input-errors="panelForm.externalCode.$error" />
+            </md-input-container>
+        </div>
+        <div layout="row" layout-wrap flex layout-align="center center">
+            <md-button class="md-raised" type="button" ng-click="clearForm(panelForm)">
+                {{'clear' | translate}}
+            </md-button>
+            <md-button class="md-primary md-raised" type="submit" ng-disabled="panelForm.$invalid">
+                {{'save' | translate}}
+            </md-button>
+        </div>
+    </form>
+    <accordion ng-show="selectedPanel && selectedPanel.rid">
+        <accordion-block>
+            <accordion-header>{{'tests' | translate}}</accordion-header>
+            <accordion-content>
+                <test-catalog options="testCatalogOptions"></test-catalog>
+                </accordion-header>
+        </accordion-block>
+    </accordion>
+</div>

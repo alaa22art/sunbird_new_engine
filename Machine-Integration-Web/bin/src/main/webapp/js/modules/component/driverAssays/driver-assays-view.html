@@ -1,0 +1,276 @@
+<div class="machine-type-tests-wrapper">
+    <div class="message-box error-message" ng-if="!selectedMachineType">
+        {{'noDriverSelected' | translate}}
+    </div>
+    <div ng-if="selectedMachineType">
+        <div flex layout="row" layout-wrap>
+            <autocomplete-search dynamic-flex options="machineTypeTestSearchOptions"></autocomplete-search>
+        </div>
+        <div class="custom-box machine-type-tests" infinite-scroll="onMachineTypeTestScroll()" layout="row" layout-wrap
+            flex>
+            <div ng-if="currentMachineTypeTestPage.content.length === 0" layout="column" layout-align="center center"
+                layout-fill class="bold">
+                {{'noData' | translate}}
+            </div>
+            <div ng-repeat="machineTypeTest in currentMachineTypeTestPage.content" dynamic-flex="100|100|50|50|50">
+                <div class="machine-type-test" ng-class="{'active':selectedMachineTypeTest === machineTypeTest}"
+                    layout="row" md-whiteframe="1">
+                    <div class="clickable-item right-rule text-center"
+                        ng-click="onMachineTypeTestClick(machineTypeTest)" layout="column">
+                        <md-icon class="machine-type-test-icon" md-font-icon="fas fa-eye-dropper">
+                        </md-icon>
+                        <activation value="machineTypeTest.isActive"></activation>
+                    </div>
+
+                    <div class="content clickable-item" flex layout="column" layout-align="start start"
+                        ng-click="onMachineTypeTestClick(machineTypeTest)">
+                        <div ng-if="machineTypeTest.testCatalog">
+                            {{'test' | translate}}:&nbsp;<span class="bold">{{machineTypeTest.testCatalog.name}}</span>
+                        </div>
+                        <div>
+                            {{'code'|translate}}:&nbsp;<span class="bold">{{machineTypeTest.name}}</span>
+                        </div>
+                        <div ng-if="machineTypeTest.defaultHostCode">
+                            {{'assayCode' | translate}}:&nbsp;<span
+                                class="bold">{{machineTypeTest.defaultHostCode}}</span>
+                        </div>
+                        <div ng-if="machineTypeTest.description">
+                            {{'description' | translate}}:&nbsp;<span
+                                class="bold">{{machineTypeTest.description}}</span>
+                        </div>
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <form novalidate name="machineTypeTestForm" ng-submit="submitMachineTypeTest()" http-disable-click
+            ng-show="selectedMachineTypeTest">
+            <md-tabs md-dynamic-height md-border-bottom>
+                <md-tab label="{{'general'|translate}}">
+                    <div layout="row" flex layout-wrap>
+                        <div dynamic-flex layout="row" layout-align="start center">
+                            {{'test' | translate}}:&nbsp;<span class="bold" ng-if="selectedMachineTypeTest.testCatalog">
+                                {{selectedMachineTypeTest.testCatalog.name}}
+                            </span>
+                        </div>
+                        <div dynamic-flex layout="row" layout-align="start center">
+                            {{'requesterTestCode' | translate}}:&nbsp;<span class="bold"
+                                ng-if="selectedMachineTypeTest.testCatalog">
+                                {{selectedMachineTypeTest.testCatalog.requesterTestCode}}
+                            </span>
+                        </div>
+                        <md-input-container dynamic-flex>
+                            <label>{{'name' | translate}}</label>
+                            <input type="text" name="name" ng-model="selectedMachineTypeTest.name"
+                                ng-required="machineTypeTestMetaData.name.notNull"
+                                ng-minlength="machineTypeTestMetaData.name.sized? machineTypeTestMetaData.name.min:''"
+                                ng-maxlength="machineTypeTestMetaData.name.sized? machineTypeTestMetaData.name.max:''" />
+                            <input-messages input-errors="machineTypeTestForm.name.$error" />
+                        </md-input-container>
+                        <md-input-container dynamic-flex>
+                            <label>{{'description' | translate}}</label>
+                            <input type="text" name="description" ng-model="selectedMachineTypeTest.description"
+                                ng-required="machineTypeTestMetaData.description.notNull"
+                                ng-minlength="machineTypeTestMetaData.description.sized? machineTypeTestMetaData.description.min:''"
+                                ng-maxlength="machineTypeTestMetaData.description.sized? machineTypeTestMetaData.description.max:''" />
+                            <input-messages input-errors="machineTypeTestForm.description.$error" />
+                        </md-input-container>
+                        <md-input-container dynamic-flex>
+                            <label>{{'assayCode' | translate}}</label>
+                            <input type="text" name="defaultHostCode" ng-model="selectedMachineTypeTest.defaultHostCode"
+                                ng-required="machineTypeTestMetaData.defaultHostCode.notNull"
+                                ng-minlength="machineTypeTestMetaData.defaultHostCode.sized? machineTypeTestMetaData.defaultHostCode.min:''"
+                                ng-maxlength="machineTypeTestMetaData.defaultHostCode.sized? machineTypeTestMetaData.defaultHostCode.max:''" />
+                            <input-messages input-errors="machineTypeTestForm.defaultHostCode.$error" />
+                        </md-input-container>
+                        <md-input-container dynamic-flex>
+                            <label>{{'roundingAmount' | translate}}</label>
+                            <input type="number" name="roundingAmount" ng-model="selectedMachineTypeTest.roundingAmount"
+                                ng-required="machineTypeTestMetaData.roundingAmount.notNull"
+                                ng-min="machineTypeTestMetaData.roundingAmount.sized? machineTypeTestMetaData.roundingAmount.min:''"
+                                ng-max="machineTypeTestMetaData.roundingAmount.sized? machineTypeTestMetaData.roundingAmount.max:''"
+                                ng-pattern="patternNum" />
+                            <input-messages input-errors="machineTypeTestForm.roundingAmount.$error" />
+                        </md-input-container>
+                        <md-input-container dynamic-flex>
+                            <label>{{'factor' | translate}}</label>
+                            <input type="number" name="factor" ng-model="selectedMachineTypeTest.factor"
+                                ng-required="machineTypeTestMetaData.factor.notNull"
+                                ng-min="machineTypeTestMetaData.factor.sized? machineTypeTestMetaData.factor.min:''"
+                                ng-max="machineTypeTestMetaData.factor.sized? machineTypeTestMetaData.factor.max:''"
+                                ng-pattern="patternPercent" />
+                            <input-messages input-errors="machineTypeTestForm.factor.$error" />
+                        </md-input-container>
+                    </div>
+                    <div layout="row" flex layout-wrap>
+                        <md-input-container dynamic-flex>
+                            <md-checkbox name="isActive" ng-model="selectedMachineTypeTest.isActive"
+                                ng-checked="selectedMachineType.isActive" aria-label="{{'active' | translate}}">
+                                {{'active' | translate}}</md-checkbox>
+                        </md-input-container>
+                    </div>
+                </md-tab>
+                <md-tab label="{{'resultVerification'|translate}}">
+                    <div layout="row" flex layout-wrap>
+                        <md-input-container dynamic-flex>
+                            <md-checkbox name="isAutoVerifiable" ng-model="selectedTestAssay.isAutoVerifiable"
+                                ng-checked="selectedTestAssay.isAutoVerifiable"
+                                aria-label="{{'autoVerify' | translate}}">
+                                {{'autoVerify' | translate}}</md-checkbox>
+                        </md-input-container>
+                    </div>
+                    <div class="headline-label">{{'criticalRange' | translate}}</div>
+                    <div layout="row" flex layout-wrap class="region-margin">
+                        <md-input-container dynamic-flex>
+                            <label>{{'low' | translate}}</label>
+                            <input type="number" name="criticalLow" ng-model="selectedTestAssay.criticalLow"
+                                ng-required="testAssayMetaData.criticalLow.notNull"
+                                ng-min="testAssayMetaData.criticalLow.sized? testAssayMetaData.criticalLow.min:''"
+                                ng-max="testAssayMetaData.criticalLow.sized? testAssayMetaData.criticalLow.max:''"
+                                ng-pattern="patternNum" />
+                            <input-messages input-errors="machineTypeTestForm.criticalLow.$error" />
+                        </md-input-container>
+                        <md-input-container dynamic-flex>
+                            <label>{{'high' | translate}}</label>
+                            <input type="number" name="criticalHigh" ng-model="selectedTestAssay.criticalHigh"
+                                ng-required="testAssayMetaData.criticalHigh.notNull"
+                                ng-min="testAssayMetaData.criticalHigh.sized? testAssayMetaData.criticalHigh.min:''"
+                                ng-max="testAssayMetaData.criticalHigh.sized? testAssayMetaData.criticalHigh.max:''"
+                                ng-pattern="patternNum" />
+                            <input-messages input-errors="machineTypeTestForm.criticalHigh.$error" />
+                        </md-input-container>
+                    </div>
+                    <div class="headline-label">{{'deltaCheck' | translate}}</div>
+                    <div class="region-margin">
+                        <div layout="row" layout-wrap flex>
+                            <md-input-container dynamic-flex>
+                                <label>{{'timeFrame' | translate}}</label>
+                                <input type="number" name="deltaTimeFrame" ng-model="selectedTestAssay.deltaTimeFrame"
+                                    ng-required="selectedDeltaType && selectedDeltaType.code !== 'NONE'"
+                                    ng-min="testAssayMetaData.deltaTimeFrame.sized? testAssayMetaData.deltaTimeFrame.min:''"
+                                    ng-max="testAssayMetaData.deltaTimeFrame.sized? testAssayMetaData.deltaTimeFrame.max:''"
+                                    ng-pattern="patternNum" />
+                                <input-messages input-errors="machineTypeTestForm.deltaTimeFrame.$error" />
+                            </md-input-container>
+                        </div>
+                        <div layout="row" layout-wrap flex>
+                            <md-input-container dynamic-flex
+                                ng-if="selectedDeltaType && selectedDeltaType.showDeltaMin">
+                                <label>{{'deltaMin' | translate}}</label>
+                                <input type="number" name="deltaMin" ng-model="selectedTestAssay.deltaMin"
+                                    ng-required="true"
+                                    ng-min="testAssayMetaData.deltaMin.sized? testAssayMetaData.deltaMin.min:''"
+                                    ng-max="testAssayMetaData.deltaMin.sized? testAssayMetaData.deltaMin.max:''" />
+                                <input-messages input-errors="machineTypeTestForm.deltaMin.$error" />
+                            </md-input-container>
+                            <md-input-container dynamic-flex>
+                                <label>{{'deltaMax' | translate}}</label>
+                                <input type="number" name="deltaMax" ng-model="selectedTestAssay.deltaMax"
+                                    ng-required="selectedDeltaType && selectedDeltaType.code !== 'NONE'"
+                                    ng-min="testAssayMetaData.deltaMax.sized? testAssayMetaData.deltaMax.min:''"
+                                    ng-max="testAssayMetaData.deltaMax.sized? testAssayMetaData.deltaMax.max:''"
+                                    ng-pattern="patternPercent" />
+                                <input-messages input-errors="machineTypeTestForm.deltaMax.$error" />
+                            </md-input-container>
+                        </div>
+                        <div layout="row" layout-wrap flex
+                            ng-if="selectedDeltaType && selectedDeltaType.showReferenceRange">
+                            <md-input-container dynamic-flex>
+                                <label>{{'referenceRangeMin' | translate}}</label>
+                                <input type="number" name="referenceRangeMin"
+                                    ng-model="selectedTestAssay.referenceRangeMin"
+                                    ng-required="selectedDeltaType && selectedDeltaType.code === 'DIFFERENCE_BY_RANGE'"
+                                    ng-min="testAssayMetaData.referenceRangeMin.sized? testAssayMetaData.referenceRangeMin.min:''"
+                                    ng-max="testAssayMetaData.referenceRangeMin.sized? testAssayMetaData.referenceRangeMin.max:''"
+                                    ng-pattern="patternPercent" />
+                                <input-messages input-errors="machineTypeTestForm.referenceRangeMin.$error" />
+                            </md-input-container>
+                            <md-input-container dynamic-flex>
+                                <label>{{'referenceRangeMax' | translate}}</label>
+                                <input type="number" name="referenceRangeMax"
+                                    ng-model="selectedTestAssay.referenceRangeMax"
+                                    ng-required="selectedDeltaType && selectedDeltaType.code === 'DIFFERENCE_BY_RANGE'"
+                                    ng-min="testAssayMetaData.referenceRangeMax.sized? testAssayMetaData.referenceRangeMax.min:''"
+                                    ng-max="testAssayMetaData.referenceRangeMax.sized? testAssayMetaData.referenceRangeMax.max:''"
+                                    ng-pattern="patternPercent" />
+                                <input-messages input-errors="machineTypeTestForm.referenceRangeMax.$error" />
+                            </md-input-container>
+                        </div>
+                    </div>
+                    <div class="headline-label">{{'amrRange' | translate}}</div>
+                    <div layout="row" flex layout-wrap class="region-margin">
+                        <md-input-container dynamic-flex>
+                            <label>{{'low' | translate}}</label>
+                            <input type="number" name="amrLow" ng-model="selectedTestAssay.amrLow"
+                                ng-required="testAssayMetaData.amrLow.notNull"
+                                ng-min="testAssayMetaData.amrLow.sized? testAssayMetaData.amrLow.min:''"
+                                ng-max="testAssayMetaData.amrLow.sized? testAssayMetaData.amrLow.max:''"
+                                ng-pattern="patternPercent" />
+                            <input-messages input-errors="machineTypeTestForm.amrLow.$error" />
+                        </md-input-container>
+                        <md-input-container dynamic-flex>
+                            <label>{{'high' | translate}}</label>
+                            <input type="number" name="amrHigh" ng-model="selectedTestAssay.amrHigh"
+                                ng-required="testAssayMetaData.amrHigh.notNull"
+                                ng-min="testAssayMetaData.amrHigh.sized? testAssayMetaData.amrHigh.min:''"
+                                ng-max="testAssayMetaData.amrHigh.sized? testAssayMetaData.amrHigh.max:''"
+                                ng-pattern="patternPercent" />
+                            <input-messages input-errors="machineTypeTestForm.amrHigh.$error" />
+                        </md-input-container>
+                    </div>
+                    <div class="headline-label">{{'interferenceIndices' | translate}}</div>
+                    <div layout="row" flex layout-wrap class="region-margin">
+                        <md-input-container dynamic-flex>
+                            <label>{{'lipemia' | translate}}</label>
+                            <input type="number" name="lipemia" ng-model="selectedTestAssay.lipemia"
+                                ng-required="testAssayMetaData.lipemia.notNull"
+                                ng-min="testAssayMetaData.lipemia.sized? testAssayMetaData.lipemia.min:''"
+                                ng-max="testAssayMetaData.lipemia.sized? testAssayMetaData.lipemia.max:''"
+                                ng-pattern="patternPercent" />
+                            <input-messages input-errors="machineTypeTestForm.lipemia.$error" />
+                        </md-input-container>
+                        <md-input-container dynamic-flex>
+                            <label>{{'icterus' | translate}}</label>
+                            <input type="number" name="icterus" ng-model="selectedTestAssay.icterus"
+                                ng-required="testAssayMetaData.icterus.notNull"
+                                ng-min="testAssayMetaData.icterus.sized? testAssayMetaData.icterus.min:''"
+                                ng-max="testAssayMetaData.icterus.sized? testAssayMetaData.icterus.max:''"
+                                ng-pattern="patternPercent" />
+                            <input-messages input-errors="machineTypeTestForm.icterus.$error" />
+                        </md-input-container>
+                        <md-input-container dynamic-flex>
+                            <label>{{'hemolysis' | translate}}</label>
+                            <input type="number" name="hemolysis" ng-model="selectedTestAssay.hemolysis"
+                                ng-required="testAssayMetaData.hemolysis.notNull"
+                                ng-min="testAssayMetaData.hemolysis.sized? testAssayMetaData.hemolysis.min:''"
+                                ng-max="testAssayMetaData.hemolysis.sized? testAssayMetaData.hemolysis.max:''"
+                                ng-pattern="patternPercent" />
+                            <input-messages input-errors="machineTypeTestForm.icterus.$error" />
+                        </md-input-container>
+                    </div>
+                </md-tab>
+                <md-tab label="{{'calculation'|translate}}">
+                    <md-input-container>
+                        <label>{{'formula' | translate}}</label>
+                        <input type="text" name="calculationFormula"
+                            ng-model="selectedMachineTypeTest.calculationFormula"
+                            ng-required="machineTypeTestMetaData.calculationFormula.notNull"
+                            ng-minlength="machineTypeTestMetaData.calculationFormula.sized? machineTypeTestMetaData.calculationFormula.min:''"
+                            ng-maxlength="machineTypeTestMetaData.calculationFormula.sized? machineTypeTestMetaData.calculationFormula.max:''" />
+                        <input-messages input-errors="machineTypeTestForm.calculationFormula.$error" />
+                    </md-input-container>
+                </md-tab>
+            </md-tabs>
+            <div layout="row" flex layout-wrap>
+                <md-button class="md-raised" type="button" ng-click="clearForm()">
+                    {{'clear' | translate}}
+                </md-button>
+                <md-button class="md-primary md-raised" type="submit" ng-disabled="machineTypeTestForm.$invalid">
+                    {{'save' | translate}}
+                </md-button>
+            </div>
+        </form>
+    </div>
+</div>

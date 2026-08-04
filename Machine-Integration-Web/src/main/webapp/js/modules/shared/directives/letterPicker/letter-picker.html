@@ -1,0 +1,8 @@
+<div class="letter-picker-wrapper">
+    <div class="chips-wrapper" layout="row" layout-align="center center" layout-wrap>
+        <div ng-repeat="letter in letters" class="chip clickable-item" ng-class="{'active':letter === selectedLetter}"
+            ng-click="onLetterClick(letter)">
+            {{letter}}
+        </div>
+    </div>
+</div>

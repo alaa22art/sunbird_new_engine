@@ -1,0 +1,213 @@
+<md-content layout-padding class="machine-assign-tests-wrapper">
+    <form name="machineAssignTest" novalidate layout="column" layout-gt-sm="column" flex>
+        <md-card md-whiteframe="3">
+            <md-card-content flex layout="row" layout-wrap>
+
+                <div flex>
+                    <div layout="row" flex layout-wrap>
+
+                        <lov dynamic-flex form="machineAssignTest" ng-repeat="lkp in lkps" options="lkp"
+                            select="selectedMachine.machineType"></lov>
+
+                        <md-input-container dynamic-flex>
+
+                            <label>{{'name' | translate}}</label>
+                            <input type="text" name="name" ng-model="selectedMachine.name" ng-required="true">
+                            <div ng-messages="machineAssignTest.name.$error">
+                                <div ng-message="required"> {{'required' | translate}} </div>
+                            </div>
+
+                        </md-input-container>
+
+                    </div>
+                    <div layout="row" flex layout-wrap>
+                        <md-input-container dynamic-flex>
+                            <label>{{'machineIP' | translate}}</label>
+                            <input required type="text" name="selectedMachine.machineIpAddress"
+                                ng-model="selectedMachine.machineIpAddress"
+                                ng-pattern="/^([0-9]{1,3})[.]([0-9]{1,3})[.]([0-9]{1,3})[.]([0-9]{1,3})$/"
+                                ng-required="metaData.machineIpAddress.notNull">
+                            <div ng-messages="machineAssignTest.machineIpAddress.$error">
+                                <div ng-message="required"> {{'required' | translate}} </div>
+                                <div ng-message="pattern"> {{'notCorrectIP' | translate}} </div>
+                            </div>
+                        </md-input-container>
+
+                        <md-input-container dynamic-flex>
+
+                            <label>{{'ServerIP' | translate}}</label>
+                            <input required type="text" name="selectedMachine.serverIpAddress"
+                                ng-model="selectedMachine.serverIpAddress"
+                                ng-pattern="/^([0-9]{1,3})[.]([0-9]{1,3})[.]([0-9]{1,3})[.]([0-9]{1,3})$/"
+                                ng-required="metaData.serverIpAddress.notNull">
+                            <div ng-messages="machineAssignTest.serverIpAddress.$error">
+                                <div ng-message="required"> {{'required' | translate}} </div>
+                                <div ng-message="pattern"> {{'notCorrectIP' | translate}} </div>
+                            </div>
+                        </md-input-container>
+
+                        <md-input-container dynamic-flex>
+
+                            <label>{{'serverPort' | translate}}</label>
+                            <input required type="number" min="1200" max="65000" ng-pattern="/^(?:\d{4}|\d{5})$/"
+                                ng-model="selectedMachine.serverPort" ng-required="true">
+
+                            <div ng-messages="machineAssignTest.serverPort.$error">
+                                <div ng-message="required"> {{'required' | translate}} </div>
+                                <div ng-message="pattern"> {{'notCorrectPort' | translate}} </div>
+                            </div>
+                        </md-input-container>
+
+                    </div>
+                    <div layout="row" flex layout-wrap>
+                        <md-input-container dynamic-flex="100|100|33|33|33">
+                            <label>{{'username' | translate}}</label>
+                            <input ng-model="selectedMachine.userName">
+                        </md-input-container>
+
+                        <md-input-container dynamic-flex="100|100|33|33|33">
+                            <label>{{'password' | translate}}</label>
+                            <input type="password" ng-model="selectedMachine.password">
+                        </md-input-container>
+
+                        <md-input-container dynamic-flex="100|100|33|33|33">
+                            <label> {{'address' | translate}}</label>
+                            <input ng-model="selectedMachine.address">
+                        </md-input-container>
+                    </div>
+
+                    <div layout="row" flex layout-wrap>
+                        <div dynamic-flex="100|100|33|33|33">
+                            <md-switch class="md-primary" aria-label="{{'isActive' | translate}}"
+                                ng-model="selectedMachine.isActive" authority-checker="TOGGLE_MACHINE_STATUS">
+                                {{'isActive' | translate}}
+                            </md-switch>
+                        </div>
+                        <div dynamic-flex="100|100|33|33|33">
+                            <md-switch class="md-primary" aria-label="{{'isActive' | translate}}"
+                                ng-model="selectedMachine.isPanelOrder" authority-checker="TOGGLE_MACHINE_STATUS">
+                                {{'isPanelOrder' | translate}}
+                            </md-switch>
+                        </div>
+                        <div dynamic-flex="100|100|33|33|33">
+                            <md-switch class="md-primary" aria-label="{{'reciveOrder' | translate}}"
+                                ng-model="selectedMachine.isReceiveStateActive"
+                                authority-checker="TOGGLE_MACHINE_SEND_ORDER">
+                                {{'reciveOrder' | translate}}
+                            </md-switch>
+                        </div>
+                        <div dynamic-flex="100|100|33|33|33">
+                            <md-switch class="md-primary" aria-label="{{'sendResultQuery' | translate}}"
+                                ng-model="selectedMachine.isSendStateActive"
+                                authority-checker="TOGGLE_MACHINE_SEND_RESULT_OR_QUERY">
+
+                                {{'sendResultQuery' | translate}}
+                            </md-switch>
+                        </div>
+                    </div>
+
+                    <div layout="row" flex layout-wrap>
+                        <md-input-container flex>
+                            <md-button class="md-primary md-raised" type="button"
+                                ng-disabled="selectedMachine.rid != null || machineAssignTest.$invalid"
+                                ng-click="saveMachine()" authority-checker="ADD_MACHINE_SETUP">
+                                {{'add' | translate}}
+                            </md-button>
+
+                            <md-button class="md-primary md-raised" type="button"
+                                ng-disabled="selectedMachine.rid == null || machineAssignTest.$invalid"
+                                ng-click="saveMachine()" authority-checker="UPD_MACHINE_SETUP">
+                                {{'edit' | translate}}
+                            </md-button>
+
+                            <md-button class="md-primary md-raised" ng-disabled="true" type="button"
+                                ng-click="showManageTypeTests()">
+                                {{'manageTests' | translate}}
+                            </md-button>
+
+                            <md-button class="md-primary md-raised" type="button" ng-click="clearFields()">
+                                {{'clear' | translate}}
+                            </md-button>
+
+                            <md-button class="md-primary md-raised" type="button" ng-click="back()">
+                                {{'back' | translate}}
+                            </md-button>
+                        </md-input-container>
+
+                    </div>
+                </div>
+
+                <div flex-sm="100" layout="column" class="machine-type-img">
+                    <img ng-src="{{'./assets/images/machines_type_images/'+imageName+'.jpg'}}"
+                        onerror="javascript:this.src='./assets/images/machines_type_images/no_machine.jpg'"
+                        ng-class="selectedMachine.isActive?'img-active md-whiteframe-12dp':'img-inactive md-whiteframe-12dp'" />
+                    <div class="mapIcon">
+                        <md-icon ng-if="selectedMachine.isActive" md-font-icon="fas  fa-check-circle" class="mapActive">
+                            <md-tooltip md-direction="top">{{'machineRunning' | translate}}</md-tooltip>
+                        </md-icon>
+                        <md-icon ng-if="!selectedMachine.isActive" md-font-icon="fas  fa-times-circle"
+                            class="mapInactive">
+                            <md-tooltip md-direction="top">{{'machineStoped' | translate}}</md-tooltip>
+                        </md-icon>
+                    </div>
+                </div>
+
+            </md-card-content>
+
+        </md-card>
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <div layout="row" flex>
+                    <md-button aria-label="{{'create' | translate}}" class="md-fab md-mini" ng-click="addSelectedTest()"
+                        type="button">
+                        <md-tooltip md-direction="top">{{'create' | translate}}</md-tooltip>
+                        <md-icon md-font-icon="fas fa-plus"></md-icon>
+                    </md-button>
+                    <md-button type="button" aria-label="{{'edit' | translate}}" class="md-fab md-mini"
+                        ng-disabled="selectedTest==null" ng-click="editSelectedTest(selectedTest)">
+                        <md-tooltip md-direction="top">{{'edit' | translate}}</md-tooltip>
+                        <md-icon md-font-icon="fas fa-edit"></md-icon>
+                    </md-button>
+                    <md-button aria-label="{{'save' | translate}}" class="md-fab md-mini" type="button"
+                        ng-disabled="selectedTest==null" ng-click="saveSelectedTest()">
+                        <md-tooltip md-direction="top">{{'save' | translate}}</md-tooltip>
+                        <md-icon md-font-icon="fas fa-save"></md-icon>
+                    </md-button>
+                    <md-button aria-label="{{ 'cancel' | translate }}" class="md-fab md-mini"
+                        ng-click="cancelSelectedTests()">
+                        <md-icon md-font-icon="fas fa-undo"></md-icon>
+                        <md-tooltip md-direction="top">{{ 'cancel' | translate }}</md-tooltip>
+                    </md-button>
+                    <md-button aria-label="{{'delete' | translate}}" class="md-fab md-mini" type="button"
+                        ng-disabled="selectedTest==null" ng-click="deleteSelectedTest(selectedTest)">
+                        <md-icon md-font-icon="fas fa-trash"></md-icon>
+                        <md-tooltip md-direction="top">{{'delete' | translate}}</md-tooltip>
+                    </md-button>
+                    <md-button aria-label="{{'activeAll' | translate}}" class="md-fab md-mini" type="button"
+                        ng-disabled="selectedTest==null" ng-click="activeAllTests()">
+                        <md-icon md-font-icon="fas fa-check-circle"></md-icon>
+                        <md-tooltip md-direction="top">{{'activeAll' | translate}}</md-tooltip>
+                    </md-button>
+                    <md-button aria-label="{{'deactivateAll' | translate}}" class="md-fab md-mini" type="button"
+                        ng-disabled="selectedTest==null" ng-click="deactivateAllTests()">
+                        <md-icon md-font-icon="fas fa-times-circle"></md-icon>
+                        <md-tooltip md-direction="top">{{'deactiveAll' | translate}}</md-tooltip>
+                    </md-button>
+
+                </div>
+                <div layout="row">
+                    <md-button aria-label="{{ 'refresh' | translate}}" class="md-fab md-mini" http-disable-click
+                        ng-click="refreshGrid()" type="button">
+                        <md-tooltip md-direction="top">{{'refresh' | translate}}</md-tooltip>
+                        <md-icon md-font-icon="fas fa-sync"></md-icon>
+                    </md-button>
+                </div>
+            </div>
+        </md-toolbar>
+        <div kendo-grid="TestCatalogGrid" id="TestCatalogGrid" class="k-widget k-grid" options="TestCatalogGridOptions"
+            authority-checker="VIEW_MACHINE_TYPE_TEST_MAPPING"></div>
+
+
+
+    </form>
+</md-content>

@@ -1,0 +1,68 @@
+.machine-types-wrapper {
+    .machine-types {
+        height: 250px;
+        max-height: 250px;
+        padding: 8px;
+
+        .machine-type {
+            min-height: 50px;
+            margin: 4px;
+            padding: 4px;
+            text-align: center;
+            outline: none;
+            border-radius: 10px;
+
+            .machine-type-icon {
+                font-size: 3em;
+                height: auto;
+                line-height: 1;
+                color: $primary-theme-color;
+                padding: 8px;
+
+            }
+
+            &:hover,
+            &.active {
+                background-color: $primary-theme-color !important;
+                color: white !important;
+
+                .machine-type-icon {
+                    color: white !important;
+                }
+
+                .side-bar {
+                    md-icon {
+                        color: white !important;
+                    }
+
+                    .counters {
+                        color: white !important;
+                    }
+                }
+
+            }
+
+            .label {
+                word-break: break-all;
+            }
+
+            .side-bar {
+                text-align: center;
+            }
+
+        }
+    }
+
+    .test-color {
+        color: #90249c;
+    }
+
+    .panel-color {
+        color: #249c83;
+    }
+
+    textarea {
+        overflow: auto;
+        max-height: 300px;
+    }
+}
