@@ -219,16 +219,18 @@ define(
                     }
                 },
                 'password-reset': {
+                    // Migrated to React (react/components/PasswordResetPage) -- see
+                    // password-reset-view.html, which now just hosts <react-mount>.
+                    // templateUrl (rather than an inline `template`) is kept
+                    // deliberately: app.js's route registration loop unconditionally
+                    // calls .replace() on views.main.templateUrl for every non-abstract
+                    // state, so dropping it would break state registration.
                     url: prefix + 'password-reset',
-                    directives: ["lov"],
-                    dependencies: [
-                        componentPath + 'passwordReset/passwordResetController',
-                        componentPath + 'passwordReset/passwordResetService', 'modules/shared/services/commonMethods'
-                    ],
+                    directives: ["reactMount"],
+                    dependencies: [],
                     views: {
                         'main': {
                             templateUrl: 'js/' + componentPath + 'passwordReset/password-reset-view.html',
-                            controller: 'passwordResetCtrl',
                             data: {
                                 pageName: "passwordReset"
                             }
