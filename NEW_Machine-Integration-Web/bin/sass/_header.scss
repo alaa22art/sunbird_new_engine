@@ -1,0 +1,102 @@
+#header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 80;
+    max-height: 64px;
+    min-height: 64px;
+    height: 64px;
+
+    md-toolbar {
+        padding: 0 8px;
+
+        .logo {
+            height: 30px;
+
+            img {
+                height: 100%;
+            }
+        }
+
+        .search-wrapper {
+            margin-#{$direction}: 8px;
+            padding: 0 6px;
+            background-color: white;
+            border-radius: 16px;
+            overflow: hidden;
+            height: 25px;
+            max-height: 25px;
+            min-height: 25px;
+
+            md-icon {
+                color: black;
+                text-align: center;
+                font-size: 0.5em;
+                line-height: 25px;
+                outline: none;
+            }
+
+            input {
+                outline: none;
+                border-style: none;
+                font-size: 0.75em;
+            }
+        }
+
+        .user-badge {
+            outline: none;
+
+            &[letter-badge]:before {
+                content: attr(letter-badge);
+                font-weight: bold;
+                font-size: 1.5em;
+                line-height: 1.5em;
+                color: $primary-theme-white-color;
+            }
+        }
+
+        .module-icons {
+            border-#{$opposite-direction}: 2px solid white;
+
+            .module-button {
+                margin-top: 0px !important;
+                margin-bottom: 0px !important;
+                margin-#{$direction}: 0px !important;
+                margin-#{$opposite-direction}: 8px !important;
+                border-radius: 5px !important;
+
+                &.active {
+                    border-color: white !important;
+                    border-width: 2px !important;
+                    border-style: solid !important;
+                }
+
+                md-icon {
+                    font-size: 1.25em;
+                }
+            }
+
+            .all-modules-button {
+                display: none;
+            }
+
+        }
+    }
+}
+
+.branch-name {
+    font-size: 0.5em;
+    font-weight: bold;
+    line-height: 1;
+    font-style: italic;
+}
+
+@media only screen and (max-width: 450px) {
+    .module-button:not(.all-modules-button) {
+        display: none !important;
+    }
+
+    .all-modules-button {
+        display: initial !important;
+    }
+}

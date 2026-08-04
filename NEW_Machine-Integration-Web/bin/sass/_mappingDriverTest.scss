@@ -1,0 +1,105 @@
+.mapping-driver-test-wrapper {
+
+    .card {
+        padding: 8px;
+        border-radius: 10px;
+        margin: 8px;
+
+        .label {
+            font-size: 1.5em;
+        }
+    }
+
+
+    .scrollable-wrapper {
+        height: 400px;
+        max-height: 400px;
+    }
+
+    .machine {
+        padding: 8px;
+        margin: 8px;
+        border-radius: 10px;
+        word-break: break-all;
+
+        &.active,
+        &:hover {
+            background-color: $primary-theme-color;
+            color: white !important;
+
+            .icon {
+                color: white !important;
+            }
+        }
+
+        .content {
+            padding: 8px;
+        }
+
+        .icon {
+            margin-bottom: 8px;
+            font-size: 2em;
+            height: auto;
+            line-height: 1;
+            color: $primary-theme-color;
+        }
+    }
+
+    .test {
+        padding: 8px;
+        margin: 8px;
+        border-radius: 10px;
+        word-break: break-all;
+
+        &.active,
+        &:hover {
+            background-color: $primary-theme-color;
+            color: white !important;
+
+            .icon {
+                color: white !important;
+            }
+        }
+
+        .content {
+            padding: 8px;
+        }
+
+        .icon {
+            margin-bottom: 8px;
+            font-size: 2em;
+            height: auto;
+            line-height: 1;
+            color: $primary-theme-color;
+        }
+    }
+
+    .panel {
+        padding: 8px;
+        margin: 8px;
+        border-radius: 10px;
+        word-break: break-all;
+
+        &.active,
+        &:hover {
+            background-color: $primary-theme-color;
+            color: white !important;
+
+            .icon {
+                color: white !important;
+            }
+        }
+
+        .content {
+            padding: 8px;
+        }
+
+        .icon {
+            margin-bottom: 8px;
+            font-size: 2em;
+            height: auto;
+            line-height: 1;
+            color: $primary-theme-color;
+        }
+    }
+}

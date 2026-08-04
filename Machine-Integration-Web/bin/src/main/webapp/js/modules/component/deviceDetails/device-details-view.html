@@ -1,0 +1,195 @@
+<div class="device-details-wrapper">
+    <form name="form" novalidate>
+        <div layout="row" layout-wrap flex class="bottom-rule region-margin">
+            <div class="right-rule section">
+                <div class="img-wrapper text-center">
+                    <img ng-if="machineProviderLkp && machineProviderLkp.selectedValue"
+                        ng-src="{{'./assets/images/machines_type_images/'+machineProviderLkp.selectedValue.code.toLowerCase()+'.png'}}"
+                        onerror="javascript:this.src='./assets/images/machines_type_images/no_machine.png'" />
+                    <img ng-if="!machineProviderLkp || !machineProviderLkp.selectedValue"
+                        src="./assets/images/machines_type_images/no_machine.png" />
+                </div>
+                <div layout="column">
+                    <md-switch md-invert class="md-primary" aria-label="{{'enabled' | translate}}"
+                        ng-model="selectedMachine.isActive">
+                        {{'enabled' | translate}}
+                    </md-switch>
+                    <md-switch md-invert class="md-primary" aria-label="{{'sendOrder' | translate}}"
+                        ng-model="selectedMachine.isSendOrder">
+                        {{'sendOrder' | translate}}
+                    </md-switch>
+                    <md-switch md-invert class="md-primary" aria-label="{{'receiveResult' | translate}}"
+                        ng-model="selectedMachine.isReceiveResult">
+                        {{'receiveResult' | translate}}
+                    </md-switch>
+                </div>
+            </div>
+            <div class="section" flex>
+                <div class="headline-label">{{'general' | translate}}</div>
+                <div layout="row" flex layout-wrap>
+                    <div dynamic-flex>
+                        <div ng-if="selectedMachine.machineType" flex layout="row" layout-align="space-between center">
+                            <div class="bold">
+                                {{selectedMachine.machineType.name}}
+                            </div>
+                            <div>
+                                <md-button aria-label="{{'remove' | translate}}" class="md-fab md-mini" type="button"
+                                    ng-click="onMachineTypeRemove()">
+                                    <md-icon md-font-icon="fas fa-trash"></md-icon>
+                                </md-button>
+                            </div>
+                        </div>
+                        <autocomplete-search ng-show="!selectedMachine.machineType" options="machineTypeSearchOptions">
+                        </autocomplete-search>
+                    </div>
+                    <md-input-container dynamic-flex>
+                        <label>
+                            {{'name' | translate}}</label>
+                        <input type="text" name="name" ng-model="selectedMachine.name"
+                            ng-required="machineMetaData.name.notNull"
+                            ng-minlength="machineMetaData.name.sized? machineMetaData.name.min:''"
+                            ng-maxlength="machineMetaData.name.sized? machineMetaData.name.max:''" />
+                        <input-messages input-errors="form.name.$error" />
+                    </md-input-container>
+                </div>
+                <div>
+                    <div class="headline-label">{{'details' | translate}}</div>
+                    <div layout="row" flex layout-wrap>
+                        <md-input-container dynamic-flex>
+                            <label>
+                                {{'username' | translate}}</label>
+                            <input type="text" name="username" ng-model="selectedMachine.username"
+                                ng-required="machineMetaData.username.notNull"
+                                ng-minlength="machineMetaData.username.sized? machineMetaData.username.min:''"
+                                ng-maxlength="machineMetaData.username.sized? machineMetaData.username.max:''" />
+                            <input-messages input-errors="form.username.$error" />
+                        </md-input-container>
+                        <md-input-container dynamic-flex>
+                            <label>
+                                {{'password' | translate}}</label>
+                            <input type="text" name="password" ng-model="selectedMachine.password"
+                                ng-required="machineMetaData.password.notNull"
+                                ng-minlength="machineMetaData.password.sized? machineMetaData.password.min:''"
+                                ng-maxlength="machineMetaData.password.sized? machineMetaData.password.max:''" />
+                            <input-messages input-errors="form.password.$error" />
+                        </md-input-container>
+                        <md-input-container dynamic-flex>
+                            <label>
+                                {{'serialNumber' | translate}}</label>
+                            <input type="text" name="serialNumber" ng-model="selectedMachine.serialNumber"
+                                ng-required="machineMetaData.serialNumber.notNull"
+                                ng-minlength="machineMetaData.serialNumber.sized? machineMetaData.serialNumber.min:''"
+                                ng-maxlength="machineMetaData.serialNumber.sized? machineMetaData.serialNumber.max:''" />
+                            <input-messages input-errors="form.serialNumber.$error" />
+                        </md-input-container>
+                        <md-input-container dynamic-flex>
+                            <label>
+                                {{'softwareVersion' | translate}}</label>
+                            <input type="text" name="softwareVersion" ng-model="selectedMachine.softwareVersion"
+                                ng-required="machineMetaData.softwareVersion.notNull"
+                                ng-minlength="machineMetaData.softwareVersion.sized? machineMetaData.softwareVersion.min:''"
+                                ng-maxlength="machineMetaData.softwareVersion.sized? machineMetaData.softwareVersion.max:''" />
+                            <input-messages input-errors="form.softwareVersion.$error" />
+                        </md-input-container>
+                        <md-input-container dynamic-flex>
+                            <label>
+                                {{'interfaceVersion' | translate}}</label>
+                            <input type="text" name="interfaceVersion" ng-model="selectedMachine.interfaceVersion"
+                                ng-required="machineMetaData.interfaceVersion.notNull"
+                                ng-minlength="machineMetaData.interfaceVersion.sized? machineMetaData.interfaceVersion.min:''"
+                                ng-maxlength="machineMetaData.interfaceVersion.sized? machineMetaData.interfaceVersion.max:''" />
+                            <input-messages input-errors="form.interfaceVersion.$error" />
+                        </md-input-container>
+                        <div flex="100">
+                            <label class="bold" for="sslCertificate">{{'sslCertificate' | translate}}:&nbsp;</label>
+                            <div ng-if="selectedMachine.sslCertificate">
+                                <span>{{selectedMachine.sslCertificate.substring(0,selectedMachine.sslCertificate.indexOf('|'))}}</span>
+                                <md-icon md-font-icon="fas fa-times" class="clickable-item error-color"
+                                    ng-click="resetSSLCertificate()">
+                                </md-icon>
+                            </div>
+                            <div ng-show="!selectedMachine.sslCertificate">
+                                <input type="file" id="sslCertificate" name="sslCertificate"
+                                    accept=".pem,.crt,.cer,.cert,.key" />
+                                <md-icon md-font-icon="fas fa-times" class="clickable-item error-color"
+                                    ng-click="resetSSLCertificate()">
+                                </md-icon>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section">
+            <div class="headline-label">{{'network' | translate}}</div>
+            <div layout="row" flex layout-wrap>
+                <div flex="100" layout="row" flex layout-wrap>
+                    <md-input-container dynamic-flex>
+                        <label>
+                            {{'serverIP' | translate}}</label>
+                        <input type="text" name="machineIpAddress" ng-model="selectedMachine.machineIpAddress"
+                            ng-pattern="patternIP" ng-required="machineMetaData.machineIpAddress.notNull"
+                            ng-minlength="machineMetaData.machineIpAddress.sized? machineMetaData.machineIpAddress.min:''"
+                            ng-maxlength="machineMetaData.machineIpAddress.sized? machineMetaData.machineIpAddress.max:''"
+                            ng-change="isDeviceReachable=null" />
+                        <input-messages input-errors="form.machineIpAddress.$error" />
+                    </md-input-container>
+                    <md-input-container dynamic-flex>
+                        <label>
+                            {{'serverPort' | translate}}</label>
+                        <input type="number" name="serverPort" ng-model="selectedMachine.serverPort"
+                            ng-required="machineMetaData.serverPort.notNull" ng-pattern="patternPort"
+                            ng-min="machineMetaData.serverPort.sized? machineMetaData.serverPort.min:''"
+                            ng-max="machineMetaData.serverPort.sized? machineMetaData.serverPort.max:''"
+                            ng-change="isDeviceReachable=null" />
+                        <input-messages input-errors="form.serverPort.$error" />
+                    </md-input-container>
+                    <div dynamic-flex>
+                        <md-button class="md-raised" type="button"
+                            ng-disabled="!selectedMachine.serverPort || !selectedMachine.machineIpAddress"
+                            ng-click="testConnection()" http-disable-click layout="row"
+                            layout-align="space-around center">
+                            {{'test' | translate}}
+                            <div ng-if="isDeviceReachable != null" class="text-center">
+                                <md-icon md-whiteframe="1"
+                                    md-font-icon="{{isDeviceReachable?'fas fa-check':'fas fa-times'}}"
+                                    class="reachable-icon"
+                                    ng-class="{'success-background-color':isDeviceReachable,'error-background-color':!isDeviceReachable}">
+                                    <md-tooltip md-direction="top">
+                                        {{(isDeviceReachable?'connected':'disconnected') | translate}}</md-tooltip>
+                                </md-icon>
+                            </div>
+                        </md-button>
+                    </div>
+                </div>
+                <md-input-container dynamic-flex>
+                    <label>
+                        {{'serverHost' | translate}}</label>
+                    <input type="text" name="serverIpAddress" ng-model="selectedMachine.serverIpAddress"
+                        ng-pattern="patternIP" ng-required="machineMetaData.serverIpAddress.notNull"
+                        ng-minlength="machineMetaData.serverIpAddress.sized? machineMetaData.serverIpAddress.min:''"
+                        ng-maxlength="machineMetaData.serverIpAddress.sized? machineMetaData.serverIpAddress.max:''" />
+                    <input-messages input-errors="form.serverIpAddress.$error" />
+                </md-input-container>
+                <md-input-container dynamic-flex>
+                    <label>
+                        {{'moxaDeviceName' | translate}}</label>
+                    <input type="text" name="moxaDeviceName" ng-model="selectedMachine.moxaDeviceName"
+                        ng-required="machineMetaData.moxaDeviceName.notNull"
+                        ng-minlength="machineMetaData.moxaDeviceName.sized? machineMetaData.moxaDeviceName.min:''"
+                        ng-maxlength="machineMetaData.moxaDeviceName.sized? machineMetaData.moxaDeviceName.max:''" />
+                    <input-messages input-errors="form.moxaDeviceName.$error" />
+                </md-input-container>
+            </div>
+        </div>
+        <div layout="row" flex layout-wrap layout-align="center center">
+            <md-button class="md-raised" type="button" ng-click="clearForm(true)">
+                {{'clear' | translate}}
+            </md-button>
+            <md-button class="md-primary md-raised" type="button" http-disable-click ng-click="submit()"
+                ng-disabled="form.$invalid || !selectedMachine.machineType">
+                {{'save' | translate}}
+            </md-button>
+        </div>
+    </form>
+</div>

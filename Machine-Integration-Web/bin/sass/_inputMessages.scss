@@ -1,0 +1,5 @@
+.ng-untouched~.md-input-messages-animation div[ng-message] {
+    // the fix for ng-messeages keep showing after clearing form(from github)
+    opacity: 0 !important;
+    margin-top: -100px !important;
+}

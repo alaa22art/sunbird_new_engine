@@ -1,0 +1,69 @@
+<div ng-cloak id="header">
+  <div _ngcontent-ofg-c191="" bascrollposition="" maxheight="50" class="page-top clearfix"><!---->
+   
+    <div _ngcontent-ofg-c191="" class="mobile-multiLingual">
+     
+      <div _ngcontent-ofg-c191="" class="dropdown-header">
+        <select class="language-selector">
+          <option value="en">English</option>
+          <option value="ar">Arabic</option>
+        </select>
+      </div>
+   
+      <div class="mobile-language-icon">
+        <button>
+         
+        </button>
+
+      </div>
+   
+    </div><!----><!---->
+      
+    <div _ngcontent-ofg-c191="" class="brand-icon mobile-width">
+
+      <img _ngcontent-ofg-c191="" class="web-image" src="assets\images\logo\certacure-logo.png">
+      <img _ngcontent-ofg-c191="" class="mobile-image" src="assets\images\logo\logo.png">
+
+
+    </div><!----><!---->
+    <div _ngcontent-ofg-c191="" class="mobile-sidebar-icon">
+      <button ng-click="toggleLeftMenu()" aria-label="button" class="menu-btn">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="black">
+          <rect y="4" width="24" height="2" rx="1" />
+          <rect y="11" width="24" height="2" rx="1" />
+          <rect y="18" width="24" height="2" rx="1" />
+        </svg>
+      </button>
+    </div><!---->
+  </div>
+  <div class="tenant-name">
+   {{branchName}}
+  </div>
+  <div layout-align="end center" layout="row" class="user-icon">
+    <md-menu class="small-margin" md-offset="0 50">
+      <div class="user-badge md-button md-fab md-mini" letter-badge="{{fullName.substr(0,1).toUpperCase()}}"
+        ng-click="userSettings($mdMenu,$event)">
+        <md-tooltip md-direction="{{tooltipDirection}}">
+          <div layout="column" layout-align="center center">
+            <div>{{fullName}}</div>
+            <div ng-if="userGroups.length > 0">{{'('+userGroups+')'}}</div>
+          </div>
+        </md-tooltip>
+      </div>
+      <md-menu-content>
+        <md-menu-item>
+          <md-button ng-href="user-profile">
+            <md-icon md-font-icon="fas fa-sliders-h"></md-icon>
+            {{ 'userProfile' | translate }}
+          </md-button>
+        </md-menu-item>
+        <md-menu-item>
+          <md-button ng-click="logout()">
+            <md-icon md-font-icon="fas fa-sign-out-alt"></md-icon>
+            {{ 'logout' | translate }}
+          </md-button>
+        </md-menu-item>
+      </md-menu-content>
+    </md-menu>
+  </div>
+</div>

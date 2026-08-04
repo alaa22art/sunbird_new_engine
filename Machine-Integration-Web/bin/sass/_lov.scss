@@ -1,0 +1,41 @@
+//do not place the wrapper class around these content
+.select-header {
+    md-select-menu md-content {
+        overflow-x: hidden;
+    }
+    .search-header {
+        margin-top: 5px;
+        padding-left: 10px;
+        padding-right: 10px;
+        height: 50px;
+        cursor: pointer;
+        position: relative;
+        display: flex;
+        align-items: center;
+        width: auto;
+    } // .search-box {
+    //     border: none;
+    //     outline: none;
+    //     height: 100%;
+    //     width: 100%;
+    //     padding: 0;
+    // }
+    md-input-container {
+        padding-bottom: 0px !important;
+        margin-bottom: 0px !important;
+    }
+}
+
+.lov-color-code:before {
+    content: '';
+    background-color: var(--color-var);
+    width: 20px;
+    height: 20px;
+    position: relative;
+    left: -8px;
+}
+
+.text-search-highlight {
+    font-weight: bold;
+    background-color: $text-search-highlight-color;
+}

@@ -1,0 +1,39 @@
+<md-dialog>
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <span flex class="dialog-label">{{apexSelectionLabel | translate }}</span>
+            <md-button class="md-icon-button" ng-click="cancel()">
+                <md-icon md-font-icon="fas fa-2x fa-times"></md-icon>
+            </md-button>
+        </div>
+    </md-toolbar>
+    <md-dialog-content class="md-dialog-content">
+        <div layout="row" flex layout-wrap class="chips-wrapper"
+            ng-if="newSelectedEntities && newSelectedEntities.length >0">
+            <div class="chip" ng-repeat="entity in newSelectedEntities">
+                {{entity.label}}
+            </div>
+        </div>
+        <md-toolbar class="short-toolbar" flex>
+            <div class="md-toolbar-tools">
+                <div layout="row" flex>
+                </div>
+                <div layout="row">
+                    <md-button aria-label="{{'refresh' | translate}}" class="md-fab md-mini" http-disable-click
+                        ng-click="refreshGrid()" type="button">
+                        <md-tooltip md-direction="top">{{'refresh' | translate}}</md-tooltip>
+                        <md-icon md-font-icon="fas fa-sync"></md-icon>
+                    </md-button>
+                </div>
+            </div>
+        </md-toolbar>
+        <div kendo-grid="apexSelectionGrid" id="apexSelectionGrid" class="k-widget k-grid"
+            options="apexSelectionGridOptions"></div>
+    </md-dialog-content>
+    <md-dialog-actions layout="row" flex>
+        <md-button class="md-primary md-raised" type="button" ng-click="add()"
+            ng-disabled="newSelectedEntities.length === 0">
+            {{'select' | translate}}
+        </md-button>
+    </md-dialog-actions>
+</md-dialog>

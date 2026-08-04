@@ -1,0 +1,19 @@
+/**
+ * 
+ */
+package com.certacure.lis.interfaces.middleware.core;
+
+/**
+ * @author AHimour
+ *
+ */
+public enum AccessResult {
+	ACCESS_ALLOWED,
+	ACCESS_DENIED_LICENCE_EXPIRED,
+	ACCESS_DENIED_WRONG_USER_PASS,
+	ACCESS_DENIED_WRONG_USER_NAME,
+	ACCESS_DENIED_WRONG_MACHINE_IDENTITY,
+	ACCESS_DENIED_MACHINE_NOT_ENABLED,
+	ACCESS_DENIED_NO_MACHINE_DATA_IDENTITY_RECIVED,
+
+}

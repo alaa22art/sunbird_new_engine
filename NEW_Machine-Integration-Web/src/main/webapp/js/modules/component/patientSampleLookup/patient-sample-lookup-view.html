@@ -1,0 +1,51 @@
+<div class="patient-sample-lookup-wrapper">
+    <div layout="row" layout-wrap flex>
+        <md-input-container dynamic-flex>
+            <label>{{'barcode' | translate}}</label>
+            <input type="test" name="barcode" ng-model="sampleBarcode" />
+        </md-input-container>
+        <lov dynamic-flex form="form" options="branchLkp" select="branchLkp.selectedValue"></lov>
+        <div>
+            <md-button aria-label="{{'search' | translate}}" class="md-raised md-primary" http-disable-click
+                ng-click="refreshOrdersGrid()" type="button">
+                <md-icon md-font-icon="fas fa-search"></md-icon>
+            </md-button>
+        </div>
+    </div>
+
+    <md-toolbar class="short-toolbar">
+        <div class="md-toolbar-tools">
+            <div layout="row" flex>
+            </div>
+            <div layout="row">
+                <md-button aria-label="{{'refresh' | translate}}" class="md-fab md-mini" http-disable-click
+                    ng-click="refreshOrdersGrid()" type="button">
+                    <md-tooltip md-direction="top">{{'refresh' | translate}}</md-tooltip>
+                    <md-icon md-font-icon="fas fa-sync"></md-icon>
+                </md-button>
+            </div>
+        </div>
+    </md-toolbar>
+    <div kendo-tree-list="orderGrid" id="orderGrid" class="k-widget k-tree-list" options="treeOrderGridOptions">
+    </div>
+    <div id="orderGridPager" class="region-margin"></div>
+
+    <!-- 
+            <md-toolbar class=" short-toolbar">
+                <div class="md-toolbar-tools">
+                    <div layout="row" flex>
+                    </div>
+                    <div layout="row">
+                        <md-button aria-label="{{'refresh' | translate}}" class="md-fab md-mini" http-disable-click
+                            ng-click="refreshResultsGrid()" type="button">
+                            <md-tooltip md-direction="top">{{'refresh' | translate}}</md-tooltip>
+                            <md-icon md-font-icon="fas fa-sync"></md-icon>
+                        </md-button>
+                    </div>
+                </div>
+            </md-toolbar>
+            <div kendo-grid="resultsGrid" id="resultsGrid" class="k-widget k-grid" options="resultsGridOptions">
+            </div>
+         -->
+    </md-tabs>
+</div>

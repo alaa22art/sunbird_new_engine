@@ -1,0 +1,50 @@
+<md-tabs md-dynamic-height md-border-bottom>
+    <md-tab label="{{'general'|translate}}">
+        <test-catalog options="testCatalogOptions"></test-catalog>
+    </md-tab>
+    <md-tab label="{{'import'|translate}}">
+        <div layout="column" layout-align="center center">
+            <div dynamic-flex>
+                <md-button class="md-primary md-raised" type="button" ng-click="importUsingTestUrl()"
+                    http-disable-click>
+                    {{'importTestUrl' | translate}}
+                </md-button>
+            </div>
+            <div class="bold">{{'or' | translate}}</div>
+            <div>
+                <ol>
+                    <li><a href=""
+                            ng-click="downloadTemplate()">{{'download' | translate}}</a>&nbsp;{{'template' | translate}}
+                    </li>
+                    <li>{{'fill' | translate}}&nbsp;{{'template' | translate}}</li>
+                    <li><a href=""
+                            ng-click="uploadTemplate()">{{'upload' | translate}}</a>&nbsp;{{'template' | translate}}
+                    </li>
+                    <li><a href="" ng-click="validateData()">{{'validate' | translate}}</a>
+                        &nbsp;{{uploadedFile?'('+uploadedFile.name+')':''}}</li>
+                </ol>
+                <input name="file" id="import_test_catalog" class="no-display" type="file" accept=".xls,.xlsx" />
+            </div>
+        </div>
+        <fieldset ng-if="validationResult">
+            <legend>{{'result' | translate}}</legend>
+            <div>
+                <a href="" ng-click="switchGridDataSource('success')">{{'success' | translate}}:&nbsp;<span
+                        class="bold">{{validationResult.success.length}}</span></a>
+            </div>
+            <div>
+                <a href="" ng-click="switchGridDataSource('error')">{{'error' | translate}}:&nbsp;<span
+                        class="bold">{{validationResult.error.length}}</span></a>
+            </div>
+
+            <div ng-if="testCatalogDataSource.data().length > 0" kendo-grid="testCatalogGrid" id="testCatalogGrid"
+                class="k-widget k-grid" options="testCatalogGridOptions">
+            </div>
+            <md-button class="md-primary md-raised top-rule" type="button" ng-click="importDataFile()"
+                http-disable-click>
+                {{'save' | translate}}
+            </md-button>
+        </fieldset>
+
+    </md-tab>
+</md-tabs>

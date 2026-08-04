@@ -1,0 +1,133 @@
+<div class="devices-wrapper">
+    <div layout="row" layout-wrap flex>
+        <div dynamic-flex>
+            <autocomplete-search options="machineSearchOptions"></autocomplete-search>
+        </div>
+
+    </div>
+    <div class="custom-box devices region-margin" infinite-scroll="onMachineScroll()" layout="row" layout-wrap flex>
+        <div ng-if="machinePage.content.length === 0" class="bold" layout="column" layout-align="center center"
+            layout-fill>
+            {{'noData' | translate}}
+        </div>
+        <div ng-repeat="machine in machinePage.content" dynamic-flex style="padding: 8px;">
+            <div class="device" md-whiteframe="1">
+                <div class="name text-center bold section">{{machine.name}}</div>
+                <div class="bottom-rule"></div>
+                <div layout="row" flex class="bottom-rule">
+                    <div class="right-rule" layout="column" layout-align="center none">
+                        <div class="img-wrapper">
+                            <img ng-if="machine.machineProvider"
+                                ng-src="{{'./assets/images/machines_type_images/'+machine.machineProvider.code.toLowerCase()+'.png'}}"
+                                onerror="javascript:this.src='./assets/images/machines_type_images/no_machine.png'" />
+                            <img ng-if="!machine.machineProvider"
+                                src="./assets/images/machines_type_images/no_machine.png" />
+                        </div>
+                        <div class="text-center">
+                            <div ng-if="!machine.isPortOpen">
+                                <md-icon md-font-icon="fas fa-play-circle" class="success-color clickable-item icon"
+                                    confirm-click="togglePortConnection(machine,true)" http-disable-click>
+                                    <md-tooltip md-direction="top">{{'start' |translate}}</md-tooltip>
+                                </md-icon>
+                            </div>
+                            <div ng-if="machine.isPortOpen">
+                                <md-icon md-font-icon="fas fa-stop-circle" class="error-color clickable-item icon"
+                                    confirm-click="togglePortConnection(machine,false)" http-disable-click>
+                                    <md-tooltip md-direction="top">{{'stop' |translate}}</md-tooltip>
+                                </md-icon>
+                            </div>
+                        </div>
+                    </div>
+                    <div flex>
+                        <div class="bottom-rule section">
+                            <div>
+                                {{'serverHost' | translate}}:&nbsp;
+                                <span class="bold">{{machine.serverIpAddress}}</span>
+                            </div>
+                            <div>
+                                {{'serverPort' | translate}}:&nbsp;
+                                <span class="bold">{{machine.serverPort}}</span>
+                            </div>
+                            <div>
+                                {{'driver' | translate}}:&nbsp;
+                                <span class="bold">{{machine.machineType.name}}</span>
+                            </div>
+                        </div>
+                        <div layout="row" layout-wrap layout-align="space-between center" class="section text-center">
+                            <div class="bold warning-color">
+                                <div>{{'order' | translate}}</div>
+                                <div>{{machine.transients.ordersCount}}</div>
+                            </div>
+                            <div class="bold primary-color">
+                                <div>{{'result' | translate}}</div>
+                                <div>{{machine.transients.resultsCount}}</div>
+                            </div>
+                            <div>
+                                <md-icon md-font-icon="fas fa-trash-alt" class="clickable-item icon error-color"
+                                    confirm-click="deleteMachine(machine)" http-disable-click>
+                                    <md-tooltip md-direction="top">{{'delete' |translate}}</md-tooltip>
+                                </md-icon>
+                            </div>
+                            <div>
+                                <md-icon md-font-icon="fas fa-map-signs" class="clickable-item icon">
+                                    <md-tooltip md-direction="top">{{'logs' |translate}}</md-tooltip>
+                                </md-icon>
+                            </div>
+                            <div>
+                                <md-icon md-font-icon="fas fa-cogs" class="clickable-item icon"
+                                    ng-click="goToMachineDetails(machine)">
+                                    <md-tooltip md-direction="top">{{'details' |translate}}</md-tooltip>
+                                </md-icon>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div layout="row" flex layout-align="space-between center" class="section connection-wrapper">
+                    <div class="bold">
+                        <activation value="machine.isActive"></activation>
+                    </div>
+                    <div layout="row" class="text-center" layout-align="center center">
+                        <div>
+                            <md-icon md-font-icon="fas fa-cloud" class="icon primary-color">
+                                <md-tooltip md-direction="top">{{'cloud' |translate}}</md-tooltip>
+                            </md-icon>
+                        </div>
+                        <div class="dots-wrapper">
+                            <span class="dot"></span>
+                            <span class="dot"></span>
+                            <span class="dot"></span>
+                            <span class="dot"></span>
+                            <span class="dot"></span>
+                            <md-icon md-font-icon="{{machine.isConnected?'fas fa-check':'fas fa-times'}}"
+                                class="error-color status-icon"></md-icon>
+                        </div>
+                        <div style="height: 30px;">
+                            <svg width="30" height="30" enable-background="new 0 0 64 64" version="1.1"
+                                viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"
+                                xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/"
+                                xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+                                <path
+                                    ng-class="{'success-fill-color':machine.isConnected,'error-fill-color':!machine.isConnected}"
+                                    d="m25 35h2v2h-2zm-4 0h2v2h-2zm-4 0h2v2h-2zm23.779-17.054-3.702 13.882-4.925-21.669-5.887 18.841h-1.544l-4.794-14.383-4.681 16.383h-4.246v2h5.754l3.319-11.617 3.206 9.617h4.456l4.113-13.159 5.075 22.331 4.298-16.118 2.12 4.946h9.659v-2h-8.341zm14.221 35.054h-10v6h10zm-2 4h-6v-2h6zm-10-4h-10v6h10zm-2 4h-6v-2h6zm-10-4h-10v6h10zm-2 4h-6v-2h6zm-22-14h50v-36h-50zm2-34h46v32h-46zm4 50c2.206 0 4-1.794 4-4s-1.794-4-4-4-4 1.794-4 4 1.794 4 4 4zm0-6c1.103 0 2 0.897 2 2s-0.897 2-2 2-2-0.897-2-2 0.897-2 2-2zm46-52h-54c-2.206 0-4 1.794-4 4v40c0 1.474 0.81 2.75 2 3.444v11.556c0 1.654 1.346 3 3 3h52c1.654 0 3-1.346 3-3v-11.556c1.19-0.694 2-1.97 2-3.444v-40c0-2.206-1.794-4-4-4zm0 59c0 0.552-0.448 1-1 1h-52c-0.552 0-1-0.448-1-1v-11h54zm2-15c0 1.103-0.897 2-2 2h-54c-1.103 0-2-0.897-2-2v-40c0-1.103 0.897-2 2-2h54c1.103 0 2 0.897 2 2z" />
+                            </svg>
+                            <md-tooltip md-direction="top">{{'connected' |translate}}</md-tooltip>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div layout="row" layout-wrap class="bold legend-wrapper">
+        <div layout="row" layout-wrap layout-align="start center" class="warning-color text-center">
+            <md-icon md-font-icon="fas fa-circle" class="warning-color icon">
+            </md-icon>
+            <div>{{'pendingOrder' | translate}}</div>
+        </div>
+        <div layout="row" layout-wrap layout-align="center center" class="primary-color text-center">
+            <md-icon md-font-icon="fas fa-circle" class="primary-color icon">
+            </md-icon>
+            <div>{{'result' | translate}}</div>
+        </div>
+    </div>
+</div>

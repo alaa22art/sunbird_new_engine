@@ -1,0 +1,58 @@
+.test-selection-wrapper {
+    md-card {
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+
+        md-card-content {
+            padding: 8px !important;
+        }
+    }
+
+    .type-radio {
+        margin-bottom: 8px;
+    }
+
+    .counter {
+        font-size: 0.75em;
+        font-weight: bold;
+    }
+
+    .machine-tests {
+        height: 400px;
+        max-height: 400px;
+        padding: 8px;
+
+        .machine-test {
+            .content {
+                min-height: 40px;
+                margin: 4px;
+                padding: 4px;
+                border-radius: 10px;
+                outline: none;
+
+                &:hover,
+                &.active {
+                    background-color: $primary-theme-color !important;
+                    color: white;
+
+                    .indicators>div {
+                        color: white !important;
+                    }
+                }
+
+                .label {
+                    font-weight: bold;
+                    word-break: break-all;
+                    text-align: center;
+                }
+
+                .machine-name {
+                    font-size: 0.75em;
+                }
+
+            }
+
+        }
+
+    }
+}

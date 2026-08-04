@@ -1,0 +1,22 @@
+--alter table mw_message_transaction add column message_control_id varchar (255);
+--alter table mw_message_transaction_aud add column message_control_id varchar (255);
+--truncate table mw_message_transaction 
+--alter table mw_message_transaction add column is_sent int;
+--alter table mw_message_transaction_aud  add column is_sent int;
+--ALTER TABLE public.mw_message_transaction ALTER COLUMN is_sent SET DEFAULT 0;
+--ALTER TABLE public.mw_message_transaction_aud ALTER COLUMN is_sent SET DEFAULT 0;
+--truncate table mw_message_transaction
+--truncate table mw_message_transaction
+--alter table mw_message_transaction add column ack_message_text varchar (1000);
+--alter table mw_message_transaction_aud  add column ack_message_text varchar (1000);
+
+
+
+
+
+--[2024-02-27 11:37:10.342][localhost-Pg11][13764][PGSQL]
+ALTER TABLE "public"."mw_appointment" 
+  ADD COLUMN "json_source_input" varchar(500),
+  ADD COLUMN "json_source_response" varchar(500),
+  ADD COLUMN "json_destination_input" varchar(500),
+  ADD COLUMN "json_destination_response" varchar(500);

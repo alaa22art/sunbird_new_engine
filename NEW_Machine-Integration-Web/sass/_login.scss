@@ -1,0 +1,45 @@
+.login-wrapper {
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    min-height: 100%;
+    height: auto;
+    background-color: #215da2;
+    .logo-wrapper {
+        padding: 10px;
+        text-align: center;
+        
+    }
+    .login-card-wrapper {
+        .login-card {
+            .form-title {
+                color: #00839b;
+            }
+            .message-box {
+                margin-top: 5px;
+            }
+            .custom-padding {
+                padding-left: 24px;
+                padding-right: 24px;
+            }
+            md-card-content {
+                padding-bottom: 0;
+            }
+            .login-form {
+                #rememberMe {
+                    margin-bottom: 0;
+                    margin-left: 3px;
+                    margin-right: 3px;
+                }
+                .login-btn-wrapper {
+                    #loginBtn {
+                        margin: 0;
+                    }
+                }
+                .margin-top {
+                    margin-top: 5px;
+                }
+            }
+        }
+    }
+}

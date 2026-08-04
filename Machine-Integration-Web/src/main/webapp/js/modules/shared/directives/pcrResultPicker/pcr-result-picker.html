@@ -1,0 +1,9 @@
+<md-input-container class="pcr-result-picker">
+  <label>PCR Result Filter</label>
+  <md-select ng-model="pcrResult" ng-change="onPcrResultChange()">
+    <!-- <md-option>All</md-option> -->
+    <md-option ng-repeat="result in pcrResults" ng-value="result">
+      {{result}}
+    </md-option>
+  </md-select>
+</md-input-container>

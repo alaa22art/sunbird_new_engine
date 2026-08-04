@@ -1,0 +1,124 @@
+<div class="mapping-driver-test-wrapper">
+    <div layout="row" flex layout-wrap class="region-margin">
+        <div dynamic-flex="100|100|50|50|50">
+            <div md-whiteframe="1" class="card">
+                <div class="text-center bold label">{{'driverAssays'|translate}}</div>
+                <div layout="row">
+                    <autocomplete-search options="machineTypeTestSearchOptions" dynamic-flex="100|100|50|50|50">
+                    </autocomplete-search>
+                </div>
+                <md-radio-group ng-model="machineTypeTestMapping" layout="row" layout-wrap layout-align="start center"
+                    ng-change="onMachineTypeTestMappingChange()" class="region-margin">
+                    <md-radio-button value="UNMAPPED" class="md-primary">{{'unmapped' | translate}}</md-radio-button>
+                    <md-radio-button value="MAPPED">{{'mapped' | translate}}</md-radio-button>
+                </md-radio-group>
+                <div class="scrollable-wrapper custom-box region-margin" infinite-scroll="onMachineTypeTestScroll()"
+                    layout="row" layout-wrap flex layout-align="start start">
+                    <div ng-if="machinePage.content.length === 0" layout="column" layout-align="center center"
+                        layout-fill>
+                        {{'noData' | translate}}
+                    </div>
+                    <div ng-repeat="mtt in machineTypeTestPage.content" dynamic-flex="100|100|50|50|50">
+                        <div ng-click="onMachineTypeTestClick(mtt)" class="machine clickable-item"
+                            ng-class="{'active':selectedMachineTypeTest.rid === mtt.rid}" layout="row"
+                            layout-align="start center" md-whiteframe="1">
+                            <div class="right-rule text-center content">
+                                <md-icon md-font-icon="{{mtt.testCatalog?'fas fa-link':'fas fa-unlink'}}" class="icon">
+                                </md-icon>
+                                <activation value="mtt.isActive"></activation>
+                            </div>
+                            <div flex class="content">
+                                <div class="bold">
+                                    {{mtt.name}}
+                                </div>
+                                <div>{{'driver'|translate}}:&nbsp;
+                                    <span class="bold">{{mtt.machineType.name}}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div dynamic-flex="100|100|50|50|50">
+            <div md-whiteframe="1" class="card">
+                <div class="text-center bold label">{{'testCatalog'|translate}}</div>
+
+                <md-tabs md-dynamic-height md-border-bottom md-selected="selectedTabIndex">
+                    <md-tab label="{{'test'|translate}}" md-on-select="onTabSelectionChange('TEST')">
+                        <div layout="row">
+                            <autocomplete-search options="testCatalogSearchOptions" dynamic-flex="100|100|50|50|50">
+                            </autocomplete-search>
+                        </div>
+                        <div class="scrollable-wrapper custom-box" infinite-scroll="onTestCatalogScroll()" layout="row"
+                            layout-wrap flex layout-align="start start">
+                            <div ng-if="testCatalogPage.content.length === 0" layout="column"
+                                layout-align="center center" layout-fill>
+                                {{'noData' | translate}}
+                            </div>
+                            <div ng-repeat="test in testCatalogPage.content" dynamic-flex="100|100|50|50|50">
+                                <div class="test clickable-item" ng-click="onTestCatalogClick(test)"
+                                    ng-class="{'active':selectedTestCatalog.rid === test.rid}" layout="row"
+                                    layout-align="start center" md-whiteframe="1">
+                                    <div class="right-rule text-center content">
+                                        <md-icon md-font-icon="fas fa-vial" class="icon"></md-icon>
+                                        <activation value="test.isActive"></activation>
+                                    </div>
+                                    <div flex class="content">
+                                        <div class="bold">{{test.requesterTestCode}}</div>
+                                        <div>{{'name'|translate}}:&nbsp;
+                                            <span class="bold">{{test.name}}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </md-tab>
+                    <md-tab label="{{'panel'|translate}}" md-on-select="onTabSelectionChange('PANEL')">
+                        <div layout=" row">
+                            <autocomplete-search options="testPanelSearchOptions" dynamic-flex="100|100|50|50|50">
+                            </autocomplete-search>
+                        </div>
+                        <div class="scrollable-wrapper custom-box" infinite-scroll="onTestPanelScroll()" layout="row"
+                            layout-wrap flex>
+                            <div ng-if="testPanelPage.content.length === 0" layout="column" layout-align="center center"
+                                layout-fill>
+                                {{'noData' | translate}}
+                            </div>
+                            <accordion ng-repeat="panel in testPanelPage.content" dynamic-flex="100|100|50|50|50">
+                                <accordion-block>
+                                    <accordion-header options="panel.accordionOptions">
+                                        {{panel.name}}
+                                    </accordion-header>
+                                    <accordion-content>
+                                        <div class="chips-wrapper" layout="row" layout-align="start center" layout-wrap
+                                            ng-if="panel.tests && panel.tests.length > 0">
+                                            <div ng-repeat="test in panel.tests" ng-click="onTestCatalogClick(test)"
+                                                class="chip clickable-item"
+                                                ng-class="{'active':selectedTestCatalog.rid === test.rid}">
+                                                <div>
+                                                    {{'('+test.requesterTestCode+')'}}&nbsp;{{test.name}}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </accordion-content>
+                                </accordion-block>
+                            </accordion>
+                        </div>
+                    </md-tab>
+                </md-tabs>
+            </div>
+        </div>
+    </div>
+    <div layout="row" layout-align="center center" flex>
+        <md-button type="button" class="md-primary md-raised" ng-click="setMachineTypeTestMapping(true)"
+            http-disable-click ng-disabled="!selectedMachineTypeTest || !selectedTestCatalog">
+            <md-icon md-font-icon="fas fa-link"></md-icon>
+        </md-button>
+        <md-button type="button" class="md-primary md-raised" ng-click="setMachineTypeTestMapping(false)"
+            http-disable-click ng-disabled="!selectedMachineTypeTest || !selectedMachineTypeTest.testCatalog">
+            <md-icon md-font-icon="fas fa-unlink"></md-icon>
+        </md-button>
+    </div>
+</div>

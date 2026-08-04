@@ -1,0 +1,66 @@
+<div ng-cloak id="header">
+  <md-toolbar layout="row" layout-fill layout-align="space-between center">
+    <div>
+      <div layout-align="start center" layout="row">
+        <div class="logo">
+          <img src="./assets/images/logo/acculink-logo-white.svg" />
+        </div>
+        <!-- <div class="search-wrapper" layout="row" layout-align="center center">
+          <md-icon md-font-icon="fas fa-search" ng-click="searchSamples()" class="clickable-item"></md-icon>
+          <input type="text" ng-model="search" name="search" placeholder="{{'search'|translate}}"
+            ng-keypress="onSearchSubmit($event)" />
+        </div> -->
+      </div>
+      <div class="branch-name" ng-if="branchName">{{branchName}}</div>
+    </div>
+    <div layout="row">
+      <div ng-if="showModules" class="module-icons" flex layout="row" layout-align="center center">
+        <md-button aria-label="{{module.label | translate}}" class="md-fab md-mini module-button"
+          ng-click="filterApex(module,true)" type="button" ng-class="{'active':selectedModule.id === module.id}"
+          ng-repeat="module in modules">
+          <md-tooltip md-direction="bottom">{{module.label | translate}}</md-tooltip>
+          <md-icon md-font-icon="{{module.icon}}"></md-icon>
+        </md-button>
+        <md-menu md-position-mode="target bottom">
+          <md-button aria-label="{{'all' | translate}}" class="md-fab md-mini module-button all-modules-button"
+            ng-click="$mdMenu.open()" type="button">
+            <md-icon md-font-icon="fas fa-th-large"></md-icon>
+          </md-button>
+          <md-menu-content>
+            <md-menu-item ng-repeat="module in modules">
+              <md-button type="button" ng-click="filterApex(module,true)">
+                <md-icon md-font-icon="{{module.icon}}"></md-icon>
+                {{module.label | translate}}
+              </md-button>
+            </md-menu-item>
+          </md-menu-content>
+        </md-menu>
+      </div>
+      <md-menu md-position-mode="target bottom">
+        <div class="user-badge md-button md-fab md-mini" letter-badge="{{fullName.substr(0,1).toUpperCase()}}"
+          ng-click="$mdMenu.open()">
+          <md-tooltip md-direction="bottom">
+            <div layout="column" layout-align="center center">
+              <div>{{fullName}}</div>
+              <div ng-if="userGroups.length > 0">{{'('+userGroups+')'}}</div>
+            </div>
+          </md-tooltip>
+        </div>
+        <md-menu-content>
+          <md-menu-item>
+            <md-button ng-click="userProfile()">
+              <md-icon md-font-icon="fas fa-sliders-h"></md-icon>
+              {{ 'userProfile' | translate }}
+            </md-button>
+          </md-menu-item>
+          <md-menu-item>
+            <md-button ng-click="logout()">
+              <md-icon md-font-icon="fas fa-sign-out-alt"></md-icon>
+              {{ 'logout' | translate }}
+            </md-button>
+          </md-menu-item>
+        </md-menu-content>
+      </md-menu>
+    </div>
+  </md-toolbar>
+</div>

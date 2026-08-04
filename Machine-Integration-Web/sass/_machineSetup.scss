@@ -1,0 +1,12 @@
+.machine-setup-wrapper {
+    .mapIcon {
+        font-size: 2.0em;
+        text-align: center !important;
+        .mapActive {
+            color: $success-color;
+        }
+        .mapInactive {
+            color: $error-color;
+        }
+    }
+}

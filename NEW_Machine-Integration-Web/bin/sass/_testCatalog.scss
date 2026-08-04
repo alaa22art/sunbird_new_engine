@@ -1,0 +1,48 @@
+.test-catalog-wrapper {
+    .test-catalogs {
+        height: 250px;
+        max-height: 250px;
+        padding: 8px;
+        margin: 8px 0;
+
+        .test {
+            min-height: 50px;
+            margin: 4px;
+            padding: 4px;
+            border-radius: 10px;
+            text-align: center;
+            outline: none;
+            word-break: break-all;
+
+            &:hover,
+            &.active {
+                background-color: $primary-theme-color !important;
+                border-color: $primary-theme-color !important;
+                color: white !important;
+
+                .icon,
+                .settings-icon {
+                    color: white !important;
+                }
+            }
+
+            .icon {
+                font-size: 2.5em;
+                height: auto;
+                line-height: 1;
+                outline: none;
+                padding: 8px;
+                color: $primary-theme-color;
+            }
+
+            .settings-icon {
+                font-size: 1.5em;
+                height: auto;
+                line-height: 1;
+                outline: none;
+                padding: 8px;
+                color: $primary-theme-color;
+            }
+        }
+    }
+}

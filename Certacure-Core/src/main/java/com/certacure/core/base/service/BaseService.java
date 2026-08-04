@@ -1,0 +1,177 @@
+package com.certacure.core.base.service;
+
+import java.io.Serializable;
+import java.util.List;
+
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Slice;
+import org.springframework.data.domain.Sort;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.certacure.core.base.entity.BaseEntity;
+import com.certacure.core.base.helper.SearchCriterion;
+import com.certacure.core.base.repo.BaseRepository;
+
+/**
+ * CrudService.java, Super Generic class that is responsible for all CRUD operations
+ *
+ *
+ * @param <ID> Entity ID Type
+ * @param <E> Entity Class
+ * @param <T> EntityRepository interface
+ */
+
+@Transactional(readOnly = false)
+public abstract class BaseService<ID extends Serializable, E extends BaseEntity, T extends BaseRepository<E, ID>> {
+
+	/**
+	 *
+	 * @return Repository Object
+	 */
+	protected abstract T getRepository();
+
+	/**
+	 * Get an entity by its ID
+	 *
+	 * @param id
+	 * @return
+	 */
+	public E findById(ID id) {
+		return getRepository().findById(id).orElse(null);
+	}
+
+	/**
+	 * Get all records
+	 *
+	 * @return List of records
+	 */
+	public List<E> findAll() {
+		return getRepository().findAll();
+	}
+
+	/**
+	 * Get records which comply with the filters limited by the pagination information
+	 *
+	 * @param filters The WHERE conditions to apply to the find query
+	 * @param pageable Pagianation information
+	 * @param entityClass The class type to return
+	 * @param junctionOperator The operator: And/Or
+	 * @param join Optional joins
+	 * @return Sublist of entities
+	 */
+	public Page<E> find(List<SearchCriterion> filters, Pageable pageable, Class<E> entityClass, String... join) {
+		return getRepository().find(filters, pageable, entityClass, join);
+	}
+
+	/**
+	 * 
+	 * Get records which comply with the filters limited by the pagination information
+	 * 
+	 * @param filters The WHERE conditions to apply to the find query
+	 * @param pageable Pagianation information
+	 * @param entityClass The class type to return
+	 * @param isDistinct
+	 * @param join Optional joins
+	 * @return Sublist of entities
+	 */
+	public Page<E> find(List<SearchCriterion> filters, Pageable pageable, Class<E> entityClass, Boolean isDistinct, String... join) {
+		return getRepository().find(filters, pageable, entityClass, join);
+	}
+
+	/**
+	 * Get all records which comply with the filters
+	 *
+	 * @param filters The WHERE conditions to apply to the find query
+	 * @param entityClass The class type to return
+	 * @param junctionOperator The operator: And/Or
+	 * @param join Optional joins
+	 * @return List of entities
+	 */
+	public List<E> find(List<SearchCriterion> filters, Class<E> entityClass, String... join) {
+		return getRepository().find(filters, entityClass, join);
+	}
+
+	/**
+	 * Get all records which comply with the filters
+	 *
+	 * @param filters The WHERE conditions to apply to the find query
+	 * @param entityClass The class type to return
+	 * @param junctionOperator The operator: And/Or
+	 * @param sortList Sort orders
+	 * @param join Optional joins
+	 * @return List of entities
+	 */
+	public List<E> find(List<SearchCriterion> filters, Class<E> entityClass, Sort sort,
+			String... join) {
+		return getRepository().find(filters, entityClass, sort, join);
+	}
+
+	/**
+	 * Get all records which comply with the filters
+	 *
+	 * @param filters The WHERE conditions to apply to the find query
+	 * @param entityClass The class type to return
+	 * @param junctionOperator The operator: And/Or
+	 * @param sortList Sort orders
+	 * @param isDistinct
+	 * @param join Optional joins
+	 * @return List of entities
+	 */
+	public List<E> find(List<SearchCriterion> filters, Class<E> entityClass, Sort sort, Boolean isDistinct,
+			String... join) {
+		return getRepository().find(filters, entityClass, sort, isDistinct, join);
+	}
+
+	/**
+	 * Get a single record which complies with the filters
+	 *
+	 * @param filters The WHERE conditions to apply to the find query
+	 * @param entityClass The class type to return
+	 * @param junctionOperator The operator: And/Or
+	 * @param join Optional joins
+	 * @return Single entity
+	 */
+	public E findOne(List<SearchCriterion> filters, Class<E> entityClass, String... join) {
+		return getRepository().findOne(filters, entityClass, join);
+	}
+
+	/**
+	 * Get chunk of records
+	 *
+	 * @param first (start index)
+	 * @param pageSize (Number of records)
+	 * @return List of entities
+	 */
+	public Page<E> findAllPages(Pageable pageable) {
+		return getRepository().findAll(pageable);
+	}
+
+	/**
+	 * find All with default paging size
+	 *
+	 * @return Page<Entity>
+	 */
+	public Page<E> findAllPages(PageRequest pageRequest) {
+		return getRepository().findAll(pageRequest);
+	}
+
+	public Slice<E> findAllSlices(Pageable pageable) {
+		return getRepository().findAll(pageable);
+	}
+
+	public Slice<E> findAllSlices(PageRequest pageRequest) {
+		return getRepository().findAll(pageRequest);
+	}
+
+	/**
+	 * get the number of records
+	 *
+	 * @return long
+	 */
+	public long count(List<SearchCriterion> filters, Class<E> entityClass, Boolean isDistinct) {
+		return getRepository().count(filters, entityClass, isDistinct);
+	}
+
+}

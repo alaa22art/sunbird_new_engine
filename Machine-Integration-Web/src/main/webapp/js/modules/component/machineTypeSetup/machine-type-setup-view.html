@@ -1,0 +1,29 @@
+<md-content layout-padding class="machine-type-setup-wrapper">
+    <form name="machineTypeForm" novalidate ng-submit="addMachineType(machineTypeForm.$valid)" layout="column" layout-gt-sm="column"
+        flex>
+
+        <md-toolbar flex>
+            <div class="md-toolbar-tools">
+                <div layout="row" flex>
+                    <md-button aria-label="create" class="md-fab md-mini" ng-click="redirectToTestManagmentScreen()" type="button" authority-checker="ADD_MACHINE_TYPE_SETUP">
+                        <md-tooltip md-direction="top">{{'create' | translate}}</md-tooltip>
+                        <md-icon md-font-icon="fas fa-plus"></md-icon>
+                    </md-button>
+                    <md-button aria-label="refresh" class="md-fab md-mini" ng-click="refreshGrid()" type="button">
+                        <md-tooltip md-direction="top">{{'refresh' | translate}}</md-tooltip>
+                        <md-icon md-font-icon="fas fa-sync"></md-icon>
+                    </md-button>
+                    <!-- <md-button aria-label="create" class="md-fab md-mini" ng-click="activateMachineType()" type="button" ng-disabled="selectedMachineType.isActive || selectedMachineType.rid == null">
+                        <md-tooltip md-direction="top">{{'start' | translate}}</md-tooltip>
+                        <md-icon md-font-icon="fas fa-check"></md-icon>
+                    </md-button>
+                    <md-button aria-label="create" class="md-fab md-mini" ng-click="deactivateMachineType()" type="button" ng-disabled="!selectedMachineType.isActive || selectedMachineType.rid == null">
+                        <md-tooltip md-direction="top">{{'stop' | translate}}</md-tooltip>
+                        <md-icon md-font-icon="fas fa-ban"></md-icon>
+                    </md-button>-->
+                </div>
+            </div>
+        </md-toolbar>
+        <div kendo-grid="machinesTypeGrid" id="machineTypeGrid" class="k-widget k-grid" options="machineTypeGridOptions" authority-checker="VIEW_MACHINE_TYPE_SETUP"></div>
+    </form>
+</md-content>

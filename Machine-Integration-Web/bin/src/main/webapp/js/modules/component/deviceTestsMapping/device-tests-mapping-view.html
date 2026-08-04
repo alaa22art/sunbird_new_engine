@@ -1,0 +1,124 @@
+<div class="device-tests-mapping-wrapper">
+    <div class="message-box error-message" ng-if="!selectedMachine">
+        {{'noDeviceSelected' | translate}}
+    </div>
+    <div ng-if="selectedMachine">
+        <div layout="row">
+            <autocomplete-search dynamic-flex options="machineTestSearchOptions"></autocomplete-search>
+        </div>
+        <div class="custom-box machine-tests region-margin" infinite-scroll="onMachineTestScroll()" layout="row"
+            layout-wrap flex>
+            <div ng-if="machineTestPage.content.length === 0" layout="column" layout-align="center center" layout-fill
+                class="bold">
+                {{'noData' | translate}}
+            </div>
+            <div ng-repeat="machineTest in machineTestPage.content" class="machine-test" dynamic-flex>
+                <div class="clickable-item content" ng-class="{'active':selectedMachineTest === machineTest}"
+                    md-whiteframe="1" layout="row" layout-align="space-between center"
+                    ng-click="onMachineTestClick(machineTest)">
+                    <div layout="row" layout-align="start center" class="right-rule" flex>
+                        <div class="text-center right-rule">
+                            <div>
+                                <md-icon md-font-icon="fas fa-vial" class="main-icon"></md-icon>
+                            </div>
+                            <activation value="machineTest.isActive"></activation>
+                        </div>
+                        <div flex class="label">
+                            <div>
+                                {{'name' | translate}}:&nbsp;
+                                <span class="bold">{{machineTest.name}}</span>
+                            </div>
+                            <div>
+                                {{'assayCode' | translate}}:&nbsp;
+                                <span class="bold">{{machineTest.hostCode}}</span>
+                            </div>
+                            <div>
+                                {{'test' | translate}}:&nbsp;
+                                <span class="bold">{{machineTest.testCatalog.name}}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div layout="row" layout-align="start center">
+                        <div>
+                            <md-icon ng-if="machineTest.isMasking" md-font-icon="fas fa-lock" class="action-icon">
+                                <md-tooltip md-direction="top">{{'masked24H' | translate}}</md-tooltip>
+                            </md-icon>
+                            <md-icon ng-if="!machineTest.isMasking" md-font-icon="fas fa-unlock" class="action-icon">
+                                <md-tooltip md-direction="top">{{'unmasked' | translate}}</md-tooltip>
+                            </md-icon>
+                        </div>
+                        <div>
+                            <md-icon md-font-icon="fas fa-trash" class="action-icon error-color"
+                                confirm-click="deleteMachineTest(machineTest)">
+                                <md-tooltip md-direction="top">{{'delete' | translate}}</md-tooltip>
+                            </md-icon>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <form novalidate name="form">
+            <div class="region-margin" ng-if="selectedMachineTest.testCatalog">
+                <div class="headline-label">{{'test' | translate}}</div>
+                <div layout="row" flex layout-wrap>
+                    <div dynamic-flex>
+                        {{'name' | translate}}:&nbsp;
+                        <span class="bold">{{selectedMachineTest.testCatalog.name}}</span>
+                    </div>
+                    <div>
+                        {{'requesterTestCode' | translate}}:&nbsp;
+                        <span class="bold">{{selectedMachineTest.testCatalog.requesterTestCode}}</span>
+                    </div>
+                </div>
+            </div>
+            <div layout="row" layout-wrap flex>
+                <md-input-container dynamic-flex>
+                    <label>{{'name' | translate}}</label>
+                    <input type="text" name="name" ng-model="selectedMachineTest.name"
+                        ng-required="machineTestMetaData.name.notNull"
+                        ng-minlength="machineTestMetaData.name.sized? machineTestMetaData.name.min:''"
+                        ng-maxlength="machineTestMetaData.name.sized? machineTestMetaData.name.max:''" />
+                    <input-messages input-errors="form.name.$error" />
+                </md-input-container>
+                <md-input-container dynamic-flex>
+                    <label>{{'resultCode' | translate}}</label>
+                    <input type="text" name="resultCode" ng-model="selectedMachineTest.resultCode"
+                        ng-required="machineTestMetaData.resultCode.notNull"
+                        ng-minlength="machineTestMetaData.resultCode.sized? machineTestMetaData.resultCode.min:''"
+                        ng-maxlength="machineTestMetaData.resultCode.sized? machineTestMetaData.resultCode.max:''" />
+                    <input-messages input-errors="form.resultCode.$error" />
+                </md-input-container>
+                <md-input-container dynamic-flex>
+                    <label>{{'assayCode' | translate}}</label>
+                    <input type="text" name="hostCode" ng-model="selectedMachineTest.hostCode"
+                        ng-required="machineTestMetaData.hostCode.notNull"
+                        ng-minlength="machineTestMetaData.hostCode.sized? machineTestMetaData.hostCode.min:''"
+                        ng-maxlength="machineTestMetaData.hostCode.sized? machineTestMetaData.hostCode.max:''" />
+                    <input-messages input-errors="form.hostCode.$error" />
+                </md-input-container>
+            </div>
+            <div layout="row" flex layout-wrap>
+                <div dynamic-flex>
+                    <md-checkbox ng-model="selectedMachineTest.isActive" aria-label="{{'active' | translate}}">
+                        {{'active' | translate}}
+                    </md-checkbox>
+                </div>
+                <div dynamic-flex>
+                    <md-checkbox ng-model="selectedMachineTest.isMasking" aria-label="{{'masked24H' | translate}}">
+                        {{'masked24H' | translate}}
+                    </md-checkbox>
+                </div>
+            </div>
+            <div layout="row" flex layout-wrap layout-align="start center">
+                <md-button class="md-raised" type="button" ng-click="clearForm()">
+                    {{'clear' | translate}}
+                </md-button>
+                <md-button class="md-primary md-raised" type="button" http-disable-click ng-click="submit()"
+                    ng-disabled="form.$invalid">
+                    {{'save' | translate}}
+                </md-button>
+            </div>
+        </form>
+    </div>
+
+</div>

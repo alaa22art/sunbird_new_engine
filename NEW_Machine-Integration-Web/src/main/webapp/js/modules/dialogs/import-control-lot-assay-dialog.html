@@ -1,0 +1,38 @@
+<md-dialog>
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <span flex class="dialog-label">{{ 'import' | translate }}</span>
+            <md-button class="md-icon-button" ng-click="cancel()">
+                <md-icon md-font-icon="fas fa-2x fa-times"></md-icon>
+            </md-button>
+        </div>
+    </md-toolbar>
+    <md-dialog-content class="md-dialog-content">
+        <div layout="row" layout-wrap flex>
+            <autocomplete-search flex="100" options="machineTypeSearchOptions"></autocomplete-search>
+            <autocomplete-search flex="100" options="controlItemSearchOptions"></autocomplete-search>
+        </div>
+        <div>
+            <input name="fileImport" id="fileImport" class="no-display" type="file" accept=".xls,.xlsx" />
+        </div>
+        <md-button class=" md-raised" type="button" http-disable-click
+            ng-disabled="!selectedControlItem || !selectedMachineType" ng-click="downloadTemplate()">
+            {{'download' | translate}}
+        </md-button>
+        <div layout="row" layout-wrap flex layout-align="start center">
+            <div>
+                <md-button class="md-raised" type="button" ng-click="uploadTemplate()">
+                    {{'upload' | translate}}
+                </md-button>
+            </div>
+            <div ng-if="uploadedFile" class="bold">{{uploadedFile.name}}</div>
+        </div>
+
+    </md-dialog-content>
+    <md-dialog-actions>
+        <md-button class="md-primary md-raised" type="button" http-disable-click ng-disabled="!uploadedFile"
+            ng-click="submit()">
+            {{'import' | translate}}
+        </md-button>
+    </md-dialog-actions>
+</md-dialog>

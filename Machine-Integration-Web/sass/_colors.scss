@@ -1,0 +1,59 @@
+$primary-theme-color: #24709c;
+$primary-theme-white-color:rgba(255, 255, 255, 0.90); // i.e. the white in the header text
+$sidenav-icons: #b8c7ce;
+$sidenav-background: #222D32;
+$text-search-highlight-color:#FDD835;
+$user-badge-color:#38c8c5;
+$table-border-color:#d3d3d3;
+$card-layout-color:#f1f5fb;
+$card-layout-hover-color:#d0ddf1;
+$card-text-color: #2b5a8e;
+$fab-focus-color: rgb(146, 184, 206);
+$radio-default-color: rgb(36, 112, 156);
+$radio-off-color: rgba(0, 0, 0, 0.54);
+$hover-color: rgba(158, 158, 158, 0.2);
+$row-alt-color: whitesmoke;
+$sample-status-color:#11a765;
+$field-set-border-color:rgba(0, 0, 0, 0.5);
+$kendo-table-header-background:#fafafa;
+$kendo-table-header:#999999;
+$footer-color:#E0E0E0;
+//plain-colors
+$white: white;
+$grey: grey;
+$soft-grey: #e6e6e6;
+$blue: blue;
+$selection-blue: #3f51b5;
+$black: black;
+$gold: #ecb32e;
+$green: #2E7D32;
+$red: #c62828;
+//header-notification
+$header-notification: #FF5722;
+//message-colors
+$success-color: #2E7D32;
+$info-color: #24b4b1;
+$info-background: #d9edf7;
+$info-border: #bce8f1;
+$error-color: #c62828;
+$error-background: #f2dede;
+$error-border: #ebccd1;
+$error-fatal-color: #424242;
+$warning-color: #FF8F00;
+$warning-background: #fcf8e3;
+$warning-border: #faebcc;
+//pcr-colors
+$positive-color:red;
+$negative-color:green;
+$undetermined-color:black;
+$positive-time-color:#ff0000a3;
+$negative-time-color:#008000a1;
+$in-progress-time-color:#ff9d0b;
+$not-started-time-color:#24709ca8;
+$finalized-icon-color:#cf0505;
+$add-sample-icon:#3a3ad1;
+$result-sent-background:yellow;
+$occupied-icon-color:#8b8583;
+$undetermined-icon-color:black;
+$whatsapp-icon-color:$green;
+$close-btn-border-color:#c62828;

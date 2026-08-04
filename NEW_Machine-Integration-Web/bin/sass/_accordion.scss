@@ -1,0 +1,31 @@
+.accordion-wrapper {
+  margin: 8px 0;
+  padding: 2px;
+
+  .accordion-block {
+    margin-bottom: 8px;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .accordion-header {
+    padding: 8px;
+    outline: none;
+    font-weight: bold;
+    background-color: #248f9c;
+    color: white;
+
+    .accordion-header-icon {
+      font-size: 1.25em;
+      text-align: center;
+      color: white;
+      outline: none;
+    }
+  }
+
+  .accordion-content {
+    padding: 0;
+    height: 0;
+    overflow: hidden;
+  }
+}

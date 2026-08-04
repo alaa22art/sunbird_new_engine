@@ -1,0 +1,31 @@
+.autocomplete-search {
+    md-autocomplete-parent-scope {
+        height: 100%;
+    }
+    md-autocomplete md-autocomplete-wrap md-progress-linear.md-inline {
+        bottom: 22px !important;
+    }
+    .md-autocomplete-suggestions-container.md-default-theme li .highlight,
+    .md-autocomplete-suggestions-container li .highlight {
+        font-weight: bold;
+        background-color: $text-search-highlight-color;
+        color: inherit;
+    }
+    md-autocomplete[md-floating-label] .md-show-clear-button button {
+        top: 12px;
+    }
+    .item-viewer {
+        height: 100%;
+        display: flex;
+        align-items: center;
+    }
+    .item-code {
+        margin-#{$opposite-direction}: 5px;
+    }
+    .autocomplete-image {
+        width: 40px;
+        height: 40px;
+        margin-#{$opposite-direction}: 10px;
+        border-radius: 50%;
+    }
+}

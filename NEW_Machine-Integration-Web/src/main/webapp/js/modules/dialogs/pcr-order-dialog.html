@@ -1,0 +1,69 @@
+<md-dialog class="pcr-dialog">
+  <form class="addFormDialog">
+    <md-toolbar>
+      <div layout="flex">
+        <h5 class="center">Results</h5>
+        <md-icon md-font-icon="fas fa-times-circle" aria-label="Close dialog" class="close-dialog-btn"
+          ng-click="cancel()"></md-icon>
+
+      </div>
+    </md-toolbar>
+
+    <md-dialog-content class="input-fields-container">
+
+      <div>Patient Name: {{machineOrder.patientFirstName}} {{machineOrder.patientLastName}}</div>
+
+
+      <div>Barcode: {{machineOrder.barcode}}</div>
+
+
+      <div>Gender: {{machineOrder.gender}}</div>
+
+      <div>Requested By: {{machineOrder.orderingPhysician}}</div>
+
+      <div class="lines-container">
+        <div class="md-list-item-text result-line" ng-repeat="line in templateLines track by $index">
+          <md-input-container>
+            <label>{{line.name}}</label>
+
+            <input ng-model="tempResults[line.code].value" type="text" ng-if="!(lovResults.indexOf(line.code) > -1)"
+              ng-disabled="workList.workListStatus.code != RESULTS_ENTRY || tempResults[resultCode].value != positiveResult "
+              ng-change="tempResults[line.code].pcrRealTimeResultTemplateLine=line">
+
+            <md-select ng-model="tempResults[line.code].value" ng-if="lovResults.indexOf(line.code) > -1"
+              ng-disabled="workList.workListStatus.code != RESULTS_ENTRY || (line.code == var && tempResults[resultCode].value != positiveResult)"
+              ng-change="tempResults[line.code].pcrRealTimeResultTemplateLine=line">
+              <md-option><em>None</em></md-option>
+              <md-option ng-repeat="resultOption in resultOptions[line.code]" ng-value="resultOption">
+                {{resultOption}}
+              </md-option>
+            </md-select>
+            <span ng-show="tempResults[line.code].value.$error.required">Required!</span>
+          </md-input-container>
+
+
+        </div>
+      </div>
+
+
+
+
+    </md-dialog-content>
+
+    <md-dialog-actions layout="row">
+      <span flex></span>
+      <md-button type="button" class="closeButton" ng-click="unloadSample()" ng-if="showUnloadBtn">
+        {{'unloadSample' |translate}}
+      </md-button>
+      <md-checkbox class="left" ng-if="showConfirmBtn" ng-model="confirm.box">
+        {{'confirm' |translate}}
+      </md-checkbox>
+      <md-button type="button" ng-click="saveActualValues()"
+        ng-disabled="!tempResults[resultCode].value || tempResults[resultCode].value=='None'" class="addButton">
+        Save
+      </md-button>
+    </md-dialog-actions>
+  </form>
+</md-dialog>
+
+<!-- ng-disabled="!tempResults[resultCode].value || tempResults[resultCode].value=='None'" -->

@@ -1,0 +1,22 @@
+<div class="autocomplete-search">
+    <md-autocomplete md-menu-class="autocomplete-search" md-selected-item="options.selectedItem" ng-disabled="options.disabled"
+        md-delay="1000" md-min-length="1" md-no-cache="true" md-floating-label="{{'search' | translate}}" md-item-text="item.autocompleteCode"
+        md-clear-button="true" md-items="item in autocompleteSearch(searchText)" md-search-text="searchText" md-selected-item-change="selectedItemChange(item)">
+        <!-- <md-item-template>
+				<span md-highlight-text="searchText" md-highlight-flags="^i">{{ item.standardCode }}</span>
+			</md-item-template> -->
+        <md-item-template>
+            <span ng-show="item.rid === -1">
+                <md-icon md-font-icon="fas fa-search"></md-icon>
+                <span>{{item.searchLabel}}</span>
+            </span>
+            <span class="item-viewer" ng-show="item.rid !== -1">
+                <!-- add image here -->
+                <img class="autocomplete-image" ng-class="item.image ? '' : 'hidden'" ng-show="options.skeleton.image" ng-src="data:image/png;base64,{{item.image}}"
+                />
+                <span ng-hide="options.skeleton.description === options.skeleton.code" class="bold item-code">({{item.autocompleteCode}})</span>
+                <span>{{item.autocompleteDescription}}</span>
+            </span>
+        </md-item-template>
+    </md-autocomplete>
+</div>

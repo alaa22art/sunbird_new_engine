@@ -1,0 +1,10 @@
+.steps-indicator {
+    padding-bottom: 20px;
+    li.editing a:before,
+    li.current a:before {
+        background-color: $primary-theme-color;
+    }
+    li a {
+        text-transform: none;
+    }
+}

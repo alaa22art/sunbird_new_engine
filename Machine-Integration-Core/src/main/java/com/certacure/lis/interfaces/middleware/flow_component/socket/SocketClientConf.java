@@ -1,0 +1,75 @@
+package com.certacure.lis.interfaces.middleware.flow_component.socket;
+
+import java.util.concurrent.TimeUnit;
+
+import com.certacure.core.common.util.SpringUtil;
+import com.certacure.lis.interfaces.entities.Machine;
+import com.certacure.lis.interfaces.middleware.core.ConfMsg;
+import com.certacure.lis.interfaces.middleware.flow_component.socket.SocketServerConf.ConfKey;
+import com.certacure.lis.interfaces.service.MachineService;
+import com.typesafe.config.Config;
+
+import akka.actor.ActorContext;
+import akka.actor.ActorRef;
+import scala.concurrent.Await;
+import scala.concurrent.Future;
+import scala.concurrent.duration.Duration;
+import scala.concurrent.duration.FiniteDuration;
+
+public class SocketClientConf implements ConfMsg {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	public final String address;
+	public final int portNumber;
+	public final String machineName;
+	public final ActorRef recipientActor;
+
+	public SocketClientConf(String address, int portNumber, String machineName, ActorRef recipientActor) {
+		this.address = address;
+		this.portNumber = portNumber;
+		this.machineName = machineName;
+		this.recipientActor = recipientActor;
+	}
+
+	@Override
+	public String toString() {
+		return "SocketClientConf{" +
+				"address='" + address + '\'' +
+				", portNumber=" + portNumber +
+				", recipientActor=" + recipientActor +
+				'}';
+	}
+
+
+		public enum ConfKey {
+			address,
+			port,
+			machineName,
+			recipientActor
+		}
+
+	public static SocketClientConf create(Config config, ActorContext ctx) {
+		ActorRef recipientActor;
+		Future<ActorRef> actorRefFuture = ctx
+												.actorSelection(config.getString(ConfKey.recipientActor.name()))
+												.resolveOne(Duration.apply(1, TimeUnit.SECONDS));
+		Machine machine = getMachine(ctx);
+		try {
+			recipientActor = Await.result(actorRefFuture, FiniteDuration.apply(1, TimeUnit.SECONDS));
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
+		System.out.println("machine.getServerIpAddress()" + machine.getServerIpAddress() + ", machine.getServerPort()"
+				+ machine.getServerPort() + ", machine.getName()" + machine.getName() + ", recipientActor" + recipientActor);
+		return new SocketClientConf(machine.getServerIpAddress(), machine.getServerPort(), machine.getName(), recipientActor);
+	}
+
+	private static Machine getMachine(ActorContext ctx) {
+		MachineService machineService = (MachineService) SpringUtil.getBean("MachineService");
+		Machine machine = machineService.getMachineByActorPath(ctx.self().toString());
+		return machine;
+	}
+}

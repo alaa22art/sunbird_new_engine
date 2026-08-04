@@ -1,0 +1,27 @@
+.device-details-wrapper {
+
+    .img-wrapper {
+
+        img {
+            height: 100px;
+        }
+    }
+
+
+    .section {
+        padding: 8px;
+    }
+
+    md-switch {
+        flex-direction: row;
+        justify-content: space-between;
+        align-content: center;
+        align-items: center;
+        margin: 0 0 8px 0;
+    }
+
+    .reachable-icon {
+        color: white !important;
+        border-radius: 100%;
+    }
+}

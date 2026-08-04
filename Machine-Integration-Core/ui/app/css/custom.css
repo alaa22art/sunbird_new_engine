@@ -1,0 +1,99 @@
+#sidebar {
+    position:absolute;
+    left:0;
+    top:0px;
+    bottom: 0;
+    width: 250px;
+    background: #000;
+    padding: 0 10px;
+}
+#sidebar .control-label {
+    color: #fff;
+}
+
+#main {
+    position: absolute;
+    left:250px;
+    top:0px;
+    right:0;
+    bottom:0;
+    padding: 20px;
+}
+
+.sidebar-nav {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.sidebar-nav ul {
+    list-style: none;
+    padding-left: 20px;
+}
+
+.sidebar-nav li {
+    text-indent: 10px;
+    line-height: 40px;
+}
+
+.sidebar-nav li a {
+    display: block;
+    text-decoration: none;
+    color: #fff;
+}
+
+.sidebar-nav li a:hover {
+    text-decoration: none;
+    color: #fff;
+    background: rgba(255,255,255,0.2);
+}
+
+.sidebar-nav li a:active,
+.sidebar-nav li a:focus {
+    text-decoration: none;
+}
+
+/*brand*/
+
+.sidebar-nav > .sidebar-brand {
+    height: 65px;
+    font-size: 18px;
+    line-height: 60px;
+}
+
+.sidebar-nav > .sidebar-brand a {
+    color: #999999;
+}
+
+.sidebar-nav > .sidebar-brand a:hover {
+    color: #fff;
+    background: none;
+}
+
+.selectedRow {
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+}
+
+.readError .public_fixedDataTableCell_main {
+    background-color: #ebcccc !important;
+}
+.unreadError .public_fixedDataTableCell_main {
+    background-color: #c12e2a !important;
+}
+
+pre {
+    border: none;
+    background-color: transparent;
+}
+
+.overviewPanel {
+    height: 100%;
+    overflow: scroll;
+    display: block;
+}
+
+.msgDetailsHeader {
+    margin-bottom: 0;
+    font-size: 12px;
+}

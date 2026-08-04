@@ -1,0 +1,123 @@
+<md-content class="test-mapping-wrapper">
+    <form name="testForm" novalidate ng-submit="" layout="column" layout-gt-sm="column" flex>
+        <md-content layout-xs="column" layout="row">
+            <md-card flex layout="row" md-whiteframe="3">
+                <md-card-content flex layout="column">
+                    <div flex layout="row" layout-wrap>
+
+                        <div flex>
+                            <div layout="row" flex layout-wrap>
+                                <md-input-container dynamic-flex>
+                                    <label>{{'code' | translate}}</label>
+                                    <input type="text" name="code" ng-model="selectedMachineType.code" ng-required="metaData.code.notNull">
+                                    <input-messages input-errors="testForm.code.$error"></input-messages>
+                                </md-input-container>
+                                <md-input-container dynamic-flex>
+                                    <label>{{'name' | translate}}</label>
+                                    <input type="text" name="name" ng-model="selectedMachineType.name" ng-disabled="isEditModeAllow"
+                                        ng-required="true">
+                                    <input-messages input-errors="testForm.name.$error"></input-messages>
+                                </md-input-container>
+                            </div>
+                            <div layout="row" flex layout-wrap>
+                                <lov dynamic-flex form="testForm" options="lowLevelProtocol" ng-if="lowLevelProtocol.data != null"
+                                    select="lowLevelProtocol.selectedValue"></lov>
+                                <lov dynamic-flex form="testForm" options="highLevelProtocol" ng-if="highLevelProtocol.data != null"
+                                    select="highLevelProtocol.selectedValue"></lov>
+                                <lov dynamic-flex form="testForm" options="driver" ng-if="driver.data != null" select="driver.selectedValue"></lov>
+                                <md-switch dynamic-flex form="testForm" aria-label="{{'isActive' | translate}}"
+                                    ng-model="selectedMachineType.isActive">
+                                    {{'isActive' | translate}}
+                                </md-switch>
+                            </div>
+                        </div>
+
+                        <div flex-sm="100" layout="column" layout-align="center center" class="machine-type-img">
+                            <img ng-src="{{'./assets/images/machines_type_images/'+imageName+'.jpg'}}" onerror="javascript:this.src='./assets/images/machines_type_images/no_machine.jpg'"
+                                ng-class="selectedMachineType.isActive?'img-active md-whiteframe-12dp':'img-inactive md-whiteframe-12dp'" />
+
+                            <div class="mapIcon">
+                                <md-icon ng-if="selectedMachineType.isActive" md-font-icon="fas  fa-check-circle" class="mapActive">
+                                    <md-tooltip md-direction="top">{{'machineRunning' | translate}}</md-tooltip>
+                                </md-icon>
+                                <md-icon ng-if="!selectedMachineType.isActive" md-font-icon="fas  fa-times-circle"
+                                    class="mapInactive">
+                                    <md-tooltip md-direction="top">{{'machineStoped' | translate}}</md-tooltip>
+                                </md-icon>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div layout="row" layout-wrap>
+                        <md-button class="md-primary md-raised" type="button" ng-disabled="selectedMachineType.rid !=null || testForm.$invalid"
+                            ng-click="addMachineType()" authority-checker="ADD_MACHINE_TYPE_SETUP">
+                            {{'add' | translate}}
+                        </md-button>
+                        <md-button class="md-primary md-raised" type="button" ng-disabled="selectedMachineType.rid ==null ||testForm.$invalid"
+                            ng-click="updateMachineType()" authority-checker="UPD_MACHINE_TYPE_SETUP">
+                            {{'edit' | translate}}
+                        </md-button>
+
+                        <md-button class="md-primary md-raised" type="button" ng-click="clearFields()">
+                            {{'clear' | translate}}
+                        </md-button>
+
+                        <md-button class="md-primary md-raised" type="button" ng-click="back()">
+                            {{'back' | translate}}
+                        </md-button>
+                    </div>
+                </md-card-content>
+            </md-card>
+        </md-content>
+        <div ng-hide="selectedMachineType.rid == null">
+            <md-toolbar>
+                <div class="md-toolbar-tools">
+                    <div layout="row" flex>
+                        <md-button aria-label="{{'create' | translate}}" class="md-fab md-mini" ng-click="addSelectedTest()"
+                            type="button" ng-disabled="selectedMachineType.rid == null">
+                            <md-tooltip md-direction="top" authority-checker="ADD_MAP_MACHINE_TYPE_WITH_TEST">{{'create'
+                                | translate}}</md-tooltip>
+                            <md-icon md-font-icon="fas fa-plus"></md-icon>
+                        </md-button>
+                        <md-button type="button" aria-label="{{'edit' | translate}}" class="md-fab md-mini" ng-disabled="selectedTest==null || selectedMachineType.rid == null "
+                            ng-click="editSelectedTest(selectedTest)" authority-checker="UPD_MAP_MACHINE_TYPE_WITH_TEST">
+                            <md-tooltip md-direction="top">{{'edit' | translate}}</md-tooltip>
+                            <md-icon md-font-icon="fas fa-edit"></md-icon>
+                        </md-button>
+                        <md-button aria-label="{{'save' | translate}}" class="md-fab md-mini" type="button" ng-disabled="selectedTest==null ||  selectedMachineType.rid == null"
+                            ng-click="saveSelectedTest()">
+                            <md-tooltip md-direction="top">{{'save' | translate}}</md-tooltip>
+                            <md-icon md-font-icon="fas fa-save"></md-icon>
+                        </md-button>
+
+                        <md-button aria-label="{{ 'cancel' | translate }}" class="md-fab md-mini" ng-disabled="selectedTest==null"
+                            ng-click="cancelSelectedTests()">
+                            <md-icon md-font-icon="fas fa-undo"></md-icon>
+                            <md-tooltip md-direction="top">{{ 'cancel' | translate }}</md-tooltip>
+                        </md-button>
+                        <md-button aria-label="{{'delete' | translate}}" class="md-fab md-mini" type="button"
+                            ng-disabled="selectedTestChanged ||  selectedMachineType.rid == null || selectedTest==null"
+                            ng-click="deleteSelectedTest(selectedTest)" authority-checker="DEL_MAP_MACHINE_TYPE_WITH_TEST">
+                            <md-icon md-font-icon="fas fa-trash"></md-icon>
+                            <md-tooltip md-direction="top">{{'delete' | translate}}</md-tooltip>
+                        </md-button>
+                    </div>
+                    <div layout="row">
+                        <md-button aria-label="{{ 'refresh' | translate}}" class="md-fab md-mini" http-disable-click
+                            ng-click="refreshGrid()" type="button">
+                            <md-tooltip md-direction="top">{{'refresh' | translate}}</md-tooltip>
+                            <md-icon md-font-icon="fas fa-sync"></md-icon>
+                        </md-button>
+                    </div>
+                </div>
+            </md-toolbar>
+            <div kendo-grid="TestCatalogGrid" id="TestCatalogGrid" class="k-widget k-grid" options="TestCatalogGridOptions"
+                authority-checker="VIEW_MACHINE_TYPE_TEST_MAPPING"></div>
+        </div>
+
+
+
+    </form>
+</md-content>

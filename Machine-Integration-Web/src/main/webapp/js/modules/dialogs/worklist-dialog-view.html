@@ -1,0 +1,46 @@
+<md-dialog class="worklist-dialog">
+  <form class="addFormDialog" ng-submit="addWorklist($event)">
+    <md-toolbar>
+      <div>
+        <h5>Add New WorkList</h5>
+        <span flex></span>
+      </div>
+    </md-toolbar>
+
+    <md-dialog-content class="input-fields-container">
+      <md-input-container class="md-icon-float md-block">
+        <!-- Use floating label instead of placeholder -->
+        <label>Name</label>
+        <input ng-model="worklist.name" type="text" required>
+
+      </md-input-container>
+
+      <md-input-container class="md-icon-float md-block" style="margin-top: 3em;">
+        <!-- Use floating label instead of placeholder -->
+        <label>Rows</label>
+        <input ng-model="worklist.maxRows" type="number"  required>
+      </md-input-container>
+
+      <md-input-container class="md-icon-float md-block" style="margin-top: 3em;">
+        <!-- Use floating label instead of placeholder -->
+        <label>Columns</label>
+        <input ng-model="worklist.maxColumns" type="number"  required>
+      </md-input-container>
+
+      <!--   
+          <md-checkbox ng-model="department.isActive" style="display: block;float: right;">
+            Is Active? 
+          </md-checkbox> -->
+    </md-dialog-content>
+
+    <md-dialog-actions layout="row">
+      <span flex></span>
+      <md-button ng-click='cancel()' class="closeButton">
+        Close
+      </md-button>
+      <md-button type="submit" class="addButton">
+        ADD
+      </md-button>
+    </md-dialog-actions>
+  </form>
+</md-dialog>

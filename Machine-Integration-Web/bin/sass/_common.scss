@@ -1,0 +1,521 @@
+.headline-label {
+    font-size: 1.25em;
+    font-weight: bold;
+}
+
+.region-margin {
+    margin-bottom: 16px;
+}
+
+.custom-box {
+    overflow: auto;
+    border-width: 1px;
+    border-style: solid;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    border-color: $soft-grey;
+}
+
+
+.anchor-txt {
+    text-decoration: none;
+    color: $blue;
+    outline: none;
+}
+
+.message-box {
+    padding: 8px;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    margin: 8px 0;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .2), 0 1px 1px 0 rgba(0, 0, 0, .14), 0 2px 1px -1px rgba(0, 0, 0, .12);
+}
+
+.error-message {
+    color: $error-color;
+    background-color: $error-background;
+    border-color: $error-border;
+}
+
+.warning-message {
+    color: $warning-color;
+    background-color: $warning-background;
+    border-color: $warning-border;
+}
+
+.info-message {
+    color: #115554;
+    background-color: $info-background;
+    border-color: $info-border;
+}
+
+.primary-color {
+    color: $primary-theme-color;
+}
+
+.secondary-color {
+    color: $secondary-theme-color;
+}
+
+.error-color {
+    color: $error-color;
+}
+
+.warning-color {
+    color: $warning-color;
+}
+
+.info-color {
+    color: $info-color;
+}
+
+.success-color {
+    color: $success-color;
+}
+
+.primary-fill-color {
+    fill: $primary-theme-color;
+}
+
+.secondary-fill-color {
+    fill: $secondary-theme-color;
+}
+
+.error-fill-color {
+    fill: $error-color;
+}
+
+.warning-fill-color {
+    fill: $warning-color;
+}
+
+.info-fill-color {
+    fill: $info-color;
+}
+
+.success-fill-color {
+    fill: $success-color;
+}
+
+.error-background-color {
+    background-color: $error-color;
+}
+
+.warning-background-color {
+    background-color: $warning-color;
+}
+
+.info-background-color {
+    background-color: $info-color;
+}
+
+.success-background-color {
+    background-color: $success-color;
+}
+
+.grid-ellipsis td {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.ellipsis {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.clickable-item {
+    cursor: pointer;
+    outline: none;
+}
+
+.disabled-cursor {
+    cursor: not-allowed;
+}
+
+.disable-click-event {
+    pointer-events: none;
+}
+
+.top-rule {
+    border-top: 1px solid $soft-grey;
+}
+
+.right-rule {
+    border-#{$opposite-direction}: 1px solid $soft-grey;
+}
+
+.bottom-rule {
+    border-bottom: 1px solid $soft-grey;
+}
+
+.left-rule {
+    border-#{$direction}: 1px solid $soft-grey;
+}
+
+.float-end {
+    float: $opposite-direction;
+}
+
+.float-start {
+    float: $direction;
+}
+
+.clear-float {
+    clear: both;
+    float: none;
+}
+
+.legend-wrapper {
+    margin: 8px 0;
+
+    &>* {
+        margin-#{$opposite-direction}: 8px;
+    }
+}
+
+
+md-input-container {
+    width: 100%;
+    box-sizing: border-box;
+
+    .hint {
+        font-size: 0.857em;
+        opacity: 0.7;
+    }
+
+    .inline-icon {
+        #{$opposite-direction}: -3px;
+        top: 7px;
+        position: absolute;
+        text-align: center;
+        cursor: pointer;
+    }
+}
+
+.inset {
+    padding: 10px;
+}
+
+div.show {
+    display: none;
+    border-radius: 25px;
+}
+
+img.k-image {
+    height: 30px;
+}
+
+md-input-container label {
+    color: $grey;
+}
+
+.md-select-value.md-select-placeholder {
+    color: $grey !important;
+}
+
+.draggable-element {
+    cursor: move;
+}
+
+.draggable-element:active {
+    cursor: move;
+}
+
+md-tabs {
+
+    margin: 8px 0;
+
+    .md-tab {
+        text-transform: none;
+        font-weight: bold;
+        color: $black;
+    }
+
+    md-tabs-content-wrapper {
+        margin-top: 8px;
+
+        md-tab-content {
+            padding: 8px 0;
+        }
+    }
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+//this class is needed in some cases where ng-hide might be overriden by angular behavior
+.no-display {
+    display: none;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-capitalize {
+    text-transform: capitalize;
+}
+
+md-input-container {
+    md-datepicker {
+        .md-datepicker-input-container {
+            width: calc(100% - 70px);
+        }
+    }
+}
+
+.hidden-overflow-x {
+    overflow-x: hidden;
+}
+
+.block {
+    display: block;
+}
+
+
+.no-padding {
+    padding: 0 !important;
+}
+
+.flexible-tooltip {
+    height: auto;
+    overflow: auto;
+    white-space: initial;
+    width: 25%; //this must be relative to column width
+}
+
+.short-toolbar {
+    height: 40px;
+    min-height: 40px;
+    max-height: 40px;
+
+    .md-toolbar-tools {
+        height: 40px;
+        max-height: 40px;
+    }
+}
+
+.no-margin-bottom {
+    margin-bottom: 0;
+}
+
+table.bordered-column {
+    border-collapse: collapse;
+
+    th,
+    tr,
+    td {
+        border: 1px solid $soft-grey;
+        padding: 0.625em;
+    }
+}
+
+.no-padding-top {
+    padding-top: 0;
+}
+
+.pre-wrap {
+    white-space: pre-wrap;
+}
+
+md-chips.auto-height-chips {
+    md-chip {
+        height: auto;
+    }
+}
+
+.hide-chips {
+    md-chip {
+        display: none;
+    }
+}
+
+.no-border {
+    border: none;
+}
+
+.inline-trans-editor {
+    >* {
+        float: $direction;
+    }
+}
+
+// .inline-trans-editor {
+//     .lang-list {
+//         width: 95px !important;
+//         margin-#{$opposite-direction}: 5px;
+//         float: $direction;
+//     }
+//     .lang-list-value {
+//         width: calc(100% - 100px) !important;
+//         min-width: 200px;
+//         float: $direction;
+//     }
+// }
+//this fixed the custom font we created
+button {
+    [class*='lis-']:before {
+        line-height: inherit;
+    }
+}
+
+[class*='lis-'] {
+    vertical-align: sub;
+}
+
+.lis-input {
+    border-top-width: 0px;
+    border-right-width: 0px;
+    border-left-width: 0px;
+    border-bottom-color: $soft-grey;
+    border-bottom-width: 1px;
+    outline: none;
+}
+
+.lis-input:focus {
+    border-bottom-color: $primary-theme-color !important;
+    border-bottom-width: 2px !important;
+}
+
+.lis-input[disabled] {
+    // angular's styles of two rules
+    border-bottom-color: transparent;
+    color: rgba(0, 0, 0, 0.38);
+    background-image: linear-gradient(90deg, rgba(0, 0, 0, 0.38) 0, rgba(0, 0, 0, 0.38) 33%, transparent 0);
+    background-position: bottom -1px left 0;
+    background-size: 4px 1px;
+    background-repeat: repeat-x;
+    background-color: transparent;
+}
+
+.discount-amount-container {
+    .label {
+        color: rgba(0, 0, 0, 0.54); //angular's color
+        font-size: 0.8em;
+        height: 2.55em;
+        margin-top: -0.45em;
+    }
+
+    input {
+        width: calc(50% - 7px);
+    }
+
+    .separator {
+        width: 5px;
+        display: inline-block;
+        font-weight: bold;
+    }
+}
+
+.lis-table {
+    border-collapse: collapse;
+    border: 2px solid $soft-grey;
+
+    th,
+    td {
+        padding: 5px;
+    }
+
+    th {
+        text-align: $direction;
+        font-weight: normal;
+    }
+
+    // td {
+    //     border-#{$opposite-direction}: 2px solid $soft-grey;
+    // }
+    // tr {
+    //     border-bottom: 2px solid $soft-grey;
+    // }
+    thead {
+        tr:first-child {
+            background-color: $kendo-table-header-background;
+            color: $kendo-table-header;
+        }
+    }
+
+    tbody {
+        tr:nth-child(even) {
+            background-color: $row-alt-color;
+        }
+
+        tr:hover {
+            background-color: $hover-color;
+        }
+    }
+
+    md-checkbox {
+        margin: 0 !important;
+    }
+}
+
+.hidden-field-error {
+    color: $red;
+    margin: -15px 5px 10px 5px;
+
+    &+.hidden-field-error {
+        margin-top: -5px;
+    }
+}
+
+.machine-type-img {
+    position: relative;
+    margin-#{$direction}: 25px;
+
+    img {
+        max-height: 300px;
+        border-width: 5px;
+        border-style: solid;
+        border-radius: 20px;
+    }
+
+    .img-active {
+        border-color: $success-color;
+    }
+
+    .img-inactive {
+        border-color: $error-color;
+    }
+}
+
+.chips-wrapper {
+    padding: 4px;
+
+    .chip {
+        border-radius: 20px;
+        background-color: $soft-grey;
+        padding: 4px 8px;
+        margin: 4px;
+        outline: none;
+        box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .2), 0 1px 1px 0 rgba(0, 0, 0, .14), 0 2px 1px -1px rgba(0, 0, 0, .12);
+
+        &.active {
+            background-color: $primary-theme-color;
+            color: white !important;
+
+            md-icon {
+                color: white !important;
+                border-color: $secondary-theme-color !important;
+                background-color: $secondary-theme-color !important;
+            }
+        }
+
+        &.inactive {
+            opacity: 0.75;
+        }
+
+        md-icon {
+            text-align: center;
+            border: 1px solid;
+            border-radius: 100%;
+            border-color: $grey;
+            background-color: white;
+            outline: none;
+        }
+    }
+}

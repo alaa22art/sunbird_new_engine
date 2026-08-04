@@ -1,0 +1,53 @@
+<div class="test-selection-wrapper">
+    <md-card md-whiteframe="1">
+        <md-card-content>
+            <autocomplete-search options="autoSearchOptions"></autocomplete-search>
+            <md-radio-group class="type-radio" ng-model="typeFilter" layout="row" flex layout-wrap
+                ng-change="onTypeFilterChange()">
+                <md-radio-button value="ALL" class="md-primary">{{'all' | translate}}</md-radio-button>
+                <md-radio-button value="NEED_CONTROL">{{'needControl' | translate}}</md-radio-button>
+                <md-radio-button value="OUT_OF_CONTROL">{{'outOfControl' | translate}}</md-radio-button>
+                <md-radio-button value="NEED_VERIFICATION">{{'needVerification' | translate}}</md-radio-button>
+                <md-radio-button value="PENDING_ORDER">{{'pendingOrder' | translate}}</md-radio-button>
+            </md-radio-group>
+            <div class="custom-box machine-tests" infinite-scroll="onMachineTestScroll()" layout="row" layout-wrap flex
+                layout-align="center start">
+                <div ng-if="machineTestPage.content.length === 0" layout="column" layout-align="center center"
+                    layout-fill class="bold">
+                    {{'noData' | translate}}
+                </div>
+                <div ng-repeat="machineTest in machineTestPage.content" class="machine-test"
+                    dynamic-flex="100|100|100|50|50">
+                    <div class="content clickable-item" ng-class="{'active':selectedMachineTest === machineTest}"
+                        md-whiteframe="1" layout="column" layout-align="center none"
+                        ng-click="onMachineTestClick(machineTest)">
+                        <div class="label">
+                            {{machineTest.label}}</div>
+                        <div ng-if="showMachineName" class="label machine-name"
+                            ng-click="onMachineTestClick(machineTest)">{{machineTest.machineName}}</div>
+                        <div layout="row" layout-wrap layout-align="space-around center" class="indicators">
+                            <div ng-if="machineTest.transients.needControl" class="error-color bold">
+                                &#33;
+                                <md-tooltip md-direction="top">{{'needControl' | translate}}</md-tooltip>
+                            </div>
+                            <div ng-if="machineTest.transients.isOutOfControl" class="error-color bold">
+                                &#33;
+                                <md-tooltip md-direction="top">{{'outOfControl' | translate}}</md-tooltip>
+                            </div>
+                            <div ng-if="machineTest.transients.needVerificationAmount > 0" class="error-color bold">
+                                {{machineTest.transients.needVerificationAmount}}
+                                <md-tooltip md-direction="top">{{'needVerification' | translate}}</md-tooltip>
+                            </div>
+                            <div ng-if="machineTest.transients.pendingOrdersAmount > 0" class="error-color bold">
+                                {{machineTest.transients.pendingOrdersAmount}}
+                                <md-tooltip md-direction="top">{{'pendingOrder' | translate}}</md-tooltip>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div ng-if="machineTestPage.content.length > 0" class="counter">
+                {{machineTestPage.content.length + '/'+machineTestPage.totalElements}}</div>
+        </md-card-content>
+    </md-card>
+</div>

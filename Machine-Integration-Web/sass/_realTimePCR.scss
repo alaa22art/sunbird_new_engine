@@ -1,0 +1,488 @@
+@import "colors";
+
+.rtpcr-wrapper {
+    height: 400px;
+    padding: 20px;
+
+    .custom-box {
+        min-height: 30rem;
+    }
+
+    .right-toggle {
+        position: absolute;
+        top: 20%;
+        left: 2%;
+        background: $primary-theme-color;
+        color: white;
+
+        &:hover {
+            background-color: #105278;
+        }
+
+    }
+
+    .left-toggle {
+        position: absolute;
+
+        .left {
+            border: solid $primary-theme-color;
+            border-width: 0 3px 3px 0;
+            display: inline-block;
+            padding: 5px;
+            transform: rotate(135deg);
+        }
+
+        &:hover {
+            background-color: white;
+        }
+    }
+
+    .batch-nav {
+        width: 25%;
+        margin-top: 34px;
+        text-align: center;
+
+        .search-box {
+            width: 70%;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 8%;
+
+            label {
+                width: auto !important;
+            }
+        }
+
+
+        .btn-container {
+            margin-bottom: 20px;
+        }
+
+        .add-batch-btn {
+            text-align: center;
+        }
+
+        .batch-list {
+            max-height: 25rem !important;
+            min-height: 25rem !important;
+            overflow: auto;
+            padding-left: 2rem;
+            padding-right: 1rem;
+            padding-top: 2rem;
+            border: 1px solid #00000038;
+
+            .md-3-line {
+                height: 65px !important;
+                min-height: 10px !important;
+            }
+
+            md-list-item.md-3-line>.md-no-style {
+                height: 65px !important;
+                min-height: 10px !important;
+            }
+
+            .md-list-item-text {
+                margin-bottom: 1rem;
+                margin-top: 1rem;
+                text-align: justify;
+
+                .icons-container {
+                    display: inline !important;
+                    float: right;
+
+                    .delete-icon {
+                        // font-size: 20px;
+                        font-size: 1.5rem;
+                        line-height: 26px;
+
+                        &:hover {
+                            cursor: pointer;
+                            color: $red;
+                        }
+                    }
+
+                    .in-progress-icon {
+                        // font-size: 16px;
+                        font-size: 1rem;
+                        color: white;
+                        text-align: center;
+                        background: green;
+                        border-radius: 21px;
+                        margin-right: 10px;
+
+                        &:hover {
+                            cursor: pointer;
+                        }
+                    }
+
+                    .finalized-icon {
+                        font-size: 14px;
+                        color: white;
+                        text-align: center;
+                        background: $finalized-icon-color;
+                        border-radius: 21px;
+                        margin-right: 10px;
+
+                        &:hover {
+                            cursor: pointer;
+                        }
+                    }
+                }
+            }
+
+            .worklist-name {
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+
+            .active {
+                color: $green;
+                display: inline;
+            }
+
+            .disactive {
+                color: $red;
+                display: inline;
+            }
+
+            md-divider {
+                margin-top: 1rem;
+            }
+        }
+    }
+
+    .samples-container {
+        width: 70%;
+        // width: 53rem;
+        padding-left: 60px;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+
+        .date {
+            margin-left: 70%;
+        }
+
+        .batch-header {
+            // margin-top: 20px;
+            margin-top: 3px;
+
+            .status-icon-container {
+                display: inline-grid;
+
+                .status-text {
+                    font-size: 0.6rem;
+                }
+            }
+
+            .statistics-container {
+                text-align: end;
+                margin-top: 4px;
+                width: 40%;
+
+                .statistics {
+                    // width: 7rem;
+                    padding: 5px;
+                    border-radius: 8px;
+                    box-shadow: 0px 2px 3px rgba(0, 0, 0, 5%);
+                    transition: all 0.2s;
+
+                    color: rgba(255, 255, 255, 0.9) !important;
+                    font-size: 12px;
+                    display: inline-block;
+                    margin-bottom: 7px;
+
+                    .statistics-icon {
+                        margin-right: 100%;
+                    }
+
+                    .left-align {
+                        text-align: left;
+                    }
+                }
+
+                .positive {
+                    background-color: $positive-color;
+                }
+
+                .negative {
+                    background-color: $negative-color;
+                }
+
+                .undetermined {
+                    background-color: $undetermined-color;
+                }
+            }
+
+
+            .white {
+                color: white;
+            }
+
+
+            .batch-title {
+                margin-right: auto;
+                margin-left: auto;
+            }
+
+            .rows-columns-input {
+                width: 20% !important;
+                margin-left: 10% !important;
+                margin-top: auto !important;
+                margin-bottom: auto !important;
+            }
+
+            .save-btn {
+                height: 2rem;
+                margin-top: auto;
+                margin-bottom: auto;
+                margin-left: auto;
+            }
+        }
+
+
+
+        .samples {
+            // margin-top: 20px;
+
+            .sample-cell {
+                width: 35px;
+                height: 35px;
+                // border: 2px solid black;
+                display: inline-block;
+                margin: 1rem;
+                text-align: center;
+                align-items: center;
+
+                .result-sent {
+                    background-color: $result-sent-background;
+                }
+
+                &:hover {
+                    cursor: pointer;
+                }
+
+                .border {
+                    padding: 4px;
+                    border: 2px solid black;
+                    border-radius: 8px;
+                }
+
+                h6 {
+                    margin: 0;
+                }
+
+                .barcode {
+                    margin-left: -9px !important;
+                }
+
+
+                input {
+                    width: 50%;
+                    margin-left: auto;
+                    margin-right: auto;
+                }
+
+                .add-sample-icon {
+                    background-color: $add-sample-icon;
+                    border-radius: 11px;
+                    color: white;
+                }
+
+                .disabled-sample-icon {
+                    background-color: #ed9baa;
+                    border-radius: 11px;
+                    color: white;
+                    cursor: auto !important;
+                }
+
+                .occupied {
+                    border-radius: 11px;
+                    background-color: $occupied-icon-color;
+                    color: white;
+                }
+
+                .negative {
+                    border-radius: 11px;
+                    background-color: $negative-color;
+                    color: white;
+                }
+
+                .positive {
+                    border-radius: 11px;
+                    background-color: $positive-color;
+                    color: white;
+                }
+
+                .undetermined {
+                    border-radius: 11px;
+                    background-color: $undetermined-icon-color;
+                    color: white;
+                }
+            }
+
+        }
+    }
+}
+
+
+
+.active {
+    color: green;
+}
+
+
+.worklist-dialog {
+
+    h5 {
+        text-align: center;
+    }
+
+    .addFormDialog {
+        width: 30rem !important;
+        height: auto !important;
+    }
+
+    .input-fields-container {
+        padding: 2rem;
+    }
+
+    .addButton {
+
+        border: 1px solid $primary-theme-color;
+
+        &:hover {
+            background-color: $primary-theme-color;
+        }
+    }
+
+    .closeButton {
+
+        &:hover {
+            border: 1px solid $close-btn-border-color;
+        }
+    }
+
+}
+
+
+.pcr-dialog {
+
+    md-input-container {
+        // margin: 0 !important;
+        margin-bottom: 15px !important;
+        margin-top: 15px !important;
+    }
+
+    .left {
+        margin-right: 69%;
+    }
+
+    .close-dialog-btn {
+        margin-right: 2%;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    .addFormDialog {
+        width: 40rem !important;
+        height: auto !important;
+
+    }
+
+    .center {
+        text-align: center;
+        margin-left: 45%;
+    }
+
+    .title {
+        margin-bottom: 3rem;
+    }
+
+    .input-fields-container {
+        padding: 2rem;
+
+        .lines-container {
+            margin-top: 3rem;
+        }
+    }
+
+    .addButton {
+
+        border: 1px solid $primary-theme-color;
+
+        &:hover {
+            background-color: $primary-theme-color;
+            color: white;
+        }
+    }
+
+    .closeButton {
+        margin-right: 65%;
+        border: 1px solid $close-btn-border-color;
+    }
+}
+
+
+
+
+
+
+.btns-container {
+    text-align: end;
+}
+
+
+
+
+.center-vertical {
+    margin-top: auto;
+    margin-bottom: auto;
+    text-align: initial;
+}
+
+.worklist-status {
+    md-divider {
+        width: 15%;
+    }
+
+    .active {
+        background-color: green !important;
+    }
+
+    .actiive-color {
+        color: green !important;
+    }
+
+    .inline {
+        display: inline-block;
+    }
+
+    .disable {
+        &:hover {
+            cursor: auto !important;
+        }
+    }
+
+    .status-icon {
+        background: #7a7575;
+        text-align: center;
+        border-radius: 15px;
+        color: white;
+        font-size: 1rem;
+        width: 2rem;
+        height: 2rem;
+        line-height: 32px;
+
+        &:hover {
+            cursor: pointer;
+        }
+
+        md-tooltip {
+            background: #7a7575;
+        }
+    }
+}

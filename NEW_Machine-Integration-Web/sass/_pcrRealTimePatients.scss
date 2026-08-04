@@ -1,0 +1,216 @@
+@import "colors";
+
+.rtpcr-patients-wrapper {
+
+    .search-box {
+        width: 48%;
+        margin-left: 10%;
+        margin-bottom: 2%;
+        margin-top: 2%;
+    }
+
+    .search-options {
+        margin-top: auto;
+        margin-bottom: auto;
+        // margin-left: 10%;
+
+        .search-option {
+            display: inline-block;
+            margin-left: 2rem;
+        }
+    }
+
+    .pcr-result-picker {
+        width: 21%;
+        margin-left: auto !important;
+        margin-top: auto !important;
+        margin-bottom: auto !important;
+    }
+
+
+    .specimen-picker {
+        margin-left: auto !important;
+        width: 14em;
+    }
+
+    .pcr-patients {
+
+        height: 500px !important;
+        max-height: 500px !important;
+        padding-top: 40px;
+        padding-right: 30px;
+        padding-left: 30px;
+
+        .pcr-patient {
+
+            .result-sent-background {
+                background-color: yellow;
+            }
+
+            margin-bottom: 1em;
+
+            .shadow {
+                box-shadow: 5px 5px 5px 5px #d7cccc;
+            }
+
+            .order-card {
+                height: 10rem;
+                padding: 0 !important;
+                position: relative;
+
+                .order-header {
+                    text-align: center;
+
+                    .position {
+                        position: relative;
+                    }
+
+                    .sender-name {
+                        // margin-right: 63%;
+                        margin-bottom: 8px;
+                        margin-top: 7px;
+                        color: black;
+                        font-weight: 600;
+                        width: 100%;
+
+                        .sender-name-position {
+                            margin-right: 87%;
+                        }
+                    }
+
+                    .rotated-date {
+                        transform: rotate(270deg);
+                        position: absolute;
+                        left: 70%;
+                        // top: 75%;
+                        top: 4rem;
+                        width: 50%;
+                        color: black;
+                        font-weight: 600;
+                    }
+
+                    .vl {
+                        border-left: 1px solid black;
+                        height: 100%;
+                        position: absolute;
+                        left: 90%;
+                        top: 0px;
+
+
+                    }
+
+
+                    .time {
+                        display: inline;
+                        border: 1px solid black;
+                        font-size: 1rem;
+                        border-radius: 11px;
+                        padding: 5px;
+                        margin-left: 5%;
+                        color: white;
+                        float: right;
+                        margin-right: 11%;
+                    }
+
+                    .positive {
+                        background-color: $positive-time-color;
+                    }
+
+                    .negative {
+                        background-color: $negative-time-color;
+                    }
+
+                    .undetermined {
+                        background-color: $undetermined-color;
+                        color: white;
+                        border: 1px solid white !important;
+                    }
+
+                    .in-progress {
+                        background-color: $in-progress-time-color;
+                    }
+
+                    .not-started {
+                        background-color: $not-started-time-color;
+                    }
+
+                    .profile-icon {
+                        font-size: 2rem;
+                    }
+
+                    .patient-name {
+                        font-size: 1.1em;
+
+                        position: absolute;
+                        left: 3%;
+                    }
+
+                    .barcode-container {
+                        font-weight: 500;
+                        font-size: 0.8rem;
+                        margin-top: 5px;
+                        clear: both;
+                        position: relative;
+
+                        .barcode {
+                            position: absolute;
+                            left: 15%;
+                        }
+                    }
+                }
+            }
+
+            .icons-container {
+
+                display: inline-flex;
+                // margin-left: 20%;
+                margin-top: 1.5rem;
+
+                .icon {
+                    font-size: 1.6em;
+                    float: right;
+                }
+
+                .icon-container {
+                    display: inline-grid;
+                    margin-right: 2vw;
+
+                }
+
+                .whatsapp-icon {
+
+                    color: $whatsapp-icon-color;
+                }
+
+                .reason-icon {
+                    color: black;
+                }
+
+            }
+        }
+    }
+}
+
+
+
+
+
+.positive-color {
+    color: $positive-time-color;
+}
+
+.negative-color {
+    color: $negative-time-color;
+}
+
+.not-started-color {
+    color: $not-started-time-color;
+}
+
+.in-progress-color {
+    color: $in-progress-time-color;
+}
+
+.undetermined-color {
+    color: $undetermined-color;
+}

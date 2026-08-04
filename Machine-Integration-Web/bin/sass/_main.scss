@@ -1,0 +1,110 @@
+@charset "UTF-8";
+
+body {
+    height: 100%;
+    width: 100%;
+    margin: 0 auto;
+
+    &.md-toast-animating {
+        overflow: initial !important;
+    }
+
+    position: relative !important;
+    top: 0 !important;
+}
+
+.md-dialog-container {
+    position: fixed !important;
+}
+
+.main {
+    padding-top: 64px; //header height
+    min-height: calc(100% - 50px); //footer is 50px
+
+    .main-content {}
+}
+
+md-dialog {
+    .md-dialog-content {
+        padding: 12px !important;
+    }
+
+    .dialog-label {
+        font-size: 1.25em;
+    }
+}
+
+md-input-container:not(.md-input-has-value) md-select.ng-required:not(.md-no-asterisk) .md-select-value span:first-child:after,
+md-input-container:not(.md-input-has-value) md-select[required]:not(.md-no-asterisk) .md-select-value span:first-child:after,
+.md-required::after {
+    font-size: 1.3em !important;
+    font-weight: bold !important;
+    color: red !important;
+}
+
+
+.md-button.md-fab.md-mini {
+    line-height: 30px;
+    width: 30px;
+    min-height: 30px;
+    height: 30px;
+    padding: 0;
+}
+
+div.md-errors-spacer {
+    min-height: 12px !important; // cutting it by half
+}
+
+md-radio-button.md-default-theme .md-on,
+md-radio-button .md-on {
+    background-color: $radio-default-color;
+}
+
+md-radio-button.md-default-theme.md-checked .md-off,
+md-radio-button.md-checked .md-off {
+    border-color: $radio-off-color !important;
+}
+
+md-checkbox.md-checked .md-icon:after {
+    border-color: white !important;
+}
+
+.md-tooltip {
+    height: auto;
+}
+
+md-input-container {
+    margin: 12px 0 !important;
+}
+
+fieldset {
+    border-radius: 8px;
+    margin-top: 10px;
+    border-color: $field-set-border-color;
+
+    legend {
+        font-size: 1.1em;
+        font-weight: bold;
+    }
+}
+
+md-menu-item>.md-button {
+    md-icon {
+        text-align: center;
+        margin: 0 !important;
+    }
+}
+
+#particlesWrapper {
+    position: fixed;
+    background-color: #f7f9fb;
+    width: 100%;
+    height: calc(100% - 50px);
+    overflow: hidden;
+}
+
+//position of the dots from -1 to 0, sometimes they dont show for some reason
+[disabled] md-input-container .md-input,
+md-input-container .md-input[disabled] {
+    background-position: bottom 0px left 0 !important;
+}

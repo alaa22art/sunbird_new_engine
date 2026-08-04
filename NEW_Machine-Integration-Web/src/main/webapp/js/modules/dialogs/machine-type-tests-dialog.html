@@ -1,0 +1,60 @@
+<md-dialog aria-label="Edit Machine Type Tests" class="machine-assign-tests-wrapper">
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <span flex class="dialog-label">{{ 'manageTests' | translate }}</span>
+            <md-button class="md-icon-button" ng-click="cancel()">
+                <md-icon md-font-icon="fas fa-2x fa-times"></md-icon>
+            </md-button>
+        </div>
+    </md-toolbar>
+    <md-dialog-content>
+        <md-card-title-text>
+            <span class="md-headline">Card with image</span>
+        </md-card-title-text>
+        <md-card-title-media>
+            <img ng-model="imageName" ng-src="{{'./assets/images/machines_type_images/'+imageName+'.jpg'}}"
+                onerror="javascript:this.src='./assets/images/machines_type_images/no_machine.png'" />
+            <md-toolbar class="short-toolbar" flex>
+                <div class="md-toolbar-tools">
+                    <div layout="row" flex>
+                        <md-button aria-label="create" class="md-fab md-mini" ng-click="redirectToTestManagmentScreen()"
+                            type="button">
+                            <md-tooltip md-direction="top">{{'create' | translate}}</md-tooltip>
+                            <md-icon md-font-icon="fa fa-plus"></md-icon>
+                        </md-button>
+                        <md-button aria-label="create" class="md-fab md-mini" ng-click="activateMachineType()"
+                            type="button" ng-disabled="selectedMachineType.isActive || selectedMachineType.rid == null">
+                            <md-tooltip md-direction="top">{{'start' | translate}}</md-tooltip>
+                            <md-icon md-font-icon="fa fa-check"></md-icon>
+                        </md-button>
+                        <md-button aria-label="create" class="md-fab md-mini" ng-click="deactivateMachineType()"
+                            type="button"
+                            ng-disabled="!selectedMachineType.isActive || selectedMachineType.rid == null">
+                            <md-tooltip md-direction="top">{{'stop' | translate}}</md-tooltip>
+                            <md-icon md-font-icon="fa fa-ban"></md-icon>
+                        </md-button>
+                    </div>
+                    <div layout="row">
+                        <md-button aria-label="refresh" class="md-fab md-mini" ng-click="refreshGrid()" type="button">
+                            <md-tooltip md-direction="top">{{'refresh' | translate}}</md-tooltip>
+                            <md-icon md-font-icon="fa fa-refresh"></md-icon>
+                        </md-button>
+                    </div>
+                </div>
+            </md-toolbar>
+            <div kendo-grid="machinesTypeGrid" id="machineTypeGrid" class="k-widget k-grid"
+                options="machineTypeGridOptions"></div>
+    </md-dialog-content>
+    <md-dialog-actions layout="row">
+        <md-button href="http://en.wikipedia.org/wiki/Mango" target="_blank" md-autofocus>
+            More on Wikipedia
+        </md-button>
+        <span flex></span>
+        <md-button ng-click="answer('not useful')">
+            Not Useful
+        </md-button>
+        <md-button ng-click="answer('useful')">
+            Useful
+        </md-button>
+    </md-dialog-actions>
+</md-dialog>

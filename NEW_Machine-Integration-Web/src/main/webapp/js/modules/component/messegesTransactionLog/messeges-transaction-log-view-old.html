@@ -1,0 +1,112 @@
+<div>
+    <form name="form" novalidate>
+        <div layout="row" layout-wrap flex>
+            <!-- 
+            <md-input-container dynamic-flex>
+                <label>{{'barcode' | translate}}</label>
+                <input type="test" name="barcode" ng-model="filters.barcode" />
+                <input-messages input-errors="form.barcode.$error" />
+            </md-input-container>
+            -->
+
+            <md-input-container dynamic-flex>
+                <label>{{'messageControlID' | translate}}</label>
+                <input type="test" name="messageControlID" ng-model="filters.messageControlID" />
+                <input-messages input-errors="form.messageControlID.$error" />
+            </md-input-container>
+            <md-input-container dynamic-flex>
+                <label>{{'patientID' | translate}}</label>
+                <input type="test" name="patientID" ng-model="filters.patientID" />
+                <input-messages input-errors="form.patientID.$error" />
+            </md-input-container>
+            <md-input-container dynamic-flex>
+                <label>{{'nationalID' | translate}}</label>
+                <input type="test" name="nationalID" ng-model="filters.nationalID" />
+                <input-messages input-errors="form.nationalID.$error" />
+            </md-input-container>
+            <!-- <md-input-container dynamic-flex>
+                <label>{{'Message type' | translate}}</label>
+                <input type="test" name="messageType" ng-model="filters.messageType" />
+                <input-messages input-errors="form.messageType.$error" />
+            </md-input-container> -->
+
+            <md-input-container dynamic-flex>
+                <label>{{'from' | translate}}</label>
+                <md-datepicker date-mask name="from" ng-model="filters.from"
+                    ng-required="filters.to"
+                    md-max-date="filters.to?filters.to:''">
+                </md-datepicker>
+                <input-messages input-errors="form.from.$error" />
+            </md-input-container>
+            <md-input-container dynamic-flex>
+                <label>{{'to' | translate}}</label>
+                <md-datepicker date-mask name="to" ng-model="filters.to"
+                    ng-required="filters.from"
+                    md-min-date="filters.from?filters.from:''">
+                </md-datepicker>
+                <input-messages input-errors="form.to.$error" />
+            </md-input-container>
+            <!-- <lov dynamic-flex form="form" options="branchLkp"
+                select="branchLkp.selectedValue"></lov> -->
+        </div>
+        <div>
+            <md-button aria-label="{{'search' | translate}}"
+                class="md-raised md-primary" http-disable-click
+                ng-click="refreshGrid()" type="button">
+                <md-icon md-font-icon="fas fa-search"></md-icon>
+            </md-button>
+        </div>
+
+    </form>
+
+    <md-toolbar class="short-toolbar">
+        <div class="md-toolbar-tools">
+            <div layout="row" flex>
+            </div>
+            <div layout="row">
+                <md-button aria-label="{{'refresh' | translate}}"
+                    class="md-fab md-mini" http-disable-click
+                    ng-click="refreshGrid()" type="button">
+                    <md-tooltip md-direction="top">{{'refresh' | translate}}</md-tooltip>
+                    <md-icon md-font-icon="fas fa-sync"></md-icon>
+                </md-button>
+            </div>
+        </div>
+    </md-toolbar>
+    <div kendo-grid="gridOptions" id="gridOptions" class="k-widget k-grid"
+        options="gridOptions">
+    </div>
+    <!----------------------------------->
+   
+
+    <div layout="row" flex layout-wrap class="legend-wrapper">
+        <div layout="row" layout-align="center center">
+            <md-icon md-font-icon="fas fa-circle"
+                class="success-color text-center"></md-icon>
+            {{'completed' | translate}}
+        </div>
+        <div layout="row" layout-align="center center">
+            <md-icon md-font-icon="fas fa-circle"
+                class="warning-color text-center"></md-icon>
+            {{'inProgress' | translate}}
+        </div>
+        <div layout="row" layout-align="center center">
+            <md-icon md-font-icon="fas fa-circle"
+                class="error-color text-center"></md-icon>
+            {{'error' | translate}}
+        </div>
+
+    </div>
+    <div layout="row" layout-align="start center">
+        <div><md-icon md-font-icon="fas fa-angle-double-right"
+                class="text-center"></md-icon></div>
+        Inbound
+    </div>
+    <div layout="row" layout-align="start center">
+        <div><md-icon md-font-icon="fas fa-angle-double-left"
+                class="text-center"></md-icon></div>
+        Outbound
+
+    </div>
+
+</div>

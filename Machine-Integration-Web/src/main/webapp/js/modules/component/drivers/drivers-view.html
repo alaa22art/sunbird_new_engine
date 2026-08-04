@@ -1,0 +1,114 @@
+<div class="machine-types-wrapper">
+    <div flex layout="row" layout-wrap>
+        <autocomplete-search dynamic-flex options="machineTypeSearchOptions"></autocomplete-search>
+    </div>
+    <div class="custom-box machine-types" infinite-scroll="onMachineTypeScroll()" layout="row" layout-wrap flex>
+        <div ng-if="currentMachineTypePage.content.length === 0" layout="column" layout-align="center center"
+            layout-fill class="bold">
+            {{'noData' | translate}}
+        </div>
+        <div ng-repeat="machineType in currentMachineTypePage.content" dynamic-flex="50|33|20|20|20">
+            <div class="machine-type" ng-class="{'active':selectedMachineType === machineType}" layout="row"
+                md-whiteframe="1">
+                <div class="clickable-item right-rule" ng-click="onMachineTypeClick(machineType)" layout="column">
+                    <md-icon class="machine-type-icon" md-font-icon="fas fa-pager">
+                    </md-icon>
+                    <activation value="machineType.isActive"></activation>
+                </div>
+                <div class="label clickable-item right-rule" flex layout="column" layout-align="center center"
+                    ng-click="onMachineTypeClick(machineType)">
+                    <div class="bold">
+                        {{machineType.name}}
+                    </div>
+                    <div>
+                        {{machineType.code}}
+                    </div>
+                </div>
+                <div class="side-bar bold" layout="column" layout-align="space-around center">
+                    <div class="test-color counters">
+                        {{machineType.transients.testCount}}
+                    </div>
+                    <div class="panel-color counters">
+                        {{machineType.transients.panelCount}}
+                    </div>
+                    <div class="clickable-item" ng-click="driverAssaysPage(machineType)">
+                        <md-icon md-font-icon="fas fa-eye-dropper">
+                            <md-tooltip md-direction="top">{{'details' | translate}}</md-tooltip>
+                        </md-icon>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div layout="row" layout-wrap flex class="legend-wrapper machine-type-legend">
+        <div layout="row" layout-align="center center" class="text-center">
+            <md-icon md-font-icon="fas fa-circle" class="test-color"></md-icon>
+            <div>{{'test' | translate}}</div>
+        </div>
+        <div layout="row" layout-align="center center" class="text-center">
+            <md-icon md-font-icon="fas fa-circle" class="panel-color"></md-icon>
+            <div>{{'panel' | translate}}</div>
+        </div>
+    </div>
+    <form novalidate name="machineTypeForm" ng-submit="submit()" http-disable-click>
+        <div layout="row" flex layout-wrap>
+            <md-input-container dynamic-flex>
+                <label>{{'code' | translate}}</label>
+                <input type="text" name="code" ng-model="selectedMachineType.code"
+                    ng-required="machineTypeMetaData.code.notNull"
+                    ng-minlength="machineTypeMetaData.code.sized? machineTypeMetaData.code.min:''"
+                    ng-maxlength="machineTypeMetaData.code.sized? machineTypeMetaData.code.max:''" />
+                <input-messages input-errors="machineTypeForm.code.$error" />
+            </md-input-container>
+            <md-input-container dynamic-flex>
+                <label>{{'name' | translate}}</label>
+                <input type="text" name="name" ng-model="selectedMachineType.name"
+                    ng-required="machineTypeMetaData.name.notNull"
+                    ng-minlength="machineTypeMetaData.name.sized? machineTypeMetaData.name.min:''"
+                    ng-maxlength="machineTypeMetaData.name.sized? machineTypeMetaData.name.max:''" />
+                <input-messages input-errors="machineTypeForm.name.$error" />
+            </md-input-container>
+            <lov dynamic-flex ng-if="lowLevelProtocolLkp" form="machineTypeForm" options="lowLevelProtocolLkp"
+                select="lowLevelProtocolLkp.selectedValue">
+            </lov>
+            <lov dynamic-flex ng-if="highLevelProtocolLkp" form="machineTypeForm" options="highLevelProtocolLkp"
+                select="highLevelProtocolLkp.selectedValue">
+            </lov>
+        </div>
+        <md-input-container flex="100">
+            <label>
+                {{'driverConfig' | translate}}</label>
+            <textarea md-detect-hidden name="driverConfig" ng-model="selectedMachineType.driverConfig"
+                ng-required="driverMetaData.configTxt.notNull"
+                ng-minlength="driverMetaData.configTxt.sized? driverMetaData.configTxt.min:''"
+                ng-maxlength="driverMetaData.configTxt.sized? driverMetaData.configTxt.max:''"></textarea>
+            <input-messages input-errors="machineTypeForm.driverConfig.$error" />
+        </md-input-container>
+        <div layout="row" flex layout-wrap>
+            <md-input-container dynamic-flex>
+                <md-checkbox name="isActive" ng-model="selectedMachineType.isActive"
+                    ng-checked="selectedMachineType.isActive" aria-label="{{'active' | translate}}">
+                    {{'active' | translate}}</md-checkbox>
+            </md-input-container>
+            <md-input-container dynamic-flex>
+                <md-checkbox name="isAutoVerify" ng-model="selectedMachineType.isAutoVerify"
+                    ng-checked="selectedMachineType.isAutoVerify" aria-label="{{'autoVerify' | translate}}">
+                    {{'autoVerify' | translate}}</md-checkbox>
+            </md-input-container>
+            <md-input-container dynamic-flex>
+                <md-checkbox name="isMachineNameRequired" ng-model="selectedMachineType.isMachineNameRequired"
+                    ng-checked="selectedMachineType.isMachineNameRequired"
+                    aria-label="{{'machineNameRequired' | translate}}">
+                    {{'machineNameRequired' | translate}}</md-checkbox>
+            </md-input-container>
+        </div>
+        <div layout="row" flex layout-wrap>
+            <md-button class="md-raised" type="button" ng-click="clearForm()">
+                {{'clear' | translate}}
+            </md-button>
+            <md-button class="md-primary md-raised" type="submit" ng-disabled="machineTypeForm.$invalid">
+                {{'save' | translate}}
+            </md-button>
+        </div>
+    </form>
+</div>

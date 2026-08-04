@@ -1,0 +1,46 @@
+.machine-type-tests-wrapper {
+    .machine-type-tests {
+        height: 250px;
+        max-height: 250px;
+        margin: 20px 0;
+
+        .machine-type-test {
+            min-height: 50px;
+            margin: 4px;
+            padding: 4px;
+            text-align: center;
+            outline: none;
+            border-radius: 10px;
+
+            .machine-type-test-icon {
+                font-size: 3em;
+                height: auto;
+                line-height: 1;
+                color: $primary-theme-color;
+                padding: 8px;
+
+
+            }
+
+            &:hover,
+            &.active {
+                background-color: $primary-theme-color !important;
+                color: white !important;
+
+                .machine-type-test-icon {
+                    color: white !important;
+                }
+            }
+
+            .content {
+                word-break: break-all;
+                padding-#{$direction}: 8px;
+            }
+
+
+
+        }
+    }
+
+
+}

@@ -1,0 +1,192 @@
+<div class="rtpcr-wrapper" ng-if="isEnableToView">
+
+    <div class="custom-box padding-1 margin-tb-1 " layout="row" layout-wrap flex>
+
+        <div class="batch-nav" ng-if="show">
+            <div class="btn-container">
+                <md-button class="md-raised md-primary" ng-click="workListAddition()">{{'addWorklist' |translate}}
+                </md-button>
+                <md-button ng-click="toggle(false)" class="left-toggle" ng-if="!hideToggle">
+                    <i class="arrow left"></i><i class="arrow left"></i>
+                </md-button>
+
+
+            </div>
+            <autocomplete-search options="workListOptions" class="search-box"></autocomplete-search>
+            <md-list class="scrollable-wrapper batch-list" flex infinite-scroll="onWorklistScroll()">
+                <div class="md-list-item-text" ng-repeat="worklist in worklistPage.content">
+                    <h5 class="worklist-name" ng-click="selectWorkList(worklist)"
+                        ng-class="{'active':worklist==selectedWorkList ,'disactive':worklist!=selectedWorkList}">
+                        {{getSequence(worklist.creationDate)}}-{{worklist.name}}
+                    </h5>
+                    <div class="icons-container">
+                        <md-icon md-font-icon={{workListStatusIcons[worklist.workListStatus.code].icon}}
+                            style="font-size:0.7rem;" class="icon in-progress-icon" role="img"
+                            ng-click="selectWorkList(worklist)">
+                            <md-tooltip md-direction="top" style="background-color: green;">
+                                {{worklist.workListStatus.code}}
+                            </md-tooltip>
+                        </md-icon>
+
+                        <md-icon md-font-icon="fas fa-trash" class="icon delete-icon" role="img" aria-hidden="true"
+                            ng-click="deleteWorkList(worklist.rid)"></md-icon>
+                    </div>
+                    <md-divider></md-divider>
+                </div>
+            </md-list>
+
+
+        </div>
+
+        <div class="samples-container" ng-if="selectedWorkList">
+            <div class="batch-header" layout="flex" ng-if="selectedWorkList">
+
+                <div flex class="center-vertical worklist-status">
+                    <span ng-repeat="(key, value) in workListStatusIcons track by $index">
+                        <md-divider class="inline" ng-if="$index > 0" ng-class="{'active':value.active}">
+                        </md-divider>
+                        <div class="status-icon-container">
+                            <md-icon md-font-icon={{value.icon}} class="in-progress-status status-icon"
+                                ng-class="{'active':value.active}" ng-disabled="value.active"
+                                ng-click="changeWorkListStatus(key)">
+                                <md-tooltip md-direction="top" ng-class="{'active':value.active}">
+                                    {{key}}
+                                </md-tooltip>
+                            </md-icon>
+                            <span class="status-text" ng-class="{'actiive-color':value.active}">{{key}}</span>
+                        </div>
+                    </span>
+                </div>
+
+
+
+                <div class="statistics-container">
+                    <div class="positive statistics">
+                        <i class="fas fa-check statistics-icon"></i>
+                        <div class="bold statistics-positive left-align">{{'positive' |translate}}:
+                            {{selectedWorkListStatistics.positiveSamples}}</div>
+                    </div>
+
+                    <div class="negative statistics">
+                        <i class="fas fa-times statistics-icon"></i>
+                        <div class="bold statistics-negative left-align">{{'negative' |translate}}:
+                            {{selectedWorkListStatistics.negativeSamples}}</div>
+                    </div>
+
+                    <div class="undetermined statistics">
+                        <i class="fas fa-question statistics-icon"></i>
+                        <div class="bold statistics-undetermined left-align">{{'undetermined' |translate}}:
+                            {{selectedWorkListStatistics.undeterminedSamples}}</div>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- <span class="date">Created At: {{selectedWorkList.creationDate}} </span> -->
+            <md-divider></md-divider>
+            <div class="btns-container">
+                <md-button class="md-raised md-primary" ng-click="selectAllResults(isSelectAll)"
+                    ng-if="selectedWorkList.workListStatus.code == RESULTS_ENTRY || selectedWorkList.workListStatus.code == FINALIZED ">
+                    {{isSelectAll ? "Select All" : "Deselect All" }}
+                </md-button>
+                <md-button class="md-raised md-primary" ng-click="sendResults()"
+                    ng-if="selectedWorkList.workListStatus.code == RESULTS_ENTRY || selectedWorkList.workListStatus.code == FINALIZED ">
+                    {{'sendResults' |translate}}
+                </md-button>
+            </div>
+
+
+
+            <h3 class="active batch-title">{{selectedWorkList.name}}</h3>
+            <div class="samples" ng-style="{'padding-left':plateShape,'padding-right':plateShape}">
+                <div ng-repeat="(rowIndex,orders) in pcrOrders">
+                    <div ng-repeat="order in orders track by $index" class="sample-cell">
+                        <md-tooltip md-direction="top" ng-if="order.pcrRealTimeOrder">
+                            <div layout="column" layout-align="center center">
+                                <div>
+                                    {{order.pcrRealTimeOrder.machineOrder.patientFirstName}}
+                                    {{order.pcrRealTimeOrder.machineOrder.patientLastName}}
+                                </div>
+                            </div>
+                        </md-tooltip>
+                        <h6>{{rowIndex}}{{($index+1)}}
+                            <input type="checkbox" class="select-box" id="{{rowIndex}}{{($index+1)}}"
+                                ng-if="order.isConfirmed && order.pcrRealTimeOrderResults.length > 0">
+                        </h6>
+                        <div class="border"
+                            ng-class="{'result-sent':order.pcrRealTimeOrderResults[0].pcrRealTimeResult.isResultSent}">
+
+                            <md-icon md-font-icon="fas fa-plus" class="add-sample-icon"
+                                ng-click="changeActiveCell(rowIndex, ($index+1))"
+                                ng-if="!(rowIndex+($index+1)==inputIndex) && !(order.pcrRealTimeOrder) && selectedWorkList.workListStatus.code == OPEN">
+                            </md-icon>
+
+                            <md-icon md-font-icon="fas fa-lock" class="disabled-sample-icon"
+                                ng-if="!(order.pcrRealTimeOrder) && selectedWorkList.workListStatus.code != OPEN ">
+                            </md-icon>
+
+                            <md-icon md-font-icon="fas fa-ban" class="occupied" ng-if="order.pcrRealTimeOrder 
+                                && !(order.pcrRealTimeOrderResults.length > 0)" ng-click="showOrderData(order)">
+                            </md-icon>
+
+                            <md-icon md-font-icon="fas fa-times" class="positive"
+                                ng-if="cellsType[order.rid].isPositive" ng-click="showOrderData(order)"
+                                aria-hidden="true">
+                            </md-icon>
+
+                            <md-icon md-font-icon="fas fa-check" class="negative"
+                                ng-if="cellsType[order.rid].isNegative" ng-click="showOrderData(order)"
+                                aria-hidden="true">
+                            </md-icon>
+
+                            <md-icon md-font-icon="fas fa-question" class="undetermined"
+                                ng-if="cellsType[order.rid].isUndetermined" ng-click="showOrderData(order)"
+                                aria-hidden="true">
+                            </md-icon>
+
+
+                            <input type="text" id="{{rowIndex}}{{($index+1)}}"
+                                ng-if="(rowIndex+($index+1)==inputIndex) && selectedWorkList.workListStatus.code == OPEN"
+                                ng-change="onBarcodeChange(barcode,rowIndex,($index+1))" ng-model="barcode"
+                                maxlength="12" focus-me="true" ng-focus="rowIndex+($index+1)==inputIndex" />
+                        </div>
+                        <h6 class="barcode" ng-dblclick="makeResultNegative(order)">
+                            {{order.pcrRealTimeOrder.machineOrder.barcode.slice(2)}}
+                            <md-tooltip md-direction="right" style="background-color: green;"
+                                ng-if="order.pcrRealTimeOrder 
+                            && !(order.pcrRealTimeOrderResults.length > 0) && selectedWorkList.workListStatus.code == RESULTS_ENTRY">
+                                {{'isNegative' |translate}}
+                            </md-tooltip>
+                        </h6>
+
+                        <h6
+                            ng-if="!order.pcrRealTimeOrder && selectedWorkList.workListStatus.code == OPEN && rowIndex+($index+1) !=inputIndex">
+                            {{'available' |translate}}
+                        </h6>
+
+                        <h6
+                            ng-if="!order.pcrRealTimeOrder && rowIndex+($index+1) == inputIndex && selectedWorkList.workListStatus.code == OPEN">
+                            {{'...' |translate}}
+                        </h6>
+
+                        <h6 ng-if="!order.pcrRealTimeOrder && selectedWorkList.workListStatus.code != OPEN">
+                            {{'locked' |translate}}
+                        </h6>
+
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <md-button ng-click="toggle(true)" class="right-toggle" ng-if="showToggleBtn">
+        {{'worklists' |translate}}
+    </md-button>
+
+
+</div>
