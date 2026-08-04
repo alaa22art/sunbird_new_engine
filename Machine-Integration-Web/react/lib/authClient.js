@@ -38,3 +38,11 @@ export function getAuthorities() {
 export function isAuthenticated() {
   return !!getToken();
 }
+
+// Mirrors js/modules/shared/directives/authorityChecker.js: true if the current user
+// holds any of the given privilege codes. The backend is the actual enforcement point
+// (see authorityChecker.js's comment) -- this only controls what the UI shows/enables.
+export function hasAnyAuthority(codes) {
+  const authorities = getAuthorities();
+  return codes.some((code) => authorities.indexOf(code) >= 0);
+}

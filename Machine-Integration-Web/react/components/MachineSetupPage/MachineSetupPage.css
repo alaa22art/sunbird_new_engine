@@ -1,0 +1,66 @@
+.machine-setup-wrapper {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.machine-setup-toolbar {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.machine-setup-toolbar button {
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--color-primary);
+  border-radius: 3px;
+  background: var(--color-white);
+  color: var(--color-primary);
+  cursor: pointer;
+}
+
+.machine-setup-toolbar button:disabled {
+  border-color: var(--color-soft-grey);
+  color: var(--color-grey);
+  cursor: not-allowed;
+}
+
+.machine-setup-grid {
+  width: 100%;
+}
+
+.machine-setup-icon-button {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.port-status-active {
+  color: var(--color-success);
+}
+
+.port-status-inactive {
+  color: var(--color-grey);
+}
+
+.machine-setup-pager {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  align-self: flex-end;
+  font-size: 0.875rem;
+}
+
+.machine-setup-pager button {
+  padding: 0.25rem 0.6rem;
+  border: 1px solid var(--color-table-border);
+  border-radius: 3px;
+  background: var(--color-white);
+  cursor: pointer;
+}
+
+.machine-setup-pager button:disabled {
+  color: var(--color-soft-grey);
+  cursor: not-allowed;
+}

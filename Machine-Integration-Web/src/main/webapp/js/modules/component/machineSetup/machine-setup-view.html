@@ -1,32 +1,5 @@
-<md-content layout-padding class="machine-setup-wrapper">
-    <form name="machineForm" novalidate ng-submit="saveMachine(machineForm.$valid)" layout="column" layout-gt-sm="column"
-        flex>
-        <md-toolbar flex>
-            <div class="md-toolbar-tools">
-                <div layout="row" flex>
-                    <md-button aria-label="create" class="md-fab md-mini" ng-click="goToAssignTestPage()" type="button"
-                        authority-checker="ADD_MACHINE_SETUP">
-                        <md-tooltip md-direction="top">{{'create' | translate}}</md-tooltip>
-                        <md-icon md-font-icon="fas fa-plus"></md-icon>
-                    </md-button>
-                    <md-button aria-label="refresh" class="md-fab md-mini" ng-click="refreshGrid()" type="button">
-                        <md-tooltip md-direction="top">{{'refresh' | translate}}</md-tooltip>
-                        <md-icon md-font-icon="fas fa-sync"></md-icon>
-                    </md-button>
-                    <md-button aria-label="create" class="md-fab md-mini" ng-click="activatePort()" type="button"
-                        ng-disabled="selectedMachine.rid != null && selectedMachine.isActive && selectedMachine.isPortOpen">
-                        <md-tooltip md-direction="top">{{'start' | translate}}</md-tooltip>
-                        <md-icon md-font-icon="fas fa-check"></md-icon>
-                    </md-button>
-                    <md-button aria-label="create" class="md-fab md-mini" ng-click="deActivatePort()" type="button"
-                        ng-disabled="selectedMachine.rid != null && (!selectedMachine.isActive || !selectedMachine.isPortOpen)">
-                        <md-tooltip md-direction="top">{{'stop' | translate}}</md-tooltip>
-                        <md-icon md-font-icon="fas fa-ban"></md-icon>
-                    </md-button>
-                </div>
-            </div>
-        </md-toolbar>
-        <div kendo-grid="machinesGrid" id="machinesGrid" class="k-widget k-grid" options="machinesGridOptions"
-            authority-checker="VIEW_MACHINE_SETUP"></div>
-    </form>
-</md-content>
+<!-- Migrated to React -- see react/components/MachineSetupPage. Kept as a templateUrl
+     file (rather than switching the state to an inline `template`) because app.js's
+     route registration loop unconditionally rewrites views.main.templateUrl for every
+     state; see the comment on the 'machine-setup' state in routes.js. -->
+<react-mount component="'MachineSetupPage'"></react-mount>

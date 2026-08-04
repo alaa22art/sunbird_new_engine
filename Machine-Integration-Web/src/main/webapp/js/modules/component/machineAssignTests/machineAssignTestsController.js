@@ -25,7 +25,25 @@ define(['app', 'config', 'util'], function (app, config, util) {
             $scope.selectedMachine = null;
             $scope.selectedMachineType = null;
 
-            if ($rootScope.machine == null) {
+            // machine-setup was migrated to React (react/components/MachineSetupPage),
+            // which navigates here with a full page load, so $rootScope.machine can't
+            // survive the trip the way it used to when both pages were AngularJS states.
+            // It hands off the selected row via sessionStorage instead; read that here
+            // as a fallback so this controller keeps working unmodified otherwise.
+            var handoffMachine = $rootScope.machine;
+            if (handoffMachine == null) {
+                try {
+                    var handoffRaw = window.sessionStorage.getItem('machineHandoff');
+                    if (handoffRaw) {
+                        handoffMachine = JSON.parse(handoffRaw);
+                    }
+                } catch (e) {
+                    handoffMachine = null;
+                }
+                window.sessionStorage.removeItem('machineHandoff');
+            }
+
+            if (handoffMachine == null) {
 
                 $scope.selectedMachine = {
                     rid: null,
@@ -41,7 +59,7 @@ define(['app', 'config', 'util'], function (app, config, util) {
                 };
 
             } else {
-                $scope.selectedMachine = $rootScope.machine;
+                $scope.selectedMachine = handoffMachine;
                 $scope.selectedMachineType = $scope.selectedMachine.machineType
             }
 

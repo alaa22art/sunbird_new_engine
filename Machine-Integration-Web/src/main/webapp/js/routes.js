@@ -182,19 +182,17 @@ define(
                     }
                 },
                 'machine-setup': {
+                    // Migrated to React (react/components/MachineSetupPage) -- see
+                    // machine-setup-view.html, which now just hosts <react-mount>.
+                    // machineSetupService.js is kept (not deleted) -- machineResults and
+                    // machineAssignTests still depend on it; only this state's own
+                    // reference to it and to the now-deleted controller were removed.
                     url: prefix + 'machine-setup',
-                    directives: ["lov"],
-                    dependencies: [
-                        componentPath + 'machineSetup/machineSetupController',
-                        componentPath + 'machineSetup/machineSetupService',
-                        componentPath + 'machineAssignTests/machineAssignTestsService',
-                        'modules/shared/services/commonMethods',
-                        directivePath + 'lov/lovService'
-                    ],
+                    directives: ["reactMount"],
+                    dependencies: [],
                     views: {
                         'main': {
                             templateUrl: 'js/' + componentPath + 'machineSetup/machine-setup-view.html',
-                            controller: 'machineSetupCtrl',
                             data: {
                                 pageName: "machineSetup"
                             }

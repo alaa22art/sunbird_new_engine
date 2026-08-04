@@ -22,6 +22,8 @@
   "dependencies": {
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "ag-grid-community": "^32.3.3",
+    "ag-grid-react": "^32.3.3",
     "@uirouter/angularjs": "1.0.5",
     "angular": "^1.8.0",
     "angular-animate": "1.6.5",

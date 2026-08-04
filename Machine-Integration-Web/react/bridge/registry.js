@@ -12,6 +12,7 @@
 const registry = {
   BridgeSmokeTest: () => import('../components/BridgeSmokeTest/BridgeSmokeTest'),
   PasswordResetPage: () => import('../components/PasswordResetPage/PasswordResetPage'),
+  MachineSetupPage: () => import('../components/MachineSetupPage/MachineSetupPage'),
 };
 
 export function resolveComponent(name) {
