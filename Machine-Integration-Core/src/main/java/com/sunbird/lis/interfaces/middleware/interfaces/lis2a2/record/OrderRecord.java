@@ -1,12 +1,12 @@
-package com.certacure.lis.interfaces.middleware.interfaces.lis2a2.record;
+package com.sunbird.lis.interfaces.middleware.interfaces.lis2a2.record;
 
 import static java.util.stream.Collectors.toList;
 
 import java.util.List;
 
-import com.certacure.lis.interfaces.middleware.interfaces.lis2a2.DelimitedData;
-import com.certacure.lis.interfaces.middleware.interfaces.lis2a2.record.field.CompomentField;
-import com.certacure.lis.interfaces.middleware.interfaces.lis2a2.record.field.Field;
+import com.sunbird.lis.interfaces.middleware.interfaces.lis2a2.DelimitedData;
+import com.sunbird.lis.interfaces.middleware.interfaces.lis2a2.record.field.CompomentField;
+import com.sunbird.lis.interfaces.middleware.interfaces.lis2a2.record.field.Field;
 
 public class OrderRecord extends LIS2A2Record {
 

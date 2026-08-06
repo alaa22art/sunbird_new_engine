@@ -1,4 +1,4 @@
-package com.certacure.machine.web.common.controller;
+package com.sunbird.machine.web.common.controller;
 
 import java.util.HashMap;
 import java.util.List;
@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.certacure.core.common.helper.FieldMetaData;
-import com.certacure.core.common.util.ReflectionUtil;
+import com.sunbird.core.common.helper.FieldMetaData;
+import com.sunbird.core.common.util.ReflectionUtil;
 
 /**
  * CommonMethodsController.java

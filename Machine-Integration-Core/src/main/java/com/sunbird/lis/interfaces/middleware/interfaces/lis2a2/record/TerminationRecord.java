@@ -1,7 +1,7 @@
-package com.certacure.lis.interfaces.middleware.interfaces.lis2a2.record;
+package com.sunbird.lis.interfaces.middleware.interfaces.lis2a2.record;
 
-import com.certacure.lis.interfaces.middleware.interfaces.lis2a2.DelimitedData;
-import com.certacure.lis.interfaces.middleware.interfaces.lis2a2.record.field.Field;
+import com.sunbird.lis.interfaces.middleware.interfaces.lis2a2.DelimitedData;
+import com.sunbird.lis.interfaces.middleware.interfaces.lis2a2.record.field.Field;
 
 public class TerminationRecord extends LIS2A2Record {
 

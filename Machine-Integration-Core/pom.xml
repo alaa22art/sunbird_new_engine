@@ -3,7 +3,7 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.certacure</groupId>
+	<groupId>com.sunbird</groupId>
 	<artifactId>Machine-Integration-Core</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>Machine-Integration-Core</name>
@@ -17,7 +17,7 @@
 	
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<certacure.core.version>0.0.1-SNAPSHOT</certacure.core.version>
+		<sunbird.core.version>0.0.1-SNAPSHOT</sunbird.core.version>
 		<java.version>1.8</java.version>
 		<hapi.version>2.3</hapi.version>
 		<akka.version>2.4.6</akka.version>
@@ -95,10 +95,7 @@
 </dependency>
 
 
-    <dependency>
-    	<groupId>com.certacure</groupId>
-    	<artifactId>Certacure-Core</artifactId>
-    </dependency>
+   
     
     <dependency>
     <groupId>org.postgresql</groupId>
@@ -122,8 +119,13 @@
 			<version>20231013</version>
 		</dependency>
 
-    
-    
+
+
+		<dependency>
+			<groupId>com.sunbird</groupId>
+			<artifactId>Sunbird-Core</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -161,12 +163,12 @@
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
-				<groupId>com.certacure</groupId>
-				<artifactId>Certacure-Core</artifactId>
+				<groupId>com.sunbird</groupId>
+				<artifactId>sunbird-Core</artifactId>
 				<version>0.0.1-SNAPSHOT</version>
 			</dependency>
 			<dependency>
-				<groupId>com.certacure</groupId>
+				<groupId>com.sunbird</groupId>
 				<artifactId>Machine-Integration-Core</artifactId>
 				<version>0.0.1-SNAPSHOT</version>
 			</dependency>

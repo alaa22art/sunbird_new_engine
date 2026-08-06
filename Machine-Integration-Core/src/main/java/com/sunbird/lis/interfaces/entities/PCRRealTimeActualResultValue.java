@@ -1,4 +1,4 @@
-package com.certacure.lis.interfaces.entities;
+package com.sunbird.lis.interfaces.entities;
 
 import java.io.Serializable;
 
@@ -14,7 +14,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
 
-import com.certacure.core.base.entity.BaseAuditableBranchedEntity;
+import com.sunbird.core.base.entity.BaseAuditableBranchedEntity;
 
 @Entity
 @Table(name = "mw_pcr_realtime_actual_result_value")

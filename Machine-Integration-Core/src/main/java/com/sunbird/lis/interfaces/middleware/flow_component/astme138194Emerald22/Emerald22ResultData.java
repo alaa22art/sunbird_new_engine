@@ -1,4 +1,4 @@
-package com.certacure.lis.interfaces.middleware.flow_component.astme138194Emerald22;
+package com.sunbird.lis.interfaces.middleware.flow_component.astme138194Emerald22;
 
 public class Emerald22ResultData {
 

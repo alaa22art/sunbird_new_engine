@@ -1,4 +1,4 @@
-package com.certacure.core.base.entity;
+package com.sunbird.core.base.entity;
 
 import javax.persistence.Column;
 import javax.persistence.MappedSuperclass;
@@ -12,7 +12,7 @@ import org.hibernate.annotations.ParamDef;
 import org.hibernate.envers.Audited;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.certacure.core.common.util.SecurityUtil;
+import com.sunbird.core.common.util.SecurityUtil;
 
 /**
  * BaseAuditableTenantedEntity.java Super class for Audited entities, used to add auditing columns to child entity and set attribute values when needed, in addition this class will create an auditing

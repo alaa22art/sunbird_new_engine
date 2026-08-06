@@ -1,7 +1,8 @@
-package com.certacure.lis.interfaces.middleware.interfaces.lis2a2.record.field;
+package com.sunbird.lis.interfaces.middleware.interfaces.lis2a2.record.field;
 
 import java.util.regex.Pattern;
-import com.certacure.lis.interfaces.middleware.interfaces.lis2a2.HasStringRepresentation;
+
+import com.sunbird.lis.interfaces.middleware.interfaces.lis2a2.HasStringRepresentation;
 
 public class Field implements HasStringRepresentation {
 

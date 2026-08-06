@@ -1,4 +1,4 @@
-package com.certacure.lis.interfaces.service;
+package com.sunbird.lis.interfaces.service;
 
 /**
 *
@@ -10,9 +10,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.certacure.core.base.service.GenericService;
-import com.certacure.lis.interfaces.entities.DataOrderInboundHL7Message;
-import com.certacure.lis.interfaces.repo.DataOrderInboundHL7MessageRepo;
+import com.sunbird.core.base.service.GenericService;
+import com.sunbird.lis.interfaces.entities.DataOrderInboundHL7Message;
+import com.sunbird.lis.interfaces.repo.DataOrderInboundHL7MessageRepo;
 
 @Service("DataOrderInboundHL7MessageService")
 public class DataOrderInboundHL7MessageService extends GenericService<DataOrderInboundHL7Message, DataOrderInboundHL7MessageRepo> {

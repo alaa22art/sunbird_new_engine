@@ -1,4 +1,4 @@
-package com.certacure.lis.interfaces.service;
+package com.sunbird.lis.interfaces.service;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -11,21 +11,21 @@ import org.springframework.cache.annotation.Cacheable;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 
-import com.certacure.core.base.entity.BaseEntity;
-import com.certacure.core.base.helper.SearchCriterion;
-import com.certacure.core.base.helper.SearchCriterion.FilterOperator;
-import com.certacure.core.base.helper.SearchCriterion.JunctionOperator;
-import com.certacure.core.base.service.GenericService;
-import com.certacure.core.common.business.exception.BusinessException;
-import com.certacure.core.common.business.exception.BusinessException.ErrorSeverity;
-import com.certacure.core.common.util.SecurityUtil;
-import com.certacure.lis.interfaces.admin.model.SecTenant;
-import com.certacure.lis.interfaces.admin.service.SecTenantService;
-import com.certacure.lis.interfaces.annotation.InterceptorFree;
-import com.certacure.lis.interfaces.entities.ComTenantMessage;
-import com.certacure.lis.interfaces.helper.CacheType;
-import com.certacure.lis.interfaces.helper.MachineIntegrationRights;
-import com.certacure.lis.interfaces.repo.ComTenantMessageRepo;
+import com.sunbird.core.base.entity.BaseEntity;
+import com.sunbird.core.base.helper.SearchCriterion;
+import com.sunbird.core.base.helper.SearchCriterion.FilterOperator;
+import com.sunbird.core.base.helper.SearchCriterion.JunctionOperator;
+import com.sunbird.core.base.service.GenericService;
+import com.sunbird.core.common.business.exception.BusinessException;
+import com.sunbird.core.common.business.exception.BusinessException.ErrorSeverity;
+import com.sunbird.core.common.util.SecurityUtil;
+import com.sunbird.lis.interfaces.admin.model.SecTenant;
+import com.sunbird.lis.interfaces.admin.service.SecTenantService;
+import com.sunbird.lis.interfaces.annotation.InterceptorFree;
+import com.sunbird.lis.interfaces.entities.ComTenantMessage;
+import com.sunbird.lis.interfaces.helper.CacheType;
+import com.sunbird.lis.interfaces.helper.MachineIntegrationRights;
+import com.sunbird.lis.interfaces.repo.ComTenantMessageRepo;
 
 /**
  * ComTenantMessageService.java

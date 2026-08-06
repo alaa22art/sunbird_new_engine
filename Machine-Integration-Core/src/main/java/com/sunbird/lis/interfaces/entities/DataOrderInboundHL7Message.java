@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.certacure.lis.interfaces.entities;
+package com.sunbird.lis.interfaces.entities;
 
 import java.io.Serializable;
 
@@ -17,7 +17,7 @@ import javax.persistence.Table;
 
 import org.hibernate.envers.Audited;
 
-import com.certacure.core.base.entity.BaseAuditableBranchedEntity;
+import com.sunbird.core.base.entity.BaseAuditableBranchedEntity;
 
 /**
  * 

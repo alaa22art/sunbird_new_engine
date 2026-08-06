@@ -1,4 +1,4 @@
-package com.certacure.lis.interfaces.middleware.interfaces.lis2a2;
+package com.sunbird.lis.interfaces.middleware.interfaces.lis2a2;
 
 import static java.util.Collections.max;
 import static java.util.Collections.unmodifiableMap;

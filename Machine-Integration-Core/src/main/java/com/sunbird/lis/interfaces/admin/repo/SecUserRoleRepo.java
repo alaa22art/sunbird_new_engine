@@ -1,4 +1,4 @@
-package com.certacure.lis.interfaces.admin.repo;
+package com.sunbird.lis.interfaces.admin.repo;
 
 import java.util.Set;
 
@@ -6,10 +6,10 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import com.certacure.core.base.repo.GenericRepository;
-import com.certacure.lis.interfaces.admin.model.SecRole;
-import com.certacure.lis.interfaces.admin.model.SecUser;
-import com.certacure.lis.interfaces.admin.model.SecUserRole;
+import com.sunbird.core.base.repo.GenericRepository;
+import com.sunbird.lis.interfaces.admin.model.SecRole;
+import com.sunbird.lis.interfaces.admin.model.SecUser;
+import com.sunbird.lis.interfaces.admin.model.SecUserRole;
 
 /**
  * SecUserRoleRepo.java

@@ -1,7 +1,7 @@
-package com.certacure.lis.interfaces.wrapper;
+package com.sunbird.lis.interfaces.wrapper;
 
-import com.certacure.core.base.entity.BaseWrapper;
-import com.certacure.lis.interfaces.entities.PCRRealTimeWorkList;
+import com.sunbird.core.base.entity.BaseWrapper;
+import com.sunbird.lis.interfaces.entities.PCRRealTimeWorkList;
 
 public class WorkListStatusWrapper extends BaseWrapper {
 

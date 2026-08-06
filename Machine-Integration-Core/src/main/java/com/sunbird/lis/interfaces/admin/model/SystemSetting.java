@@ -1,4 +1,4 @@
-package com.certacure.lis.interfaces.admin.model;
+package com.sunbird.lis.interfaces.admin.model;
 
 
 import java.io.Serializable;
@@ -21,9 +21,9 @@ import javax.validation.constraints.Size;
 import org.hibernate.envers.Audited;
 import org.hibernate.envers.RelationTargetAuditMode;
 
-import com.certacure.core.base.entity.BaseAuditableEntity;
-import com.certacure.lis.interfaces.entities.LabBranch;
-import com.certacure.lis.interfaces.helper.SystemSettingType;
+import com.sunbird.core.base.entity.BaseAuditableEntity;
+import com.sunbird.lis.interfaces.entities.LabBranch;
+import com.sunbird.lis.interfaces.helper.SystemSettingType;
 
 
 /**

@@ -1,4 +1,4 @@
-package com.certacure.machine.web.security.controller;
+package com.sunbird.machine.web.security.controller;
 
 import java.util.List;
 
@@ -10,12 +10,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.certacure.lis.interfaces.admin.model.SecGroupRole;
-import com.certacure.lis.interfaces.admin.model.SecRole;
-import com.certacure.lis.interfaces.admin.model.SecRoleRight;
-import com.certacure.lis.interfaces.admin.model.SecUserRole;
-import com.certacure.lis.interfaces.admin.service.SecRoleService;
-import com.certacure.machine.web.security.wrapper.SecRelationWrapper;
+import com.sunbird.lis.interfaces.admin.model.SecGroupRole;
+import com.sunbird.lis.interfaces.admin.model.SecRole;
+import com.sunbird.lis.interfaces.admin.model.SecRoleRight;
+import com.sunbird.lis.interfaces.admin.model.SecUserRole;
+import com.sunbird.lis.interfaces.admin.service.SecRoleService;
+import com.sunbird.machine.web.security.wrapper.SecRelationWrapper;
 
 /**
  * SecRoleService.java

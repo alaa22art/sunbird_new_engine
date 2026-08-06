@@ -1,4 +1,4 @@
-package com.certacure.lis.interfaces.service;
+package com.sunbird.lis.interfaces.service;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -17,12 +17,12 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.certacure.core.base.service.GenericService;
-import com.certacure.lis.interfaces.annotation.InterceptorFree;
-import com.certacure.lis.interfaces.entities.ElegabalityApprovalEntity;
-import com.certacure.lis.interfaces.entities.ElegabalityApprovalOrderEntity;
-import com.certacure.lis.interfaces.entities.PostDetailFinancialTransaction;
-import com.certacure.lis.interfaces.repo.ElegabalityApprovalRepo;
+import com.sunbird.core.base.service.GenericService;
+import com.sunbird.lis.interfaces.annotation.InterceptorFree;
+import com.sunbird.lis.interfaces.entities.ElegabalityApprovalEntity;
+import com.sunbird.lis.interfaces.entities.ElegabalityApprovalOrderEntity;
+import com.sunbird.lis.interfaces.entities.PostDetailFinancialTransaction;
+import com.sunbird.lis.interfaces.repo.ElegabalityApprovalRepo;
 
 @Service("ElegabalityApprovalService")
 public class ElegabalityApprovalService extends GenericService<ElegabalityApprovalEntity, ElegabalityApprovalRepo> {

@@ -1,10 +1,10 @@
-package com.certacure.core.common.audit;
+package com.sunbird.core.common.audit;
 
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.certacure.core.base.entity.BaseWrapper;
-import com.certacure.core.common.helper.FilterablePageRequest;
+import com.sunbird.core.base.entity.BaseWrapper;
+import com.sunbird.core.common.helper.FilterablePageRequest;
 
 public class AuditableQuery extends BaseWrapper {
 

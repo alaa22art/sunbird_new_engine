@@ -1,19 +1,19 @@
-package com.certacure.lis.interfaces.middleware.interfaces.lis2a2.msg;
+package com.sunbird.lis.interfaces.middleware.interfaces.lis2a2.msg;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import com.certacure.lis.interfaces.middleware.interfaces.lis2a2.record.LIS2A2Record;
-import com.certacure.lis.interfaces.middleware.interfaces.lis2a2.record.OBRRecord;
-import com.certacure.lis.interfaces.middleware.interfaces.lis2a2.record.OBXRecord;
-import com.certacure.lis.interfaces.middleware.interfaces.lis2a2.record.PatientRecord;
-import com.certacure.lis.interfaces.middleware.interfaces.lis2a2.record.HL7V24.HL7_V24_CommonOrder;
-import com.certacure.lis.interfaces.middleware.interfaces.lis2a2.record.HL7V24.HL7_V24_EventTypeRecord;
-import com.certacure.lis.interfaces.middleware.interfaces.lis2a2.record.HL7V24.HL7_V24_HeaderRecord;
-import com.certacure.lis.interfaces.middleware.interfaces.lis2a2.record.HL7V24.HL7_V24_PatientRecord;
-import com.certacure.lis.interfaces.middleware.interfaces.lis2a2.record.HL7V24.HL7_V24_Visit1Record;
-import com.certacure.lis.interfaces.middleware.interfaces.lis2a2.record.HL7V24.HL7_v24_FinancialTransaction;
+import com.sunbird.lis.interfaces.middleware.interfaces.lis2a2.record.LIS2A2Record;
+import com.sunbird.lis.interfaces.middleware.interfaces.lis2a2.record.OBRRecord;
+import com.sunbird.lis.interfaces.middleware.interfaces.lis2a2.record.OBXRecord;
+import com.sunbird.lis.interfaces.middleware.interfaces.lis2a2.record.PatientRecord;
+import com.sunbird.lis.interfaces.middleware.interfaces.lis2a2.record.HL7V24.HL7_V24_CommonOrder;
+import com.sunbird.lis.interfaces.middleware.interfaces.lis2a2.record.HL7V24.HL7_V24_EventTypeRecord;
+import com.sunbird.lis.interfaces.middleware.interfaces.lis2a2.record.HL7V24.HL7_V24_HeaderRecord;
+import com.sunbird.lis.interfaces.middleware.interfaces.lis2a2.record.HL7V24.HL7_V24_PatientRecord;
+import com.sunbird.lis.interfaces.middleware.interfaces.lis2a2.record.HL7V24.HL7_V24_Visit1Record;
+import com.sunbird.lis.interfaces.middleware.interfaces.lis2a2.record.HL7V24.HL7_v24_FinancialTransaction;
 
 public class LIS2A2_DFT_Msg extends LIS2A2Msg {
 

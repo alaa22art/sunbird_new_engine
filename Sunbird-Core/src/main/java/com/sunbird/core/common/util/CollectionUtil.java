@@ -1,4 +1,4 @@
-package com.certacure.core.common.util;
+package com.sunbird.core.common.util;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -12,8 +12,8 @@ import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-import com.certacure.core.base.entity.BaseEntity;
-import com.certacure.core.common.helper.CustomComparable;
+import com.sunbird.core.base.entity.BaseEntity;
+import com.sunbird.core.common.helper.CustomComparable;
 
 /**
  * CollectionUtils.java, Used To handle collection operations

@@ -1,4 +1,4 @@
-package com.certacure.core.common.util;
+package com.sunbird.core.common.util;
 
 import java.util.Arrays;
 import java.util.Date;

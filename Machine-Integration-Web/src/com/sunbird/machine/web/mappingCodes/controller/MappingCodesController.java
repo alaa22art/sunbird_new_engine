@@ -1,4 +1,4 @@
-package com.certacure.machine.web.mappingCodes.controller;
+package com.sunbird.machine.web.mappingCodes.controller;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -12,11 +12,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.certacure.core.common.helper.FilterablePageRequest;
-import com.certacure.lis.interfaces.entities.MappingCodes;
-import com.certacure.lis.interfaces.entities.TestCatalog;
-import com.certacure.lis.interfaces.service.MappingCodesService;
-import com.certacure.lis.interfaces.service.TestCatalogService;
+import com.sunbird.core.common.helper.FilterablePageRequest;
+import com.sunbird.lis.interfaces.entities.MappingCodes;
+import com.sunbird.lis.interfaces.entities.TestCatalog;
+import com.sunbird.lis.interfaces.service.MappingCodesService;
+import com.sunbird.lis.interfaces.service.TestCatalogService;
 
 @RestController
 @RequestMapping("/services")

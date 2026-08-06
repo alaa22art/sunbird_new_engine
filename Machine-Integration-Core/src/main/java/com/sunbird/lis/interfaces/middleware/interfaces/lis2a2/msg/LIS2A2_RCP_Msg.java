@@ -1,11 +1,11 @@
-package com.certacure.lis.interfaces.middleware.interfaces.lis2a2.msg;
+package com.sunbird.lis.interfaces.middleware.interfaces.lis2a2.msg;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
-import com.certacure.lis.interfaces.middleware.interfaces.lis2a2.record.LIS2A2Record;
-import com.certacure.lis.interfaces.middleware.interfaces.lis2a2.record.QueryRecord;
-import com.certacure.lis.interfaces.middleware.interfaces.lis2a2.record.HL7V24.HL7_V24_HeaderRecord;
+import com.sunbird.lis.interfaces.middleware.interfaces.lis2a2.record.LIS2A2Record;
+import com.sunbird.lis.interfaces.middleware.interfaces.lis2a2.record.QueryRecord;
+import com.sunbird.lis.interfaces.middleware.interfaces.lis2a2.record.HL7V24.HL7_V24_HeaderRecord;
 
 public class LIS2A2_RCP_Msg extends LIS2A2Msg {
 

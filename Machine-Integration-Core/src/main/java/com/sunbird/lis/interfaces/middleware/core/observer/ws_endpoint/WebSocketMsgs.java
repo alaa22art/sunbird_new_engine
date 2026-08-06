@@ -1,10 +1,10 @@
-package com.certacure.lis.interfaces.middleware.core.observer.ws_endpoint;
+package com.sunbird.lis.interfaces.middleware.core.observer.ws_endpoint;
 
 import static java.util.Collections.unmodifiableMap;
 
 import java.util.Map;
 
-import com.certacure.lis.interfaces.middleware.core.observer.ObserverProtocol.LogLevel;
+import com.sunbird.lis.interfaces.middleware.core.observer.ObserverProtocol.LogLevel;
 
 public interface WebSocketMsgs {
 

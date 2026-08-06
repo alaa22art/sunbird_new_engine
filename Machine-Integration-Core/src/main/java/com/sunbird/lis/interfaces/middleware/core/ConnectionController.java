@@ -1,14 +1,14 @@
-package com.certacure.lis.interfaces.middleware.core;
+package com.sunbird.lis.interfaces.middleware.core;
 
 import java.util.Map;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.certacure.core.common.util.SpringUtil;
-import com.certacure.lis.interfaces.entities.Machine;
-import com.certacure.lis.interfaces.middleware.ActorContextInfo;
-import com.certacure.lis.interfaces.middleware.interfaces.LabMessages.ConnectionStatus;
-import com.certacure.lis.interfaces.service.MachineService;
+import com.sunbird.core.common.util.SpringUtil;
+import com.sunbird.lis.interfaces.entities.Machine;
+import com.sunbird.lis.interfaces.middleware.ActorContextInfo;
+import com.sunbird.lis.interfaces.middleware.interfaces.LabMessages.ConnectionStatus;
+import com.sunbird.lis.interfaces.service.MachineService;
 import com.typesafe.config.Config;
 import com.typesafe.config.ConfigFactory;
 

@@ -1,4 +1,4 @@
-package com.certacure.machine.web.common.advisor;
+package com.sunbird.machine.web.common.advisor;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -32,8 +32,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.multipart.MultipartException;
 
-import com.certacure.core.common.business.exception.BusinessException;
-import com.certacure.core.common.business.exception.BusinessException.ErrorSeverity;
+import com.sunbird.core.common.business.exception.BusinessException;
+import com.sunbird.core.common.business.exception.BusinessException.ErrorSeverity;
 
 @ControllerAdvice
 public class ExceptionHandlerController {

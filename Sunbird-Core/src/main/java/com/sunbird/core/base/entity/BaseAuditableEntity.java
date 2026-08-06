@@ -1,4 +1,4 @@
-package com.certacure.core.base.entity;
+package com.sunbird.core.base.entity;
 
 import java.util.Date;
 
@@ -14,7 +14,7 @@ import javax.validation.constraints.NotNull;
 import org.hibernate.envers.Audited;
 import org.hibernate.envers.RelationTargetAuditMode;
 
-import com.certacure.core.common.util.SecurityUtil;
+import com.sunbird.core.common.util.SecurityUtil;
 
 /**
  * BaseAuditableTenantedEntity.java Super class for Audited entities,

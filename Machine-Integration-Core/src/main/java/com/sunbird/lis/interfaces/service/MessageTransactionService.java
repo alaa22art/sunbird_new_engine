@@ -1,4 +1,4 @@
-package com.certacure.lis.interfaces.service;
+package com.sunbird.lis.interfaces.service;
 
 import java.util.Arrays;
 import java.util.List;
@@ -9,20 +9,20 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 
-import com.certacure.core.base.helper.SearchCriterion;
-import com.certacure.core.base.helper.SearchCriterion.FilterOperator;
-import com.certacure.core.base.service.GenericService;
-import com.certacure.core.common.helper.FilterablePageRequest;
-import com.certacure.core.common.util.CollectionUtil;
-import com.certacure.lis.interfaces.annotation.InterceptorFree;
-import com.certacure.lis.interfaces.entities.LabBranch;
-import com.certacure.lis.interfaces.entities.LkpMessageTransactionDirection;
-import com.certacure.lis.interfaces.entities.LkpMessageTransactionType;
-import com.certacure.lis.interfaces.entities.Machine;
-import com.certacure.lis.interfaces.entities.MessageTransaction;
-import com.certacure.lis.interfaces.middleware.interfaces.lis2a2.record.HL7V24.HL7_V24_HeaderRecord;
-import com.certacure.lis.interfaces.repo.MachineRepo;
-import com.certacure.lis.interfaces.repo.MessageTransactionRepo;
+import com.sunbird.core.base.helper.SearchCriterion;
+import com.sunbird.core.base.helper.SearchCriterion.FilterOperator;
+import com.sunbird.core.base.service.GenericService;
+import com.sunbird.core.common.helper.FilterablePageRequest;
+import com.sunbird.core.common.util.CollectionUtil;
+import com.sunbird.lis.interfaces.annotation.InterceptorFree;
+import com.sunbird.lis.interfaces.entities.LabBranch;
+import com.sunbird.lis.interfaces.entities.LkpMessageTransactionDirection;
+import com.sunbird.lis.interfaces.entities.LkpMessageTransactionType;
+import com.sunbird.lis.interfaces.entities.Machine;
+import com.sunbird.lis.interfaces.entities.MessageTransaction;
+import com.sunbird.lis.interfaces.middleware.interfaces.lis2a2.record.HL7V24.HL7_V24_HeaderRecord;
+import com.sunbird.lis.interfaces.repo.MachineRepo;
+import com.sunbird.lis.interfaces.repo.MessageTransactionRepo;
 
 @Service("MessageTransactionService")
 public class MessageTransactionService extends GenericService<MessageTransaction, MessageTransactionRepo> {

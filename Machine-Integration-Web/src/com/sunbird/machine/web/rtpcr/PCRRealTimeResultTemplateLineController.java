@@ -1,4 +1,4 @@
-package com.certacure.machine.web.rtpcr;
+package com.sunbird.machine.web.rtpcr;
 
 import java.util.List;
 
@@ -8,8 +8,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.certacure.lis.interfaces.entities.PCRRealTimeResultTemplateLine;
-import com.certacure.lis.interfaces.service.PCRRealTimeResultTemplateLineService;
+import com.sunbird.lis.interfaces.entities.PCRRealTimeResultTemplateLine;
+import com.sunbird.lis.interfaces.service.PCRRealTimeResultTemplateLineService;
 
 @RestController
 @RequestMapping("/services")

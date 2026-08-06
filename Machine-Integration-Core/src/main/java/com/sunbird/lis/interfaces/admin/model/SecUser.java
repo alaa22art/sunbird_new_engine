@@ -1,4 +1,4 @@
-package com.certacure.lis.interfaces.admin.model;
+package com.sunbird.lis.interfaces.admin.model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -37,20 +37,20 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.certacure.core.base.entity.BaseAuditableTenantedEntity;
-import com.certacure.core.base.entity.UserAccount;
-import com.certacure.core.common.annotation.MapNotNull;
-import com.certacure.core.common.data.model.TransField;
-import com.certacure.core.common.data.model.converter.BooleanIntegerConverter;
-import com.certacure.core.common.data.model.converter.TransFieldAttConverter;
-import com.certacure.core.common.util.CollectionUtil;
-import com.certacure.core.common.util.StringUtil;
-import com.certacure.lis.interfaces.entities.ComLanguage;
-import com.certacure.lis.interfaces.entities.ComTenantLanguage;
-import com.certacure.lis.interfaces.entities.LabBranch;
-import com.certacure.lis.interfaces.entities.LkpCountry;
-import com.certacure.lis.interfaces.entities.LkpGender;
-import com.certacure.lis.interfaces.entities.LkpUserStatus;
+import com.sunbird.core.base.entity.BaseAuditableTenantedEntity;
+import com.sunbird.core.base.entity.UserAccount;
+import com.sunbird.core.common.annotation.MapNotNull;
+import com.sunbird.core.common.data.model.TransField;
+import com.sunbird.core.common.data.model.converter.BooleanIntegerConverter;
+import com.sunbird.core.common.data.model.converter.TransFieldAttConverter;
+import com.sunbird.core.common.util.CollectionUtil;
+import com.sunbird.core.common.util.StringUtil;
+import com.sunbird.lis.interfaces.entities.ComLanguage;
+import com.sunbird.lis.interfaces.entities.ComTenantLanguage;
+import com.sunbird.lis.interfaces.entities.LabBranch;
+import com.sunbird.lis.interfaces.entities.LkpCountry;
+import com.sunbird.lis.interfaces.entities.LkpGender;
+import com.sunbird.lis.interfaces.entities.LkpUserStatus;
 
 /**
  * SecUser.java

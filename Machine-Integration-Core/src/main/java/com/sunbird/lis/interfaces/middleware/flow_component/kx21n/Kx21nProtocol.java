@@ -1,9 +1,8 @@
-package com.certacure.lis.interfaces.middleware.flow_component.kx21n;
+package com.sunbird.lis.interfaces.middleware.flow_component.kx21n;
 
-import static com.certacure.lis.interfaces.middleware.util.LowLevelUtils.*;
+import static com.sunbird.lis.interfaces.middleware.util.LowLevelUtils.*;
 
-
-import com.certacure.lis.interfaces.middleware.flow_component.socket.SocketProtocol.BytesMessage;
+import com.sunbird.lis.interfaces.middleware.flow_component.socket.SocketProtocol.BytesMessage;
 
 public class Kx21nProtocol {
 

@@ -1,12 +1,12 @@
-package com.certacure.core.common.helper;
+package com.sunbird.core.common.helper;
 
 import java.lang.reflect.Method;
 
 import org.springframework.cache.interceptor.KeyGenerator;
 import org.springframework.stereotype.Component;
 
-import com.certacure.core.base.entity.BaseEntity;
-import com.certacure.core.common.util.SecurityUtil;
+import com.sunbird.core.base.entity.BaseEntity;
+import com.sunbird.core.common.util.SecurityUtil;
 
 /**
  * CustomCacheKeyGenerator.java

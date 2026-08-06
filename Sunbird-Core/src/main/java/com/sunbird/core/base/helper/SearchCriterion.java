@@ -1,9 +1,9 @@
-package com.certacure.core.base.helper;
+package com.sunbird.core.base.helper;
 
 import java.util.Arrays;
 import java.util.List;
 
-import com.certacure.core.base.entity.BaseWrapper;
+import com.sunbird.core.base.entity.BaseWrapper;
 
 public class SearchCriterion extends BaseWrapper {
 

@@ -1,4 +1,4 @@
-package com.certacure.core.common.audit;
+package com.sunbird.core.common.audit;
 
 import java.io.Serializable;
 import java.util.Date;

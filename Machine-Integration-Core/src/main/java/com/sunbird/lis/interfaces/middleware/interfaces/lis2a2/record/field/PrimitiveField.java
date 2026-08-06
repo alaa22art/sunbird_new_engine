@@ -1,4 +1,4 @@
-package com.certacure.lis.interfaces.middleware.interfaces.lis2a2.record.field;
+package com.sunbird.lis.interfaces.middleware.interfaces.lis2a2.record.field;
 
 public class PrimitiveField extends Field {
 

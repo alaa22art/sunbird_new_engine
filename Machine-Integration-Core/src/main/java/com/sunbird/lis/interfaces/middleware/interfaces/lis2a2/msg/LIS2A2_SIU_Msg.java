@@ -1,15 +1,15 @@
-package com.certacure.lis.interfaces.middleware.interfaces.lis2a2.msg;
+package com.sunbird.lis.interfaces.middleware.interfaces.lis2a2.msg;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import com.certacure.lis.interfaces.middleware.interfaces.lis2a2.record.LIS2A2Record;
-import com.certacure.lis.interfaces.middleware.interfaces.lis2a2.record.PatientRecord;
-import com.certacure.lis.interfaces.middleware.interfaces.lis2a2.record.HL7V24.HL7_V24_Appointment;
-import com.certacure.lis.interfaces.middleware.interfaces.lis2a2.record.HL7V24.HL7_V24_HeaderRecord;
-import com.certacure.lis.interfaces.middleware.interfaces.lis2a2.record.HL7V24.HL7_V24_PatientRecord;
-import com.certacure.lis.interfaces.middleware.interfaces.lis2a2.record.HL7V24.HL7_V24_Visit1Record;
+import com.sunbird.lis.interfaces.middleware.interfaces.lis2a2.record.LIS2A2Record;
+import com.sunbird.lis.interfaces.middleware.interfaces.lis2a2.record.PatientRecord;
+import com.sunbird.lis.interfaces.middleware.interfaces.lis2a2.record.HL7V24.HL7_V24_Appointment;
+import com.sunbird.lis.interfaces.middleware.interfaces.lis2a2.record.HL7V24.HL7_V24_HeaderRecord;
+import com.sunbird.lis.interfaces.middleware.interfaces.lis2a2.record.HL7V24.HL7_V24_PatientRecord;
+import com.sunbird.lis.interfaces.middleware.interfaces.lis2a2.record.HL7V24.HL7_V24_Visit1Record;
 
 public class LIS2A2_SIU_Msg extends LIS2A2Msg {
 

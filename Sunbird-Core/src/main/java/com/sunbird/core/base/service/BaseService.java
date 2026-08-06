@@ -1,4 +1,4 @@
-package com.certacure.core.base.service;
+package com.sunbird.core.base.service;
 
 import java.io.Serializable;
 import java.util.List;
@@ -10,9 +10,9 @@ import org.springframework.data.domain.Slice;
 import org.springframework.data.domain.Sort;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.certacure.core.base.entity.BaseEntity;
-import com.certacure.core.base.helper.SearchCriterion;
-import com.certacure.core.base.repo.BaseRepository;
+import com.sunbird.core.base.entity.BaseEntity;
+import com.sunbird.core.base.helper.SearchCriterion;
+import com.sunbird.core.base.repo.BaseRepository;
 
 /**
  * CrudService.java, Super Generic class that is responsible for all CRUD operations

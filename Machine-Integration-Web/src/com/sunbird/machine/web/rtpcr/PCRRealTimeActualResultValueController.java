@@ -1,4 +1,4 @@
-package com.certacure.machine.web.rtpcr;
+package com.sunbird.machine.web.rtpcr;
 
 import java.io.IOException;
 import java.util.List;
@@ -13,11 +13,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
-import com.certacure.lis.interfaces.entities.PCRRealTimeActualResultValue;
-import com.certacure.lis.interfaces.entities.PCRRealTimeWorkListOrder;
-import com.certacure.lis.interfaces.service.PCRRealTimeActualResultValueService;
-import com.certacure.lis.interfaces.wrapper.PCRActualResultValueWrapper;
-import com.certacure.lis.interfaces.wrapper.PCRRealTimeActualResultWrapper;
+import com.sunbird.lis.interfaces.entities.PCRRealTimeActualResultValue;
+import com.sunbird.lis.interfaces.entities.PCRRealTimeWorkListOrder;
+import com.sunbird.lis.interfaces.service.PCRRealTimeActualResultValueService;
+import com.sunbird.lis.interfaces.wrapper.PCRActualResultValueWrapper;
+import com.sunbird.lis.interfaces.wrapper.PCRRealTimeActualResultWrapper;
 
 @RestController
 @RequestMapping("/services")

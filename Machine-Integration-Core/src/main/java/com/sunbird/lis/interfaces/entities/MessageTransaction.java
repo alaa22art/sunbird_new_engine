@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.certacure.lis.interfaces.entities;
+package com.sunbird.lis.interfaces.entities;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -24,9 +24,9 @@ import javax.persistence.Table;
 import org.hibernate.envers.Audited;
 import org.springframework.boot.context.properties.bind.DefaultValue;
 
-import com.certacure.core.base.entity.BaseAuditableBranchedEntity;
-import com.certacure.core.common.data.model.converter.BooleanIntegerConverter;
-import com.certacure.core.common.util.SecurityUtil;
+import com.sunbird.core.base.entity.BaseAuditableBranchedEntity;
+import com.sunbird.core.common.data.model.converter.BooleanIntegerConverter;
+import com.sunbird.core.common.util.SecurityUtil;
 
 /** MachineQuery */
 @Entity

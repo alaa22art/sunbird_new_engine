@@ -200,12 +200,12 @@ public class Hl724ClientOverTcpController extends FlowComponent<Hl724ClientOverT
 
 }*/
 
-package com.certacure.lis.interfaces.middleware.flow_component.EmailNotificationSenderDriver;
+package com.sunbird.lis.interfaces.middleware.flow_component.EmailNotificationSenderDriver;
 
-import com.certacure.core.common.util.SpringUtil;
-import com.certacure.lis.interfaces.entities.Machine;
-import com.certacure.lis.interfaces.middleware.core.FlowComponent;
-import com.certacure.lis.interfaces.service.MachineService;
+import com.sunbird.core.common.util.SpringUtil;
+import com.sunbird.lis.interfaces.entities.Machine;
+import com.sunbird.lis.interfaces.middleware.core.FlowComponent;
+import com.sunbird.lis.interfaces.service.MachineService;
 
 import scala.PartialFunction;
 import scala.runtime.BoxedUnit;

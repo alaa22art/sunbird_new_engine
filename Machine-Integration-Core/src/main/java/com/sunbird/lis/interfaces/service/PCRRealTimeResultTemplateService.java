@@ -1,13 +1,13 @@
-package com.certacure.lis.interfaces.service;
+package com.sunbird.lis.interfaces.service;
 
 import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.certacure.core.base.service.GenericService;
-import com.certacure.lis.interfaces.entities.PCRRealTimeResultTemplate;
-import com.certacure.lis.interfaces.repo.PCRRealTimeResultTemplateRepo;
+import com.sunbird.core.base.service.GenericService;
+import com.sunbird.lis.interfaces.entities.PCRRealTimeResultTemplate;
+import com.sunbird.lis.interfaces.repo.PCRRealTimeResultTemplateRepo;
 
 @Service("PCRRealTimeResultTemplateService")
 public class PCRRealTimeResultTemplateService extends GenericService<PCRRealTimeResultTemplate, PCRRealTimeResultTemplateRepo> {

@@ -1,4 +1,4 @@
-package com.certacure.core.base.repo;
+package com.sunbird.core.base.repo;
 
 import java.io.Serializable;
 import java.util.List;
@@ -9,8 +9,8 @@ import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.NoRepositoryBean;
 
-import com.certacure.core.base.entity.BaseEntity;
-import com.certacure.core.base.helper.SearchCriterion;
+import com.sunbird.core.base.entity.BaseEntity;
+import com.sunbird.core.base.helper.SearchCriterion;
 
 @NoRepositoryBean
 public interface BaseRepository<T extends BaseEntity, ID extends Serializable> extends JpaRepository<T, ID> {

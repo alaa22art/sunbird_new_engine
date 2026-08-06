@@ -1,4 +1,4 @@
-package com.certacure.lis.interfaces.admin.service;
+package com.sunbird.lis.interfaces.admin.service;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -19,26 +19,26 @@ import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 
-import com.certacure.core.base.helper.SearchCriterion;
-import com.certacure.core.base.helper.SearchCriterion.FilterOperator;
-import com.certacure.core.base.service.GenericService;
-import com.certacure.core.common.business.exception.BusinessException;
-import com.certacure.core.common.business.exception.BusinessException.ErrorSeverity;
-import com.certacure.core.common.helper.Email;
-import com.certacure.core.common.helper.FilterablePageRequest;
-import com.certacure.core.common.helper.TokenBuilder;
-import com.certacure.core.common.util.CollectionUtil;
-import com.certacure.core.common.util.EmailUtil;
-import com.certacure.core.common.util.SecurityUtil;
-import com.certacure.core.common.util.StringUtil;
-import com.certacure.core.common.util.TokenUtil;
-import com.certacure.lis.interfaces.admin.model.SecGroupRole;
-import com.certacure.lis.interfaces.admin.model.SecGroupUser;
-import com.certacure.lis.interfaces.admin.model.SecUser;
-import com.certacure.lis.interfaces.admin.model.SecUserRole;
-import com.certacure.lis.interfaces.admin.repo.SecUserRepo;
-import com.certacure.lis.interfaces.annotation.InterceptorFree;
-import com.certacure.lis.interfaces.helper.MachineIntegrationRights;
+import com.sunbird.core.base.helper.SearchCriterion;
+import com.sunbird.core.base.helper.SearchCriterion.FilterOperator;
+import com.sunbird.core.base.service.GenericService;
+import com.sunbird.core.common.business.exception.BusinessException;
+import com.sunbird.core.common.business.exception.BusinessException.ErrorSeverity;
+import com.sunbird.core.common.helper.Email;
+import com.sunbird.core.common.helper.FilterablePageRequest;
+import com.sunbird.core.common.helper.TokenBuilder;
+import com.sunbird.core.common.util.CollectionUtil;
+import com.sunbird.core.common.util.EmailUtil;
+import com.sunbird.core.common.util.SecurityUtil;
+import com.sunbird.core.common.util.StringUtil;
+import com.sunbird.core.common.util.TokenUtil;
+import com.sunbird.lis.interfaces.admin.model.SecGroupRole;
+import com.sunbird.lis.interfaces.admin.model.SecGroupUser;
+import com.sunbird.lis.interfaces.admin.model.SecUser;
+import com.sunbird.lis.interfaces.admin.model.SecUserRole;
+import com.sunbird.lis.interfaces.admin.repo.SecUserRepo;
+import com.sunbird.lis.interfaces.annotation.InterceptorFree;
+import com.sunbird.lis.interfaces.helper.MachineIntegrationRights;
 
 import freemarker.template.TemplateException;
 

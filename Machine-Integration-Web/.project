@@ -3,8 +3,8 @@
 	<name>Machine-Integration-Web</name>
 	<comment></comment>
 	<projects>
-		<project>Certacure-Core</project>
 		<project>Machine-Integration-Core</project>
+		<project>Sunbird-Core</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

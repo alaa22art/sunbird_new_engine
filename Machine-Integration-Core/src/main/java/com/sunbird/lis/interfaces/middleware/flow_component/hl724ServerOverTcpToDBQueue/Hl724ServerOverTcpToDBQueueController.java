@@ -1,4 +1,4 @@
-package com.certacure.lis.interfaces.middleware.flow_component.hl724ServerOverTcpToDBQueue;
+package com.sunbird.lis.interfaces.middleware.flow_component.hl724ServerOverTcpToDBQueue;
 
 import java.io.IOException;
 import java.text.ParseException;
@@ -25,18 +25,17 @@ import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
 
-
-import com.certacure.core.common.util.SpringUtil;
-import com.certacure.lis.interfaces.middleware.core.FlowComponent;
-import com.certacure.lis.interfaces.middleware.enums.Enums.API_URL_PREFEX;
-import com.certacure.lis.interfaces.middleware.enums.Enums.REQUEST_RESULT_TYPE;
-import com.certacure.lis.interfaces.middleware.enums.Enums.VALUDATION_RESULT_TYPE;
-import com.certacure.lis.interfaces.middleware.flow_component.astme138194archi.AstmE138194ArchiProtocol;
-import com.certacure.lis.interfaces.middleware.flow_component.lab_http.httpRequstTransaction;
-import com.certacure.lis.interfaces.middleware.flow_component.socket.SocketProtocol.BytesMessage;
-import com.certacure.lis.interfaces.middleware.util.LowLevelUtils;
-import com.certacure.lis.interfaces.service.MessageTransactionService;
 import com.google.common.base.Strings;
+import com.sunbird.core.common.util.SpringUtil;
+import com.sunbird.lis.interfaces.middleware.core.FlowComponent;
+import com.sunbird.lis.interfaces.middleware.enums.Enums.API_URL_PREFEX;
+import com.sunbird.lis.interfaces.middleware.enums.Enums.REQUEST_RESULT_TYPE;
+import com.sunbird.lis.interfaces.middleware.enums.Enums.VALUDATION_RESULT_TYPE;
+import com.sunbird.lis.interfaces.middleware.flow_component.astme138194archi.AstmE138194ArchiProtocol;
+import com.sunbird.lis.interfaces.middleware.flow_component.lab_http.httpRequstTransaction;
+import com.sunbird.lis.interfaces.middleware.flow_component.socket.SocketProtocol.BytesMessage;
+import com.sunbird.lis.interfaces.middleware.util.LowLevelUtils;
+import com.sunbird.lis.interfaces.service.MessageTransactionService;
 import com.typesafe.config.Config;
 import com.typesafe.config.ConfigFactory;
 

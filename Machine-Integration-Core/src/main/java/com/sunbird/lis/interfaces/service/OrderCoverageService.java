@@ -1,16 +1,16 @@
-package com.certacure.lis.interfaces.service;
+package com.sunbird.lis.interfaces.service;
 
 import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.certacure.core.base.service.GenericService;
-import com.certacure.lis.interfaces.annotation.InterceptorFree;
-import com.certacure.lis.interfaces.entities.AckMessageSequance;
-import com.certacure.lis.interfaces.entities.OrderCoverageEntity;
-import com.certacure.lis.interfaces.repo.AckMessageSequanceRepo;
-import com.certacure.lis.interfaces.repo.OrderCoverageRepo;
+import com.sunbird.core.base.service.GenericService;
+import com.sunbird.lis.interfaces.annotation.InterceptorFree;
+import com.sunbird.lis.interfaces.entities.AckMessageSequance;
+import com.sunbird.lis.interfaces.entities.OrderCoverageEntity;
+import com.sunbird.lis.interfaces.repo.AckMessageSequanceRepo;
+import com.sunbird.lis.interfaces.repo.OrderCoverageRepo;
 
 
 

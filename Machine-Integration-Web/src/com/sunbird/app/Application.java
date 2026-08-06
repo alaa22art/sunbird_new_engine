@@ -1,4 +1,4 @@
-package com.certacure.app;
+package com.sunbird.app;
 
 import java.io.PrintStream;
 import java.io.UnsupportedEncodingException;
@@ -32,10 +32,10 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer;
 
-import com.certacure.core.base.repo.BaseRepositoryImpl;
-import com.certacure.lis.interfaces.middleware.core.ActorSysContainer;
-import com.certacure.lis.interfaces.middleware.core.Master;
-import com.certacure.lis.interfaces.service.MachineService;
+import com.sunbird.lis.interfaces.middleware.core.ActorSysContainer;
+import com.sunbird.lis.interfaces.middleware.core.Master;
+import com.sunbird.lis.interfaces.service.MachineService;
+import com.sunbird.core.base.repo.BaseRepositoryImpl;
 
 import akka.actor.ActorSystem;
 import akka.actor.Props;
@@ -48,10 +48,10 @@ import kr.pe.kwonnam.freemarker.inheritance.PutDirective;
 @EnableMBeanExport(registration = RegistrationPolicy.IGNORE_EXISTING)
 @EnableTransactionManagement(proxyTargetClass = true)
 @SpringBootApplication
-@ComponentScan(basePackages = { "com.certacure" })
+@ComponentScan(basePackages = { "com.sunbird" })
 @EnableAutoConfiguration
-@EntityScan("com.certacure")
-@EnableJpaRepositories(basePackages = "com.certacure.**.repo", repositoryBaseClass = BaseRepositoryImpl.class)
+@EntityScan("com.sunbird")
+@EnableJpaRepositories(basePackages = "com.sunbird.**.repo", repositoryBaseClass = BaseRepositoryImpl.class)
 @EnableCaching
 @EnableScheduling
 public class Application extends SpringBootServletInitializer {

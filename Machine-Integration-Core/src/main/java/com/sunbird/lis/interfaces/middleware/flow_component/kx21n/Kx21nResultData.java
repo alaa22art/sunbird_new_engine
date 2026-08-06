@@ -1,4 +1,4 @@
-package com.certacure.lis.interfaces.middleware.flow_component.kx21n;
+package com.sunbird.lis.interfaces.middleware.flow_component.kx21n;
 
 public class Kx21nResultData {
 

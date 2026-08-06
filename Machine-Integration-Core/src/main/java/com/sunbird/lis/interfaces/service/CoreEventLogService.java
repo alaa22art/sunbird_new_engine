@@ -1,4 +1,4 @@
-package com.certacure.lis.interfaces.service;
+package com.sunbird.lis.interfaces.service;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,12 +12,12 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 
-import com.certacure.core.base.service.GenericService;
-import com.certacure.core.common.helper.FilterablePageRequest;
-import com.certacure.core.common.helper.FilterablePageRequest.OrderObject;
-import com.certacure.lis.interfaces.annotation.InterceptorFree;
-import com.certacure.lis.interfaces.entities.CoreEventLog;
-import com.certacure.lis.interfaces.repo.EventLogRepo;
+import com.sunbird.core.base.service.GenericService;
+import com.sunbird.core.common.helper.FilterablePageRequest;
+import com.sunbird.core.common.helper.FilterablePageRequest.OrderObject;
+import com.sunbird.lis.interfaces.annotation.InterceptorFree;
+import com.sunbird.lis.interfaces.entities.CoreEventLog;
+import com.sunbird.lis.interfaces.repo.EventLogRepo;
 
 @Service("CoreEventLogService")
 public class CoreEventLogService extends GenericService<CoreEventLog, EventLogRepo> {

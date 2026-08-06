@@ -1,4 +1,4 @@
-package com.certacure.machine.web.lkp.wrapper;
+package com.sunbird.machine.web.lkp.wrapper;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -9,8 +9,8 @@ import org.springframework.data.domain.Sort;
 import org.springframework.data.domain.Sort.Direction;
 import org.springframework.data.domain.Sort.Order;
 
-import com.certacure.core.base.helper.SearchCriterion;
-import com.certacure.core.common.helper.FilterablePageRequest;
+import com.sunbird.core.base.helper.SearchCriterion;
+import com.sunbird.core.common.helper.FilterablePageRequest;
 
 public class LkpWrapper implements Serializable {
 

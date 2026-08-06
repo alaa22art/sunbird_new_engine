@@ -1,4 +1,4 @@
-package com.certacure.lis.interfaces.annotation;
+package com.sunbird.lis.interfaces.annotation;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

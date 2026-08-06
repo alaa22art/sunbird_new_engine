@@ -1,4 +1,4 @@
-package com.certacure.machine.web.rtpcr;
+package com.sunbird.machine.web.rtpcr;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -8,9 +8,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.certacure.lis.interfaces.entities.PCRRealTimeWorkListOrder;
-import com.certacure.lis.interfaces.service.PCRRealTimeWorkListOrderService;
-import com.certacure.lis.interfaces.wrapper.PCRWorkListOrderWrapper;
+import com.sunbird.lis.interfaces.entities.PCRRealTimeWorkListOrder;
+import com.sunbird.lis.interfaces.service.PCRRealTimeWorkListOrderService;
+import com.sunbird.lis.interfaces.wrapper.PCRWorkListOrderWrapper;
 
 @RestController
 @RequestMapping("/services")

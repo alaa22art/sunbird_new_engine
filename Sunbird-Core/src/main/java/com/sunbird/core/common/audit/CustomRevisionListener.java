@@ -1,10 +1,10 @@
-package com.certacure.core.common.audit;
+package com.sunbird.core.common.audit;
 
 import java.util.Date;
 
 import org.hibernate.envers.RevisionListener;
 
-import com.certacure.core.common.util.SecurityUtil;
+import com.sunbird.core.common.util.SecurityUtil;
 
 public class CustomRevisionListener implements RevisionListener {
 

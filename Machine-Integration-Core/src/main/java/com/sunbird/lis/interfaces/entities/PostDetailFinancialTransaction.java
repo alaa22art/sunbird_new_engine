@@ -1,4 +1,4 @@
-package com.certacure.lis.interfaces.entities;
+package com.sunbird.lis.interfaces.entities;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -10,9 +10,9 @@ import javax.validation.constraints.NotNull;
 
 import org.hibernate.envers.Audited;
 
-import com.certacure.core.base.entity.BaseAuditableBranchedEntity;
-import com.certacure.core.common.util.SecurityUtil;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.sunbird.core.base.entity.BaseAuditableBranchedEntity;
+import com.sunbird.core.common.util.SecurityUtil;
 
 /** Entity implementation class for Entity: PostDetailFinancialTransaction */
 @Entity

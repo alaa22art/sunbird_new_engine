@@ -1,4 +1,4 @@
-package com.certacure.lis.interfaces.system.model;
+package com.sunbird.lis.interfaces.system.model;
 
 import java.io.Serializable;
 import java.util.List;
@@ -18,10 +18,10 @@ import javax.validation.constraints.Size;
 import org.hibernate.envers.Audited;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.certacure.core.base.entity.BaseAuditableEntity;
-import com.certacure.core.common.annotation.MapNotNull;
-import com.certacure.core.common.data.model.TransField;
-import com.certacure.core.common.data.model.converter.TransFieldAttConverter;
+import com.sunbird.core.base.entity.BaseAuditableEntity;
+import com.sunbird.core.common.annotation.MapNotNull;
+import com.sunbird.core.common.data.model.TransField;
+import com.sunbird.core.common.data.model.converter.TransFieldAttConverter;
 
 /**
  * SysModule.java

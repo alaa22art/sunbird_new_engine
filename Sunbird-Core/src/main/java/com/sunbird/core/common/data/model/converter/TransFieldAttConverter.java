@@ -1,10 +1,10 @@
-package com.certacure.core.common.data.model.converter;
+package com.sunbird.core.common.data.model.converter;
 
 import javax.persistence.AttributeConverter;
 
-import com.certacure.core.common.data.model.TransField;
-import com.certacure.core.common.util.JSONUtil;
-import com.certacure.core.common.util.StringUtil;
+import com.sunbird.core.common.data.model.TransField;
+import com.sunbird.core.common.util.JSONUtil;
+import com.sunbird.core.common.util.StringUtil;
 
 /**
  * 

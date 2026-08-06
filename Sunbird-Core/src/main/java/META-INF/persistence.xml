@@ -4,12 +4,12 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
 	<persistence-unit name="">
-		<class>com.certacure.core.base.entity.BaseAuditableBranchedEntity</class>
-		<class>com.certacure.core.base.entity.BaseAuditableEntity</class>
-		<class>com.certacure.core.base.entity.BaseAuditableTenantedEntity</class>
-		<class>com.certacure.core.base.entity.BaseEntity</class>
-		<class>com.certacure.core.base.entity.BaseHistoricalEntity</class>
-		<class>com.certacure.core.base.entity.BaseView</class>
-		<class>com.certacure.core.common.audit.CustomRevisionEntity</class>
+		<class>com.sunbird.core.base.entity.BaseAuditableBranchedEntity</class>
+		<class>com.sunbird.core.base.entity.BaseAuditableEntity</class>
+		<class>com.sunbird.core.base.entity.BaseAuditableTenantedEntity</class>
+		<class>com.sunbird.core.base.entity.BaseEntity</class>
+		<class>com.sunbird.core.base.entity.BaseHistoricalEntity</class>
+		<class>com.sunbird.core.base.entity.BaseView</class>
+		<class>com.sunbird.core.common.audit.CustomRevisionEntity</class>
 	</persistence-unit>
 </persistence>

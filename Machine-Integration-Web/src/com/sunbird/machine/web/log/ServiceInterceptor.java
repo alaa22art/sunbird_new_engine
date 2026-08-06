@@ -1,4 +1,4 @@
-package com.certacure.machine.web.log;
+package com.sunbird.machine.web.log;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -20,15 +20,15 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
-import com.certacure.core.base.entity.BaseAuditableBranchedEntity;
-import com.certacure.core.base.entity.BaseAuditableTenantedEntity;
-import com.certacure.core.base.entity.BaseEntity;
-import com.certacure.core.common.business.exception.BusinessException;
-import com.certacure.core.common.business.exception.BusinessException.ErrorSeverity;
-import com.certacure.core.common.util.ReflectionUtil;
-import com.certacure.core.common.util.SecurityUtil;
-import com.certacure.core.common.util.StringUtil;
-import com.certacure.lis.interfaces.service.LkpService;
+import com.sunbird.core.base.entity.BaseAuditableBranchedEntity;
+import com.sunbird.core.base.entity.BaseAuditableTenantedEntity;
+import com.sunbird.core.base.entity.BaseEntity;
+import com.sunbird.core.common.business.exception.BusinessException;
+import com.sunbird.core.common.business.exception.BusinessException.ErrorSeverity;
+import com.sunbird.core.common.util.ReflectionUtil;
+import com.sunbird.core.common.util.SecurityUtil;
+import com.sunbird.core.common.util.StringUtil;
+import com.sunbird.lis.interfaces.service.LkpService;
 
 @Component
 @Aspect
@@ -69,9 +69,9 @@ public class ServiceInterceptor {
 		return result;
 	}
 
-	@Before("(execution(* com.certacure.lis.interfaces.service.*.*(..)) || execution(* com.certacure.lis.interfaces.*.service.*.*(..))) && "
-			+ "!execution(* com.certacure.core.base.service.BaseService.findById(..)) && "
-			+ "!@annotation(com.certacure.lis.interfaces.annotation.InterceptorFree) && !@target(com.certacure.lis.interfaces.annotation.InterceptorFree)")
+	@Before("(execution(* com.sunbird.lis.interfaces.service.*.*(..)) || execution(* com.sunbird.lis.interfaces.*.service.*.*(..))) && "
+			+ "!execution(* com.sunbird.core.base.service.BaseService.findById(..)) && "
+			+ "!@annotation(com.sunbird.lis.interfaces.annotation.InterceptorFree) && !@target(com.sunbird.lis.interfaces.annotation.InterceptorFree)")
 
 	public void beforeInterceptor(JoinPoint point) {
 		log.info(point + " called...");

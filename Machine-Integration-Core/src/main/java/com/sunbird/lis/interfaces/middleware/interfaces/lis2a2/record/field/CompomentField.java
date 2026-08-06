@@ -1,6 +1,6 @@
-package com.certacure.lis.interfaces.middleware.interfaces.lis2a2.record.field;
+package com.sunbird.lis.interfaces.middleware.interfaces.lis2a2.record.field;
 
-import com.certacure.lis.interfaces.middleware.interfaces.lis2a2.DelimitedData;
+import com.sunbird.lis.interfaces.middleware.interfaces.lis2a2.DelimitedData;
 
 public class CompomentField extends Field {
 

@@ -1,4 +1,4 @@
-package com.certacure.lis.interfaces.service;
+package com.sunbird.lis.interfaces.service;
 
 /**
 *
@@ -11,12 +11,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 
-import com.certacure.core.base.service.GenericService;
-import com.certacure.core.common.helper.FilterablePageRequest;
-import com.certacure.lis.interfaces.annotation.InterceptorFree;
-import com.certacure.lis.interfaces.entities.Machine;
-import com.certacure.lis.interfaces.entities.MachineResult;
-import com.certacure.lis.interfaces.repo.MachineResultRepo;
+import com.sunbird.core.base.service.GenericService;
+import com.sunbird.core.common.helper.FilterablePageRequest;
+import com.sunbird.lis.interfaces.annotation.InterceptorFree;
+import com.sunbird.lis.interfaces.entities.Machine;
+import com.sunbird.lis.interfaces.entities.MachineResult;
+import com.sunbird.lis.interfaces.repo.MachineResultRepo;
 
 @Service("MachineResultService")
 public class MachineResultService extends GenericService<MachineResult, MachineResultRepo> {

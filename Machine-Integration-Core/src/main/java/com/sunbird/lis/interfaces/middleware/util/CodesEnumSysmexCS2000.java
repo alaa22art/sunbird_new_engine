@@ -1,4 +1,4 @@
-package com.certacure.lis.interfaces.middleware.util;
+package com.sunbird.lis.interfaces.middleware.util;
 
 public enum CodesEnumSysmexCS2000 {
 	DilutionSysCS2000("^^100.00");

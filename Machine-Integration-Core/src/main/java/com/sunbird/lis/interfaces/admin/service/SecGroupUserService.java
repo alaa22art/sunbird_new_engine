@@ -1,4 +1,4 @@
-package com.certacure.lis.interfaces.admin.service;
+package com.sunbird.lis.interfaces.admin.service;
 
 import java.util.Arrays;
 import java.util.List;
@@ -6,14 +6,14 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.certacure.core.base.helper.SearchCriterion;
-import com.certacure.core.base.helper.SearchCriterion.FilterOperator;
-import com.certacure.core.base.helper.SearchCriterion.JunctionOperator;
-import com.certacure.core.base.service.GenericService;
-import com.certacure.lis.interfaces.admin.model.SecGroup;
-import com.certacure.lis.interfaces.admin.model.SecGroupUser;
-import com.certacure.lis.interfaces.admin.model.SecUser;
-import com.certacure.lis.interfaces.admin.repo.SecGroupUserRepo;
+import com.sunbird.core.base.helper.SearchCriterion;
+import com.sunbird.core.base.helper.SearchCriterion.FilterOperator;
+import com.sunbird.core.base.helper.SearchCriterion.JunctionOperator;
+import com.sunbird.core.base.service.GenericService;
+import com.sunbird.lis.interfaces.admin.model.SecGroup;
+import com.sunbird.lis.interfaces.admin.model.SecGroupUser;
+import com.sunbird.lis.interfaces.admin.model.SecUser;
+import com.sunbird.lis.interfaces.admin.repo.SecGroupUserRepo;
 
 /**
  * SecGroupUserService.java

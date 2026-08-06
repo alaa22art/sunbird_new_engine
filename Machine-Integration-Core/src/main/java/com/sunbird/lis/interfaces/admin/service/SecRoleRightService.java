@@ -1,16 +1,16 @@
-package com.certacure.lis.interfaces.admin.service;
+package com.sunbird.lis.interfaces.admin.service;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.certacure.core.base.helper.SearchCriterion;
-import com.certacure.core.base.service.GenericService;
-import com.certacure.lis.interfaces.admin.model.SecRole;
-import com.certacure.lis.interfaces.admin.model.SecRoleRight;
-import com.certacure.lis.interfaces.admin.repo.SecRoleRightRepo;
-import com.certacure.lis.interfaces.annotation.InterceptorFree;
+import com.sunbird.core.base.helper.SearchCriterion;
+import com.sunbird.core.base.service.GenericService;
+import com.sunbird.lis.interfaces.admin.model.SecRole;
+import com.sunbird.lis.interfaces.admin.model.SecRoleRight;
+import com.sunbird.lis.interfaces.admin.repo.SecRoleRightRepo;
+import com.sunbird.lis.interfaces.annotation.InterceptorFree;
 
 /**
  * SecRoleRightService.java

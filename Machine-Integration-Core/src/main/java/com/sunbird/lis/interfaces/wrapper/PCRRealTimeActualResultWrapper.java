@@ -1,10 +1,10 @@
-package com.certacure.lis.interfaces.wrapper;
+package com.sunbird.lis.interfaces.wrapper;
 
 import java.io.Serializable;
 import java.util.List;
 
-import com.certacure.lis.interfaces.entities.PCRRealTimeActualResultValue;
-import com.certacure.lis.interfaces.entities.PCRRealTimeWorkListOrder;
+import com.sunbird.lis.interfaces.entities.PCRRealTimeActualResultValue;
+import com.sunbird.lis.interfaces.entities.PCRRealTimeWorkListOrder;
 
 public class PCRRealTimeActualResultWrapper implements Serializable {
 

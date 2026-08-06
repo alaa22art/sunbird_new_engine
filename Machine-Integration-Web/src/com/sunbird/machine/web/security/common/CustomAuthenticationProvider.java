@@ -1,4 +1,4 @@
-package com.certacure.machine.web.security.common;
+package com.sunbird.machine.web.security.common;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -13,8 +13,8 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.stereotype.Component;
 
-import com.certacure.lis.interfaces.admin.model.SecUser;
-import com.certacure.lis.interfaces.security.ClientType;
+import com.sunbird.lis.interfaces.admin.model.SecUser;
+import com.sunbird.lis.interfaces.security.ClientType;
 
 @Component
 public class CustomAuthenticationProvider implements AuthenticationProvider {

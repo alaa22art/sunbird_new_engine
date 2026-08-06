@@ -1,4 +1,4 @@
-package com.certacure.lis.interfaces.middleware.interfaces.lis2a2.msg;
+package com.sunbird.lis.interfaces.middleware.interfaces.lis2a2.msg;
 
 import static java.util.Collections.unmodifiableList;
 import static java.util.stream.Collectors.joining;
@@ -6,7 +6,7 @@ import static java.util.stream.Collectors.joining;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.certacure.lis.interfaces.middleware.interfaces.lis2a2.record.LIS2A2Record;
+import com.sunbird.lis.interfaces.middleware.interfaces.lis2a2.record.LIS2A2Record;
 
 public abstract class LIS2A2Msg {
 

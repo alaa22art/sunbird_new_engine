@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.certacure.lis.interfaces.entities;
+package com.sunbird.lis.interfaces.entities;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -22,8 +22,8 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.Size;
 
-import com.certacure.core.base.entity.BaseAuditableBranchedEntity;
-import com.certacure.core.common.util.SecurityUtil;
+import com.sunbird.core.base.entity.BaseAuditableBranchedEntity;
+import com.sunbird.core.common.util.SecurityUtil;
 
 /**
  *

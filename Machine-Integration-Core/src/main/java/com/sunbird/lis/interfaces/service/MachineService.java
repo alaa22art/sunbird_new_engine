@@ -1,4 +1,4 @@
-package com.certacure.lis.interfaces.service;
+package com.sunbird.lis.interfaces.service;
 
 /**
 *
@@ -14,19 +14,19 @@ import org.springframework.data.domain.Page;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 
-import com.certacure.core.base.service.GenericService;
-import com.certacure.core.common.business.exception.BusinessException;
-import com.certacure.core.common.business.exception.BusinessException.ErrorSeverity;
-import com.certacure.core.common.helper.FilterablePageRequest;
-import com.certacure.core.common.util.ReflectionUtil;
-import com.certacure.lis.interfaces.annotation.InterceptorFree;
-import com.certacure.lis.interfaces.entities.Machine;
-import com.certacure.lis.interfaces.helper.MachineIntegrationRights;
-import com.certacure.lis.interfaces.middleware.core.ActorRefConnectionContainer;
-import com.certacure.lis.interfaces.middleware.core.ActorSysContainer;
-import com.certacure.lis.interfaces.middleware.core.ConnectionController;
-import com.certacure.lis.interfaces.middleware.interfaces.LabMessages.ConnectionStatus;
-import com.certacure.lis.interfaces.repo.MachineRepo;
+import com.sunbird.core.base.service.GenericService;
+import com.sunbird.core.common.business.exception.BusinessException;
+import com.sunbird.core.common.business.exception.BusinessException.ErrorSeverity;
+import com.sunbird.core.common.helper.FilterablePageRequest;
+import com.sunbird.core.common.util.ReflectionUtil;
+import com.sunbird.lis.interfaces.annotation.InterceptorFree;
+import com.sunbird.lis.interfaces.entities.Machine;
+import com.sunbird.lis.interfaces.helper.MachineIntegrationRights;
+import com.sunbird.lis.interfaces.middleware.core.ActorRefConnectionContainer;
+import com.sunbird.lis.interfaces.middleware.core.ActorSysContainer;
+import com.sunbird.lis.interfaces.middleware.core.ConnectionController;
+import com.sunbird.lis.interfaces.middleware.interfaces.LabMessages.ConnectionStatus;
+import com.sunbird.lis.interfaces.repo.MachineRepo;
 import com.typesafe.config.Config;
 import com.typesafe.config.ConfigFactory;
 

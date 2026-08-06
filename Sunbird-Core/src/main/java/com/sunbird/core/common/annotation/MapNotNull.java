@@ -1,4 +1,4 @@
-package com.certacure.core.common.annotation;
+package com.sunbird.core.common.annotation;
 
 import static java.lang.annotation.ElementType.FIELD;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;

@@ -1,19 +1,19 @@
-package com.certacure.lis.interfaces.middleware.flow_component.DBToJSONOverHttp;
+package com.sunbird.lis.interfaces.middleware.flow_component.DBToJSONOverHttp;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Timer;
 import java.util.stream.IntStream;
 
-import com.certacure.core.common.util.SpringUtil;
-import com.certacure.lis.interfaces.entities.Machine;
-import com.certacure.lis.interfaces.middleware.core.FlowComponent;
-import com.certacure.lis.interfaces.middleware.enums.Enums.REQUEST_RESULT_TYPE;
-import com.certacure.lis.interfaces.middleware.enums.Enums.VALUDATION_RESULT_TYPE;
-import com.certacure.lis.interfaces.middleware.flow_component.lab_http.httpRequstTransaction;
-import com.certacure.lis.interfaces.middleware.flow_component.socket.SocketProtocol.BytesMessage;
-import com.certacure.lis.interfaces.middleware.util.LowLevelUtils;
-import com.certacure.lis.interfaces.service.MachineService;
+import com.sunbird.core.common.util.SpringUtil;
+import com.sunbird.lis.interfaces.entities.Machine;
+import com.sunbird.lis.interfaces.middleware.core.FlowComponent;
+import com.sunbird.lis.interfaces.middleware.enums.Enums.REQUEST_RESULT_TYPE;
+import com.sunbird.lis.interfaces.middleware.enums.Enums.VALUDATION_RESULT_TYPE;
+import com.sunbird.lis.interfaces.middleware.flow_component.lab_http.httpRequstTransaction;
+import com.sunbird.lis.interfaces.middleware.flow_component.socket.SocketProtocol.BytesMessage;
+import com.sunbird.lis.interfaces.middleware.util.LowLevelUtils;
+import com.sunbird.lis.interfaces.service.MachineService;
 
 import akka.japi.pf.ReceiveBuilder;
 import scala.PartialFunction;

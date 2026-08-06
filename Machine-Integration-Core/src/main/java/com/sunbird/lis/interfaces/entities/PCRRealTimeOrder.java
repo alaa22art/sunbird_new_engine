@@ -1,4 +1,4 @@
-package com.certacure.lis.interfaces.entities;
+package com.sunbird.lis.interfaces.entities;
 
 import java.io.Serializable;
 import java.util.Set;
@@ -16,7 +16,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.certacure.core.base.entity.BaseAuditableEntity;
+import com.sunbird.core.base.entity.BaseAuditableEntity;
 
 @Entity
 @Table(name = "mw_pcr_realtime_order")

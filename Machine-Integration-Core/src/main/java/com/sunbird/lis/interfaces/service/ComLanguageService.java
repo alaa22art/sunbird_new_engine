@@ -1,11 +1,11 @@
-package com.certacure.lis.interfaces.service;
+package com.sunbird.lis.interfaces.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.certacure.core.base.service.GenericService;
-import com.certacure.lis.interfaces.entities.ComLanguage;
-import com.certacure.lis.interfaces.repo.ComLanguageRepo;
+import com.sunbird.core.base.service.GenericService;
+import com.sunbird.lis.interfaces.entities.ComLanguage;
+import com.sunbird.lis.interfaces.repo.ComLanguageRepo;
 
 /**
  * ComLanguageService.java

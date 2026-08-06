@@ -1,4 +1,4 @@
-package com.certacure.lis.interfaces.service;
+package com.sunbird.lis.interfaces.service;
 
 import java.util.List;
 
@@ -11,10 +11,10 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.certacure.core.base.service.GenericService;
-import com.certacure.lis.interfaces.annotation.InterceptorFree;
-import com.certacure.lis.interfaces.entities.MachineTypePanel;
-import com.certacure.lis.interfaces.repo.MachineTypePanelRepo;
+import com.sunbird.core.base.service.GenericService;
+import com.sunbird.lis.interfaces.annotation.InterceptorFree;
+import com.sunbird.lis.interfaces.entities.MachineTypePanel;
+import com.sunbird.lis.interfaces.repo.MachineTypePanelRepo;
 
 @Service("MachineTypePanelService")
 public class MachineTypePanelService extends GenericService<MachineTypePanel, MachineTypePanelRepo> {

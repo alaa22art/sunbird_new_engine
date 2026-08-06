@@ -1,8 +1,8 @@
-package com.certacure.lis.interfaces.middleware.interfaces.lis2a2.record.HL7V24;
+package com.sunbird.lis.interfaces.middleware.interfaces.lis2a2.record.HL7V24;
 
-import com.certacure.lis.interfaces.middleware.interfaces.lis2a2.DelimitedData;
-import com.certacure.lis.interfaces.middleware.interfaces.lis2a2.record.LIS2A2Record;
-import com.certacure.lis.interfaces.middleware.interfaces.lis2a2.record.field.Field;
+import com.sunbird.lis.interfaces.middleware.interfaces.lis2a2.DelimitedData;
+import com.sunbird.lis.interfaces.middleware.interfaces.lis2a2.record.LIS2A2Record;
+import com.sunbird.lis.interfaces.middleware.interfaces.lis2a2.record.field.Field;
 
 public class HL7_V24_CommonOrder extends LIS2A2Record {
 

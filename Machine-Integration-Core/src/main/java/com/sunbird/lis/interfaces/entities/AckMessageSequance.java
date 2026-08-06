@@ -1,4 +1,4 @@
-package com.certacure.lis.interfaces.entities;
+package com.sunbird.lis.interfaces.entities;
 
 import java.io.Serializable;
 
@@ -12,9 +12,9 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-import com.certacure.core.base.entity.BaseAuditableBranchedEntity;
-import com.certacure.core.base.entity.BaseAuditableTenantedEntity;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.sunbird.core.base.entity.BaseAuditableBranchedEntity;
+import com.sunbird.core.base.entity.BaseAuditableTenantedEntity;
 
 /**
  * LkpGender.java

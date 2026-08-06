@@ -1,4 +1,4 @@
-package com.certacure.lis.interfaces.middleware.core;
+package com.sunbird.lis.interfaces.middleware.core;
 
 import akka.actor.ActorRef;
 

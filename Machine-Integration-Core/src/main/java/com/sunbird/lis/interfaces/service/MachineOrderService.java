@@ -1,4 +1,4 @@
-package com.certacure.lis.interfaces.service;
+package com.sunbird.lis.interfaces.service;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -26,18 +26,18 @@ import org.springframework.data.domain.Sort;
 import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 
-import com.certacure.core.base.helper.SearchCriterion;
-import com.certacure.core.base.helper.SearchCriterion.FilterOperator;
-import com.certacure.core.base.service.GenericService;
-import com.certacure.core.common.helper.FilterablePageRequest;
-import com.certacure.core.common.util.CollectionUtil;
-import com.certacure.core.common.util.DateUtil;
-import com.certacure.lis.interfaces.annotation.InterceptorFree;
-import com.certacure.lis.interfaces.entities.LabBranch;
-import com.certacure.lis.interfaces.entities.MachineOrder;
-import com.certacure.lis.interfaces.entities.MachineResult;
-import com.certacure.lis.interfaces.entities.MachineTypePanel;
-import com.certacure.lis.interfaces.repo.MachineOrderRepo;
+import com.sunbird.core.base.helper.SearchCriterion;
+import com.sunbird.core.base.helper.SearchCriterion.FilterOperator;
+import com.sunbird.core.base.service.GenericService;
+import com.sunbird.core.common.helper.FilterablePageRequest;
+import com.sunbird.core.common.util.CollectionUtil;
+import com.sunbird.core.common.util.DateUtil;
+import com.sunbird.lis.interfaces.annotation.InterceptorFree;
+import com.sunbird.lis.interfaces.entities.LabBranch;
+import com.sunbird.lis.interfaces.entities.MachineOrder;
+import com.sunbird.lis.interfaces.entities.MachineResult;
+import com.sunbird.lis.interfaces.entities.MachineTypePanel;
+import com.sunbird.lis.interfaces.repo.MachineOrderRepo;
 
 @Service("MachineOrderService")
 public class MachineOrderService extends GenericService<MachineOrder, MachineOrderRepo> {

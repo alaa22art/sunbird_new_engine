@@ -1,4 +1,4 @@
-package com.certacure.lis.interfaces.middleware.flow_component.databaseScheduler;
+package com.sunbird.lis.interfaces.middleware.flow_component.databaseScheduler;
 
 import java.io.Serializable;
 import java.util.concurrent.TimeUnit;
@@ -6,13 +6,13 @@ import java.util.concurrent.TimeUnit;
 import org.joda.time.DateTime;
 import org.joda.time.format.DateTimeFormatter;
 
-import com.certacure.lis.interfaces.entities.DataInboundHL7Message;
-import com.certacure.lis.interfaces.entities.Machine;
-import com.certacure.lis.interfaces.middleware.core.FlowComponent;
-import com.certacure.lis.interfaces.middleware.core.RecipientConf;
-import com.certacure.lis.interfaces.middleware.interfaces.LabMessages.LabOrderMsg;
-import com.certacure.lis.interfaces.middleware.interfaces.lis2a2.msg.LIS2A2OrderMsg;
-import com.certacure.lis.interfaces.service.DataInboundHL7MessageService;
+import com.sunbird.lis.interfaces.entities.DataInboundHL7Message;
+import com.sunbird.lis.interfaces.entities.Machine;
+import com.sunbird.lis.interfaces.middleware.core.FlowComponent;
+import com.sunbird.lis.interfaces.middleware.core.RecipientConf;
+import com.sunbird.lis.interfaces.middleware.interfaces.LabMessages.LabOrderMsg;
+import com.sunbird.lis.interfaces.middleware.interfaces.lis2a2.msg.LIS2A2OrderMsg;
+import com.sunbird.lis.interfaces.service.DataInboundHL7MessageService;
 import com.typesafe.config.Config;
 import com.typesafe.config.ConfigFactory;
 

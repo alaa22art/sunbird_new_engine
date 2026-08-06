@@ -1,4 +1,4 @@
-package com.certacure.machine.web.driver.controller;
+package com.sunbird.machine.web.driver.controller;
 
 import java.util.List;
 
@@ -10,16 +10,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.certacure.lis.interfaces.entities.Driver;
-import com.certacure.lis.interfaces.entities.Machine;
-import com.certacure.lis.interfaces.entities.OutboundInformation;
-import com.certacure.lis.interfaces.entities.ResultInformation;
-import com.certacure.lis.interfaces.middleware.interfaces.LabMessages.LabMachineMsg;
-import com.certacure.lis.interfaces.middleware.interfaces.LabMessages.LabQueryMsg;
-import com.certacure.lis.interfaces.service.DriverService;
-import com.certacure.lis.interfaces.service.MachineService;
-import com.certacure.lis.interfaces.service.OutboundService;
-import com.certacure.lis.interfaces.service.ResultInformationService;
+import com.sunbird.lis.interfaces.entities.Driver;
+import com.sunbird.lis.interfaces.entities.Machine;
+import com.sunbird.lis.interfaces.entities.OutboundInformation;
+import com.sunbird.lis.interfaces.entities.ResultInformation;
+import com.sunbird.lis.interfaces.middleware.interfaces.LabMessages.LabMachineMsg;
+import com.sunbird.lis.interfaces.middleware.interfaces.LabMessages.LabQueryMsg;
+import com.sunbird.lis.interfaces.service.DriverService;
+import com.sunbird.lis.interfaces.service.MachineService;
+import com.sunbird.lis.interfaces.service.OutboundService;
+import com.sunbird.lis.interfaces.service.ResultInformationService;
 
 @RestController
 @RequestMapping("/services")

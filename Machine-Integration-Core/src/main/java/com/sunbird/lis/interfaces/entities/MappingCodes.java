@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.certacure.lis.interfaces.entities;
+package com.sunbird.lis.interfaces.entities;
 
 import java.io.Serializable;
 import java.sql.ResultSet;
@@ -33,9 +33,9 @@ import org.hibernate.envers.Audited;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.certacure.core.base.entity.BaseAuditableBranchedEntity;
-import com.certacure.core.base.entity.BaseAuditableTenantedEntity;
-import com.certacure.core.common.data.model.converter.BooleanIntegerConverter;
+import com.sunbird.core.base.entity.BaseAuditableBranchedEntity;
+import com.sunbird.core.base.entity.BaseAuditableTenantedEntity;
+import com.sunbird.core.common.data.model.converter.BooleanIntegerConverter;
 
 
 

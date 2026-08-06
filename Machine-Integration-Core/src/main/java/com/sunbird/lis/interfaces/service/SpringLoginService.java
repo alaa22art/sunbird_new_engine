@@ -1,4 +1,4 @@
-package com.certacure.lis.interfaces.service;
+package com.sunbird.lis.interfaces.service;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -20,26 +20,26 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
-import com.certacure.core.base.helper.SearchCriterion;
-import com.certacure.core.base.helper.SearchCriterion.FilterOperator;
-import com.certacure.core.common.business.exception.BusinessException;
-import com.certacure.core.common.business.exception.BusinessException.ErrorSeverity;
-import com.certacure.core.common.util.CollectionUtil;
-import com.certacure.lis.interfaces.admin.model.SecGroupRole;
-import com.certacure.lis.interfaces.admin.model.SecGroupUser;
-import com.certacure.lis.interfaces.admin.model.SecRoleRight;
-import com.certacure.lis.interfaces.admin.model.SecTenant;
-import com.certacure.lis.interfaces.admin.model.SecUser;
-import com.certacure.lis.interfaces.admin.model.SecUserRole;
-import com.certacure.lis.interfaces.admin.repo.SecGroupUserRepo;
-import com.certacure.lis.interfaces.admin.repo.SecTenantRepo;
-import com.certacure.lis.interfaces.admin.repo.SecUserRepo;
-import com.certacure.lis.interfaces.admin.repo.SecUserRoleRepo;
-import com.certacure.lis.interfaces.annotation.InterceptorFree;
-import com.certacure.lis.interfaces.entities.LabBranch;
-import com.certacure.lis.interfaces.repo.ComTenantLanguageRepo;
-import com.certacure.lis.interfaces.repo.LabBranchRepo;
-import com.certacure.lis.interfaces.security.ClientType;
+import com.sunbird.core.base.helper.SearchCriterion;
+import com.sunbird.core.base.helper.SearchCriterion.FilterOperator;
+import com.sunbird.core.common.business.exception.BusinessException;
+import com.sunbird.core.common.business.exception.BusinessException.ErrorSeverity;
+import com.sunbird.core.common.util.CollectionUtil;
+import com.sunbird.lis.interfaces.admin.model.SecGroupRole;
+import com.sunbird.lis.interfaces.admin.model.SecGroupUser;
+import com.sunbird.lis.interfaces.admin.model.SecRoleRight;
+import com.sunbird.lis.interfaces.admin.model.SecTenant;
+import com.sunbird.lis.interfaces.admin.model.SecUser;
+import com.sunbird.lis.interfaces.admin.model.SecUserRole;
+import com.sunbird.lis.interfaces.admin.repo.SecGroupUserRepo;
+import com.sunbird.lis.interfaces.admin.repo.SecTenantRepo;
+import com.sunbird.lis.interfaces.admin.repo.SecUserRepo;
+import com.sunbird.lis.interfaces.admin.repo.SecUserRoleRepo;
+import com.sunbird.lis.interfaces.annotation.InterceptorFree;
+import com.sunbird.lis.interfaces.entities.LabBranch;
+import com.sunbird.lis.interfaces.repo.ComTenantLanguageRepo;
+import com.sunbird.lis.interfaces.repo.LabBranchRepo;
+import com.sunbird.lis.interfaces.security.ClientType;
 
 /**
  *

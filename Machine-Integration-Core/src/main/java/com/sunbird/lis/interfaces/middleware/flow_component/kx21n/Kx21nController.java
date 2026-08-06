@@ -1,11 +1,11 @@
-package com.certacure.lis.interfaces.middleware.flow_component.kx21n;
+package com.sunbird.lis.interfaces.middleware.flow_component.kx21n;
 
-import static com.certacure.lis.interfaces.middleware.flow_component.kx21n.Kx21nProtocol.STXBytes;
+import static com.sunbird.lis.interfaces.middleware.flow_component.kx21n.Kx21nProtocol.STXBytes;
 
-import com.certacure.core.common.util.SpringUtil;
-import com.certacure.lis.interfaces.entities.Machine;
-import com.certacure.lis.interfaces.middleware.core.FlowComponent;
-import com.certacure.lis.interfaces.service.MachineService;
+import com.sunbird.core.common.util.SpringUtil;
+import com.sunbird.lis.interfaces.entities.Machine;
+import com.sunbird.lis.interfaces.middleware.core.FlowComponent;
+import com.sunbird.lis.interfaces.service.MachineService;
 
 import akka.japi.pf.ReceiveBuilder;
 import scala.PartialFunction;

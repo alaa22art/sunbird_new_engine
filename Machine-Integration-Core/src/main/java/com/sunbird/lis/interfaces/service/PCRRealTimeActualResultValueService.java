@@ -1,4 +1,4 @@
-package com.certacure.lis.interfaces.service;
+package com.sunbird.lis.interfaces.service;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -22,26 +22,26 @@ import org.springframework.stereotype.Service;
 
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
-import com.certacure.core.base.helper.SearchCriterion;
-import com.certacure.core.base.helper.SearchCriterion.FilterOperator;
-import com.certacure.core.base.service.GenericService;
-import com.certacure.core.common.business.exception.BusinessException;
-import com.certacure.core.common.business.exception.BusinessException.ErrorSeverity;
-import com.certacure.core.common.util.JSONUtil;
-import com.certacure.core.common.util.StringUtil;
-import com.certacure.lis.interfaces.entities.CoreEventLog;
-import com.certacure.lis.interfaces.entities.LabBranch;
-import com.certacure.lis.interfaces.entities.PCRRealTimeActualResultValue;
-import com.certacure.lis.interfaces.entities.PCRRealTimeOrderResult;
-import com.certacure.lis.interfaces.entities.PCRRealTimeResult;
-import com.certacure.lis.interfaces.entities.PCRRealTimeResultTemplate;
-import com.certacure.lis.interfaces.entities.PCRRealTimeResultTemplateLine;
-import com.certacure.lis.interfaces.entities.PCRRealTimeWorkListOrder;
-import com.certacure.lis.interfaces.middleware.util.PcrOperationEnum;
-import com.certacure.lis.interfaces.middleware.util.WorkListStatusEnum;
-import com.certacure.lis.interfaces.repo.PCRRealTimeActualResultValueRepo;
-import com.certacure.lis.interfaces.wrapper.PCRActualResultValueWrapper;
-import com.certacure.lis.interfaces.wrapper.PCRRealTimeActualResultWrapper;
+import com.sunbird.core.base.helper.SearchCriterion;
+import com.sunbird.core.base.helper.SearchCriterion.FilterOperator;
+import com.sunbird.core.base.service.GenericService;
+import com.sunbird.core.common.business.exception.BusinessException;
+import com.sunbird.core.common.business.exception.BusinessException.ErrorSeverity;
+import com.sunbird.core.common.util.JSONUtil;
+import com.sunbird.core.common.util.StringUtil;
+import com.sunbird.lis.interfaces.entities.CoreEventLog;
+import com.sunbird.lis.interfaces.entities.LabBranch;
+import com.sunbird.lis.interfaces.entities.PCRRealTimeActualResultValue;
+import com.sunbird.lis.interfaces.entities.PCRRealTimeOrderResult;
+import com.sunbird.lis.interfaces.entities.PCRRealTimeResult;
+import com.sunbird.lis.interfaces.entities.PCRRealTimeResultTemplate;
+import com.sunbird.lis.interfaces.entities.PCRRealTimeResultTemplateLine;
+import com.sunbird.lis.interfaces.entities.PCRRealTimeWorkListOrder;
+import com.sunbird.lis.interfaces.middleware.util.PcrOperationEnum;
+import com.sunbird.lis.interfaces.middleware.util.WorkListStatusEnum;
+import com.sunbird.lis.interfaces.repo.PCRRealTimeActualResultValueRepo;
+import com.sunbird.lis.interfaces.wrapper.PCRActualResultValueWrapper;
+import com.sunbird.lis.interfaces.wrapper.PCRRealTimeActualResultWrapper;
 
 @Service("PCRRealTimeActualResultValueService")
 public class PCRRealTimeActualResultValueService

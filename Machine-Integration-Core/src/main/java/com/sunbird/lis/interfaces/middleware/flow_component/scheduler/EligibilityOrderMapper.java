@@ -1,4 +1,4 @@
-package com.certacure.lis.interfaces.middleware.flow_component.scheduler;
+package com.sunbird.lis.interfaces.middleware.flow_component.scheduler;
 
 public class EligibilityOrderMapper
 {

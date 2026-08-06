@@ -1,9 +1,8 @@
-package com.certacure.lis.interfaces.middleware.flow_component.astme138194BeckmanAccess2;
+package com.sunbird.lis.interfaces.middleware.flow_component.astme138194BeckmanAccess2;
 
-import static com.certacure.lis.interfaces.middleware.util.LowLevelUtils.*;
+import static com.sunbird.lis.interfaces.middleware.util.LowLevelUtils.*;
 
-
-import com.certacure.lis.interfaces.middleware.flow_component.socket.SocketProtocol.BytesMessage;
+import com.sunbird.lis.interfaces.middleware.flow_component.socket.SocketProtocol.BytesMessage;
 
 public class AstmE138194BeckmanAccess2Protocol {
 

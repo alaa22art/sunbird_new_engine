@@ -1,4 +1,4 @@
-package com.certacure.lis.interfaces.service;
+package com.sunbird.lis.interfaces.service;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -9,20 +9,20 @@ import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
-import com.certacure.core.base.helper.SearchCriterion;
-import com.certacure.core.base.helper.SearchCriterion.FilterOperator;
-import com.certacure.core.base.service.GenericService;
-import com.certacure.core.common.business.exception.BusinessException;
-import com.certacure.core.common.business.exception.BusinessException.ErrorSeverity;
-import com.certacure.core.common.helper.FilterablePageRequest;
-import com.certacure.lis.interfaces.annotation.InterceptorFree;
-import com.certacure.lis.interfaces.entities.LabBranch;
-import com.certacure.lis.interfaces.entities.Machine;
-import com.certacure.lis.interfaces.entities.MachineOrder;
-import com.certacure.lis.interfaces.entities.MachineTest;
-import com.certacure.lis.interfaces.entities.MachineTypeTest;
-import com.certacure.lis.interfaces.entities.TestCatalog;
-import com.certacure.lis.interfaces.repo.MachineTestRepo;
+import com.sunbird.core.base.helper.SearchCriterion;
+import com.sunbird.core.base.helper.SearchCriterion.FilterOperator;
+import com.sunbird.core.base.service.GenericService;
+import com.sunbird.core.common.business.exception.BusinessException;
+import com.sunbird.core.common.business.exception.BusinessException.ErrorSeverity;
+import com.sunbird.core.common.helper.FilterablePageRequest;
+import com.sunbird.lis.interfaces.annotation.InterceptorFree;
+import com.sunbird.lis.interfaces.entities.LabBranch;
+import com.sunbird.lis.interfaces.entities.Machine;
+import com.sunbird.lis.interfaces.entities.MachineOrder;
+import com.sunbird.lis.interfaces.entities.MachineTest;
+import com.sunbird.lis.interfaces.entities.MachineTypeTest;
+import com.sunbird.lis.interfaces.entities.TestCatalog;
+import com.sunbird.lis.interfaces.repo.MachineTestRepo;
 
 @Service("MachineTestsService")
 public class MachineTestsService extends GenericService<MachineTest, MachineTestRepo> {

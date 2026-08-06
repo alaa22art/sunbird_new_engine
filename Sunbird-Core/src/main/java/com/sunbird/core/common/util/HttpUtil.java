@@ -1,4 +1,4 @@
-package com.certacure.core.common.util;
+package com.sunbird.core.common.util;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
@@ -29,8 +29,8 @@ import org.springframework.web.context.request.RequestAttributes;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
-import com.certacure.core.common.business.exception.BusinessException;
-import com.certacure.core.common.business.exception.BusinessException.ErrorSeverity;
+import com.sunbird.core.common.business.exception.BusinessException;
+import com.sunbird.core.common.business.exception.BusinessException.ErrorSeverity;
 
 public class HttpUtil {
 

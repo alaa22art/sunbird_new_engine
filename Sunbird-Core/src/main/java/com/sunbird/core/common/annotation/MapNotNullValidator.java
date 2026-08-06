@@ -1,12 +1,12 @@
-package com.certacure.core.common.annotation;
+package com.sunbird.core.common.annotation;
 
 import java.util.Map;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
-import com.certacure.core.common.util.CollectionUtil;
-import com.certacure.core.common.util.StringUtil;
+import com.sunbird.core.common.util.CollectionUtil;
+import com.sunbird.core.common.util.StringUtil;
 
 public class MapNotNullValidator implements ConstraintValidator<MapNotNull, Map<String, String>> {
 

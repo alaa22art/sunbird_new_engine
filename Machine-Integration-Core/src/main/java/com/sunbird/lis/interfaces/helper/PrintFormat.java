@@ -1,4 +1,4 @@
-package com.certacure.lis.interfaces.helper;
+package com.sunbird.lis.interfaces.helper;
 
 public enum PrintFormat {
 	PDF("PDF"),

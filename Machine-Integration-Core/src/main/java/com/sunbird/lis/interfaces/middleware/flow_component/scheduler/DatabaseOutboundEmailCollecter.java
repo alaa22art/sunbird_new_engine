@@ -1,4 +1,4 @@
-package com.certacure.lis.interfaces.middleware.flow_component.scheduler;
+package com.sunbird.lis.interfaces.middleware.flow_component.scheduler;
 
 import java.io.Serializable;
 import java.text.ParseException;
@@ -11,22 +11,22 @@ import java.util.concurrent.TimeUnit;
 
 import org.springframework.mail.javamail.JavaMailSenderImpl;
 
-import com.certacure.core.common.helper.Email;
-import com.certacure.core.common.util.EmailUtil;
-import com.certacure.core.common.util.SpringUtil;
-import com.certacure.lis.interfaces.entities.DataInboundHL7Message;
-import com.certacure.lis.interfaces.entities.ElegabalityApprovalOrderEntity;
-import com.certacure.lis.interfaces.entities.Machine;
-import com.certacure.lis.interfaces.entities.OutboundErrorEmailEntity;
-import com.certacure.lis.interfaces.entities.PostDetailFinancialTransaction;
-import com.certacure.lis.interfaces.middleware.core.FlowComponent;
-import com.certacure.lis.interfaces.middleware.core.RecipientConf;
-import com.certacure.lis.interfaces.middleware.flow_component.lab_http.httpRequstTransaction;
-import com.certacure.lis.interfaces.service.DataInboundHL7MessageService;
-import com.certacure.lis.interfaces.service.ElegabalityApprovalOrderService;
-import com.certacure.lis.interfaces.service.MachineService;
-import com.certacure.lis.interfaces.service.OutboundErrorEmailService;
-import com.certacure.lis.interfaces.service.PostDetailFinancialTransactionService;
+import com.sunbird.core.common.helper.Email;
+import com.sunbird.core.common.util.EmailUtil;
+import com.sunbird.core.common.util.SpringUtil;
+import com.sunbird.lis.interfaces.entities.DataInboundHL7Message;
+import com.sunbird.lis.interfaces.entities.ElegabalityApprovalOrderEntity;
+import com.sunbird.lis.interfaces.entities.Machine;
+import com.sunbird.lis.interfaces.entities.OutboundErrorEmailEntity;
+import com.sunbird.lis.interfaces.entities.PostDetailFinancialTransaction;
+import com.sunbird.lis.interfaces.middleware.core.FlowComponent;
+import com.sunbird.lis.interfaces.middleware.core.RecipientConf;
+import com.sunbird.lis.interfaces.middleware.flow_component.lab_http.httpRequstTransaction;
+import com.sunbird.lis.interfaces.service.DataInboundHL7MessageService;
+import com.sunbird.lis.interfaces.service.ElegabalityApprovalOrderService;
+import com.sunbird.lis.interfaces.service.MachineService;
+import com.sunbird.lis.interfaces.service.OutboundErrorEmailService;
+import com.sunbird.lis.interfaces.service.PostDetailFinancialTransactionService;
 import com.typesafe.config.Config;
 import com.typesafe.config.ConfigFactory;
 

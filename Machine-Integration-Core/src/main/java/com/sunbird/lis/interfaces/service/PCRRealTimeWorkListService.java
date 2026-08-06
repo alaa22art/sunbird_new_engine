@@ -1,4 +1,4 @@
-package com.certacure.lis.interfaces.service;
+package com.sunbird.lis.interfaces.service;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -10,20 +10,20 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
-import com.certacure.core.base.helper.SearchCriterion;
-import com.certacure.core.base.helper.SearchCriterion.FilterOperator;
-import com.certacure.core.base.service.GenericService;
-import com.certacure.core.common.business.exception.BusinessException;
-import com.certacure.core.common.business.exception.BusinessException.ErrorSeverity;
-import com.certacure.core.common.helper.FilterablePageRequest;
-import com.certacure.lis.interfaces.admin.service.SystemSettingService;
-import com.certacure.lis.interfaces.entities.LkpPCRRealRimeWorkListStatus;
-import com.certacure.lis.interfaces.entities.PCRRealTimeWorkList;
-import com.certacure.lis.interfaces.entities.PCRRealTimeWorkListOrder;
-import com.certacure.lis.interfaces.middleware.util.PcrOperationEnum;
-import com.certacure.lis.interfaces.middleware.util.WorkListStatusEnum;
-import com.certacure.lis.interfaces.repo.PCRRealTimeWorkListRepo;
-import com.certacure.lis.interfaces.wrapper.WorkListStatusWrapper;
+import com.sunbird.core.base.helper.SearchCriterion;
+import com.sunbird.core.base.helper.SearchCriterion.FilterOperator;
+import com.sunbird.core.base.service.GenericService;
+import com.sunbird.core.common.business.exception.BusinessException;
+import com.sunbird.core.common.business.exception.BusinessException.ErrorSeverity;
+import com.sunbird.core.common.helper.FilterablePageRequest;
+import com.sunbird.lis.interfaces.admin.service.SystemSettingService;
+import com.sunbird.lis.interfaces.entities.LkpPCRRealRimeWorkListStatus;
+import com.sunbird.lis.interfaces.entities.PCRRealTimeWorkList;
+import com.sunbird.lis.interfaces.entities.PCRRealTimeWorkListOrder;
+import com.sunbird.lis.interfaces.middleware.util.PcrOperationEnum;
+import com.sunbird.lis.interfaces.middleware.util.WorkListStatusEnum;
+import com.sunbird.lis.interfaces.repo.PCRRealTimeWorkListRepo;
+import com.sunbird.lis.interfaces.wrapper.WorkListStatusWrapper;
 
 @Service("PCRRealTimeWorkListService")
 public class PCRRealTimeWorkListService extends GenericService<PCRRealTimeWorkList, PCRRealTimeWorkListRepo> {

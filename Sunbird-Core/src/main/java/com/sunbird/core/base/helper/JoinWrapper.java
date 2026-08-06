@@ -1,4 +1,4 @@
-package com.certacure.core.base.helper;
+package com.sunbird.core.base.helper;
 
 import java.util.Collection;
 import java.util.HashMap;

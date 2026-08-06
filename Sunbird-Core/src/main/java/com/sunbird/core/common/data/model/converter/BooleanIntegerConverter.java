@@ -1,4 +1,4 @@
-package com.certacure.core.common.data.model.converter;
+package com.sunbird.core.common.data.model.converter;
 
 import javax.persistence.AttributeConverter;
 

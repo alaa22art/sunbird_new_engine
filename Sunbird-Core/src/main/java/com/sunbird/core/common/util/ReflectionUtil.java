@@ -1,4 +1,4 @@
-package com.certacure.core.common.util;
+package com.sunbird.core.common.util;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
@@ -44,15 +44,15 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.google.common.primitives.Primitives;
-import com.certacure.core.base.entity.BaseAuditableBranchedEntity;
-import com.certacure.core.base.entity.BaseAuditableTenantedEntity;
-import com.certacure.core.base.entity.BaseEntity;
-import com.certacure.core.base.helper.SearchCriterion;
-import com.certacure.core.base.helper.SearchCriterion.FilterOperator;
-import com.certacure.core.base.repo.GenericRepository;
-import com.certacure.core.common.annotation.MapNotNull;
-import com.certacure.core.common.helper.FieldMetaData;
-import com.certacure.core.common.helper.FilterablePageRequest;
+import com.sunbird.core.base.entity.BaseAuditableBranchedEntity;
+import com.sunbird.core.base.entity.BaseAuditableTenantedEntity;
+import com.sunbird.core.base.entity.BaseEntity;
+import com.sunbird.core.base.helper.SearchCriterion;
+import com.sunbird.core.base.helper.SearchCriterion.FilterOperator;
+import com.sunbird.core.base.repo.GenericRepository;
+import com.sunbird.core.common.annotation.MapNotNull;
+import com.sunbird.core.common.helper.FieldMetaData;
+import com.sunbird.core.common.helper.FilterablePageRequest;
 
 @Component
 public class ReflectionUtil {

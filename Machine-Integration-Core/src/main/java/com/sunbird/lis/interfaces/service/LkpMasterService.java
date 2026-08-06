@@ -1,4 +1,4 @@
-package com.certacure.lis.interfaces.service;
+package com.sunbird.lis.interfaces.service;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -12,15 +12,15 @@ import org.springframework.data.domain.Sort.Direction;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 
-import com.certacure.core.base.entity.BaseAuditableTenantedEntity;
-import com.certacure.core.base.helper.SearchCriterion;
-import com.certacure.core.base.helper.SearchCriterion.FilterOperator;
-import com.certacure.core.base.service.GenericService;
-import com.certacure.core.common.util.ReflectionUtil;
-import com.certacure.core.common.util.SecurityUtil;
-import com.certacure.lis.interfaces.entities.LkpMaster;
-import com.certacure.lis.interfaces.helper.MachineIntegrationRights;
-import com.certacure.lis.interfaces.repo.LkpMasterRepo;
+import com.sunbird.core.base.entity.BaseAuditableTenantedEntity;
+import com.sunbird.core.base.helper.SearchCriterion;
+import com.sunbird.core.base.helper.SearchCriterion.FilterOperator;
+import com.sunbird.core.base.service.GenericService;
+import com.sunbird.core.common.util.ReflectionUtil;
+import com.sunbird.core.common.util.SecurityUtil;
+import com.sunbird.lis.interfaces.entities.LkpMaster;
+import com.sunbird.lis.interfaces.helper.MachineIntegrationRights;
+import com.sunbird.lis.interfaces.repo.LkpMasterRepo;
 
 /**
  * LkpMasterService.java

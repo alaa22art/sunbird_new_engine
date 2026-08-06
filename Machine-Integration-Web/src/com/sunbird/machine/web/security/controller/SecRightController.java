@@ -1,4 +1,4 @@
-package com.certacure.machine.web.security.controller;
+package com.sunbird.machine.web.security.controller;
 
 import java.util.List;
 
@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.certacure.lis.interfaces.admin.model.SecRight;
-import com.certacure.lis.interfaces.admin.service.SecRightService;
+import com.sunbird.lis.interfaces.admin.model.SecRight;
+import com.sunbird.lis.interfaces.admin.service.SecRightService;
 
 /**
  * SecRightController.java

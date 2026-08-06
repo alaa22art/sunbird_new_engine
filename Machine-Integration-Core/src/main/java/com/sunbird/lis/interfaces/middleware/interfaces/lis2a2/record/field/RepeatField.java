@@ -1,9 +1,9 @@
-package com.certacure.lis.interfaces.middleware.interfaces.lis2a2.record.field;
+package com.sunbird.lis.interfaces.middleware.interfaces.lis2a2.record.field;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import com.certacure.lis.interfaces.middleware.interfaces.lis2a2.DelimitedData;
+import com.sunbird.lis.interfaces.middleware.interfaces.lis2a2.DelimitedData;
 
 public class RepeatField extends Field {
 

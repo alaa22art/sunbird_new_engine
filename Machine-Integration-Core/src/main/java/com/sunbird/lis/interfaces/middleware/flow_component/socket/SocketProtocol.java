@@ -1,4 +1,4 @@
-package com.certacure.lis.interfaces.middleware.flow_component.socket;
+package com.sunbird.lis.interfaces.middleware.flow_component.socket;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -6,7 +6,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.stream.IntStream;
 
-import com.certacure.lis.interfaces.middleware.util.LowLevelUtils;
+import com.sunbird.lis.interfaces.middleware.util.LowLevelUtils;
 
 public class SocketProtocol {
 

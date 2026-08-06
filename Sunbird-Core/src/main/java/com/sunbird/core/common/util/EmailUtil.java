@@ -1,4 +1,4 @@
-package com.certacure.core.common.util;
+package com.sunbird.core.common.util;
 
 import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
@@ -18,9 +18,9 @@ import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
 import org.springframework.ui.freemarker.FreeMarkerTemplateUtils;
 
-import com.certacure.core.common.business.exception.BusinessException;
-import com.certacure.core.common.business.exception.BusinessException.ErrorSeverity;
-import com.certacure.core.common.helper.Email;
+import com.sunbird.core.common.business.exception.BusinessException;
+import com.sunbird.core.common.business.exception.BusinessException.ErrorSeverity;
+import com.sunbird.core.common.helper.Email;
 
 import freemarker.template.Configuration;
 import freemarker.template.Template;

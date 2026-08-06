@@ -1,4 +1,4 @@
-package com.certacure.lis.interfaces.entities;
+package com.sunbird.lis.interfaces.entities;
 
 import java.io.Serializable;
 
@@ -12,7 +12,7 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-import com.certacure.core.base.entity.BaseAuditableEntity;
+import com.sunbird.core.base.entity.BaseAuditableEntity;
 
 @Entity
 @Table(name = "lkp_pcr_realtime_worklist_status")

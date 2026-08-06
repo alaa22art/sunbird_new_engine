@@ -1,4 +1,4 @@
-package com.certacure.lis.interfaces.service;
+package com.sunbird.lis.interfaces.service;
 
 import java.util.Arrays;
 import java.util.List;
@@ -6,11 +6,11 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.certacure.core.base.helper.SearchCriterion;
-import com.certacure.core.base.helper.SearchCriterion.FilterOperator;
-import com.certacure.core.base.service.GenericService;
-import com.certacure.lis.interfaces.entities.PCRRealTimeOrderResult;
-import com.certacure.lis.interfaces.repo.PCRRealTimeOrderResultRepo;
+import com.sunbird.core.base.helper.SearchCriterion;
+import com.sunbird.core.base.helper.SearchCriterion.FilterOperator;
+import com.sunbird.core.base.service.GenericService;
+import com.sunbird.lis.interfaces.entities.PCRRealTimeOrderResult;
+import com.sunbird.lis.interfaces.repo.PCRRealTimeOrderResultRepo;
 
 @Service("PCRRealTimeOrderResultService")
 public class PCRRealTimeOrderResultService extends GenericService<PCRRealTimeOrderResult, PCRRealTimeOrderResultRepo> {

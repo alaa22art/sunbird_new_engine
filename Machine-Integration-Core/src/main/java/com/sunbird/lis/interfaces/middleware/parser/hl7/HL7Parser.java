@@ -1,4 +1,4 @@
-package com.certacure.lis.interfaces.middleware.parser.hl7;
+package com.sunbird.lis.interfaces.middleware.parser.hl7;
 
 import java.io.IOException;
 import java.text.DateFormat;
@@ -8,17 +8,17 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import com.certacure.core.base.helper.SearchCriterion;
-import com.certacure.core.base.helper.SearchCriterion.FilterOperator;
-import com.certacure.core.common.business.exception.BusinessException;
-import com.certacure.core.common.business.exception.BusinessException.ErrorSeverity;
-import com.certacure.core.common.util.SpringUtil;
-import com.certacure.lis.interfaces.entities.DataInboundHL7Message;
-import com.certacure.lis.interfaces.entities.DataOrderInboundHL7Message;
-import com.certacure.lis.interfaces.entities.LkpMessageSourceType;
-import com.certacure.lis.interfaces.entities.MachineOrder;
-import com.certacure.lis.interfaces.entities.MachineResult;
-import com.certacure.lis.interfaces.service.LkpService;
+import com.sunbird.core.base.helper.SearchCriterion;
+import com.sunbird.core.base.helper.SearchCriterion.FilterOperator;
+import com.sunbird.core.common.business.exception.BusinessException;
+import com.sunbird.core.common.business.exception.BusinessException.ErrorSeverity;
+import com.sunbird.core.common.util.SpringUtil;
+import com.sunbird.lis.interfaces.entities.DataInboundHL7Message;
+import com.sunbird.lis.interfaces.entities.DataOrderInboundHL7Message;
+import com.sunbird.lis.interfaces.entities.LkpMessageSourceType;
+import com.sunbird.lis.interfaces.entities.MachineOrder;
+import com.sunbird.lis.interfaces.entities.MachineResult;
+import com.sunbird.lis.interfaces.service.LkpService;
 
 import ca.uhn.hl7v2.HL7Exception;
 import ca.uhn.hl7v2.HapiContext;

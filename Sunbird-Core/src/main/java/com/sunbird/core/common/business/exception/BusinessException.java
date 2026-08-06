@@ -1,9 +1,9 @@
-package com.certacure.core.common.business.exception;
+package com.sunbird.core.common.business.exception;
 
 import java.util.List;
 import java.util.Map;
 
-import com.certacure.core.common.util.StringUtil;
+import com.sunbird.core.common.util.StringUtil;
 
 /**
  * BusinessException.java

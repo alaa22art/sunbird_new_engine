@@ -1,4 +1,4 @@
-package com.certacure.lis.interfaces.entities;
+package com.sunbird.lis.interfaces.entities;
 
 import java.util.List;
 
@@ -16,7 +16,7 @@ import javax.validation.constraints.Size;
 import org.hibernate.envers.Audited;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.certacure.core.base.entity.BaseAuditableEntity;
+import com.sunbird.core.base.entity.BaseAuditableEntity;
 
 /**
  * .java

@@ -1,4 +1,4 @@
-package com.certacure.lis.interfaces.service;
+package com.sunbird.lis.interfaces.service;
 
 import java.util.Arrays;
 import java.util.List;
@@ -14,17 +14,17 @@ import org.springframework.data.domain.Page;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 
-import com.certacure.core.base.helper.SearchCriterion;
-import com.certacure.core.base.helper.SearchCriterion.FilterOperator;
-import com.certacure.core.base.service.GenericService;
-import com.certacure.core.common.helper.FilterablePageRequest;
-import com.certacure.lis.interfaces.entities.Driver;
-import com.certacure.lis.interfaces.entities.LkpProtocol;
-import com.certacure.lis.interfaces.entities.MachineType;
-import com.certacure.lis.interfaces.helper.MachineIntegrationRights;
-import com.certacure.lis.interfaces.repo.LkpDriverRepo;
-import com.certacure.lis.interfaces.repo.LkpProtocolRepo;
-import com.certacure.lis.interfaces.repo.MachineTypeRepo;
+import com.sunbird.core.base.helper.SearchCriterion;
+import com.sunbird.core.base.helper.SearchCriterion.FilterOperator;
+import com.sunbird.core.base.service.GenericService;
+import com.sunbird.core.common.helper.FilterablePageRequest;
+import com.sunbird.lis.interfaces.entities.Driver;
+import com.sunbird.lis.interfaces.entities.LkpProtocol;
+import com.sunbird.lis.interfaces.entities.MachineType;
+import com.sunbird.lis.interfaces.helper.MachineIntegrationRights;
+import com.sunbird.lis.interfaces.repo.LkpDriverRepo;
+import com.sunbird.lis.interfaces.repo.LkpProtocolRepo;
+import com.sunbird.lis.interfaces.repo.MachineTypeRepo;
 
 @Service("MachineTypeService")
 public class MachineTypeService extends GenericService<MachineType, MachineTypeRepo> {

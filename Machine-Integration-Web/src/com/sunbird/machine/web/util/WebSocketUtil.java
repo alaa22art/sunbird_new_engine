@@ -1,4 +1,4 @@
-package com.certacure.machine.web.util;
+package com.sunbird.machine.web.util;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -9,11 +9,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.simp.SimpMessageSendingOperations;
 import org.springframework.stereotype.Component;
 
-import com.certacure.core.base.entity.UserAccount;
-import com.certacure.core.common.util.SecurityUtil;
-import com.certacure.machine.web.helper.WebSocketClient;
-import com.certacure.machine.web.helper.WebSocketType;
-import com.certacure.machine.web.helper.WebSocketWrapper;
+import com.sunbird.core.base.entity.UserAccount;
+import com.sunbird.core.common.util.SecurityUtil;
+import com.sunbird.machine.web.helper.WebSocketClient;
+import com.sunbird.machine.web.helper.WebSocketType;
+import com.sunbird.machine.web.helper.WebSocketWrapper;
 
 @Component
 public class WebSocketUtil {

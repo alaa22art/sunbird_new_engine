@@ -1,4 +1,4 @@
-package com.certacure.core.base.repo;
+package com.sunbird.core.base.repo;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -26,12 +26,12 @@ import org.springframework.data.jpa.domain.Specification;
 import org.springframework.data.jpa.repository.support.JpaEntityInformation;
 import org.springframework.data.jpa.repository.support.SimpleJpaRepository;
 
-import com.certacure.core.base.entity.BaseEntity;
-import com.certacure.core.base.helper.JoinWrapper;
-import com.certacure.core.base.helper.SearchCriterion;
-import com.certacure.core.base.helper.SearchCriterion.JunctionOperator;
-import com.certacure.core.common.data.model.TransField;
-import com.certacure.core.common.util.DateUtil;
+import com.sunbird.core.base.entity.BaseEntity;
+import com.sunbird.core.base.helper.JoinWrapper;
+import com.sunbird.core.base.helper.SearchCriterion;
+import com.sunbird.core.base.helper.SearchCriterion.JunctionOperator;
+import com.sunbird.core.common.data.model.TransField;
+import com.sunbird.core.common.util.DateUtil;
 
 public class BaseRepositoryImpl<T extends BaseEntity, ID extends Serializable> extends SimpleJpaRepository<T, ID>
 		implements BaseRepository<T, ID> {

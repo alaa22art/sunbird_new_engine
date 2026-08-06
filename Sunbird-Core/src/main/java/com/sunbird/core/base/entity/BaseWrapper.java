@@ -1,4 +1,4 @@
-package com.certacure.core.base.entity;
+package com.sunbird.core.base.entity;
 
 import java.io.Serializable;
 

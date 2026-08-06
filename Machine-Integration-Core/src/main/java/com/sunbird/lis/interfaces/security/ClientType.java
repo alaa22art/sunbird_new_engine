@@ -1,4 +1,4 @@
-package com.certacure.lis.interfaces.security;
+package com.sunbird.lis.interfaces.security;
 
 public enum ClientType {
 

@@ -1,12 +1,12 @@
-package com.certacure.lis.interfaces.middleware.flow_component.astme138194C111;
+package com.sunbird.lis.interfaces.middleware.flow_component.astme138194C111;
 
-import static com.certacure.lis.interfaces.middleware.util.LowLevelUtils.ACK;
-import static com.certacure.lis.interfaces.middleware.util.LowLevelUtils.ENQ;
-import static com.certacure.lis.interfaces.middleware.util.LowLevelUtils.EOT;
-import static com.certacure.lis.interfaces.middleware.util.LowLevelUtils.NAK;
-import static com.certacure.lis.interfaces.middleware.util.LowLevelUtils.STX;
+import static com.sunbird.lis.interfaces.middleware.util.LowLevelUtils.ACK;
+import static com.sunbird.lis.interfaces.middleware.util.LowLevelUtils.ENQ;
+import static com.sunbird.lis.interfaces.middleware.util.LowLevelUtils.EOT;
+import static com.sunbird.lis.interfaces.middleware.util.LowLevelUtils.NAK;
+import static com.sunbird.lis.interfaces.middleware.util.LowLevelUtils.STX;
 
-import com.certacure.lis.interfaces.middleware.flow_component.socket.SocketProtocol.BytesMessage;
+import com.sunbird.lis.interfaces.middleware.flow_component.socket.SocketProtocol.BytesMessage;
 
 public class AstmE138194C111Protocol {
 

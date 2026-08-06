@@ -1,4 +1,4 @@
-package com.certacure.lis.interfaces.middleware.core.observer.ws_endpoint;
+package com.sunbird.lis.interfaces.middleware.core.observer.ws_endpoint;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;
@@ -11,17 +11,17 @@ import java.util.Map;
 import org.java_websocket.WebSocket;
 import org.java_websocket.handshake.ClientHandshake;
 
-import com.certacure.core.common.util.JSONUtil;
-import com.certacure.lis.interfaces.middleware.core.observer.ObserverProtocol;
-import com.certacure.lis.interfaces.middleware.core.observer.ObserverProtocol.AnalyzerInitialized;
-import com.certacure.lis.interfaces.middleware.core.observer.ObserverProtocol.LogLevel;
-import com.certacure.lis.interfaces.middleware.core.observer.ObserverProtocol.MsgProcessed;
-import com.certacure.lis.interfaces.middleware.core.observer.ws_endpoint.WebSocketMsgs.AnalyzerInfo;
-import com.certacure.lis.interfaces.middleware.core.observer.ws_endpoint.WebSocketMsgs.EventType;
-import com.certacure.lis.interfaces.middleware.core.observer.ws_endpoint.WebSocketMsgs.LogEvent;
-import com.certacure.lis.interfaces.middleware.core.observer.ws_endpoint.WebSocketMsgs.ProcessedMsgEvent;
-import com.certacure.lis.interfaces.middleware.core.observer.ws_endpoint.WebSocketMsgs.WebSocketMsg;
-import com.certacure.lis.interfaces.middleware.flow_component.lab_http.httpRequstTransaction;
+import com.sunbird.core.common.util.JSONUtil;
+import com.sunbird.lis.interfaces.middleware.core.observer.ObserverProtocol;
+import com.sunbird.lis.interfaces.middleware.core.observer.ObserverProtocol.AnalyzerInitialized;
+import com.sunbird.lis.interfaces.middleware.core.observer.ObserverProtocol.LogLevel;
+import com.sunbird.lis.interfaces.middleware.core.observer.ObserverProtocol.MsgProcessed;
+import com.sunbird.lis.interfaces.middleware.core.observer.ws_endpoint.WebSocketMsgs.AnalyzerInfo;
+import com.sunbird.lis.interfaces.middleware.core.observer.ws_endpoint.WebSocketMsgs.EventType;
+import com.sunbird.lis.interfaces.middleware.core.observer.ws_endpoint.WebSocketMsgs.LogEvent;
+import com.sunbird.lis.interfaces.middleware.core.observer.ws_endpoint.WebSocketMsgs.ProcessedMsgEvent;
+import com.sunbird.lis.interfaces.middleware.core.observer.ws_endpoint.WebSocketMsgs.WebSocketMsg;
+import com.sunbird.lis.interfaces.middleware.flow_component.lab_http.httpRequstTransaction;
 import com.typesafe.config.Config;
 
 import akka.actor.AbstractActor;

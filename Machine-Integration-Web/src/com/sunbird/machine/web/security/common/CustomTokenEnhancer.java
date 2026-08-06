@@ -1,4 +1,4 @@
-package com.certacure.machine.web.security.common;
+package com.sunbird.machine.web.security.common;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -10,9 +10,9 @@ import org.springframework.security.oauth2.common.OAuth2AccessToken;
 import org.springframework.security.oauth2.provider.OAuth2Authentication;
 import org.springframework.security.oauth2.provider.token.TokenEnhancer;
 
-import com.certacure.core.common.util.JSONUtil;
-import com.certacure.lis.interfaces.admin.model.SecUser;
-import com.certacure.lis.interfaces.security.ClientType;
+import com.sunbird.core.common.util.JSONUtil;
+import com.sunbird.lis.interfaces.admin.model.SecUser;
+import com.sunbird.lis.interfaces.security.ClientType;
 
 public class CustomTokenEnhancer implements TokenEnhancer {
 

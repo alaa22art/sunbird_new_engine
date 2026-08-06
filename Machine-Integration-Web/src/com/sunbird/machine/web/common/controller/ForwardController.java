@@ -1,4 +1,4 @@
-package com.certacure.machine.web.common.controller;
+package com.sunbird.machine.web.common.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

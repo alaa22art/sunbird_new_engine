@@ -1,4 +1,4 @@
-package com.certacure.lis.interfaces.service;
+package com.sunbird.lis.interfaces.service;
 
 import java.util.Arrays;
 import java.util.List;
@@ -16,17 +16,17 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.certacure.core.base.entity.BaseAuditableTenantedEntity;
-import com.certacure.core.base.entity.BaseEntity;
-import com.certacure.core.base.helper.SearchCriterion;
-import com.certacure.core.base.helper.SearchCriterion.FilterOperator;
-import com.certacure.core.common.business.exception.BusinessException;
-import com.certacure.core.common.business.exception.BusinessException.ErrorSeverity;
-import com.certacure.core.common.util.ReflectionUtil;
-import com.certacure.core.common.util.SecurityUtil;
-import com.certacure.lis.interfaces.entities.LkpGender;
-import com.certacure.lis.interfaces.helper.CacheType;
-import com.certacure.lis.interfaces.helper.MachineIntegrationRights;
+import com.sunbird.core.base.entity.BaseAuditableTenantedEntity;
+import com.sunbird.core.base.entity.BaseEntity;
+import com.sunbird.core.base.helper.SearchCriterion;
+import com.sunbird.core.base.helper.SearchCriterion.FilterOperator;
+import com.sunbird.core.common.business.exception.BusinessException;
+import com.sunbird.core.common.business.exception.BusinessException.ErrorSeverity;
+import com.sunbird.core.common.util.ReflectionUtil;
+import com.sunbird.core.common.util.SecurityUtil;
+import com.sunbird.lis.interfaces.entities.LkpGender;
+import com.sunbird.lis.interfaces.helper.CacheType;
+import com.sunbird.lis.interfaces.helper.MachineIntegrationRights;
 
 /**
  * LkpService.java

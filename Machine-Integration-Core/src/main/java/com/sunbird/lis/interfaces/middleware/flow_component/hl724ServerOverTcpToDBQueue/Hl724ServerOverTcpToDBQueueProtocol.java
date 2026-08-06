@@ -1,9 +1,8 @@
-package com.certacure.lis.interfaces.middleware.flow_component.hl724ServerOverTcpToDBQueue;
+package com.sunbird.lis.interfaces.middleware.flow_component.hl724ServerOverTcpToDBQueue;
 
-import static com.certacure.lis.interfaces.middleware.util.LowLevelUtils.*;
+import static com.sunbird.lis.interfaces.middleware.util.LowLevelUtils.*;
 
-
-import com.certacure.lis.interfaces.middleware.flow_component.socket.SocketProtocol.BytesMessage;
+import com.sunbird.lis.interfaces.middleware.flow_component.socket.SocketProtocol.BytesMessage;
 
 public class Hl724ServerOverTcpToDBQueueProtocol {
 

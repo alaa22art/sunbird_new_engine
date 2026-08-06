@@ -1,8 +1,8 @@
-package com.certacure.lis.interfaces.wrapper;
+package com.sunbird.lis.interfaces.wrapper;
 
 import java.io.Serializable;
 
-import com.certacure.lis.interfaces.entities.PCRRealTimeWorkList;
+import com.sunbird.lis.interfaces.entities.PCRRealTimeWorkList;
 
 public class PCRWorkListOrderWrapper implements Serializable {
 

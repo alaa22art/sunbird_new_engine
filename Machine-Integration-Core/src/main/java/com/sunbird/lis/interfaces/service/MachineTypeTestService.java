@@ -1,4 +1,4 @@
-package com.certacure.lis.interfaces.service;
+package com.sunbird.lis.interfaces.service;
 
 import java.util.Arrays;
 import java.util.List;
@@ -8,16 +8,16 @@ import org.springframework.data.domain.Page;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 
-import com.certacure.core.base.helper.SearchCriterion;
-import com.certacure.core.base.helper.SearchCriterion.FilterOperator;
-import com.certacure.core.base.service.GenericService;
-import com.certacure.core.common.business.exception.BusinessException;
-import com.certacure.core.common.business.exception.BusinessException.ErrorSeverity;
-import com.certacure.core.common.helper.FilterablePageRequest;
-import com.certacure.lis.interfaces.entities.MachineTypeTest;
-import com.certacure.lis.interfaces.entities.TestCatalog;
-import com.certacure.lis.interfaces.helper.MachineIntegrationRights;
-import com.certacure.lis.interfaces.repo.MachineTypeTestRepo;
+import com.sunbird.core.base.helper.SearchCriterion;
+import com.sunbird.core.base.helper.SearchCriterion.FilterOperator;
+import com.sunbird.core.base.service.GenericService;
+import com.sunbird.core.common.business.exception.BusinessException;
+import com.sunbird.core.common.business.exception.BusinessException.ErrorSeverity;
+import com.sunbird.core.common.helper.FilterablePageRequest;
+import com.sunbird.lis.interfaces.entities.MachineTypeTest;
+import com.sunbird.lis.interfaces.entities.TestCatalog;
+import com.sunbird.lis.interfaces.helper.MachineIntegrationRights;
+import com.sunbird.lis.interfaces.repo.MachineTypeTestRepo;
 
 @Service("MachineTypeTestService")
 public class MachineTypeTestService extends GenericService<MachineTypeTest, MachineTypeTestRepo> {

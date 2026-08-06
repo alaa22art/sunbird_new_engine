@@ -1,4 +1,4 @@
-package com.certacure.lis.interfaces.service;
+package com.sunbird.lis.interfaces.service;
 
 import java.util.Set;
 
@@ -11,11 +11,11 @@ import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.certacure.core.base.service.GenericService;
-import com.certacure.lis.interfaces.annotation.InterceptorFree;
-import com.certacure.lis.interfaces.entities.Machine;
-import com.certacure.lis.interfaces.entities.MachineQuery;
-import com.certacure.lis.interfaces.repo.MachineQueryRepo;
+import com.sunbird.core.base.service.GenericService;
+import com.sunbird.lis.interfaces.annotation.InterceptorFree;
+import com.sunbird.lis.interfaces.entities.Machine;
+import com.sunbird.lis.interfaces.entities.MachineQuery;
+import com.sunbird.lis.interfaces.repo.MachineQueryRepo;
 
 @Service("MachineQueryService")
 public class MachineQueryService extends GenericService<MachineQuery, MachineQueryRepo> {

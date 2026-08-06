@@ -1,4 +1,4 @@
-package com.certacure.machine.web.machine.type.controller;
+package com.sunbird.machine.web.machine.type.controller;
 
 import java.util.HashMap;
 import java.util.List;
@@ -13,9 +13,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.certacure.core.common.helper.FilterablePageRequest;
-import com.certacure.lis.interfaces.entities.MachineType;
-import com.certacure.lis.interfaces.service.MachineTypeService;
+import com.sunbird.core.common.helper.FilterablePageRequest;
+import com.sunbird.lis.interfaces.entities.MachineType;
+import com.sunbird.lis.interfaces.service.MachineTypeService;
 
 @RestController
 @RequestMapping("/services")

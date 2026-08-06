@@ -1,4 +1,4 @@
-package com.certacure.machine.web.outbound.controller;
+package com.sunbird.machine.web.outbound.controller;
 
 import java.util.List;
 
@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.certacure.lis.interfaces.entities.OutboundInformation;
-import com.certacure.lis.interfaces.service.OutboundService;
+import com.sunbird.lis.interfaces.entities.OutboundInformation;
+import com.sunbird.lis.interfaces.service.OutboundService;
 
 @RestController
 @RequestMapping("/services")

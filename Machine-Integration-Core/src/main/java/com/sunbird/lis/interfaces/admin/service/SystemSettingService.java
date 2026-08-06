@@ -1,4 +1,4 @@
-package com.certacure.lis.interfaces.admin.service;
+package com.sunbird.lis.interfaces.admin.service;
 
 
 import java.util.Optional;
@@ -10,15 +10,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 
-import com.certacure.core.base.helper.Finder;
-import com.certacure.core.base.helper.SearchCriterion;
-import com.certacure.core.base.helper.SearchCriterion.FilterOperator;
-import com.certacure.core.base.service.GenericService;
-import com.certacure.core.common.helper.FilterablePageRequest;
-import com.certacure.core.common.util.SecurityUtil;
-import com.certacure.lis.interfaces.admin.model.SystemSetting;
-import com.certacure.lis.interfaces.admin.repo.SystemSettingRepo;
-import com.certacure.lis.interfaces.helper.SystemSettingType;
+import com.sunbird.core.base.helper.Finder;
+import com.sunbird.core.base.helper.SearchCriterion;
+import com.sunbird.core.base.helper.SearchCriterion.FilterOperator;
+import com.sunbird.core.base.service.GenericService;
+import com.sunbird.core.common.helper.FilterablePageRequest;
+import com.sunbird.core.common.util.SecurityUtil;
+import com.sunbird.lis.interfaces.admin.model.SystemSetting;
+import com.sunbird.lis.interfaces.admin.repo.SystemSettingRepo;
+import com.sunbird.lis.interfaces.helper.SystemSettingType;
 
 /**
  * SystemSettingService.java

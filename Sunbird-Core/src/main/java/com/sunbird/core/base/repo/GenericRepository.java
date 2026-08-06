@@ -1,8 +1,8 @@
-package com.certacure.core.base.repo;
+package com.sunbird.core.base.repo;
 
 import org.springframework.data.repository.NoRepositoryBean;
 
-import com.certacure.core.base.entity.BaseEntity;
+import com.sunbird.core.base.entity.BaseEntity;
 
 
 @NoRepositoryBean

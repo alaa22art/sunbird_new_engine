@@ -1,4 +1,4 @@
-package com.certacure.lis.interfaces.admin.model;
+package com.sunbird.lis.interfaces.admin.model;
 
 import java.io.Serializable;
 
@@ -15,7 +15,7 @@ import javax.persistence.Table;
 
 import org.hibernate.envers.Audited;
 
-import com.certacure.core.base.entity.BaseAuditableTenantedEntity;
+import com.sunbird.core.base.entity.BaseAuditableTenantedEntity;
 
 /**
  * SecRoleRight.java

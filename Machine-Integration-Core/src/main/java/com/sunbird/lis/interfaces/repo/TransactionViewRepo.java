@@ -1,4 +1,4 @@
-package com.certacure.lis.interfaces.repo;
+package com.sunbird.lis.interfaces.repo;
 
 import java.util.List;
 
@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import com.certacure.lis.interfaces.entities.TransactionView;
+import com.sunbird.lis.interfaces.entities.TransactionView;
 
 /**
  * LkpMessagesTypeRepo.java

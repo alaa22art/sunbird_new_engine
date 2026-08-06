@@ -1,4 +1,4 @@
-package com.certacure.core.base.repo;
+package com.sunbird.core.base.repo;
 
 public interface ElasticGenericRepository {
 

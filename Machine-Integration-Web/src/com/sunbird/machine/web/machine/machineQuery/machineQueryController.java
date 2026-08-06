@@ -1,4 +1,4 @@
-package com.certacure.machine.web.machine.machineQuery;
+package com.sunbird.machine.web.machine.machineQuery;
 
 import java.util.Map;
 import java.util.Set;
@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.certacure.lis.interfaces.entities.MachineQuery;
-import com.certacure.lis.interfaces.service.MachineQueryService;
+import com.sunbird.lis.interfaces.entities.MachineQuery;
+import com.sunbird.lis.interfaces.service.MachineQueryService;
 
 @RestController
 @RequestMapping("/services")

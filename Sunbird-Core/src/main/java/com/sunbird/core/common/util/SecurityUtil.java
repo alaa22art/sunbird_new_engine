@@ -1,4 +1,4 @@
-package com.certacure.core.common.util;
+package com.sunbird.core.common.util;
 
 import java.security.SecureRandom;
 import java.util.ArrayList;
@@ -26,12 +26,12 @@ import org.springframework.security.oauth2.provider.OAuth2Authentication;
 import org.springframework.security.oauth2.provider.authentication.OAuth2AuthenticationDetails;
 import org.springframework.stereotype.Component;
 
-import com.certacure.core.base.entity.UserAccount;
-import com.certacure.core.base.entity.UserAccountImpl;
-import com.certacure.core.common.business.exception.BusinessException;
-import com.certacure.core.common.business.exception.BusinessException.ErrorSeverity;
-import com.certacure.core.common.helper.PasswordStrength;
-import com.certacure.core.common.helper.PasswordStrengthWrapper;
+import com.sunbird.core.base.entity.UserAccount;
+import com.sunbird.core.base.entity.UserAccountImpl;
+import com.sunbird.core.common.business.exception.BusinessException;
+import com.sunbird.core.common.business.exception.BusinessException.ErrorSeverity;
+import com.sunbird.core.common.helper.PasswordStrength;
+import com.sunbird.core.common.helper.PasswordStrengthWrapper;
 
 /**
  * SecurityUtil.java, Used to access spring security

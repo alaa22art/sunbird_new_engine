@@ -1,11 +1,11 @@
-package com.certacure.lis.interfaces.system.service;
+package com.sunbird.lis.interfaces.system.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.certacure.core.base.service.GenericService;
-import com.certacure.lis.interfaces.system.model.SysPage;
-import com.certacure.lis.interfaces.system.repo.SysPageRepo;
+import com.sunbird.core.base.service.GenericService;
+import com.sunbird.lis.interfaces.system.model.SysPage;
+import com.sunbird.lis.interfaces.system.repo.SysPageRepo;
 
 /**
  * SysPageService.java

@@ -1,4 +1,4 @@
-package com.certacure.machine.web.common.controller;
+package com.sunbird.machine.web.common.controller;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,14 +11,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.certacure.lis.interfaces.admin.model.SystemSetting;
-import com.certacure.lis.interfaces.admin.service.SystemSettingService;
-import com.certacure.lis.interfaces.entities.ComLanguage;
-import com.certacure.lis.interfaces.entities.ComTenantLanguage;
-import com.certacure.lis.interfaces.entities.ComTenantMessage;
-import com.certacure.lis.interfaces.service.ComLanguageService;
-import com.certacure.lis.interfaces.service.ComTenantLanguageService;
-import com.certacure.lis.interfaces.service.ComTenantMessageService;
+import com.sunbird.lis.interfaces.admin.model.SystemSetting;
+import com.sunbird.lis.interfaces.admin.service.SystemSettingService;
+import com.sunbird.lis.interfaces.entities.ComLanguage;
+import com.sunbird.lis.interfaces.entities.ComTenantLanguage;
+import com.sunbird.lis.interfaces.entities.ComTenantMessage;
+import com.sunbird.lis.interfaces.service.ComLanguageService;
+import com.sunbird.lis.interfaces.service.ComTenantLanguageService;
+import com.sunbird.lis.interfaces.service.ComTenantMessageService;
 
 /**
  * CommonsController.java

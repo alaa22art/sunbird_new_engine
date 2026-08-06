@@ -1,13 +1,13 @@
-package com.certacure.lis.interfaces.service;
+package com.sunbird.lis.interfaces.service;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.certacure.core.common.helper.FilterablePageRequest;
-import com.certacure.lis.interfaces.entities.TransactionView;
-import com.certacure.lis.interfaces.repo.TransactionViewRepo;
+import com.sunbird.core.common.helper.FilterablePageRequest;
+import com.sunbird.lis.interfaces.entities.TransactionView;
+import com.sunbird.lis.interfaces.repo.TransactionViewRepo;
 
 @Service("TransactionViewService")
 public class TransactionViewService {

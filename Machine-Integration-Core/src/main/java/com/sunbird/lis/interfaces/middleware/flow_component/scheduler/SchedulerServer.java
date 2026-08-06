@@ -1,14 +1,14 @@
-package com.certacure.lis.interfaces.middleware.flow_component.scheduler;
+package com.sunbird.lis.interfaces.middleware.flow_component.scheduler;
 
 import java.net.InetSocketAddress;
 
-import com.certacure.core.common.util.SpringUtil;
-import com.certacure.lis.interfaces.entities.Machine;
-import com.certacure.lis.interfaces.middleware.core.ActorRefConnectionContainer;
-import com.certacure.lis.interfaces.middleware.core.FlowComponent;
-import com.certacure.lis.interfaces.middleware.flow_component.socket.SocketProtocol.BytesMessage;
-import com.certacure.lis.interfaces.middleware.interfaces.LabMessages.ConnectionStatus;
-import com.certacure.lis.interfaces.service.MachineService;
+import com.sunbird.core.common.util.SpringUtil;
+import com.sunbird.lis.interfaces.entities.Machine;
+import com.sunbird.lis.interfaces.middleware.core.ActorRefConnectionContainer;
+import com.sunbird.lis.interfaces.middleware.core.FlowComponent;
+import com.sunbird.lis.interfaces.middleware.flow_component.socket.SocketProtocol.BytesMessage;
+import com.sunbird.lis.interfaces.middleware.interfaces.LabMessages.ConnectionStatus;
+import com.sunbird.lis.interfaces.service.MachineService;
 import com.typesafe.config.Config;
 import com.typesafe.config.ConfigFactory;
 

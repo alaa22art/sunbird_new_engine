@@ -1,4 +1,4 @@
-package com.certacure.core.common.helper;
+package com.sunbird.core.common.helper;
 
 import org.hibernate.boot.model.naming.Identifier;
 import org.hibernate.boot.model.naming.ImplicitForeignKeyNameSource;

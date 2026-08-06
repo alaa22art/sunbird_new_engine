@@ -1,4 +1,4 @@
-package com.certacure.lis.interfaces.admin.model;
+package com.sunbird.lis.interfaces.admin.model;
 
 import java.io.Serializable;
 import java.util.HashSet;
@@ -22,10 +22,10 @@ import org.hibernate.envers.Audited;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.certacure.core.base.entity.BaseAuditableTenantedEntity;
-import com.certacure.core.common.annotation.MapNotNull;
-import com.certacure.core.common.data.model.TransField;
-import com.certacure.core.common.data.model.converter.TransFieldAttConverter;
+import com.sunbird.core.base.entity.BaseAuditableTenantedEntity;
+import com.sunbird.core.common.annotation.MapNotNull;
+import com.sunbird.core.common.data.model.TransField;
+import com.sunbird.core.common.data.model.converter.TransFieldAttConverter;
 
 /**
  * SecGroup.java

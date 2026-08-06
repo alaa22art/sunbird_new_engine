@@ -1,13 +1,13 @@
-package com.certacure.lis.interfaces.middleware.core;
+package com.sunbird.lis.interfaces.middleware.core;
 
 import java.io.IOException;
 import java.util.Set;
 
-import com.certacure.core.common.util.SpringUtil;
-import com.certacure.lis.interfaces.entities.Machine;
-import com.certacure.lis.interfaces.middleware.driver.DynamicDriver;
-import com.certacure.lis.interfaces.middleware.util.ConfigUtil;
-import com.certacure.lis.interfaces.service.MachineService;
+import com.sunbird.core.common.util.SpringUtil;
+import com.sunbird.lis.interfaces.entities.Machine;
+import com.sunbird.lis.interfaces.middleware.driver.DynamicDriver;
+import com.sunbird.lis.interfaces.middleware.util.ConfigUtil;
+import com.sunbird.lis.interfaces.service.MachineService;
 import com.typesafe.config.Config;
 
 import akka.actor.AbstractActor;

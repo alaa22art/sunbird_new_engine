@@ -1,4 +1,4 @@
-package com.certacure.lis.interfaces.repo;
+package com.sunbird.lis.interfaces.repo;
 
 import java.util.List;
 
@@ -7,10 +7,10 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import com.certacure.core.base.repo.GenericRepository;
-import com.certacure.lis.interfaces.entities.DataInboundHL7Message;
-import com.certacure.lis.interfaces.entities.ElegabalityApprovalEntity;
-import com.certacure.lis.interfaces.entities.MachineOrder;
+import com.sunbird.core.base.repo.GenericRepository;
+import com.sunbird.lis.interfaces.entities.DataInboundHL7Message;
+import com.sunbird.lis.interfaces.entities.ElegabalityApprovalEntity;
+import com.sunbird.lis.interfaces.entities.MachineOrder;
 
 @Repository("ElegabalityApprovalRepo")
 public interface ElegabalityApprovalRepo extends GenericRepository<ElegabalityApprovalEntity> {

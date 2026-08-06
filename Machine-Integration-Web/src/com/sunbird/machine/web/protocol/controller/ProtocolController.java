@@ -1,4 +1,4 @@
-package com.certacure.machine.web.protocol.controller;
+package com.sunbird.machine.web.protocol.controller;
 
 import java.util.List;
 
@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.certacure.lis.interfaces.entities.LkpProtocol;
-import com.certacure.lis.interfaces.service.ProtocolService;
+import com.sunbird.lis.interfaces.entities.LkpProtocol;
+import com.sunbird.lis.interfaces.service.ProtocolService;
 
 @RestController
 @RequestMapping("/services")

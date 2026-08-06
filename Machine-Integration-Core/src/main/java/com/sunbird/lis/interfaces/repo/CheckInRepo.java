@@ -1,9 +1,9 @@
-package com.certacure.lis.interfaces.repo;
+package com.sunbird.lis.interfaces.repo;
 
 import org.springframework.stereotype.Repository;
 
-import com.certacure.core.base.repo.GenericRepository;
-import com.certacure.lis.interfaces.entities.CheckInEntity;
+import com.sunbird.core.base.repo.GenericRepository;
+import com.sunbird.lis.interfaces.entities.CheckInEntity;
 
 @Repository("CheckInRepo")
 public interface CheckInRepo extends GenericRepository<CheckInEntity> {

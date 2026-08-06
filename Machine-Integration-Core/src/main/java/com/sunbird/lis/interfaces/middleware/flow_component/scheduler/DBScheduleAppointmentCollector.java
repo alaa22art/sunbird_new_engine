@@ -1,4 +1,4 @@
-package com.certacure.lis.interfaces.middleware.flow_component.scheduler;
+package com.sunbird.lis.interfaces.middleware.flow_component.scheduler;
 
 import java.io.Serializable;
 import java.text.ParseException;
@@ -7,16 +7,16 @@ import java.util.Date;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-import com.certacure.core.common.util.SpringUtil;
-import com.certacure.lis.interfaces.entities.ElegabalityApprovalEntity;
-import com.certacure.lis.interfaces.entities.Machine;
-import com.certacure.lis.interfaces.entities.PostDetailFinancialTransaction;
-import com.certacure.lis.interfaces.middleware.core.FlowComponent;
-import com.certacure.lis.interfaces.middleware.core.RecipientConf;
-import com.certacure.lis.interfaces.middleware.flow_component.lab_http.httpRequstTransaction;
-import com.certacure.lis.interfaces.service.ElegabalityApprovalService;
-import com.certacure.lis.interfaces.service.MachineService;
-import com.certacure.lis.interfaces.service.PostDetailFinancialTransactionService;
+import com.sunbird.core.common.util.SpringUtil;
+import com.sunbird.lis.interfaces.entities.ElegabalityApprovalEntity;
+import com.sunbird.lis.interfaces.entities.Machine;
+import com.sunbird.lis.interfaces.entities.PostDetailFinancialTransaction;
+import com.sunbird.lis.interfaces.middleware.core.FlowComponent;
+import com.sunbird.lis.interfaces.middleware.core.RecipientConf;
+import com.sunbird.lis.interfaces.middleware.flow_component.lab_http.httpRequstTransaction;
+import com.sunbird.lis.interfaces.service.ElegabalityApprovalService;
+import com.sunbird.lis.interfaces.service.MachineService;
+import com.sunbird.lis.interfaces.service.PostDetailFinancialTransactionService;
 import com.typesafe.config.Config;
 
 import akka.japi.pf.ReceiveBuilder;

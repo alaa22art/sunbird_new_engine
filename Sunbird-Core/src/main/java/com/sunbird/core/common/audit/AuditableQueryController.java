@@ -1,4 +1,4 @@
-package com.certacure.core.common.audit;
+package com.sunbird.core.common.audit;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

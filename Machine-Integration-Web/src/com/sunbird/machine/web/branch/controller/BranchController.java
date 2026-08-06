@@ -1,4 +1,4 @@
-package com.certacure.machine.web.branch.controller;
+package com.sunbird.machine.web.branch.controller;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,9 +11,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.certacure.core.common.helper.FilterablePageRequest;
-import com.certacure.lis.interfaces.entities.LabBranch;
-import com.certacure.lis.interfaces.service.LabBranchService;
+import com.sunbird.core.common.helper.FilterablePageRequest;
+import com.sunbird.lis.interfaces.entities.LabBranch;
+import com.sunbird.lis.interfaces.service.LabBranchService;
 
 @RestController
 @RequestMapping("/services")

@@ -1,4 +1,4 @@
-package com.certacure.machine.web.security.common;
+package com.sunbird.machine.web.security.common;
 
 import java.util.Map;
 
@@ -12,9 +12,9 @@ import org.springframework.security.oauth2.common.exceptions.InvalidTokenExcepti
 import org.springframework.security.oauth2.provider.OAuth2Authentication;
 import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
 
-import com.certacure.core.common.util.JSONUtil;
-import com.certacure.core.common.util.TokenUtil;
-import com.certacure.lis.interfaces.admin.model.SecUser;
+import com.sunbird.core.common.util.JSONUtil;
+import com.sunbird.core.common.util.TokenUtil;
+import com.sunbird.lis.interfaces.admin.model.SecUser;
 
 public class CustomTokenConverter extends JwtAccessTokenConverter {
 

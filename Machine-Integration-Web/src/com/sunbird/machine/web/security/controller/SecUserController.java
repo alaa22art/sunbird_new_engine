@@ -1,4 +1,4 @@
-package com.certacure.machine.web.security.controller;
+package com.sunbird.machine.web.security.controller;
 
 import java.util.List;
 import java.util.Map;
@@ -13,18 +13,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.certacure.core.common.business.exception.BusinessException;
-import com.certacure.core.common.business.exception.BusinessException.ErrorSeverity;
-import com.certacure.core.common.helper.FilterablePageRequest;
-import com.certacure.lis.interfaces.admin.model.SecGroup;
-import com.certacure.lis.interfaces.admin.model.SecGroupUser;
-import com.certacure.lis.interfaces.admin.model.SecRole;
-import com.certacure.lis.interfaces.admin.model.SecUser;
-import com.certacure.lis.interfaces.admin.model.SecUserRole;
-import com.certacure.lis.interfaces.admin.service.SecGroupUserService;
-import com.certacure.lis.interfaces.admin.service.SecUserRoleService;
-import com.certacure.lis.interfaces.admin.service.SecUserService;
-import com.certacure.machine.web.security.wrapper.SecRelationWrapper;
+import com.sunbird.core.common.business.exception.BusinessException;
+import com.sunbird.core.common.business.exception.BusinessException.ErrorSeverity;
+import com.sunbird.core.common.helper.FilterablePageRequest;
+import com.sunbird.lis.interfaces.admin.model.SecGroup;
+import com.sunbird.lis.interfaces.admin.model.SecGroupUser;
+import com.sunbird.lis.interfaces.admin.model.SecRole;
+import com.sunbird.lis.interfaces.admin.model.SecUser;
+import com.sunbird.lis.interfaces.admin.model.SecUserRole;
+import com.sunbird.lis.interfaces.admin.service.SecGroupUserService;
+import com.sunbird.lis.interfaces.admin.service.SecUserRoleService;
+import com.sunbird.lis.interfaces.admin.service.SecUserService;
+import com.sunbird.machine.web.security.wrapper.SecRelationWrapper;
 
 /**
  * SecUserController.java

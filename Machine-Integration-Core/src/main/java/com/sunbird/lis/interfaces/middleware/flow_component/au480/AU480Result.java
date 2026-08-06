@@ -1,4 +1,4 @@
-package com.certacure.lis.interfaces.middleware.flow_component.au480;
+package com.sunbird.lis.interfaces.middleware.flow_component.au480;
 
 public class AU480Result {
 

@@ -1,4 +1,4 @@
-package com.certacure.lis.interfaces.entities;
+package com.sunbird.lis.interfaces.entities;
 
 import java.io.Serializable;
 import java.util.List;
@@ -17,7 +17,7 @@ import javax.persistence.Table;
 import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.certacure.core.base.entity.BaseAuditableEntity;
+import com.sunbird.core.base.entity.BaseAuditableEntity;
 
 @Entity
 @Table(name = "mw_pcr_realtime_result_template_line")

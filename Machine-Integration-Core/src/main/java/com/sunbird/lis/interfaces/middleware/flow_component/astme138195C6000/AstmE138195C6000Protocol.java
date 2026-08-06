@@ -1,9 +1,8 @@
-package com.certacure.lis.interfaces.middleware.flow_component.astme138195C6000;
+package com.sunbird.lis.interfaces.middleware.flow_component.astme138195C6000;
 
-import static com.certacure.lis.interfaces.middleware.util.LowLevelUtils.*;
+import static com.sunbird.lis.interfaces.middleware.util.LowLevelUtils.*;
 
-
-import com.certacure.lis.interfaces.middleware.flow_component.socket.SocketProtocol.BytesMessage;
+import com.sunbird.lis.interfaces.middleware.flow_component.socket.SocketProtocol.BytesMessage;
 
 public class AstmE138195C6000Protocol {
 

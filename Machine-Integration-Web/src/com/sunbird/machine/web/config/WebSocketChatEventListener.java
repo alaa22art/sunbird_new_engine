@@ -1,4 +1,4 @@
-package com.certacure.machine.web.config;
+package com.sunbird.machine.web.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.event.EventListener;
@@ -8,8 +8,8 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.socket.messaging.SessionConnectedEvent;
 import org.springframework.web.socket.messaging.SessionDisconnectEvent;
 
-import com.certacure.core.base.entity.UserAccount;
-import com.certacure.machine.web.util.WebSocketUtil;
+import com.sunbird.core.base.entity.UserAccount;
+import com.sunbird.machine.web.util.WebSocketUtil;
 
 @Component
 public class WebSocketChatEventListener {

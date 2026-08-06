@@ -1,4 +1,4 @@
-package com.certacure.lis.interfaces.entities;
+package com.sunbird.lis.interfaces.entities;
 
 import java.io.Serializable;
 import java.util.Set;
@@ -17,8 +17,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.certacure.core.base.entity.BaseAuditableBranchedEntity;
-import com.certacure.core.common.data.model.converter.BooleanIntegerConverter;
+import com.sunbird.core.base.entity.BaseAuditableBranchedEntity;
+import com.sunbird.core.common.data.model.converter.BooleanIntegerConverter;
 
 @Entity
 @Table(name = "mw_pcr_realtime_worklist_order")

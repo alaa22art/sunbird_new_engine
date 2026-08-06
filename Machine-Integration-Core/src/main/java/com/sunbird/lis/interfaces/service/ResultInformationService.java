@@ -1,4 +1,4 @@
-package com.certacure.lis.interfaces.service;
+package com.sunbird.lis.interfaces.service;
 
 /**
 *
@@ -9,9 +9,9 @@ package com.certacure.lis.interfaces.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.certacure.core.base.service.GenericService;
-import com.certacure.lis.interfaces.entities.ResultInformation;
-import com.certacure.lis.interfaces.repo.ResultInformationRepo;
+import com.sunbird.core.base.service.GenericService;
+import com.sunbird.lis.interfaces.entities.ResultInformation;
+import com.sunbird.lis.interfaces.repo.ResultInformationRepo;
 
 @Service("ResultInformationService")
 public class ResultInformationService extends GenericService<ResultInformation, ResultInformationRepo> {

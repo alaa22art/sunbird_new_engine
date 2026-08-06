@@ -4,8 +4,8 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.certacure</groupId>
-	<artifactId>Certacure-Core</artifactId>
+	<groupId>com.sunbird</groupId>
+	<artifactId>Sunbird-Core</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>Middleware-Core</name>
 	<description>Middleware-Core</description>

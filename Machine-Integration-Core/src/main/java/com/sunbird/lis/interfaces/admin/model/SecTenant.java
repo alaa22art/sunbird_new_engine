@@ -1,4 +1,4 @@
-package com.certacure.lis.interfaces.admin.model;
+package com.sunbird.lis.interfaces.admin.model;
 
 import java.io.Serializable;
 
@@ -19,10 +19,10 @@ import javax.validation.constraints.Size;
 
 import org.hibernate.envers.Audited;
 
-import com.certacure.core.base.entity.BaseAuditableEntity;
-import com.certacure.core.common.data.model.converter.BooleanIntegerConverter;
-import com.certacure.lis.interfaces.entities.LkpCity;
-import com.certacure.lis.interfaces.entities.LkpCountry;
+import com.sunbird.core.base.entity.BaseAuditableEntity;
+import com.sunbird.core.common.data.model.converter.BooleanIntegerConverter;
+import com.sunbird.lis.interfaces.entities.LkpCity;
+import com.sunbird.lis.interfaces.entities.LkpCountry;
 
 /**
  * SecTenant.class

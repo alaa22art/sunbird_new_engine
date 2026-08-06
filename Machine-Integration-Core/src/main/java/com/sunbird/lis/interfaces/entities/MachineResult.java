@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.certacure.lis.interfaces.entities;
+package com.sunbird.lis.interfaces.entities;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -28,9 +28,9 @@ import javax.validation.constraints.Size;
 import org.hibernate.envers.Audited;
 import org.hibernate.envers.RelationTargetAuditMode;
 
-import com.certacure.core.base.entity.BaseAuditableEntity;
-import com.certacure.core.common.data.model.converter.BooleanIntegerConverter;
-import com.certacure.core.common.util.SecurityUtil;
+import com.sunbird.core.base.entity.BaseAuditableEntity;
+import com.sunbird.core.common.data.model.converter.BooleanIntegerConverter;
+import com.sunbird.core.common.util.SecurityUtil;
 
 /**
  * MachineResult

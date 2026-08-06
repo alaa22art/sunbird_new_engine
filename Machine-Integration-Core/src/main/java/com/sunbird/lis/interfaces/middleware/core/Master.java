@@ -1,4 +1,4 @@
-package com.certacure.lis.interfaces.middleware.core;
+package com.sunbird.lis.interfaces.middleware.core;
 
 import java.io.IOException;
 import java.util.List;
@@ -8,13 +8,13 @@ import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.certacure.core.common.util.SpringUtil;
-import com.certacure.lis.interfaces.entities.Machine;
-import com.certacure.lis.interfaces.middleware.core.observer.Observer;
-import com.certacure.lis.interfaces.middleware.core.observer.ObserverProtocol.AnalyzerInitialized;
-import com.certacure.lis.interfaces.middleware.core.observer.ObserverProtocol.MsgProcessed;
-import com.certacure.lis.interfaces.middleware.flow_component.lab_http.httpRequstTransaction;
-import com.certacure.lis.interfaces.service.MachineService;
+import com.sunbird.core.common.util.SpringUtil;
+import com.sunbird.lis.interfaces.entities.Machine;
+import com.sunbird.lis.interfaces.middleware.core.observer.Observer;
+import com.sunbird.lis.interfaces.middleware.core.observer.ObserverProtocol.AnalyzerInitialized;
+import com.sunbird.lis.interfaces.middleware.core.observer.ObserverProtocol.MsgProcessed;
+import com.sunbird.lis.interfaces.middleware.flow_component.lab_http.httpRequstTransaction;
+import com.sunbird.lis.interfaces.service.MachineService;
 import com.typesafe.config.Config;
 import com.typesafe.config.ConfigFactory;
 

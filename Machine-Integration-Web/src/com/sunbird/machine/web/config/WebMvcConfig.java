@@ -1,4 +1,4 @@
-package com.certacure.machine.web.config;
+package com.sunbird.machine.web.config;
 
 import java.util.List;
 
@@ -11,8 +11,8 @@ import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
-import com.certacure.core.common.util.HttpUtil;
-import com.certacure.core.common.util.JSONUtil;
+import com.sunbird.core.common.util.HttpUtil;
+import com.sunbird.core.common.util.JSONUtil;
 
 @Configuration
 public class WebMvcConfig implements WebMvcConfigurer {

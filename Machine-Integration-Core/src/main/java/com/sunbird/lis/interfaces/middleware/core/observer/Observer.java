@@ -1,14 +1,14 @@
-package com.certacure.lis.interfaces.middleware.core.observer;
+package com.sunbird.lis.interfaces.middleware.core.observer;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Function;
 
-import com.certacure.lis.interfaces.middleware.core.observer.ObserverProtocol.AnalyzerInitialized;
-import com.certacure.lis.interfaces.middleware.core.observer.ObserverProtocol.LogEvent;
-import com.certacure.lis.interfaces.middleware.core.observer.ObserverProtocol.MsgProcessed;
-import com.certacure.lis.interfaces.middleware.flow_component.lab_http.httpRequstTransaction;
-import com.certacure.lis.interfaces.middleware.util.ConfigUtil;
+import com.sunbird.lis.interfaces.middleware.core.observer.ObserverProtocol.AnalyzerInitialized;
+import com.sunbird.lis.interfaces.middleware.core.observer.ObserverProtocol.LogEvent;
+import com.sunbird.lis.interfaces.middleware.core.observer.ObserverProtocol.MsgProcessed;
+import com.sunbird.lis.interfaces.middleware.flow_component.lab_http.httpRequstTransaction;
+import com.sunbird.lis.interfaces.middleware.util.ConfigUtil;
 import com.typesafe.config.Config;
 
 import akka.actor.AbstractLoggingActor;
@@ -20,8 +20,8 @@ public class Observer extends AbstractLoggingActor {
 
 	private enum EndPointType {
 		WebSocketServer(
-				com.certacure.lis.interfaces.middleware.core.observer.ws_endpoint.WebSocketServer.class,
-				com.certacure.lis.interfaces.middleware.core.observer.ws_endpoint.WebSocketServer::props);
+				com.sunbird.lis.interfaces.middleware.core.observer.ws_endpoint.WebSocketServer.class,
+				com.sunbird.lis.interfaces.middleware.core.observer.ws_endpoint.WebSocketServer::props);
 
 		public final Class<?> klass;
 		public final Function<Config, Props> propsFunction;

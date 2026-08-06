@@ -1,4 +1,4 @@
-package com.certacure.machine.web.config;
+package com.sunbird.machine.web.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -15,7 +15,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-import com.certacure.machine.web.security.common.CustomAuthenticationProvider;
+import com.sunbird.machine.web.security.common.CustomAuthenticationProvider;
 
 @Configuration
 @EnableWebSecurity

@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.certacure.lis.interfaces.middleware.core.Log;
+package com.sunbird.lis.interfaces.middleware.core.Log;
 
 import java.io.Serializable;
 

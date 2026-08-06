@@ -1,4 +1,4 @@
-package com.certacure.lis.interfaces.entities;
+package com.sunbird.lis.interfaces.entities;
 import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -8,9 +8,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import com.certacure.core.base.entity.BaseAuditableBranchedEntity;
-import com.certacure.core.common.data.model.converter.BooleanIntegerConverter;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.sunbird.core.base.entity.BaseAuditableBranchedEntity;
+import com.sunbird.core.common.data.model.converter.BooleanIntegerConverter;
 /*
  *
  * Appointment JSON will receive from Certacure Engine Should Re send this JSON to CL   :

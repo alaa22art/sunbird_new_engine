@@ -1,4 +1,4 @@
-package com.certacure.lis.interfaces.middleware.core;
+package com.sunbird.lis.interfaces.middleware.core;
 
 import java.util.Collections;
 import java.util.HashMap;
@@ -6,8 +6,8 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
 
-import com.certacure.core.common.util.JSONUtil;
-import com.certacure.lis.interfaces.middleware.core.observer.ObserverProtocol.MsgProcessed;
+import com.sunbird.core.common.util.JSONUtil;
+import com.sunbird.lis.interfaces.middleware.core.observer.ObserverProtocol.MsgProcessed;
 
 import akka.actor.AbstractActorWithStash;
 import akka.event.EventStream;

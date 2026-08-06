@@ -1,4 +1,4 @@
-package com.certacure.machine.web.rtpcr;
+package com.sunbird.machine.web.rtpcr;
 
 import java.util.List;
 import java.util.Set;
@@ -12,12 +12,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.certacure.core.common.helper.FilterablePageRequest;
-import com.certacure.lis.interfaces.entities.PCRRealTimeWorkList;
-import com.certacure.lis.interfaces.entities.PCRRealTimeWorkListOrder;
-import com.certacure.lis.interfaces.service.PCRRealTimeWorkListOrderService;
-import com.certacure.lis.interfaces.service.PCRRealTimeWorkListService;
-import com.certacure.lis.interfaces.wrapper.WorkListStatusWrapper;
+import com.sunbird.core.common.helper.FilterablePageRequest;
+import com.sunbird.lis.interfaces.entities.PCRRealTimeWorkList;
+import com.sunbird.lis.interfaces.entities.PCRRealTimeWorkListOrder;
+import com.sunbird.lis.interfaces.service.PCRRealTimeWorkListOrderService;
+import com.sunbird.lis.interfaces.service.PCRRealTimeWorkListService;
+import com.sunbird.lis.interfaces.wrapper.WorkListStatusWrapper;
 
 @RestController
 @RequestMapping("/services")

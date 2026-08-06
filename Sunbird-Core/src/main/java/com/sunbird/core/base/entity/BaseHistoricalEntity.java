@@ -1,4 +1,4 @@
-package com.certacure.core.base.entity;
+package com.sunbird.core.base.entity;
 
 import java.util.Date;
 
@@ -15,7 +15,7 @@ import org.hibernate.annotations.FilterDef;
 import org.hibernate.annotations.ParamDef;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.certacure.core.common.util.SecurityUtil;
+import com.sunbird.core.common.util.SecurityUtil;
 
 @MappedSuperclass
 @FilterDef(name = BaseHistoricalEntity.TENANT_FILTER, parameters = { @ParamDef(name = "tenantId", type = "long") })

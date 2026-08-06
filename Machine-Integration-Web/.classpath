@@ -22,7 +22,7 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry combineaccessrules="false" kind="src" path="/Certacure-Core"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/Machine-Integration-Core"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/Sunbird-Core"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

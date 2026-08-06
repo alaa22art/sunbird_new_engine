@@ -1,4 +1,4 @@
-package com.certacure.machine.web.machine.machineOrderQueryResult;
+package com.sunbird.machine.web.machine.machineOrderQueryResult;
 
 import java.util.Set;
 
@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.certacure.lis.interfaces.entities.MachineOrderQueryResponse;
-import com.certacure.lis.interfaces.service.MachineOrderQueryResponceService;
+import com.sunbird.lis.interfaces.entities.MachineOrderQueryResponse;
+import com.sunbird.lis.interfaces.service.MachineOrderQueryResponceService;
 
 @RestController
 @RequestMapping("/services")

@@ -1,4 +1,4 @@
-package com.certacure.lis.interfaces.entities;
+package com.sunbird.lis.interfaces.entities;
 
 import java.io.Serializable;
 
@@ -13,10 +13,10 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-import com.certacure.core.base.entity.BaseAuditableEntity;
-import com.certacure.core.common.annotation.MapNotNull;
-import com.certacure.core.common.data.model.TransField;
-import com.certacure.core.common.data.model.converter.TransFieldAttConverter;
+import com.sunbird.core.base.entity.BaseAuditableEntity;
+import com.sunbird.core.common.annotation.MapNotNull;
+import com.sunbird.core.common.data.model.TransField;
+import com.sunbird.core.common.data.model.converter.TransFieldAttConverter;
 
 /**
  * LkpOrderActionCode.java

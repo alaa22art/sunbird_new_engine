@@ -1,4 +1,4 @@
-package com.certacure.machine.web.security.controller;
+package com.sunbird.machine.web.security.controller;
 
 import java.util.Map;
 
@@ -13,12 +13,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.certacure.core.common.business.exception.BusinessException;
-import com.certacure.core.common.business.exception.BusinessException.ErrorSeverity;
-import com.certacure.core.common.util.SecurityUtil;
-import com.certacure.core.common.util.TokenUtil;
-import com.certacure.lis.interfaces.admin.model.SecUser;
-import com.certacure.lis.interfaces.admin.service.SecUserService;
+import com.sunbird.core.common.business.exception.BusinessException;
+import com.sunbird.core.common.business.exception.BusinessException.ErrorSeverity;
+import com.sunbird.core.common.util.SecurityUtil;
+import com.sunbird.core.common.util.TokenUtil;
+import com.sunbird.lis.interfaces.admin.model.SecUser;
+import com.sunbird.lis.interfaces.admin.service.SecUserService;
 
 /** AuthorizationController.java **/
 @RestController

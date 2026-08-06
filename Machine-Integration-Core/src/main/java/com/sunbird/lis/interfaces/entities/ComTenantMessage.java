@@ -1,4 +1,4 @@
-package com.certacure.lis.interfaces.entities;
+package com.sunbird.lis.interfaces.entities;
 
 import java.io.Serializable;
 
@@ -18,10 +18,10 @@ import javax.validation.constraints.Size;
 
 import org.hibernate.envers.Audited;
 
-import com.certacure.core.base.entity.BaseAuditableTenantedEntity;
-import com.certacure.core.common.annotation.MapNotNull;
-import com.certacure.core.common.data.model.TransField;
-import com.certacure.core.common.data.model.converter.TransFieldAttConverter;
+import com.sunbird.core.base.entity.BaseAuditableTenantedEntity;
+import com.sunbird.core.common.annotation.MapNotNull;
+import com.sunbird.core.common.data.model.TransField;
+import com.sunbird.core.common.data.model.converter.TransFieldAttConverter;
 
 /**
  * ComTenantMessage.java

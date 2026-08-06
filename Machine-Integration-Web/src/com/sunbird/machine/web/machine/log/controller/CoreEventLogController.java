@@ -1,4 +1,4 @@
-package com.certacure.machine.web.machine.log.controller;
+package com.sunbird.machine.web.machine.log.controller;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -12,9 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.certacure.core.common.helper.FilterablePageRequest;
-import com.certacure.lis.interfaces.entities.CoreEventLog;
-import com.certacure.lis.interfaces.service.CoreEventLogService;;
+import com.sunbird.core.common.helper.FilterablePageRequest;
+import com.sunbird.lis.interfaces.entities.CoreEventLog;
+import com.sunbird.lis.interfaces.service.CoreEventLogService;;
 
 @RestController
 @RequestMapping("/services")

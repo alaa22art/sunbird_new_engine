@@ -1,4 +1,4 @@
-package com.certacure.lis.interfaces.middleware.driver;
+package com.sunbird.lis.interfaces.middleware.driver;
 
 import static akka.actor.SupervisorStrategy.escalate;
 import static akka.actor.SupervisorStrategy.restart;
@@ -12,10 +12,10 @@ import java.util.Map;
 import java.util.concurrent.TimeUnit;
 import java.util.function.BiFunction;
 
-import com.certacure.lis.interfaces.middleware.ActorContextInfo;
-import com.certacure.lis.interfaces.middleware.core.ConfMsg;
-import com.certacure.lis.interfaces.middleware.core.observer.ObserverProtocol.AnalyzerInitialized;
-import com.certacure.lis.interfaces.middleware.util.ConfigUtil;
+import com.sunbird.lis.interfaces.middleware.ActorContextInfo;
+import com.sunbird.lis.interfaces.middleware.core.ConfMsg;
+import com.sunbird.lis.interfaces.middleware.core.observer.ObserverProtocol.AnalyzerInitialized;
+import com.sunbird.lis.interfaces.middleware.util.ConfigUtil;
 import com.typesafe.config.Config;
 
 import akka.actor.AbstractActor;

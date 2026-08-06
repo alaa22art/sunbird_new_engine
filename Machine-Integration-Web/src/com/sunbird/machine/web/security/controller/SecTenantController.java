@@ -1,4 +1,4 @@
-package com.certacure.machine.web.security.controller;
+package com.sunbird.machine.web.security.controller;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -19,11 +19,11 @@ import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.certacure.lis.interfaces.admin.model.SecTenant;
-import com.certacure.lis.interfaces.admin.service.SecTenantService;
-import com.certacure.lis.interfaces.entities.ComTenantLanguage;
-import com.certacure.lis.interfaces.service.ComTenantLanguageService;
-import com.certacure.machine.web.util.ImageUtil;
+import com.sunbird.lis.interfaces.admin.model.SecTenant;
+import com.sunbird.lis.interfaces.admin.service.SecTenantService;
+import com.sunbird.lis.interfaces.entities.ComTenantLanguage;
+import com.sunbird.lis.interfaces.service.ComTenantLanguageService;
+import com.sunbird.machine.web.util.ImageUtil;
 
 
 

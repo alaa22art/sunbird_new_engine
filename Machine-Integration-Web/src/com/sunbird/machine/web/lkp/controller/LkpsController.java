@@ -1,4 +1,4 @@
-package com.certacure.machine.web.lkp.controller;
+package com.sunbird.machine.web.lkp.controller;
 
 import java.util.List;
 import java.util.Map;
@@ -15,13 +15,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
-import com.certacure.core.base.entity.BaseEntity;
-import com.certacure.core.base.helper.SearchCriterion;
-import com.certacure.core.common.util.ReflectionUtil;
-import com.certacure.lis.interfaces.entities.LkpMaster;
-import com.certacure.lis.interfaces.service.LkpMasterService;
-import com.certacure.lis.interfaces.service.LkpService;
-import com.certacure.machine.web.lkp.wrapper.LkpWrapper;
+import com.sunbird.core.base.entity.BaseEntity;
+import com.sunbird.core.base.helper.SearchCriterion;
+import com.sunbird.core.common.util.ReflectionUtil;
+import com.sunbird.lis.interfaces.entities.LkpMaster;
+import com.sunbird.lis.interfaces.service.LkpMasterService;
+import com.sunbird.lis.interfaces.service.LkpService;
+import com.sunbird.machine.web.lkp.wrapper.LkpWrapper;
 
 @RestController
 @RequestMapping("/services")

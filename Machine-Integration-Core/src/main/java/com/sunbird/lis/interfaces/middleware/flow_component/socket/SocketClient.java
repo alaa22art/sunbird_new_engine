@@ -1,4 +1,4 @@
-package com.certacure.lis.interfaces.middleware.flow_component.socket;
+package com.sunbird.lis.interfaces.middleware.flow_component.socket;
 
 import java.io.Serializable;
 import java.net.InetSocketAddress;
@@ -9,14 +9,14 @@ import java.util.concurrent.TimeUnit;
 
 import org.joda.time.DateTime;
 
-import com.certacure.core.common.util.SpringUtil;
-import com.certacure.lis.interfaces.entities.DataInboundHL7Message;
-import com.certacure.lis.interfaces.entities.Machine;
-import com.certacure.lis.interfaces.middleware.core.FlowComponent;
-import com.certacure.lis.interfaces.middleware.core.RecipientConf.ConfKey;
-import com.certacure.lis.interfaces.middleware.flow_component.socket.SocketProtocol.BytesMessage;
-import com.certacure.lis.interfaces.service.DataInboundHL7MessageService;
-import com.certacure.lis.interfaces.service.MachineService;
+import com.sunbird.core.common.util.SpringUtil;
+import com.sunbird.lis.interfaces.entities.DataInboundHL7Message;
+import com.sunbird.lis.interfaces.entities.Machine;
+import com.sunbird.lis.interfaces.middleware.core.FlowComponent;
+import com.sunbird.lis.interfaces.middleware.core.RecipientConf.ConfKey;
+import com.sunbird.lis.interfaces.middleware.flow_component.socket.SocketProtocol.BytesMessage;
+import com.sunbird.lis.interfaces.service.DataInboundHL7MessageService;
+import com.sunbird.lis.interfaces.service.MachineService;
 
 import akka.actor.AbstractScheduler;
 import akka.actor.ActorRef;

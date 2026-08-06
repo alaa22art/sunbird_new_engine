@@ -1,4 +1,4 @@
-package com.certacure.machine.web.config;
+package com.sunbird.machine.web.config;
 
 import java.util.Arrays;
 
@@ -24,10 +24,10 @@ import org.springframework.security.oauth2.provider.token.TokenStore;
 import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
 import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
 
-import com.certacure.core.common.util.TokenUtil;
-import com.certacure.lis.interfaces.security.ClientType;
-import com.certacure.machine.web.security.common.CustomTokenConverter;
-import com.certacure.machine.web.security.common.CustomTokenEnhancer;
+import com.sunbird.core.common.util.TokenUtil;
+import com.sunbird.lis.interfaces.security.ClientType;
+import com.sunbird.machine.web.security.common.CustomTokenConverter;
+import com.sunbird.machine.web.security.common.CustomTokenEnhancer;
 
 @Configuration
 @EnableAuthorizationServer

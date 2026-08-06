@@ -1,4 +1,4 @@
-package com.certacure.core.common.helper;
+package com.sunbird.core.common.helper;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -7,10 +7,10 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-import com.certacure.core.base.entity.UserAccount;
-import com.certacure.core.base.entity.UserAccountImpl;
-import com.certacure.core.common.util.CollectionUtil;
-import com.certacure.core.common.util.TokenUtil;
+import com.sunbird.core.base.entity.UserAccount;
+import com.sunbird.core.base.entity.UserAccountImpl;
+import com.sunbird.core.common.util.CollectionUtil;
+import com.sunbird.core.common.util.TokenUtil;
 
 public class TokenBuilder {
 

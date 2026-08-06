@@ -1,16 +1,16 @@
-package com.certacure.lis.interfaces.middleware.core.observer;
+package com.sunbird.lis.interfaces.middleware.core.observer;
 
 import java.util.HashMap;
 import java.util.Map;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.certacure.core.common.util.SpringUtil;
-import com.certacure.lis.interfaces.entities.CoreEventLog;
-import com.certacure.lis.interfaces.entities.Machine;
-import com.certacure.lis.interfaces.middleware.core.observer.ObserverProtocol.LogEvent;
-import com.certacure.lis.interfaces.middleware.core.observer.ObserverProtocol.LogLevel;
-import com.certacure.lis.interfaces.service.CoreEventLogService;
-import com.certacure.lis.interfaces.service.MachineService;
+import com.sunbird.core.common.util.SpringUtil;
+import com.sunbird.lis.interfaces.entities.CoreEventLog;
+import com.sunbird.lis.interfaces.entities.Machine;
+import com.sunbird.lis.interfaces.middleware.core.observer.ObserverProtocol.LogEvent;
+import com.sunbird.lis.interfaces.middleware.core.observer.ObserverProtocol.LogLevel;
+import com.sunbird.lis.interfaces.service.CoreEventLogService;
+import com.sunbird.lis.interfaces.service.MachineService;
 
 import akka.actor.AbstractActor;
 import akka.event.Logging;

@@ -1,27 +1,27 @@
-package com.certacure.lis.interfaces.middleware.flow_component.astm_to_mylis;
+package com.sunbird.lis.interfaces.middleware.flow_component.astm_to_mylis;
 
 import static java.util.stream.Collectors.toList;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import com.certacure.core.common.util.SpringUtil;
-import com.certacure.lis.interfaces.entities.Machine;
-import com.certacure.lis.interfaces.middleware.core.FlowComponent;
-import com.certacure.lis.interfaces.middleware.core.RecipientConf;
-import com.certacure.lis.interfaces.middleware.interfaces.LabMessages.Analysis;
-import com.certacure.lis.interfaces.middleware.interfaces.LabMessages.Container;
-import com.certacure.lis.interfaces.middleware.interfaces.LabMessages.LabQueryMsg;
-import com.certacure.lis.interfaces.middleware.interfaces.LabMessages.LabResultMsg;
-import com.certacure.lis.interfaces.middleware.interfaces.LabMessages.Order;
-import com.certacure.lis.interfaces.middleware.interfaces.LabMessages.Patient;
-import com.certacure.lis.interfaces.middleware.interfaces.LabMessages.Result;
-import com.certacure.lis.interfaces.middleware.interfaces.lis2a2.msg.LIS2A2QueryMsg;
-import com.certacure.lis.interfaces.middleware.interfaces.lis2a2.msg.LIS2A2ResultMsg;
-import com.certacure.lis.interfaces.middleware.interfaces.lis2a2.record.OrderRecord;
-import com.certacure.lis.interfaces.middleware.interfaces.lis2a2.record.PatientRecord;
-import com.certacure.lis.interfaces.middleware.util.MachineTypeEnum;
-import com.certacure.lis.interfaces.service.MachineService;
+import com.sunbird.core.common.util.SpringUtil;
+import com.sunbird.lis.interfaces.entities.Machine;
+import com.sunbird.lis.interfaces.middleware.core.FlowComponent;
+import com.sunbird.lis.interfaces.middleware.core.RecipientConf;
+import com.sunbird.lis.interfaces.middleware.interfaces.LabMessages.Analysis;
+import com.sunbird.lis.interfaces.middleware.interfaces.LabMessages.Container;
+import com.sunbird.lis.interfaces.middleware.interfaces.LabMessages.LabQueryMsg;
+import com.sunbird.lis.interfaces.middleware.interfaces.LabMessages.LabResultMsg;
+import com.sunbird.lis.interfaces.middleware.interfaces.LabMessages.Order;
+import com.sunbird.lis.interfaces.middleware.interfaces.LabMessages.Patient;
+import com.sunbird.lis.interfaces.middleware.interfaces.LabMessages.Result;
+import com.sunbird.lis.interfaces.middleware.interfaces.lis2a2.msg.LIS2A2QueryMsg;
+import com.sunbird.lis.interfaces.middleware.interfaces.lis2a2.msg.LIS2A2ResultMsg;
+import com.sunbird.lis.interfaces.middleware.interfaces.lis2a2.record.OrderRecord;
+import com.sunbird.lis.interfaces.middleware.interfaces.lis2a2.record.PatientRecord;
+import com.sunbird.lis.interfaces.middleware.util.MachineTypeEnum;
+import com.sunbird.lis.interfaces.service.MachineService;
 
 import akka.japi.pf.ReceiveBuilder;
 import scala.PartialFunction;

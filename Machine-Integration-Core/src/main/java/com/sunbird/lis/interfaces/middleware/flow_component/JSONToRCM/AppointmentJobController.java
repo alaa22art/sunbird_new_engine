@@ -1,4 +1,4 @@
-package com.certacure.lis.interfaces.middleware.flow_component.JSONToRCM;
+package com.sunbird.lis.interfaces.middleware.flow_component.JSONToRCM;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -7,10 +7,10 @@ import java.util.List;
 import java.util.Timer;
 import java.util.stream.IntStream;
 
-import com.certacure.lis.interfaces.middleware.core.FlowComponent;
-import com.certacure.lis.interfaces.middleware.flow_component.astme138194archi.AstmE138194ArchiProtocol;
-import com.certacure.lis.interfaces.middleware.flow_component.lab_http.httpRequstTransaction;
-import com.certacure.lis.interfaces.middleware.flow_component.socket.SocketProtocol.BytesMessage;
+import com.sunbird.lis.interfaces.middleware.core.FlowComponent;
+import com.sunbird.lis.interfaces.middleware.flow_component.astme138194archi.AstmE138194ArchiProtocol;
+import com.sunbird.lis.interfaces.middleware.flow_component.lab_http.httpRequstTransaction;
+import com.sunbird.lis.interfaces.middleware.flow_component.socket.SocketProtocol.BytesMessage;
 import com.typesafe.config.Config;
 import com.typesafe.config.ConfigFactory;
 

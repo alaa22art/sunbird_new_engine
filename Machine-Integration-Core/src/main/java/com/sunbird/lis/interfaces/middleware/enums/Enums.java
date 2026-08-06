@@ -1,4 +1,4 @@
-package com.certacure.lis.interfaces.middleware.enums;
+package com.sunbird.lis.interfaces.middleware.enums;
 
 public class Enums {
 	

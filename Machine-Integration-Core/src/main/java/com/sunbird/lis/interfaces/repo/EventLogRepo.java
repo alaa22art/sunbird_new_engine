@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.certacure.lis.interfaces.repo;
+package com.sunbird.lis.interfaces.repo;
 
 import java.util.Date;
 import java.util.List;
@@ -10,9 +10,9 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
-import com.certacure.core.base.repo.GenericRepository;
-import com.certacure.lis.interfaces.entities.CoreEventLog;
-import com.certacure.lis.interfaces.entities.MachineTest;
+import com.sunbird.core.base.repo.GenericRepository;
+import com.sunbird.lis.interfaces.entities.CoreEventLog;
+import com.sunbird.lis.interfaces.entities.MachineTest;
 
 /**
 

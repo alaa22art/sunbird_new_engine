@@ -1,4 +1,4 @@
-package com.certacure.lis.interfaces.admin.service;
+package com.sunbird.lis.interfaces.admin.service;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -9,16 +9,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 
-import com.certacure.core.base.helper.SearchCriterion;
-import com.certacure.core.base.service.GenericService;
-import com.certacure.core.common.util.CollectionUtil;
-import com.certacure.lis.interfaces.admin.model.SecGroupRole;
-import com.certacure.lis.interfaces.admin.model.SecRole;
-import com.certacure.lis.interfaces.admin.model.SecRoleRight;
-import com.certacure.lis.interfaces.admin.model.SecUserRole;
-import com.certacure.lis.interfaces.admin.repo.SecRoleRepo;
-import com.certacure.lis.interfaces.annotation.InterceptorFree;
-import com.certacure.lis.interfaces.helper.MachineIntegrationRights;
+import com.sunbird.core.base.helper.SearchCriterion;
+import com.sunbird.core.base.service.GenericService;
+import com.sunbird.core.common.util.CollectionUtil;
+import com.sunbird.lis.interfaces.admin.model.SecGroupRole;
+import com.sunbird.lis.interfaces.admin.model.SecRole;
+import com.sunbird.lis.interfaces.admin.model.SecRoleRight;
+import com.sunbird.lis.interfaces.admin.model.SecUserRole;
+import com.sunbird.lis.interfaces.admin.repo.SecRoleRepo;
+import com.sunbird.lis.interfaces.annotation.InterceptorFree;
+import com.sunbird.lis.interfaces.helper.MachineIntegrationRights;
 
 /**
  * SecRoleService.java

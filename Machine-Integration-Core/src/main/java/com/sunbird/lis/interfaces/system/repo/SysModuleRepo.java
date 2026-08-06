@@ -1,9 +1,9 @@
-package com.certacure.lis.interfaces.system.repo;
+package com.sunbird.lis.interfaces.system.repo;
 
 import org.springframework.stereotype.Repository;
 
-import com.certacure.core.base.repo.GenericRepository;
-import com.certacure.lis.interfaces.system.model.SysModule;
+import com.sunbird.core.base.repo.GenericRepository;
+import com.sunbird.lis.interfaces.system.model.SysModule;
 
 /**
  * SysModuleRepo.java

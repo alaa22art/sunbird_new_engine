@@ -1,4 +1,4 @@
-package com.certacure.machine.web.machineResult;
+package com.sunbird.machine.web.machineResult;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -18,11 +18,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
-import com.certacure.core.common.helper.FilterablePageRequest;
-import com.certacure.lis.interfaces.entities.LabBranch;
-import com.certacure.lis.interfaces.entities.MachineResult;
-import com.certacure.lis.interfaces.service.LabBranchService;
-import com.certacure.lis.interfaces.service.MachineResultService;
+import com.sunbird.core.common.helper.FilterablePageRequest;
+import com.sunbird.lis.interfaces.entities.LabBranch;
+import com.sunbird.lis.interfaces.entities.MachineResult;
+import com.sunbird.lis.interfaces.service.LabBranchService;
+import com.sunbird.lis.interfaces.service.MachineResultService;
 
 @RestController
 @RequestMapping("/services")

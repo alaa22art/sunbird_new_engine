@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.certacure.lis.interfaces.entities;
+package com.sunbird.lis.interfaces.entities;
 
 import java.io.Serializable;
 import java.util.List;
@@ -19,7 +19,7 @@ import javax.persistence.Table;
 import org.hibernate.envers.Audited;
 import org.springframework.beans.factory.annotation.Value;
 
-import com.certacure.core.base.entity.BaseAuditableBranchedEntity;
+import com.sunbird.core.base.entity.BaseAuditableBranchedEntity;
 
 /**
  * 

@@ -1,4 +1,4 @@
-package com.certacure.machine.web.util;
+package com.sunbird.machine.web.util;
 
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
@@ -11,8 +11,8 @@ import javax.imageio.ImageIO;
 
 import org.springframework.web.multipart.MultipartFile;
 
-import com.certacure.core.common.business.exception.BusinessException;
-import com.certacure.core.common.business.exception.BusinessException.ErrorSeverity;
+import com.sunbird.core.common.business.exception.BusinessException;
+import com.sunbird.core.common.business.exception.BusinessException.ErrorSeverity;
 
 import net.coobird.thumbnailator.Thumbnails;
 

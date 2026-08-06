@@ -1,12 +1,12 @@
-package com.certacure.lis.interfaces.middleware.flow_component.socket;
+package com.sunbird.lis.interfaces.middleware.flow_component.socket;
 
 import java.util.concurrent.TimeUnit;
 
-import com.certacure.core.common.util.SpringUtil;
-import com.certacure.lis.interfaces.entities.Machine;
-import com.certacure.lis.interfaces.middleware.core.ConfMsg;
-import com.certacure.lis.interfaces.middleware.flow_component.socket.SocketServerConf.ConfKey;
-import com.certacure.lis.interfaces.service.MachineService;
+import com.sunbird.core.common.util.SpringUtil;
+import com.sunbird.lis.interfaces.entities.Machine;
+import com.sunbird.lis.interfaces.middleware.core.ConfMsg;
+import com.sunbird.lis.interfaces.middleware.flow_component.socket.SocketServerConf.ConfKey;
+import com.sunbird.lis.interfaces.service.MachineService;
 import com.typesafe.config.Config;
 
 import akka.actor.ActorContext;

@@ -1,4 +1,4 @@
-package com.certacure.machine.web.security.common;
+package com.sunbird.machine.web.security.common;
 
 import java.util.Map;
 
@@ -6,7 +6,7 @@ import org.springframework.security.oauth2.common.exceptions.InvalidTokenExcepti
 import org.springframework.security.oauth2.provider.token.store.JwtClaimsSetVerifier;
 import org.springframework.stereotype.Component;
 
-import com.certacure.core.common.util.TokenUtil;
+import com.sunbird.core.common.util.TokenUtil;
 
 @Component
 public class CustomClaimsVerifier implements JwtClaimsSetVerifier {

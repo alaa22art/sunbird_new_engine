@@ -1,4 +1,4 @@
-package com.certacure.lis.interfaces.middleware.interfaces;
+package com.sunbird.lis.interfaces.middleware.interfaces;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -6,7 +6,7 @@ import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
-import com.certacure.lis.interfaces.entities.Machine;
+import com.sunbird.lis.interfaces.entities.Machine;
 
 public class LabMessages {
 

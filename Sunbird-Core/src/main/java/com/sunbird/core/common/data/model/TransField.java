@@ -1,4 +1,4 @@
-package com.certacure.core.common.data.model;
+package com.sunbird.core.common.data.model;
 
 import java.io.Serializable;
 import java.util.Collection;
@@ -6,8 +6,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
-import com.certacure.core.common.util.JSONUtil;
-import com.certacure.core.common.util.StringUtil;
+import com.sunbird.core.common.util.JSONUtil;
+import com.sunbird.core.common.util.StringUtil;
 
 /**
  * The TransField class implements the logic of translated field.

@@ -1,4 +1,4 @@
-package com.certacure.machine.web.config;
+package com.sunbird.machine.web.config;
 
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;

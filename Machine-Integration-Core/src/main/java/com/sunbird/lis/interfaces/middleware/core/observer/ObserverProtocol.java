@@ -1,4 +1,4 @@
-package com.certacure.lis.interfaces.middleware.core.observer;
+package com.sunbird.lis.interfaces.middleware.core.observer;
 
 import java.io.Serializable;
 import java.util.Collections;

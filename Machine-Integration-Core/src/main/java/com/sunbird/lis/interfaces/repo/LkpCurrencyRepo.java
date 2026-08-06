@@ -1,9 +1,9 @@
-package com.certacure.lis.interfaces.repo;
+package com.sunbird.lis.interfaces.repo;
 
 import org.springframework.stereotype.Repository;
 
-import com.certacure.core.base.repo.GenericRepository;
-import com.certacure.lis.interfaces.entities.LkpCurrency;
+import com.sunbird.core.base.repo.GenericRepository;
+import com.sunbird.lis.interfaces.entities.LkpCurrency;
 
 @Repository("LkpCurrencyRepo")
 public interface LkpCurrencyRepo extends GenericRepository<LkpCurrency> {

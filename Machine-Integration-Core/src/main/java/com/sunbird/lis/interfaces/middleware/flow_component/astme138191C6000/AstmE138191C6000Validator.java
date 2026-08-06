@@ -1,6 +1,6 @@
-package com.certacure.lis.interfaces.middleware.flow_component.astme138191C6000;
+package com.sunbird.lis.interfaces.middleware.flow_component.astme138191C6000;
 
-import com.certacure.lis.interfaces.middleware.core.FlowComponent;
+import com.sunbird.lis.interfaces.middleware.core.FlowComponent;
 
 import akka.japi.pf.ReceiveBuilder;
 import scala.PartialFunction;

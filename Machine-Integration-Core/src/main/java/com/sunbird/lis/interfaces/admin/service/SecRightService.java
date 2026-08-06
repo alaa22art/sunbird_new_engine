@@ -1,4 +1,4 @@
-package com.certacure.lis.interfaces.admin.service;
+package com.sunbird.lis.interfaces.admin.service;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,9 +6,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.certacure.core.base.service.GenericService;
-import com.certacure.lis.interfaces.admin.model.SecRight;
-import com.certacure.lis.interfaces.admin.repo.SecRightRepo;
+import com.sunbird.core.base.service.GenericService;
+import com.sunbird.lis.interfaces.admin.model.SecRight;
+import com.sunbird.lis.interfaces.admin.repo.SecRightRepo;
 
 /**
  * SecRightService.java

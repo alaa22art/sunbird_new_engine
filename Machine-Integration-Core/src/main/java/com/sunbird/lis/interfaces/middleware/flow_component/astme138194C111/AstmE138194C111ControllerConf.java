@@ -1,8 +1,8 @@
-package com.certacure.lis.interfaces.middleware.flow_component.astme138194C111;
+package com.sunbird.lis.interfaces.middleware.flow_component.astme138194C111;
 
 import java.util.concurrent.TimeUnit;
 
-import com.certacure.lis.interfaces.middleware.core.ConfMsg;
+import com.sunbird.lis.interfaces.middleware.core.ConfMsg;
 import com.typesafe.config.Config;
 
 import akka.actor.ActorContext;

@@ -23,7 +23,7 @@
 	</properties>
 	<dependencies>
 		<dependency>
-			<groupId>com.certacure</groupId>
+			<groupId>com.sunbird</groupId>
 			<artifactId>Machine-Integration-Core</artifactId>
 			<version>${machine.integration.core.version}</version>
 			<scope>compile</scope>
@@ -93,8 +93,8 @@
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
-				<groupId>com.certacure</groupId>
-				<artifactId>Certacure-Core</artifactId>
+				<groupId>com.sunbird</groupId>
+				<artifactId>Sunbird-Core</artifactId>
 				<version>0.0.1-SNAPSHOT</version>
 			</dependency>
 			

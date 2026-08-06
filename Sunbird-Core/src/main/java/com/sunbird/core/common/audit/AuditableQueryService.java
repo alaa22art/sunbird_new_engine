@@ -1,4 +1,4 @@
-package com.certacure.core.common.audit;
+package com.sunbird.core.common.audit;
 
 import java.util.Collection;
 import java.util.List;
@@ -17,11 +17,11 @@ import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.certacure.core.base.helper.SearchCriterion;
-import com.certacure.core.base.helper.SearchCriterion.FilterOperator;
-import com.certacure.core.common.helper.FilterablePageRequest.OrderObject;
-import com.certacure.core.common.util.CollectionUtil;
-import com.certacure.core.common.util.ReflectionUtil;
+import com.sunbird.core.base.helper.SearchCriterion;
+import com.sunbird.core.base.helper.SearchCriterion.FilterOperator;
+import com.sunbird.core.common.helper.FilterablePageRequest.OrderObject;
+import com.sunbird.core.common.util.CollectionUtil;
+import com.sunbird.core.common.util.ReflectionUtil;
 
 /**
  * AuditableQueryService.java
