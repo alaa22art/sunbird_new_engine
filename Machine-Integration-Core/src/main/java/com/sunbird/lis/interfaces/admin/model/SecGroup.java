@@ -26,6 +26,8 @@ import com.sunbird.core.base.entity.BaseAuditableTenantedEntity;
 import com.sunbird.core.common.annotation.MapNotNull;
 import com.sunbird.core.common.data.model.TransField;
 import com.sunbird.core.common.data.model.converter.TransFieldAttConverter;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
 /**
  * SecGroup.java

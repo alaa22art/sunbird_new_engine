@@ -9,6 +9,7 @@ import org.springframework.http.converter.ResourceHttpMessageConverter;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import com.sunbird.core.common.util.HttpUtil;
@@ -48,10 +49,16 @@ public class WebMvcConfig implements WebMvcConfigurer {
 		converters.add(jacksonMessageConverter());
 		converters.add(new ResourceHttpMessageConverter());//used for returning files such as pdf
 	}
+	
+	@Override
+	public void addResourceHandlers(ResourceHandlerRegistry registry) {
+	    registry.addResourceHandler("/**")
+	            .addResourceLocations("file:src/main/webapp/");
+	}
 
 	@Override
 	public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
-		configurer.enable();
+		   // configurer.enable(); // disabled - not supported in embedded Tomcat
 	}
 
 }

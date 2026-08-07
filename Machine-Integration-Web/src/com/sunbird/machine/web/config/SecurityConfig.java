@@ -22,41 +22,39 @@ import com.sunbird.machine.web.security.common.CustomAuthenticationProvider;
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-	@Autowired
-	@Qualifier("SpringLoginService")
-	private UserDetailsService springLoginService;
+    @Autowired
+    @Qualifier("SpringLoginService")
+    private UserDetailsService springLoginService;
 
-	@Override
-	@Bean
-	public AuthenticationManager authenticationManagerBean() throws Exception {
-		return super.authenticationManagerBean();
-	}
+    @Autowired
+    private CustomAuthenticationProvider customAuthProvider;
 
-	@Bean
-	public PasswordEncoder passwordEncoder() {
-		return new BCryptPasswordEncoder();
-	}
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
 
-	@Autowired
-	private CustomAuthenticationProvider customAuthProvider;
+    @Override
+    @Bean
+    public AuthenticationManager authenticationManagerBean() throws Exception {
+        return super.authenticationManagerBean();
+    }
 
-	@Autowired
-	public void globalUserDetails(AuthenticationManagerBuilder auth) throws Exception {
-		//this is a chain and is executed in order, if one fails the following picks up
-		auth.authenticationProvider(customAuthProvider);
-		auth.userDetailsService(springLoginService).passwordEncoder(passwordEncoder());
-	}
+    @Autowired
+    public void globalUserDetails(AuthenticationManagerBuilder auth) throws Exception {
+        auth.authenticationProvider(customAuthProvider);
+        auth.userDetailsService(springLoginService)
+            .passwordEncoder(new BCryptPasswordEncoder()); // ← direct instantiation, not bean method
+    }
 
-	@Override
-	public void configure(WebSecurity web) throws Exception {
-		web
-			.ignoring()
-			.antMatchers("/assets/**", "/", "/index.html", "/js/**", "/dist*/**", "/libs/**", "/*");
-	}
+    @Override
+    public void configure(WebSecurity web) throws Exception {
+        web.ignoring()
+           .antMatchers("/assets/**", "/", "/index.html", "/js/**", "/dist*/**", "/libs/**", "/*");
+    }
 
-	@Override
-	protected void configure(HttpSecurity http) throws Exception {
-		HttpSecurityConfig.configure(http);
-	}
-
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        HttpSecurityConfig.configure(http);
+    }
 }

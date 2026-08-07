@@ -76,7 +76,7 @@ import com.sunbird.lis.interfaces.service.LkpService;
 import com.sunbird.lis.interfaces.service.MachineOrderService;
 import com.sunbird.lis.interfaces.service.MessageTransactionService;
 import com.sunbird.lis.interfaces.service.OrderCoverageService;
-import com.sunbird.lis.interfaces.service.PCRRealTimeOrderService;
+
 import com.sunbird.lis.interfaces.service.PostDetailFinancialTransactionService;
 import com.sunbird.lis.interfaces.service.StockService;
 
@@ -143,8 +143,7 @@ public class MachineOrderController {
 	@Autowired
 	private LkpService lkpService;
 
-	@Autowired
-	private PCRRealTimeOrderService pcrRealTimeOrderService;
+	
 
 	@Autowired
 	private AppointmentService appointmentService;
@@ -907,10 +906,10 @@ public class MachineOrderController {
 			}
 			
 			
-			appointment.setJsonSourceInput(appointment.toString());
-			appointment.setJsonSourceresponse("Status Code : " + response.getStatusLine().getStatusCode()  + " Body : " +  responseString);
-			appointment.setJsonDestinationInput(strJson);
-			appointment.setJsonDestinationResponse("Status Code : " + response.getStatusLine().getStatusCode()  + " Body : " +  responseString);
+			//appointment.setJsonSourceInput(appointment.toString());
+			//appointment.setJsonSourceresponse("Status Code : " + response.getStatusLine().getStatusCode()  + " Body : " +  responseString);
+			//appointment.setJsonDestinationInput(strJson);
+			//appointment.setJsonDestinationResponse("Status Code : " + response.getStatusLine().getStatusCode()  + " Body : " +  responseString);
 			
 			appointmentService.addAppointment(appointment);
 
